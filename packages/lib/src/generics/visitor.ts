@@ -30,6 +30,7 @@ import { GirVisitor } from "../visitor.ts";
  * Visitor that handles generic type inference and transformations
  */
 export class GenericVisitor extends GirVisitor {
+	// Registry for namespace resolution - kept for potential future use
 	private readonly registry: NSRegistry;
 	private readonly inferGenerics: boolean;
 
