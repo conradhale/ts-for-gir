@@ -17,7 +17,8 @@
 		"rootDir": "src",
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
-		"diagnostics": true
+		"diagnostics": true,
+		"types": ["vitest/globals"]
 	},
 	"include": ["src/**/*.ts"],
 	"exclude": ["lib", "node_modules", "**/*.spec.ts"]

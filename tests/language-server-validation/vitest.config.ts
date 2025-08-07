@@ -12,21 +12,7 @@ export default defineConfig({
     testTimeout: 30000,
     hookTimeout: 30000,
     
-    // Coverage settings
-    coverage: {
-      provider: 'v8',
-      reporter: ['text'],
-      include: ['src/**/*.ts'],
-      exclude: ['src/**/*.test.ts', 'src/**/*.spec.ts']
-    },
-    
     // Global setup
     globals: true,
-    
-    // Reporter settings - use simple text reporter
-    reporters: ['verbose'],
-    
-    // Retry failed tests
-    retry: 1
   }
 }); 
