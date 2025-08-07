@@ -83,8 +83,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	log: Reporter;
 	dependencyManager: DependencyManager;
 	// packageData?: PackageDataParser
-	// Output format configuration - kept for potential future use
-	private outputFormat?: ModuleGeneratorFormat;
 
 	config: OptionsGeneration;
 	moduleTemplateProcessor: TemplateProcessor;
@@ -125,13 +123,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			girModule.transitiveDependencies,
 			this.config,
 		);
-	}
-
-	/**
-	 * Sets the output format for the generator
-	 */
-	setOutputFormat(format: ModuleGeneratorFormat): void {
-		this.outputFormat = format;
 	}
 
 	/**
