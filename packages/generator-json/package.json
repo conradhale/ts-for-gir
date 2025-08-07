@@ -36,8 +36,8 @@
 		"json"
 	],
 	"devDependencies": {
-		"@types/node": "^24.0.4",
-		"typescript": "^5.8.3"
+		"@types/node": "^24.2.0",
+		"typescript": "^5.9.2"
 	},
 	"dependencies": {
 		"@gi.ts/parser": "workspace:^",
