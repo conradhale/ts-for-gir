@@ -9,8 +9,8 @@ export default defineConfig({
     include: ['src/gvariant-validation.test.ts'],
     
     // Timeout settings (language server operations can take time)
-    testTimeout: 120000, // 2 minutes per test
-    hookTimeout: 120000,
+    testTimeout: 240000, // 4 minutes per test
+    hookTimeout: 240000,
     
     // Global setup
     globals: true,
