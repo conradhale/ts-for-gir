@@ -5,6 +5,8 @@
 // Provides sophisticated type-level parsing of GVariant type signatures
 // enabling automatic TypeScript type inference for variant operations.
 // 
+// Variant parsing inspired by https://jamie.build/ slightly infamous JSON-in-TypeScript parsing.
+// 
 // When disabled, basic Variant types from introspection are used instead.
 // This reduces compilation time but loses advanced type safety features.
 
@@ -165,14 +167,95 @@ type $ParseShallowVariantValue<State extends string> =
     : VariantTypeError<`$ParseShallowVariantValue encountered an invalid variant string: ${State}`>;
 
 /**
- * Handles shallow unpacking of arrays - returns array of Variant objects
+ * Handles shallow unpacking of arrays/tuples - returns array of Variant objects
+ * For tuples like (ii), each element becomes a Variant in the result array
  */
 type $ParseShallowVariantArray<State extends string, Memo extends any[] = []> =
     string extends State
     ? VariantTypeError<"$ParseShallowVariantArray: 'string' is not a supported type.">
     : State extends `)${infer State}`
-    ? [Variant[], State]  // Tuples become arrays of Variants for shallow unpacking
+    ? [Memo, State]  // End of tuple
+    // Parse each element but keep as Variant - use a simpler approach
+    : $ParseShallowVariantElement<State> extends [infer Element, `${infer State}`]
+    ? State extends `)${infer State}`
+      ? [[...Memo, Variant], State]  // Last element
+      : $ParseShallowVariantArray<State, [...Memo, Variant]>  // Continue parsing
     : VariantTypeError<`$ParseShallowVariantArray encountered an invalid variant string: ${State}`>;
+
+/**
+ * Parses a single element for shallow unpacking (skips to next element boundary)
+ * This is a simplified parser that just identifies where one element ends
+ */
+type $ParseShallowVariantElement<State extends string> =
+    string extends State
+    ? VariantTypeError<"$ParseShallowVariantElement: 'string' is not a supported type.">
+    // Simple types - single character
+    : State extends `${'s' | 'o' | 'g' | 'n' | 'q' | 't' | 'd' | 'u' | 'i' | 'x' | 'y' | 'b' | 'v' | 'h' | '?'}${infer Rest}`
+    ? [true, Rest]  // Found simple type, continue
+    // Byte array
+    : State extends `ay${infer Rest}`
+    ? [true, Rest]
+    // String array  
+    : State extends `as${infer Rest}`
+    ? [true, Rest]
+    // Other arrays
+    : State extends `a${infer ElementType}${infer Rest}`
+    ? [true, Rest]
+    // Maybe types
+    : State extends `m${infer ElementType}${infer Rest}`
+    ? [true, Rest]
+    // Nested tuple - need to skip to matching )
+    : State extends `(${infer Inner}`
+    ? $SkipBalancedParens<Inner, 1> extends `${infer Rest}`
+      ? [true, Rest]
+      : VariantTypeError<`Could not find matching paren`>
+    // Dictionary - need to skip to matching }
+    : State extends `a{${infer Inner}`
+    ? $SkipBalancedBraces<Inner, 1> extends `${infer Rest}`
+      ? [true, Rest]
+      : VariantTypeError<`Could not find matching brace for dict`>
+    // Key-value - need to skip to matching }
+    : State extends `{${infer Inner}`
+    ? $SkipBalancedBraces<Inner, 1> extends `${infer Rest}`
+      ? [true, Rest]
+      : VariantTypeError<`Could not find matching brace for key-value`>
+    : VariantTypeError<`$ParseShallowVariantElement: unknown element type: ${State}`>;
+
+/**
+ * Skip to matching closing parenthesis, handling nested parens
+ */
+type $SkipBalancedParens<State extends string, Depth extends number> =
+    string extends State
+    ? never
+    : Depth extends 0
+    ? State  // Found matching paren
+    : State extends `(${infer Rest}`
+    ? $SkipBalancedParens<Rest, Depth extends 1 ? 2 : Depth extends 2 ? 3 : Depth extends 3 ? 4 : 5>
+    : State extends `)${infer Rest}`
+    ? Depth extends 1
+      ? Rest  // Found our matching paren
+      : $SkipBalancedParens<Rest, Depth extends 2 ? 1 : Depth extends 3 ? 2 : Depth extends 4 ? 3 : 1>
+    : State extends `${infer Char}${infer Rest}`
+    ? $SkipBalancedParens<Rest, Depth>
+    : never;
+
+/**
+ * Skip to matching closing brace, handling nested braces
+ */
+type $SkipBalancedBraces<State extends string, Depth extends number> =
+    string extends State
+    ? never
+    : Depth extends 0
+    ? State  // Found matching brace
+    : State extends `{${infer Rest}`
+    ? $SkipBalancedBraces<Rest, Depth extends 1 ? 2 : Depth extends 2 ? 3 : Depth extends 3 ? 4 : 5>
+    : State extends `}${infer Rest}`
+    ? Depth extends 1
+      ? Rest  // Found our matching brace
+      : $SkipBalancedBraces<Rest, Depth extends 2 ? 1 : Depth extends 3 ? 2 : Depth extends 4 ? 3 : 1>
+    : State extends `${infer Char}${infer Rest}`
+    ? $SkipBalancedBraces<Rest, Depth>
+    : never;
 
 /**
  * Handles shallow unpacking of dictionaries - returns object with Variant values
