@@ -1,4 +1,6 @@
 // This example is based on the GJS GVariant guide: https://gjs.guide/guides/glib/gvariant.html#basic-usage
+// biome-ignore-all lint/correctness/noUnusedVariables: Type validation example with intentionally unused variables
+// biome-ignore-all lint/style/noUnusedTemplateLiteral: Template literals used for type demonstration
 
 import Gio from "gi://Gio?version=2.0";
 import GLib from "gi://GLib?version=2.0";
@@ -150,13 +152,13 @@ function testComplexVariants() {
 /**
  * Get detailed type information for runtime debugging
  */
-function getDetailedType(value: any): string {
+function getDetailedType(value: unknown): string {
 	if (value === null) {
 		return "null";
 	} else if (value === undefined) {
 		return "undefined";
 	} else if (Array.isArray(value)) {
-		const elementTypes = value.slice(0, 3).map((el) => {
+		const elementTypes = value.slice(0, 3).map((el: unknown) => {
 			if (el instanceof GLib.Variant) return "Variant";
 			return typeof el;
 		});
@@ -176,7 +178,7 @@ function getDetailedType(value: any): string {
 /**
  * Simple runtime type validation helper - works in GJS without external dependencies
  */
-function validateType(value: any, expectedType: string, testName: string): boolean {
+function validateType(value: unknown, expectedType: string, testName: string): boolean {
 	let actualType: string;
 
 	if (value === null) {
@@ -200,7 +202,7 @@ function validateType(value: any, expectedType: string, testName: string): boole
 /**
  * Validates array element types
  */
-function validateArrayElementTypes(array: any[], expectedElementType: string, testName: string): boolean {
+function validateArrayElementTypes(array: unknown[], expectedElementType: string, testName: string): boolean {
 	if (!Array.isArray(array)) {
 		print(`  ✗ ${testName}: not an array, got ${typeof array}`);
 		return false;
@@ -210,7 +212,7 @@ function validateArrayElementTypes(array: any[], expectedElementType: string, te
 	const actualTypes: string[] = [];
 
 	for (let i = 0; i < array.length; i++) {
-		const element = array[i];
+		const element: unknown = array[i];
 		let actualType: string;
 
 		if (element instanceof GLib.Variant) {
