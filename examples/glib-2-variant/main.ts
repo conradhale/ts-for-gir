@@ -6,7 +6,7 @@ import GLib from "gi://GLib?version=2.0";
 /**
  * Example demonstrating different ways to use GLib.Variant
  * Based on the GJS GVariant guide: https://gjs.guide/guides/glib/gvariant.html
- * 
+ *
  * This example serves three purposes:
  * 1. Demonstrates proper GVariant usage patterns
  * 2. Validates TypeScript type generation at compile-time
@@ -22,21 +22,21 @@ import GLib from "gi://GLib?version=2.0";
 // Test 1: The original PR #279 issue - tuple type inference
 // This should work after the fix:
 type IntTupleType = ReturnType<GLib.Variant<"(ii)">["unpack"]>;
-// Expected: [number, number] or similar tuple type
+// Expected: [GLib.Variant<any>, GLib.Variant<any>] (shallow unpacking preserves Variants)
 
 type StringIntTupleType = ReturnType<GLib.Variant<"(si)">["deepUnpack"]>;
-// Expected: [string, number] or similar tuple type
+// Expected: [string, number] (deepUnpack unpacks one level, based on GJS tests)
 
 // Test 2: Array type inference
 type StringArrayUnpack = ReturnType<GLib.Variant<"as">["unpack"]>;
-// Expected: string[] (based on GJS tests)
+// Expected: GLib.Variant[] (shallow unpacking preserves Variants)
 
 type StringArrayDeep = ReturnType<GLib.Variant<"as">["deepUnpack"]>;
-// Expected: string[]
+// Expected: string[] (based on GJS tests)
 
 // Test 3: Dictionary type inference
 type DictUnpack = ReturnType<GLib.Variant<"a{sv}">["unpack"]>;
-// Expected: { [key: string]: Variant }
+// Expected: { [key: string]: Variant } (shallow unpacking preserves Variants)
 
 type DictDeep = ReturnType<GLib.Variant<"a{sv}">["deepUnpack"]>;
 // Expected: { [key: string]: Variant } (GJS preserves Variants in deepUnpack!)
@@ -52,13 +52,13 @@ type StringUnpack = ReturnType<GLib.Variant<"s">["deepUnpack"]>;
 // Expected: string
 
 // Print type information at compile time (will show in IDE)
-function printCompileTimeTypes() {
+function _printCompileTimeTypes() {
 	print("\n=== Compile-Time Type Validation ===");
 	print("TypeScript should infer these types correctly:");
-	print("- IntTupleType: tuple of numbers from (ii)");
-	print("- StringArrayUnpack: string[] from 'as'");
-	print("- DictDeep: {[key: string]: Variant} from 'a{sv}'");
-	print("- DictRecursive: {[key: string]: any} from 'a{sv}'");
+	print("- IntTupleType: [GLib.Variant, GLib.Variant] from (ii) unpack()");
+	print("- StringArrayUnpack: GLib.Variant[] from 'as' unpack()");
+	print("- DictDeep: {[key: string]: Variant} from 'a{sv}' deepUnpack()");
+	print("- DictRecursive: {[key: string]: any} from 'a{sv}' recursiveUnpack()");
 	print("If this compiles without errors, type generation is working!");
 }
 
@@ -156,18 +156,18 @@ function getDetailedType(value: any): string {
 	} else if (value === undefined) {
 		return "undefined";
 	} else if (Array.isArray(value)) {
-		const elementTypes = value.slice(0, 3).map(el => {
+		const elementTypes = value.slice(0, 3).map((el) => {
 			if (el instanceof GLib.Variant) return "Variant";
 			return typeof el;
 		});
 		const suffix = value.length > 3 ? ", ..." : "";
-		return `array[${value.length}] with elements: [${elementTypes.join(', ')}${suffix}]`;
+		return `array[${value.length}] with elements: [${elementTypes.join(", ")}${suffix}]`;
 	} else if (value instanceof GLib.Variant) {
 		return `Variant<${value.get_type_string()}>`;
 	} else if (typeof value === "object") {
 		const keys = Object.keys(value).slice(0, 3);
 		const suffix = Object.keys(value).length > 3 ? ", ..." : "";
-		return `object with keys: {${keys.join(', ')}${suffix}}`;
+		return `object with keys: {${keys.join(", ")}${suffix}}`;
 	} else {
 		return `${typeof value} (value: ${String(value)})`;
 	}
@@ -178,7 +178,7 @@ function getDetailedType(value: any): string {
  */
 function validateType(value: any, expectedType: string, testName: string): boolean {
 	let actualType: string;
-	
+
 	if (value === null) {
 		actualType = "null";
 	} else if (value === undefined) {
@@ -190,7 +190,7 @@ function validateType(value: any, expectedType: string, testName: string): boole
 	} else {
 		actualType = typeof value;
 	}
-	
+
 	const passed = actualType === expectedType;
 	const detailedType = getDetailedType(value);
 	print(`  ${passed ? "✓" : "✗"} ${testName}: expected ${expectedType}, got ${actualType} (${detailedType})`);
@@ -205,29 +205,31 @@ function validateArrayElementTypes(array: any[], expectedElementType: string, te
 		print(`  ✗ ${testName}: not an array, got ${typeof array}`);
 		return false;
 	}
-	
+
 	let allMatch = true;
-	let actualTypes: string[] = [];
-	
+	const actualTypes: string[] = [];
+
 	for (let i = 0; i < array.length; i++) {
 		const element = array[i];
 		let actualType: string;
-		
+
 		if (element instanceof GLib.Variant) {
 			actualType = "Variant";
 		} else {
 			actualType = typeof element;
 		}
-		
+
 		actualTypes.push(actualType);
-		
+
 		if (actualType !== expectedElementType) {
 			allMatch = false;
 		}
 	}
-	
-	const actualTypesStr = actualTypes.length > 0 ? `[${actualTypes.join(', ')}]` : '[]';
-	print(`  ${allMatch ? "✓" : "✗"} ${testName}: array[${array.length}] with ${expectedElementType} elements (actual: ${actualTypesStr})`);
+
+	const actualTypesStr = actualTypes.length > 0 ? `[${actualTypes.join(", ")}]` : "[]";
+	print(
+		`  ${allMatch ? "✓" : "✗"} ${testName}: array[${array.length}] with ${expectedElementType} elements (actual: ${actualTypesStr})`,
+	);
 	return allMatch;
 }
 
@@ -242,13 +244,13 @@ function testVariantUnpacking() {
 	print("\n--- Simple Types (Based on GJS Tests) ---");
 	const boolVariant = new GLib.Variant("b", true);
 	const stringVariant = new GLib.Variant("s", "hello");
-	const numberVariant = new GLib.Variant("i", 42);
+	const _numberVariant = new GLib.Variant("i", 42);
 
 	// All unpacking methods return the same for simple types
 	const boolUnpack = boolVariant.unpack();
 	const boolDeep = boolVariant.deepUnpack();
 	const boolRecursive = boolVariant.recursiveUnpack();
-	
+
 	print(`Boolean variant unpacking:`);
 	validateType(boolUnpack, "boolean", "unpack()");
 	validateType(boolDeep, "boolean", "deepUnpack()");
@@ -257,7 +259,7 @@ function testVariantUnpacking() {
 	const stringUnpack = stringVariant.unpack();
 	const stringDeep = stringVariant.deepUnpack();
 	const stringRecursive = stringVariant.recursiveUnpack();
-	
+
 	print(`String variant unpacking:`);
 	validateType(stringUnpack, "string", "unpack()");
 	validateType(stringDeep, "string", "deepUnpack()");
@@ -317,19 +319,18 @@ function testVariantUnpacking() {
 		} else {
 			print(`  ✗ unpack() should return array, got: ${typeof tupleUnpack} (${getDetailedType(tupleUnpack)})`);
 		}
-		
+
 		if (Array.isArray(tupleDeep)) {
 			validateArrayElementTypes(tupleDeep, "number", "deepUnpack() -> number[]");
 		} else {
 			print(`  ✗ deepUnpack() should return array, got: ${typeof tupleDeep}`);
 		}
-		
+
 		if (Array.isArray(tupleRecursive)) {
 			validateArrayElementTypes(tupleRecursive, "number", "recursiveUnpack() -> number[]");
 		} else {
 			print(`  ✗ recursiveUnpack() should return array, got: ${typeof tupleRecursive}`);
 		}
-
 	} catch (error) {
 		print(`✗ Tuple (ii) construction failed - this is the PR #279 issue:`, error);
 	}
@@ -349,7 +350,6 @@ function testVariantUnpacking() {
 		} else {
 			print(`✗ Complex tuple deepUnpack() should return array[3], got:`, typeof complexTupleDeep);
 		}
-
 	} catch (error) {
 		print(`✗ Complex tuple (sib) construction failed:`, error);
 	}
@@ -358,12 +358,12 @@ function testVariantUnpacking() {
 	print("\n--- Struct Variant (GJS Test Pattern) ---");
 	try {
 		// Based on GJS test: new GLib.Variant('(sogvau)', [...])
-		const structVariant = new GLib.Variant('(sogvau)', [
-			'a string',
-			'/a/object/path',
-			'asig',
-			new GLib.Variant('s', 'variant'),
-			[7, 3]
+		const structVariant = new GLib.Variant("(sogvau)", [
+			"a string",
+			"/a/object/path",
+			"asig",
+			new GLib.Variant("s", "variant"),
+			[7, 3],
 		]);
 		print(`✓ Struct variant construction succeeded:`, structVariant.print(true));
 
@@ -379,24 +379,23 @@ function testVariantUnpacking() {
 		} else {
 			print(`✗ Struct deepUnpack() should return array[5], got:`, typeof structUnpacked);
 		}
-
 	} catch (error) {
 		print(`✗ Struct variant construction failed:`, error);
 	}
 
 	// Test 6: The original ReturnType inference issue
 	print("\n--- ReturnType Inference Validation ---");
-	print(`TypeScript should now correctly infer these types (CORRECTED based on runtime analysis):`);
-	print(`- type IntTuple = ReturnType<GLib.Variant<"(ii)">["unpack"]>; // Should be Variant[] (shallow)`);
+	print(`TypeScript should now correctly infer these types (based on GJS test analysis):`);
+	print(`- type IntTuple = ReturnType<GLib.Variant<"(ii)">["unpack"]>; // Should be [Variant, Variant] (shallow)`);
 	print(`- type IntTupleDeep = ReturnType<GLib.Variant<"(ii)">["deepUnpack"]>; // Should be [number, number]`);
 	print(`- type StringArray = ReturnType<GLib.Variant<"as">["unpack"]>; // Should be Variant[] (shallow)`);
 	print(`- type StringArrayDeep = ReturnType<GLib.Variant<"as">["deepUnpack"]>; // Should be string[]`);
 	print(`- type DictDeep = ReturnType<GLib.Variant<"a{sv}">["deepUnpack"]>; // Should be {[key: string]: Variant}`);
-	
+
 	// Demonstrate this works at compile time by having working code
 	const stringArrayForType = new GLib.Variant("as", ["type", "test"]);
 	const stringArrayResult = stringArrayForType.deepUnpack();
-	
+
 	if (Array.isArray(stringArrayResult)) {
 		validateArrayElementTypes(stringArrayResult, "string", "ReturnType inference works");
 	}
