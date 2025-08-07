@@ -24,14 +24,14 @@ describe('GVariant Type Validation', () => {
         // This is the exact issue from PR #279
         type Infer<T extends string> = ReturnType<GLib.Variant<T>["unpack"]>
         
-        // Should work but currently errors out
-        type IntTuple = Infer<"(ii)">; // Should be [Variant<"i">, Variant<"i">]
+        // Should work after the fix
+        type IntTuple = Infer<"(ii)">; // Should be [Variant<any>, Variant<any>]
         
         // Test with actual usage based on GJS tests
         const intTuple = new GLib.Variant("(ii)", [42, 100]);
         
-        // Based on GJS tests: unpack() should return the raw unpacked value
-        // For tuples, this should be an array with the tuple elements
+        // Based on GJS tests: unpack() should return tuple of Variant objects
+        // For tuples like (ii), this should be [Variant<any>, Variant<any>]
         const tupleUnpack = intTuple.unpack();
         
         // Test deepUnpack as well - should unpack one level deep
@@ -46,15 +46,15 @@ describe('GVariant Type Validation', () => {
         console.log('Tuple parsing issue (PR #279):', result.errors);
       }
       
-      // CORRECTION based on runtime analysis: unpack() returns Variant[], deepUnpack() returns number[]
-      const tupleUnpackType = expectIdentifierTypeAuto(testCode, 'tupleUnpack', /Variant.*\[\]|Array.*Variant/);
-      const tupleDeepUnpackType = expectIdentifierTypeAuto(testCode, 'tupleDeepUnpack', /number.*\[\]|\[number,\s*number\]|Array.*number/);
+      // CORRECTION based on runtime analysis: unpack() returns [Variant, Variant], deepUnpack() returns [number, number]
+      const tupleUnpackType = expectIdentifierTypeAuto(testCode, 'tupleUnpack', /\[Variant.*,\s*Variant.*\]|Variant.*\[\]/);
+      const tupleDeepUnpackType = expectIdentifierTypeAuto(testCode, 'tupleDeepUnpack', /\[number,\s*number\]|number.*\[\]/);
       
       // Log current state for debugging
-      console.log('Tuple unpack type (should be Variant[]):', tupleUnpackType.actualType);
+      console.log('Tuple unpack type (should be [Variant, Variant]):', tupleUnpackType.actualType);
       console.log('Tuple deepUnpack type (should be [number, number]):', tupleDeepUnpackType.actualType);
       
-      // The unpack() method should return Variant[] (shallow), deepUnpack() should return actual values
+      // The unpack() method should return tuple of Variants, deepUnpack() should return actual values
       expect(tupleUnpackType.success).toBe(true);
       expect(tupleDeepUnpackType.success).toBe(true);
       
@@ -76,10 +76,10 @@ describe('GVariant Type Validation', () => {
         const boolTuple = new GLib.Variant("(sib)", ["test", 123, true]);
         const doubleTuple = new GLib.Variant("(dd)", [3.14, 2.71]);
         
-        // Test unpacking - should return actual values, not Variants
-        const simple = simpleTuple.unpack();        // Should be [string, number]
-        const withBool = boolTuple.unpack();        // Should be [string, number, boolean]
-        const doubles = doubleTuple.unpack();       // Should be [number, number]
+        // Test unpacking - unpack() returns tuple of Variants
+        const simple = simpleTuple.unpack();        // Should be [Variant<any>, Variant<any>]
+        const withBool = boolTuple.unpack();        // Should be [Variant<any>, Variant<any>, Variant<any>]
+        const doubles = doubleTuple.unpack();       // Should be [Variant<any>, Variant<any>]
         
         // Test deepUnpack as well
         const simpleDeep = simpleTuple.deepUnpack();
@@ -93,23 +93,23 @@ describe('GVariant Type Validation', () => {
         console.log('Complex tuple errors (first 2):', result.errors.slice(0, 2));
       }
       
-      // CORRECTION: unpack() returns Variant[], deepUnpack() returns actual values
-      const simpleType = expectIdentifierTypeAuto(testCode, 'simple', /Variant.*\[\]|Array.*Variant/);
-      const boolType = expectIdentifierTypeAuto(testCode, 'withBool', /Variant.*\[\]|Array.*Variant/);
-      const doubleType = expectIdentifierTypeAuto(testCode, 'doubles', /Variant.*\[\]|Array.*Variant/);
+      // CORRECTION: unpack() returns tuple of Variants, deepUnpack() returns actual values
+      const simpleType = expectIdentifierTypeAuto(testCode, 'simple', /\[Variant.*,\s*Variant.*\]/);
+      const boolType = expectIdentifierTypeAuto(testCode, 'withBool', /\[Variant.*,\s*Variant.*,\s*Variant.*\]/);
+      const doubleType = expectIdentifierTypeAuto(testCode, 'doubles', /\[Variant.*,\s*Variant.*\]/);
       
       // deepUnpack() should return actual values
       const simpleDeepType = expectIdentifierTypeAuto(testCode, 'simpleDeep', /\[string,\s*number\]|(string|number).*\[\]/);
       const boolDeepType = expectIdentifierTypeAuto(testCode, 'boolDeep', /\[string,\s*number,\s*boolean\]|(string|number|boolean).*\[\]/);
       
       console.log('Complex tuple types (CORRECTED expectations):');
-      console.log('- (si) unpack() -> Variant[]:', simpleType.actualType);
-      console.log('- (sib) unpack() -> Variant[]:', boolType.actualType);
-      console.log('- (dd) unpack() -> Variant[]:', doubleType.actualType);
+      console.log('- (si) unpack() -> [Variant, Variant]:', simpleType.actualType);
+      console.log('- (sib) unpack() -> [Variant, Variant, Variant]:', boolType.actualType);
+      console.log('- (dd) unpack() -> [Variant, Variant]:', doubleType.actualType);
       console.log('- (si) deepUnpack() -> [string, number]:', simpleDeepType.actualType);
       console.log('- (sib) deepUnpack() -> [string, number, boolean]:', boolDeepType.actualType);
       
-      // All tuple unpack() methods should return Variant[], deepUnpack() should return actual values
+      // All tuple unpack() methods should return tuple of Variants, deepUnpack() should return actual values
       expect(simpleType.success).toBe(true);
       expect(boolType.success).toBe(true);
       expect(doubleType.success).toBe(true);
@@ -143,8 +143,8 @@ describe('GVariant Type Validation', () => {
         // Based on GJS tests: string array unpacking
         const arrayVariant = new GLib.Variant("as", ["one", "two", "three"]);
         
-        // From GJS tests, all methods return string[] for string arrays
-        const shallowUnpack = arrayVariant.unpack();         // Should be string[] (GJS test shows this)
+        // From GJS tests, unpack() returns Variant[], deepUnpack/recursiveUnpack return string[]
+        const shallowUnpack = arrayVariant.unpack();         // Should be Variant[] (shallow)
         const deepUnpack = arrayVariant.deepUnpack();        // Should be string[]
         const recursiveUnpack = arrayVariant.recursiveUnpack(); // Should be string[]
         
@@ -164,7 +164,7 @@ describe('GVariant Type Validation', () => {
       
       // Test actual type expectations based on ACTUAL GJS runtime behavior
       // CORRECTION: unpack() returns Variant[], deepUnpack() and recursiveUnpack() return string[]
-      const shallowType = expectIdentifierTypeAuto(testCode, 'shallowUnpack', /Variant.*\[\]|Array.*Variant/);
+      const shallowType = expectIdentifierTypeAuto(testCode, 'shallowUnpack', /Variant.*\[\]/);
       const deepType = expectIdentifierTypeAuto(testCode, 'deepUnpack', /string.*\[\]|Array.*string/);
       const recursiveType = expectIdentifierTypeAuto(testCode, 'recursiveUnpack', /string.*\[\]|Array.*string/);
       
