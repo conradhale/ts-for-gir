@@ -1,31 +1,15 @@
-# GVariant Type Validation Tests
+# Language Server Validation Tests
 
-This package provides focused validation tests for TypeScript type generation of GLib.Variant methods, particularly addressing issues from [PR #279](https://github.com/gjsify/ts-for-gir/pull/279).
+This package provides validation tests for TypeScript type generation in ts-for-gir, ensuring the generated type definitions work correctly with the TypeScript language server.
 
 ## Purpose
 
-Tests the correct TypeScript type generation for `GLib.Variant` methods, focusing on:
+Tests the correct TypeScript type generation for GIR (GObject Introspection) bindings, with current focus on:
 
-- **Tuple Parsing**: Ensuring tuples like `(ii)` are correctly parsed
-- **Type Inference**: Validating return types of `unpack()`, `deepUnpack()`, and `recursiveUnpack()`
-- **Advanced Variant Types**: Testing with and without the `noAdvancedVariants` option
-- **Real-world Patterns**: DBus and GSettings usage patterns
-
-## Test Focus
-
-### Critical Issue from PR #279
-
-```typescript
-type Infer<T extends string> = ReturnType<GLib.Variant<T>["unpack"]>
-type IntTuple = Infer<"(ii)">; // Should be [Variant<"i">, Variant<"i">]
-```
-
-### Method Behavior
-
-According to GJS documentation:
-- `unpack()`: Returns shallow unpacked values (Variant[] for arrays/tuples)
-- `deepUnpack()`: Returns one level deep unpacked values  
-- `recursiveUnpack()`: Returns fully unpacked native JS types
+- **GLib.Variant Types**: Testing variant unpacking methods and type inference
+- **Type Generation Issues**: Validating fixes for known problems from PRs
+- **Advanced Type Features**: Testing with different configuration options
+- **Real-world Usage Patterns**: Ensuring common patterns work as expected
 
 ## Running Tests
 
@@ -42,23 +26,43 @@ yarn test:dev
 
 ## Test Structure
 
-All tests are in `src/gvariant-validation.test.ts`:
+Current test files:
+- `src/gvariant-validation.test.ts` - GLib.Variant type validation
 
-1. **Critical Issue: Tuple Parsing** - Tests for the specific issue from PR #279
-2. **Unpacking Method Type Inference** - Validates different unpacking methods
-3. **Advanced Variant Types** - Tests with/without `noAdvancedVariants`
-4. **Real-world Usage Patterns** - DBus and GSettings patterns
+### GVariant Validation Tests
+
+Addresses specific issues from [PR #279](https://github.com/gjsify/ts-for-gir/pull/279):
+
+```typescript
+type Infer<T extends string> = ReturnType<GLib.Variant<T>["unpack"]>
+type IntTuple = Infer<"(ii)">; // Should be [Variant<"i">, Variant<"i">]
+```
+
+Tests different unpacking methods according to GJS documentation:
+- `unpack()`: Returns shallow unpacked values
+- `deepUnpack()`: Returns one level deep unpacked values  
+- `recursiveUnpack()`: Returns fully unpacked native JS types
 
 ## Development
 
 When adding new tests:
-1. Focus on actual GVariant type generation issues
-2. Use realistic GJS code examples
+1. Focus on actual type generation issues
+2. Use realistic GJS/GTK code examples
 3. Document expected vs actual behavior
-4. Include console.log for debugging type inference
+4. Include debugging output for type inference issues
+
+## Future Test Areas
+
+This test suite can be extended to cover:
+- GTK widget type generation
+- Signal and callback type inference
+- GObject class registration patterns
+- Interface implementation validation
+- Cross-module type dependencies
 
 ## Related
 
 - [PR #279](https://github.com/gjsify/ts-for-gir/pull/279) - Advanced Variant Types implementation
 - `tests/types-no-advanced-variants/` - Example showing legacy behavior
 - `@ts-for-gir/language-server` - Core validation utilities
+- `examples/` - Real-world usage examples
