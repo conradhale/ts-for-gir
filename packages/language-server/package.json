@@ -24,7 +24,12 @@
 		"@ts-for-gir/lib": "workspace:^",
 		"typescript": "^5.8.3"
 	},
+	"scripts": {
+		"test": "vitest run",
+		"test:watch": "vitest"
+	},
 	"devDependencies": {
-		"@types/node": "^22.16.0"
+		"@types/node": "^22.16.0",
+		"vitest": "^3.2.4"
 	}
 }
