@@ -6,9 +6,9 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
-    "test": "yarn generate && vitest run",
-    "test:watch": "yarn generate && vitest",
-    "test:dev": "vitest",
+    "test": "yarn generate && vitest run --no-isolate",
+    "test:watch": "yarn generate && vitest --no-isolate",
+    "test:dev": "vitest --no-isolate",
     "generate": "ts-for-gir generate Adw-1 --girDirectories ../../girs"
   },
   "keywords": [
