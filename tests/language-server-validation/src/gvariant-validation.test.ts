@@ -361,4 +361,20 @@ describe('GVariant Type Validation', () => {
       expect(result.success).toBe(true);
     });
   });
+
+  describe('GVariant nesting depth (type-level)', () => {
+    it('should infer nested arrays within reasonable depth', () => {
+      // 12-level nested array of strings: 'aaaaaaaaaaaa' + 's'
+      const testCode = `
+        import GLib from 'gi://GLib?version=2.0';
+
+        const v = new GLib.Variant('aaaaaaaaaaaas', ['x']);
+        const d = v.deepUnpack();
+      `;
+
+      expectCompilation(testCode);
+      // Should be a nested array of strings; match broadly for string[] (possibly nested)
+      expectType(testCode, 'd', /string.*\[\]|Array.*string/);
+    });
+  });
 });

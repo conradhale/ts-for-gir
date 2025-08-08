@@ -870,6 +870,10 @@ export class Variant<S extends string = any> {
      * @see {@link unpack} for shallow unpacking only
      * @see {@link recursiveUnpack} for full recursive unpacking
      */
+    /**
+     * At extreme nesting depths beyond the GLib/GVariant limit (65), the return type
+     * safely degrades to unknown/any in order to prevent excessive type recursion at compile time.
+     */
     deepUnpack<T extends $ParseDeepVariant<S> = $ParseDeepVariant<S>>(): T;
     
     /**
