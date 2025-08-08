@@ -208,7 +208,7 @@ describe('GVariant Type Validation', () => {
   });
 
   describe('Compile-time ReturnType inference', () => {
-    it('should infer correct ReturnType for common patterns', () => {
+    it('should infer correct ReturnType for common patterns and match expected types', () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
 
@@ -216,24 +216,49 @@ describe('GVariant Type Validation', () => {
         type IntTupleType = ReturnType<GLib.Variant<"(ii)">["unpack"]>;
         type StringIntTupleType = ReturnType<GLib.Variant<"(si)">["deepUnpack"]>;
 
+        // Use declared values to allow type inspection
+        declare const intTupleValue: IntTupleType;
+        declare const stringIntTupleValue: StringIntTupleType;
+
         // Array ReturnType inference
         type StringArrayUnpack = ReturnType<GLib.Variant<"as">["unpack"]>;
         type StringArrayDeep = ReturnType<GLib.Variant<"as">["deepUnpack"]>;
+
+        declare const stringArrayUnpackVal: StringArrayUnpack;
+        declare const stringArrayDeepVal: StringArrayDeep;
 
         // Dictionary ReturnType inference
         type DictUnpack = ReturnType<GLib.Variant<"a{sv}">["unpack"]>;
         type DictDeep = ReturnType<GLib.Variant<"a{sv}">["deepUnpack"]>;
         type DictRecursive = ReturnType<GLib.Variant<"a{sv}">["recursiveUnpack"]>;
 
+        declare const dictUnpackVal: DictUnpack;
+        declare const dictDeepVal: DictDeep;
+        declare const dictRecursiveVal: DictRecursive;
+
         // Simple types
         type BooleanUnpack = ReturnType<GLib.Variant<"b">["unpack"]>;
         type StringDeep = ReturnType<GLib.Variant<"s">["deepUnpack"]>;
+
+        declare const booleanUnpackVal: BooleanUnpack;
+        declare const stringDeepVal: StringDeep;
       `;
 
-      const result = validateGIRTypeScriptAuto(testCode);
-
-      // Sanity check: code should type-check without fatal errors
-      expect(result.success).toBe(true);
+      expectCompilation(testCode);
+      // Verify expected types (see examples/glib-2-variant/main.ts expectations)
+      // Tuples
+      expectType(testCode, 'intTupleValue', /\[Variant.*,\s*Variant.*\]/);
+      expectType(testCode, 'stringIntTupleValue', /\[string,\s*number\]|(string|number).*\[\]/);
+      // Arrays
+      expectType(testCode, 'stringArrayUnpackVal', /Variant.*\[\]/);
+      expectType(testCode, 'stringArrayDeepVal', /string.*\[\]|Array.*string/);
+      // Dictionaries
+      expectType(testCode, 'dictUnpackVal', /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, 'dictDeepVal', /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, 'dictRecursiveVal', /\{\s*\[.*\]:\s*any/);
+      // Simple
+      expectType(testCode, 'booleanUnpackVal', /boolean/);
+      expectType(testCode, 'stringDeepVal', /string/);
     });
   });
 
