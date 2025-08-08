@@ -237,21 +237,24 @@ describe('GVariant Type Validation', () => {
     });
   });
 
-  describe('Advanced Variant Types (with/without option)', () => {
-    it('should handle explicit type parameters when noAdvancedVariants is true', () => {
+  describe('Generic parameter override (Advanced Variant Types enabled)', () => {
+    it('should allow explicit generic parameters to override inferred types (also works without Advanced Variant Types)', () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
-        // With noAdvancedVariants: true, explicit types are required
+        // Advanced Variant Types are enabled in these tests.
+        // We still validate that explicit generic parameters can override inference,
+        // which is also how one would work without Advanced Variant Types enabled.
         const dict = new GLib.Variant("a{sv}", {
           name: new GLib.Variant("s", "Test"),
           value: new GLib.Variant("i", 42)
         });
         
-        // This pattern is required with noAdvancedVariants: true
+        // Explicit generic parameter to force deepUnpack() return type
         const unpacked = dict.deepUnpack<{ [key: string]: any }>();
         
-        // Without explicit type, it may not work properly
+        // Without explicit type, deepUnpack() preserves Variant values by default
+        // when Advanced Variant Types are enabled
         const unpackedNoType = dict.deepUnpack();
       `;
 
@@ -321,7 +324,7 @@ describe('GVariant Type Validation', () => {
         const [service, params] = dbusMessage.deepUnpack();
         
         // Access parameters
-        const method = params.method?.deepUnpack?.();
+        const method = params.method.deepUnpack();
       `;
 
       const result = expectCompilation(testCode);
