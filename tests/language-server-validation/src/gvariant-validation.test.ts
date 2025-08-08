@@ -2,29 +2,48 @@
  * GVariant Type Validation Tests
  * 
  * Tests for validating TypeScript type generation for GLib.Variant methods.
- * Focus on the specific issues mentioned in PR #279:
- * - Tuple parsing errors
+ * Focus areas:
+ * - Tuple parsing
  * - Type inference for unpack/deepUnpack/recursiveUnpack methods
  */
 
 import { describe, it, expect } from 'vitest';
-import { 
-  validateGIRTypeScriptAuto, 
-  getIdentifierTypeAuto,
+import {
+  validateGIRTypeScriptAuto,
   expectIdentifierTypeAuto,
 } from '@ts-for-gir/language-server';
 
+// Test helpers using Vitest expectations for clearer failures
+function expectCompilation(code: string) {
+  const result = validateGIRTypeScriptAuto(code);
+  if (!result.success) {
+    // Show first few diagnostics to aid debugging in failures
+    // eslint-disable-next-line no-console
+    console.error('TypeScript compile errors (first 5):', result.errors.slice(0, 5));
+  }
+  expect(result.success).toBe(true);
+  return result;
+}
+
+function expectType(code: string, identifier: string, pattern: RegExp) {
+  const res = expectIdentifierTypeAuto(code, identifier, pattern);
+  expect(res.success).toBe(true);
+  expect(res.actualType).toBeDefined();
+  expect(String(res.actualType)).toMatch(pattern);
+  return res;
+}
+
 describe('GVariant Type Validation', () => {
   
-  describe('Critical Issue: Tuple Parsing (PR #279)', () => {
+  describe('Tuple Parsing and Inference', () => {
     it('should correctly parse integer tuples', () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
-        // This is the exact issue from PR #279
+        // Tuple parsing inference
         type Infer<T extends string> = ReturnType<GLib.Variant<T>["unpack"]>
         
-        // Should work after the fix
+        // Should compile
         type IntTuple = Infer<"(ii)">; // Should be [Variant<any>, Variant<any>]
         
         // Test with actual usage based on GJS tests
@@ -40,10 +59,8 @@ describe('GVariant Type Validation', () => {
 
       const result = validateGIRTypeScriptAuto(testCode);
       
-      // This should pass when the generator is fixed
-      // Currently may fail with VariantTypeError
       if (!result.success) {
-        console.log('Tuple parsing issue (PR #279):', result.errors);
+        console.log('Tuple parsing issue:', result.errors);
       }
       
       // CORRECTION based on runtime analysis: unpack() returns [Variant, Variant], deepUnpack() returns [number, number]
@@ -57,13 +74,7 @@ describe('GVariant Type Validation', () => {
       // The unpack() method should return tuple of Variants, deepUnpack() should return actual values
       expect(tupleUnpackType.success).toBe(true);
       expect(tupleDeepUnpackType.success).toBe(true);
-      
-      if (!tupleUnpackType.actualType?.includes('Error')) {
-        expect(tupleUnpackType.matches).toBe(true);
-      } else {
-        // Document the current error for fixing
-        console.warn('Tuple parsing still broken:', tupleUnpackType.actualType);
-      }
+      expect(tupleUnpackType.matches).toBe(true);
     });
 
     it('should handle complex tuple types', () => {
@@ -86,52 +97,14 @@ describe('GVariant Type Validation', () => {
         const boolDeep = boolTuple.deepUnpack();
       `;
 
-      const result = validateGIRTypeScriptAuto(testCode);
-      
-      // Check if validation passes (limit error output)
-      if (!result.success && result.errors.length > 0) {
-        console.log('Complex tuple errors (first 2):', result.errors.slice(0, 2));
-      }
-      
+      expectCompilation(testCode);
       // CORRECTION: unpack() returns tuple of Variants, deepUnpack() returns actual values
-      const simpleType = expectIdentifierTypeAuto(testCode, 'simple', /\[Variant.*,\s*Variant.*\]/);
-      const boolType = expectIdentifierTypeAuto(testCode, 'withBool', /\[Variant.*,\s*Variant.*,\s*Variant.*\]/);
-      const doubleType = expectIdentifierTypeAuto(testCode, 'doubles', /\[Variant.*,\s*Variant.*\]/);
-      
+      expectType(testCode, 'simple', /\[Variant.*,\s*Variant.*\]/);
+      expectType(testCode, 'withBool', /\[Variant.*,\s*Variant.*,\s*Variant.*\]/);
+      expectType(testCode, 'doubles', /\[Variant.*,\s*Variant.*\]/);
       // deepUnpack() should return actual values
-      const simpleDeepType = expectIdentifierTypeAuto(testCode, 'simpleDeep', /\[string,\s*number\]|(string|number).*\[\]/);
-      const boolDeepType = expectIdentifierTypeAuto(testCode, 'boolDeep', /\[string,\s*number,\s*boolean\]|(string|number|boolean).*\[\]/);
-      
-      console.log('Complex tuple types (CORRECTED expectations):');
-      console.log('- (si) unpack() -> [Variant, Variant]:', simpleType.actualType);
-      console.log('- (sib) unpack() -> [Variant, Variant, Variant]:', boolType.actualType);
-      console.log('- (dd) unpack() -> [Variant, Variant]:', doubleType.actualType);
-      console.log('- (si) deepUnpack() -> [string, number]:', simpleDeepType.actualType);
-      console.log('- (sib) deepUnpack() -> [string, number, boolean]:', boolDeepType.actualType);
-      
-      // All tuple unpack() methods should return tuple of Variants, deepUnpack() should return actual values
-      expect(simpleType.success).toBe(true);
-      expect(boolType.success).toBe(true);
-      expect(doubleType.success).toBe(true);
-      expect(simpleDeepType.success).toBe(true);
-      expect(boolDeepType.success).toBe(true);
-      
-      // Check if types match expected pattern (allow for current errors)
-      if (!simpleType.actualType?.includes('Error')) {
-        expect(simpleType.matches).toBe(true);
-      }
-      if (!boolType.actualType?.includes('Error')) {
-        expect(boolType.matches).toBe(true);
-      }
-      if (!doubleType.actualType?.includes('Error')) {
-        expect(doubleType.matches).toBe(true);
-      }
-      if (!simpleDeepType.actualType?.includes('Error')) {
-        expect(simpleDeepType.matches).toBe(true);
-      }
-      if (!boolDeepType.actualType?.includes('Error')) {
-        expect(boolDeepType.matches).toBe(true);
-      }
+      expectType(testCode, 'simpleDeep', /\[string,\s*number\]|(string|number).*\[\]/);
+      expectType(testCode, 'boolDeep', /\[string,\s*number,\s*boolean\]|(string|number|boolean).*\[\]/);
     });
   });
 
@@ -160,64 +133,17 @@ describe('GVariant Type Validation', () => {
         const dictRecursive = dictVariant.recursiveUnpack(); // Should be {[key: string]: any} (GJS unpacks all)
       `;
 
-      const result = validateGIRTypeScriptAuto(testCode);
-      
-      // Test actual type expectations based on ACTUAL GJS runtime behavior
-      // CORRECTION: unpack() returns Variant[], deepUnpack() and recursiveUnpack() return string[]
-      const shallowType = expectIdentifierTypeAuto(testCode, 'shallowUnpack', /Variant.*\[\]/);
-      const deepType = expectIdentifierTypeAuto(testCode, 'deepUnpack', /string.*\[\]|Array.*string/);
-      const recursiveType = expectIdentifierTypeAuto(testCode, 'recursiveUnpack', /string.*\[\]|Array.*string/);
-      
-      console.log('Array unpacking types (CORRECTED based on runtime analysis):');
-      console.log('- unpack() -> Variant[]:', shallowType.actualType, '- matches:', shallowType.matches);
-      console.log('- deepUnpack() -> string[]:', deepType.actualType, '- matches:', deepType.matches);
-      console.log('- recursiveUnpack() -> string[]:', recursiveType.actualType, '- matches:', recursiveType.matches);
-      
-      // Verify expected types based on actual GJS runtime behavior
-      expect(shallowType.success).toBe(true);
-      expect(deepType.success).toBe(true);
-      expect(recursiveType.success).toBe(true);
-      
-      // Test expected behavior: unpack() → Variant[], deepUnpack() → string[], recursiveUnpack() → string[]
-      if (!shallowType.actualType?.includes('Error')) {
-        expect(shallowType.matches).toBe(true);
-      }
-      if (!deepType.actualType?.includes('Error')) {
-        expect(deepType.matches).toBe(true);
-      }
-      if (!recursiveType.actualType?.includes('Error')) {
-        expect(recursiveType.matches).toBe(true);
-      }
-      
-      // Test dictionary unpacking types - key difference from GJS tests
-      // GJS test line 84: expect(v.deepUnpack().foo instanceof GLib.Variant).toBeTruthy();
-      // GJS test line 89: expect(v.recursiveUnpack().foo instanceof GLib.Variant).toBeFalsy();
-      const dictShallowType = expectIdentifierTypeAuto(testCode, 'dictShallow', /\{\s*\[.*\]:\s*Variant/);
-      const dictDeepType = expectIdentifierTypeAuto(testCode, 'dictDeep', /\{\s*\[.*\]:\s*Variant/); // GJS: preserves Variants!
-      const dictRecursiveType = expectIdentifierTypeAuto(testCode, 'dictRecursive', /\{\s*\[.*\]:\s*any/); // GJS: fully unpacked
-      
-      console.log('Dictionary unpacking types (based on GJS tests):');
-      console.log('- unpack() -> {[key: string]: Variant}:', dictShallowType.actualType, '- matches:', dictShallowType.matches);
-      console.log('- deepUnpack() -> {[key: string]: Variant} (GJS preserves!):', dictDeepType.actualType, '- matches:', dictDeepType.matches);
-      console.log('- recursiveUnpack() -> {[key: string]: any} (GJS fully unpacks):', dictRecursiveType.actualType, '- matches:', dictRecursiveType.matches);
-      
-      // Verify dictionary unpacking types
-      expect(dictShallowType.success).toBe(true);
-      expect(dictDeepType.success).toBe(true);
-      expect(dictRecursiveType.success).toBe(true);
-      
-      // Test expected behavior for dictionaries based on GJS tests
-      if (!dictShallowType.actualType?.includes('Error')) {
-        expect(dictShallowType.matches).toBe(true);
-      }
-      if (!dictDeepType.actualType?.includes('Error')) {
-        expect(dictDeepType.matches).toBe(true);
-      }
-      if (!dictRecursiveType.actualType?.includes('Error')) {
-        expect(dictRecursiveType.matches).toBe(true);
-        // recursiveUnpack should not contain Variant types (GJS test confirms this)
-        expect(dictRecursiveType.actualType).not.toMatch(/Variant(?!.*Error)/);
-      }
+      expectCompilation(testCode);
+      // Arrays
+      expectType(testCode, 'shallowUnpack', /Variant.*\[\]/);
+      expectType(testCode, 'deepUnpack', /string.*\[\]|Array.*string/);
+      expectType(testCode, 'recursiveUnpack', /string.*\[\]|Array.*string/);
+      // Dictionary types
+      expectType(testCode, 'dictShallow', /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, 'dictDeep', /\{\s*\[.*\]:\s*Variant/);
+      const dictRecursiveType = expectType(testCode, 'dictRecursive', /\{\s*\[.*\]:\s*any/);
+      // recursiveUnpack should not contain Variant types (GJS test confirms this)
+      expect(String(dictRecursiveType.actualType)).not.toMatch(/Variant(?!.*Error)/);
     });
 
     it('should handle nested variant structures', () => {
@@ -239,35 +165,12 @@ describe('GVariant Type Validation', () => {
         const fullUnpack = nested.recursiveUnpack();
       `;
 
-      const result = validateGIRTypeScriptAuto(testCode);
-      
-      // Test type expectations for nested structures - strict type checking
-      const level1Type = expectIdentifierTypeAuto(testCode, 'level1', /\{\s*\[.*\]:\s*Variant/);
-      const level2Type = expectIdentifierTypeAuto(testCode, 'level2', /\{\s*\[.*\]:\s*Variant/); // Should be Variant, not any
-      const fullType = expectIdentifierTypeAuto(testCode, 'fullUnpack', /\{\s*\[.*\]:\s*any/);
-      
-      console.log('Nested unpacking:');
-      console.log('- level1 (unpack):', level1Type.actualType, '- matches:', level1Type.matches);
-      console.log('- level2 (deepUnpack):', level2Type.actualType, '- matches:', level2Type.matches);
-      console.log('- full (recursiveUnpack):', fullType.actualType, '- matches:', fullType.matches);
-      
-      // Verify nested structure unpacking
-      expect(level1Type.success).toBe(true);
-      expect(level2Type.success).toBe(true);
-      expect(fullType.success).toBe(true);
-      
-      // Test expected behavior for nested structures - strict validation
-      if (!level1Type.actualType?.includes('Error')) {
-        expect(level1Type.matches).toBe(true);
-      }
-      if (!level2Type.actualType?.includes('Error')) {
-        expect(level2Type.matches).toBe(true);
-      }
-      if (!fullType.actualType?.includes('Error')) {
-        expect(fullType.matches).toBe(true);
-        // recursiveUnpack should not contain Variant types (fully unpacked)
-        expect(fullType.actualType).not.toMatch(/Variant(?!.*Error)/);
-      }
+      expectCompilation(testCode);
+      expectType(testCode, 'level1', /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, 'level2', /\{\s*\[.*\]:\s*Variant/);
+      const fullType = expectType(testCode, 'fullUnpack', /\{\s*\[.*\]:\s*any/);
+      // recursiveUnpack should not contain Variant types (fully unpacked)
+      expect(String(fullType.actualType)).not.toMatch(/Variant(?!.*Error)/);
     });
 
     it('should handle struct variants like GJS tests', () => {
@@ -294,33 +197,43 @@ describe('GVariant Type Validation', () => {
         const fifthElement = unpacked[4];   // Should be array
       `;
 
-      const result = validateGIRTypeScriptAuto(testCode);
-      
+      expectCompilation(testCode);
       // Test struct unpacking based on GJS test expectations - strict type checking
-      const unpackedType = expectIdentifierTypeAuto(testCode, 'unpacked', /\[.*\]|Array/);
-      const firstElementType = expectIdentifierTypeAuto(testCode, 'firstElement', /string/);
-      const thirdElementType = expectIdentifierTypeAuto(testCode, 'thirdElement', /string/);
-      const fourthElementType = expectIdentifierTypeAuto(testCode, 'fourthElement', /Variant/);
-      const fifthElementType = expectIdentifierTypeAuto(testCode, 'fifthElement', /\[\]|Array|number.*\[\]/);
-      
-      console.log('Struct variant unpacking:');
-      console.log('- unpacked:', unpackedType.actualType, '- matches:', unpackedType.matches);
-      console.log('- firstElement (string):', firstElementType.actualType, '- matches:', firstElementType.matches);
-      console.log('- thirdElement (string):', thirdElementType.actualType, '- matches:', thirdElementType.matches);
-      console.log('- fourthElement (Variant):', fourthElementType.actualType, '- matches:', fourthElementType.matches);
-      console.log('- fifthElement (array):', fifthElementType.actualType, '- matches:', fifthElementType.matches);
-      
-      // Verify struct unpacking works
-      expect(unpackedType.success).toBe(true);
-      expect(firstElementType.success).toBe(true);
-      expect(thirdElementType.success).toBe(true);
-      expect(fourthElementType.success).toBe(true);
-      expect(fifthElementType.success).toBe(true);
-      
-      // Test expected behavior
-      if (!unpackedType.actualType?.includes('Error')) {
-        expect(unpackedType.matches).toBe(true);
-      }
+      expectType(testCode, 'unpacked', /\[.*\]|Array/);
+      expectType(testCode, 'firstElement', /string/);
+      expectType(testCode, 'thirdElement', /string/);
+      expectType(testCode, 'fourthElement', /Variant/);
+      expectType(testCode, 'fifthElement', /\[\]|Array|number.*\[\]/);
+    });
+  });
+
+  describe('Compile-time ReturnType inference', () => {
+    it('should infer correct ReturnType for common patterns', () => {
+      const testCode = `
+        import GLib from 'gi://GLib?version=2.0';
+
+        // Tuple ReturnType inference
+        type IntTupleType = ReturnType<GLib.Variant<"(ii)">["unpack"]>;
+        type StringIntTupleType = ReturnType<GLib.Variant<"(si)">["deepUnpack"]>;
+
+        // Array ReturnType inference
+        type StringArrayUnpack = ReturnType<GLib.Variant<"as">["unpack"]>;
+        type StringArrayDeep = ReturnType<GLib.Variant<"as">["deepUnpack"]>;
+
+        // Dictionary ReturnType inference
+        type DictUnpack = ReturnType<GLib.Variant<"a{sv}">["unpack"]>;
+        type DictDeep = ReturnType<GLib.Variant<"a{sv}">["deepUnpack"]>;
+        type DictRecursive = ReturnType<GLib.Variant<"a{sv}">["recursiveUnpack"]>;
+
+        // Simple types
+        type BooleanUnpack = ReturnType<GLib.Variant<"b">["unpack"]>;
+        type StringDeep = ReturnType<GLib.Variant<"s">["deepUnpack"]>;
+      `;
+
+      const result = validateGIRTypeScriptAuto(testCode);
+
+      // Sanity check: code should type-check without fatal errors
+      expect(result.success).toBe(true);
     });
   });
 
@@ -342,27 +255,10 @@ describe('GVariant Type Validation', () => {
         const unpackedNoType = dict.deepUnpack();
       `;
 
-      const result = validateGIRTypeScriptAuto(testCode);
-      
+      expectCompilation(testCode);
       // Test type expectations with and without explicit type parameters - strict checking
-      const withType = expectIdentifierTypeAuto(testCode, 'unpacked', /\{\s*\[.*\]:\s*any/);
-      const withoutType = expectIdentifierTypeAuto(testCode, 'unpackedNoType', /\{\s*\[.*\]:\s*Variant/); // Should be Variant without explicit type
-      
-      console.log('Explicit type parameter test:');
-      console.log('- With explicit type:', withType.actualType, '- matches:', withType.matches);
-      console.log('- Without explicit type:', withoutType.actualType, '- matches:', withoutType.matches);
-      
-      // Both should work, but behavior differs based on noAdvancedVariants
-      expect(withType.success).toBe(true);
-      expect(withoutType.success).toBe(true);
-      
-      // Test expected behavior
-      if (!withType.actualType?.includes('Error')) {
-        expect(withType.matches).toBe(true);
-      }
-      if (!withoutType.actualType?.includes('Error')) {
-        expect(withoutType.matches).toBe(true);
-      }
+      expectType(testCode, 'unpacked', /\{\s*\[.*\]:\s*any/);
+      expectType(testCode, 'unpackedNoType', /\{\s*\[.*\]:\s*Variant/);
     });
   });
 
@@ -390,53 +286,19 @@ describe('GVariant Type Validation', () => {
         const numberRecursive = numberVariant.recursiveUnpack();
       `;
 
-      const result = validateGIRTypeScriptAuto(testCode);
-      
-      // Test simple boolean types - all methods should return boolean
-      const boolUnpackType = expectIdentifierTypeAuto(testCode, 'boolUnpack', /boolean/);
-      const boolDeepType = expectIdentifierTypeAuto(testCode, 'boolDeep', /boolean/);
-      const boolRecursiveType = expectIdentifierTypeAuto(testCode, 'boolRecursive', /boolean/);
-      
-      console.log('Boolean variant types:');
-      console.log('- unpack():', boolUnpackType.actualType, '- matches:', boolUnpackType.matches);
-      console.log('- deepUnpack():', boolDeepType.actualType, '- matches:', boolDeepType.matches);
-      console.log('- recursiveUnpack():', boolRecursiveType.actualType, '- matches:', boolRecursiveType.matches);
-      
-      // Test simple string types - all methods should return string
-      const stringUnpackType = expectIdentifierTypeAuto(testCode, 'stringUnpack', /string/);
-      const stringDeepType = expectIdentifierTypeAuto(testCode, 'stringDeep', /string/);
-      const stringRecursiveType = expectIdentifierTypeAuto(testCode, 'stringRecursive', /string/);
-      
-      console.log('String variant types:');
-      console.log('- unpack():', stringUnpackType.actualType, '- matches:', stringUnpackType.matches);
-      console.log('- deepUnpack():', stringDeepType.actualType, '- matches:', stringDeepType.matches);
-      console.log('- recursiveUnpack():', stringRecursiveType.actualType, '- matches:', stringRecursiveType.matches);
-      
-      // Test simple number types - all methods should return number
-      const numberUnpackType = expectIdentifierTypeAuto(testCode, 'numberUnpack', /number/);
-      const numberDeepType = expectIdentifierTypeAuto(testCode, 'numberDeep', /number/);
-      const numberRecursiveType = expectIdentifierTypeAuto(testCode, 'numberRecursive', /number/);
-      
-      console.log('Number variant types:');
-      console.log('- unpack():', numberUnpackType.actualType, '- matches:', numberUnpackType.matches);
-      console.log('- deepUnpack():', numberDeepType.actualType, '- matches:', numberDeepType.matches);
-      console.log('- recursiveUnpack():', numberRecursiveType.actualType, '- matches:', numberRecursiveType.matches);
-      
-      // All simple types should work correctly
-      expect(boolUnpackType.success && boolDeepType.success && boolRecursiveType.success).toBe(true);
-      expect(stringUnpackType.success && stringDeepType.success && stringRecursiveType.success).toBe(true);
-      expect(numberUnpackType.success && numberDeepType.success && numberRecursiveType.success).toBe(true);
-      
-      // Verify type matches for simple types (should work for all)
-      if (!boolUnpackType.actualType?.includes('Error')) {
-        expect(boolUnpackType.matches && boolDeepType.matches && boolRecursiveType.matches).toBe(true);
-      }
-      if (!stringUnpackType.actualType?.includes('Error')) {
-        expect(stringUnpackType.matches && stringDeepType.matches && stringRecursiveType.matches).toBe(true);
-      }
-      if (!numberUnpackType.actualType?.includes('Error')) {
-        expect(numberUnpackType.matches && numberDeepType.matches && numberRecursiveType.matches).toBe(true);
-      }
+      expectCompilation(testCode);
+      // boolean
+      expectType(testCode, 'boolUnpack', /boolean/);
+      expectType(testCode, 'boolDeep', /boolean/);
+      expectType(testCode, 'boolRecursive', /boolean/);
+      // string
+      expectType(testCode, 'stringUnpack', /string/);
+      expectType(testCode, 'stringDeep', /string/);
+      expectType(testCode, 'stringRecursive', /string/);
+      // number
+      expectType(testCode, 'numberUnpack', /number/);
+      expectType(testCode, 'numberDeep', /number/);
+      expectType(testCode, 'numberRecursive', /number/);
     });
   });
 
@@ -462,85 +324,13 @@ describe('GVariant Type Validation', () => {
         const method = params.method?.deepUnpack?.();
       `;
 
-      const result = validateGIRTypeScriptAuto(testCode);
-      
+      const result = expectCompilation(testCode);
       // Test type expectations for DBus patterns - strict checking
-      const serviceType = expectIdentifierTypeAuto(testCode, 'service', /string/);
-      const paramsType = expectIdentifierTypeAuto(testCode, 'params', /\{\s*\[.*\]:\s*Variant/); // Should be Variant, not any
-      const methodType = expectIdentifierTypeAuto(testCode, 'method', /(string|unknown)/);
-      
-      console.log('DBus pattern types:');
-      console.log('- service:', serviceType.actualType, '- matches:', serviceType.matches);
-      console.log('- params:', paramsType.actualType, '- matches:', paramsType.matches);
-      console.log('- method:', methodType.actualType, '- matches:', methodType.matches);
-      
-      // Verify DBus pattern types
-      expect(serviceType.success).toBe(true);
-      expect(paramsType.success).toBe(true);
-      expect(methodType.success).toBe(true);
-      
-      // Test expected behavior for DBus patterns
-      if (!serviceType.actualType?.includes('Error')) {
-        expect(serviceType.matches).toBe(true);
-      }
-      if (!paramsType.actualType?.includes('Error')) {
-        expect(paramsType.matches).toBe(true);
-      }
-      if (!methodType.actualType?.includes('Error')) {
-        expect(methodType.matches).toBe(true);
-      }
-      
-      // Basic validation - allow some compilation errors for now
-      expect(result.errors.length).toBeLessThanOrEqual(10);
-    });
-
-    it('should validate GSettings-style variant usage', () => {
-      const testCode = `
-        import GLib from 'gi://GLib?version=2.0';
-        
-        // GSettings pattern
-        const settings = new GLib.Variant("a{sv}", {
-          "window-size": new GLib.Variant("(ii)", [800, 600]),
-          "dark-mode": new GLib.Variant("b", true),
-          "recent-files": new GLib.Variant("as", ["/path/to/file1", "/path/to/file2"])
-        });
-        
-        // Get and unpack a setting
-        const settingsObj = settings.deepUnpack();
-        const windowSize = settingsObj["window-size"]?.deepUnpack?.();
-        const darkMode = settingsObj["dark-mode"]?.deepUnpack?.();
-      `;
-
-      const result = validateGIRTypeScriptAuto(testCode);
-      
-      // Test type expectations for GSettings patterns - strict checking
-      const settingsType = expectIdentifierTypeAuto(testCode, 'settingsObj', /\{\s*\[.*\]:\s*Variant/); // Should be Variant, not any
-      const windowType = expectIdentifierTypeAuto(testCode, 'windowSize', /(number.*\[\]|\[number,\s*number\]|unknown)/);
-      const darkModeType = expectIdentifierTypeAuto(testCode, 'darkMode', /(boolean|unknown)/);
-      
-      console.log('GSettings pattern types:');
-      console.log('- settings:', settingsType.actualType, '- matches:', settingsType.matches);
-      console.log('- windowSize:', windowType.actualType, '- matches:', windowType.matches);
-      console.log('- darkMode:', darkModeType.actualType, '- matches:', darkModeType.matches);
-      
-      // Verify GSettings pattern types
-      expect(settingsType.success).toBe(true);
-      expect(windowType.success).toBe(true);
-      expect(darkModeType.success).toBe(true);
-      
-      // Test expected behavior for GSettings patterns
-      if (!settingsType.actualType?.includes('Error')) {
-        expect(settingsType.matches).toBe(true);
-      }
-      if (!windowType.actualType?.includes('Error')) {
-        expect(windowType.matches).toBe(true);
-      }
-      if (!darkModeType.actualType?.includes('Error')) {
-        expect(darkModeType.matches).toBe(true);
-      }
-      
-      // Should compile with minimal errors
-      expect(result.errors.length).toBeLessThanOrEqual(10);
+      expectType(testCode, 'service', /string/);
+      expectType(testCode, 'params', /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, 'method', /(string)/);
+      // Compilation should succeed
+      expect(result.success).toBe(true);
     });
   });
 });

@@ -301,8 +301,8 @@ function testVariantUnpacking() {
 	validateType(dictDeep.simpleString, "Variant", "deepUnpack().simpleString (GJS: preserves Variant!)");
 	validateType(dictRecursive.simpleString, "string", "recursiveUnpack().simpleString (GJS: fully unpacked)");
 
-	// Test 4: Tuple parsing validation - critical issue from PR #279
-	print("\n--- Tuple Parsing Validation (PR #279 Issue) ---");
+	// Test 4: Tuple parsing validation
+	print("\n--- Tuple Parsing Validation ---");
 
 	// Test simple tuple (ii) - this was the main failing case
 	try {
@@ -334,7 +334,7 @@ function testVariantUnpacking() {
 			print(`  ✗ recursiveUnpack() should return array, got: ${typeof tupleRecursive}`);
 		}
 	} catch (error) {
-		print(`✗ Tuple (ii) construction failed - this is the PR #279 issue:`, error);
+		print(`✗ Tuple (ii) construction failed:`, error);
 	}
 
 	// Test complex tuple (sib) - string, int, bool
