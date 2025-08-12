@@ -48,6 +48,19 @@ Model these behaviors in `glib-2.0.d.ts` using the existing `$ParseShallowVarian
 - Behavior matches upstream expectations from `gjs/installed-tests/js/testGLib.js` and linked docs.
 - No guardrail violations; any necessary test edits include rationale referencing specs.
 
+## Quality Checks (for PR review)
+- Parser structure: generic, no hardcoded signature tuples; handles `(`, `a`, `{`, `m`, and basic types; special-case `'ay'` consistently.
+- Deep vs shallow vs recursive:
+  - Shallow: containers produce `Variant` children.
+  - Deep: one level unpack; `'v'` stays `Variant`; a{sv} preserves `Variant` values.
+  - Recursive: fully native; `'v'` becomes `any`; a{sv} becomes `{[k: string]: any}`.
+- Constructor semantics: input types mirror deep parsing rules; `'ay'` accepts `Uint8Array | string`.
+- Overloads: `deepUnpack`/`deep_unpack` have concrete overload both first and last; generic in the middle; rationale documented.
+- Maybe `mT`: returns `null | T` appropriately in all three parsers.
+- Uniform dicts: common forms (a{ss}, a{si}, a{sb}) deep → native index signatures.
+- No runtime code in templates; preserve EJS tags; ambient declarations only.
+- Type safety: prefer `unknown` to `any` unless recursive semantics require `any`.
+
 ## File Map
 - Template to edit: `packages/templates/templates/glib-2.0.d.ts`
 - Upstream reference: `gjs/installed-tests/js/testGLib.js`
