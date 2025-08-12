@@ -940,9 +940,10 @@ export class Variant<S extends string = any> {
      * At extreme nesting depths beyond the GLib/GVariant limit (65), the return type
      * safely degrades to unknown/any in order to prevent excessive type recursion at compile time.
      */
-    // Overloads: keep a non-generic concrete signature last so ReturnType<...> resolves to the precise inferred type
+    // Overloads: concrete first so call-sites infer precisely; generic allows explicit override; concrete repeated last so ReturnType<...> is precise
     deepUnpack(): $ParseDeepVariant<S>;
     deepUnpack<T>(): T;
+    deepUnpack(): $ParseDeepVariant<S>;
     
     /**
      * Alias for {@link deepUnpack} method.
@@ -955,6 +956,7 @@ export class Variant<S extends string = any> {
      */
     deep_unpack(): $ParseDeepVariant<S>;
     deep_unpack<T>(): T;
+    deep_unpack(): $ParseDeepVariant<S>;
     
     /**
      * Recursively unpacks the variant and **all its descendants** into native JavaScript values.
