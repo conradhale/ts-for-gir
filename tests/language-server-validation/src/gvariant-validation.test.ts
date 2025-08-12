@@ -138,7 +138,7 @@ describe('GVariant Type Validation', () => {
       expectType(testCode, 'shallowUnpack', /Variant.*\[\]/);
       expectType(testCode, 'deepUnpack', /string.*\[\]|Array.*string/);
       expectType(testCode, 'recursiveUnpack', /string.*\[\]|Array.*string/);
-      // Dictionary types
+      // Dictionary types - preserve index signature expectation
       expectType(testCode, 'dictShallow', /\{\s*\[.*\]:\s*Variant/);
       expectType(testCode, 'dictDeep', /\{\s*\[.*\]:\s*Variant/);
       const dictRecursiveType = expectType(testCode, 'dictRecursive', /\{\s*\[.*\]:\s*any/);
@@ -348,15 +348,20 @@ describe('GVariant Type Validation', () => {
         // Unpack for processing
         const [service, params] = dbusMessage.deepUnpack();
         
-        // Access parameters
-        const method = params.method.deepUnpack();
+        // Access parameters without generics → unknown
+        const methodA = params.method.deepUnpack();
+        // With generics → string
+        const methodB = params.method.deepUnpack<string>();
       `;
 
       const result = expectCompilation(testCode);
       // Test type expectations for DBus patterns - strict checking
       expectType(testCode, 'service', /string/);
       expectType(testCode, 'params', /\{\s*\[.*\]:\s*Variant/);
-      expectType(testCode, 'method', /(string)/);
+      // For a{sv}, values are Variants with unknown contained types at compile time.
+      // Therefore, deepUnpack() on params.method yields unknown.
+      expectType(testCode, 'methodA', /(unknown)/);
+      expectType(testCode, 'methodB', /(string)/);
       // Compilation should succeed
       expect(result.success).toBe(true);
     });
@@ -367,14 +372,15 @@ describe('GVariant Type Validation', () => {
       // 12-level nested array of strings: 'aaaaaaaaaaaa' + 's'
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
-
-        const v = new GLib.Variant('aaaaaaaaaaaas', ['x']);
+        
+        // Rationale: Constructor value must match $ParseDeepVariant<'aaaaaaaaaaaas'> (12-level nested string array)
+        const v = new GLib.Variant('aaaaaaaaaaaas', [[[[[[[[[[[['x']]]]]]]]]]]]);
         const d = v.deepUnpack();
       `;
 
       expectCompilation(testCode);
-      // Should be a nested array of strings; match broadly for string[] (possibly nested)
-      expectType(testCode, 'd', /string.*\[\]|Array.*string/);
+      // Should be a 12-level nested array of strings
+      expectType(testCode, 'd', /string(\[\]){12}/);
     });
   });
 });
