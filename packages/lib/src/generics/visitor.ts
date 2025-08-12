@@ -12,7 +12,6 @@ import {
 	IntrospectedStaticClassFunction,
 } from "../gir/introspected-classes.ts";
 import type { IntrospectedFunctionParameter } from "../gir/parameter.ts";
-import type { NSRegistry } from "../gir/registry.ts";
 import type { IntrospectedSignal } from "../gir/signal.ts";
 import {
 	ClosureType,
@@ -30,12 +29,10 @@ import { GirVisitor } from "../visitor.ts";
  * Visitor that handles generic type inference and transformations
  */
 export class GenericVisitor extends GirVisitor {
-	private readonly registry: NSRegistry;
 	private readonly inferGenerics: boolean;
 
-	constructor(registry: NSRegistry, inferGenerics: boolean) {
+	constructor(inferGenerics: boolean) {
 		super();
-		this.registry = registry;
 		this.inferGenerics = inferGenerics;
 	}
 
