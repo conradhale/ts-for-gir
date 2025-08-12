@@ -2,7 +2,7 @@
 globs: packages/templates/templates/*
 alwaysApply: false
 ---
-- Purpose: Files matched here are EJS-backed templates that generate TypeScript declaration files.
+- Purpose: Files located in `packages/templates/templates/*` are EJS-backed templates that generate TypeScript declaration files.
 - Treat content as EJS + ambient TypeScript (declaration context).
 - Preserve all EJS tags and variables (`<% %>`, `<%= %>`, `<%- %>`); do not refactor or reformat inside tags.
 - Conditional/partial output is expected; unresolved identifiers/placeholders may appear in templates.
