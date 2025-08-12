@@ -383,4 +383,131 @@ describe('GVariant Type Validation', () => {
       expectType(testCode, 'd', /string(\[\]){12}/);
     });
   });
+  
+  describe('Additional semantics from gvariant-types', () => {
+    it('handles byte arrays (ay): constructor types and unpacking results', () => {
+      const testCode = `
+        import GLib from 'gi://GLib?version=2.0';
+        
+        const fromString = new GLib.Variant('ay', 'abc');
+        const fromBytes = new GLib.Variant('ay', new Uint8Array([1, 2, 3]));
+        
+        const u1 = fromString.unpack();
+        const u2 = fromString.deepUnpack();
+        const u3 = fromString.recursiveUnpack();
+      `;
+      expectCompilation(testCode);
+      expectType(testCode, 'u1', /Uint8Array/);
+      expectType(testCode, 'u2', /Uint8Array/);
+      expectType(testCode, 'u3', /Uint8Array/);
+    });
+
+    it('handles Maybe types (mT): nullability across unpack methods for simple and container types', () => {
+      const testCode = `
+        import GLib from 'gi://GLib?version=2.0';
+        
+        const maybeStringA = new GLib.Variant('ms', 'hello');
+        const maybeStringB = new GLib.Variant('ms', null);
+        
+        const mu1 = maybeStringA.unpack();
+        const md1 = maybeStringA.deepUnpack();
+        const mr1 = maybeStringA.recursiveUnpack();
+        
+        const maybeArray = new GLib.Variant('mas', ['a', 'b']);
+        const mau = maybeArray.deepUnpack();
+      `;
+      expectCompilation(testCode);
+      // simple maybe
+      expectType(testCode, 'mu1', /string\s*\|\s*null|null\s*\|\s*string/);
+      expectType(testCode, 'md1', /string\s*\|\s*null|null\s*\|\s*string/);
+      expectType(testCode, 'mr1', /string\s*\|\s*null|null\s*\|\s*string/);
+      // container maybe (array of strings)
+      expectType(testCode, 'mau', /(string\[\])\s*\|\s*null|null\s*\|\s*(string\[\])/);
+    });
+
+    it('handles uniform dictionaries (a{ss}, a{si}, a{sb})', () => {
+      const testCode = `
+        import GLib from 'gi://GLib?version=2.0';
+        
+        const dss = new GLib.Variant('a{ss}', { a: 'x', b: 'y' });
+        const dsi = new GLib.Variant('a{si}', { a: 1, b: 2 });
+        const dsb = new GLib.Variant('a{sb}', { a: true, b: false });
+        
+        const s1 = dss.unpack();
+        const s2 = dsi.unpack();
+        const s3 = dsb.unpack();
+        
+        const dd1 = dss.deepUnpack();
+        const dd2 = dsi.deepUnpack();
+        const dd3 = dsb.deepUnpack();
+        
+        const dr1 = dss.recursiveUnpack();
+        const dr2 = dsi.recursiveUnpack();
+        const dr3 = dsb.recursiveUnpack();
+      `;
+      expectCompilation(testCode);
+      // shallow keeps Variant values
+      expectType(testCode, 's1', /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, 's2', /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, 's3', /\{\s*\[.*\]:\s*Variant/);
+      // deep infers uniform native value types
+      expectType(testCode, 'dd1', /\{\s*\[.*\]:\s*string/);
+      expectType(testCode, 'dd2', /\{\s*\[.*\]:\s*number/);
+      expectType(testCode, 'dd3', /\{\s*\[.*\]:\s*boolean/);
+      // recursive matches deep for uniform dicts
+      expectType(testCode, 'dr1', /\{\s*\[.*\]:\s*string/);
+      expectType(testCode, 'dr2', /\{\s*\[.*\]:\s*number/);
+      expectType(testCode, 'dr3', /\{\s*\[.*\]:\s*boolean/);
+    });
+
+    it('handles Variant type (v) and arrays of variants (av)', () => {
+      const testCode = `
+        import GLib from 'gi://GLib?version=2.0';
+        
+        const v = new GLib.Variant('v', new GLib.Variant('s', 'x'));
+        const vu = v.unpack();
+        const vd = v.deepUnpack();
+        const vr = v.recursiveUnpack();
+        
+        const av = new GLib.Variant('av', [new GLib.Variant('s', 'y')]);
+        const avu = av.unpack();
+        const avd = av.deepUnpack();
+        const avr = av.recursiveUnpack();
+      `;
+      expectCompilation(testCode);
+      // scalar v
+      expectType(testCode, 'vu', /Variant/);
+      expectType(testCode, 'vd', /Variant/);
+      expectType(testCode, 'vr', /\bany\b/);
+      // array of variants
+      expectType(testCode, 'avu', /Variant.*\[\]/);
+      expectType(testCode, 'avd', /Variant.*\[\]/);
+      expectType(testCode, 'avr', /(any\[\])|Array<\s*any\s*>/);
+    });
+
+    it('treats handle and unknown types as unknown (h, ?)', () => {
+      const testCode = `
+        import GLib from 'gi://GLib?version=2.0';
+        
+        const h = new GLib.Variant('h', 1);
+        const q = new GLib.Variant('?', 1);
+        
+        const hu = h.unpack();
+        const hd = h.deepUnpack();
+        const hr = h.recursiveUnpack();
+        
+        const qu = q.unpack();
+        const qd = q.deepUnpack();
+        const qr = q.recursiveUnpack();
+      `;
+      expectCompilation(testCode);
+      // All methods yield unknown for these base types
+      expectType(testCode, 'hu', /(unknown)/);
+      expectType(testCode, 'hd', /(unknown)/);
+      expectType(testCode, 'hr', /(unknown)/);
+      expectType(testCode, 'qu', /(unknown)/);
+      expectType(testCode, 'qd', /(unknown)/);
+      expectType(testCode, 'qr', /(unknown)/);
+    });
+  });
 });
