@@ -49,17 +49,18 @@
 	},
 	"devDependencies": {
 		"@types/ejs": "^3.1.5",
-		"@types/inquirer": "^9.0.8",
-		"@types/node": "^24.0.4",
+		"@types/inquirer": "^9.0.9",
+		"@types/node": "^24.2.0",
 		"@types/yargs": "^17.0.33",
 		"dpdm": "^3.14.0",
-		"typescript": "^5.8.3"
+		"typescript": "^5.9.2"
 	},
 	"dependencies": {
 		"@gi.ts/parser": "workspace:^",
-		"@inquirer/prompts": "^7.5.3",
+		"@inquirer/prompts": "^7.8.0",
 		"@ts-for-gir/generator-base": "workspace:^",
 		"@ts-for-gir/generator-html-doc": "workspace:^",
+		"@ts-for-gir/generator-json": "workspace:^",
 		"@ts-for-gir/generator-typescript": "workspace:^",
 		"@ts-for-gir/lib": "workspace:^",
 		"@ts-for-gir/reporter": "workspace:^",
@@ -68,8 +69,8 @@
 		"cosmiconfig": "^9.0.0",
 		"ejs": "^3.1.10",
 		"glob": "^11.0.3",
-		"inquirer": "^12.6.3",
-		"prettier": "^3.6.1",
+		"inquirer": "^12.9.0",
+		"prettier": "^3.6.2",
 		"yargs": "^18.0.0"
 	}
 }

@@ -1,138 +1,113 @@
-// This example is based on the GJS GVariant guide: https://gjs.guide/guides/glib/gvariant.html#basic-usage
+// GLib.Variant in GJS with TypeScript — practical, typed examples
+// Docs: https://gjs.guide/guides/glib/gvariant.html
 
-import Gio from "gi://Gio?version=2.0";
 import GLib from "gi://GLib?version=2.0";
 
 /**
- * Example demonstrating different ways to use GLib.Variant
- * Based on the GJS GVariant guide: https://gjs.guide/guides/glib/gvariant.html
+ * This example shows how to:
+ * - Create Variants for simple values, tuples, arrays and dictionaries
+ * - Use deepUnpack() and recursiveUnpack() and see their type effects
+ * - Rely on TypeScript to infer precise types from Variant signatures
  */
 
-// DBus interface definition for testing signal emission
-const ifaceXml = `
-<node>
-  <interface name="org.example.Test">
-    <signal name="picked">
-      <arg name="wmClass" type="s"/>
-    </signal>
-  </interface>
-</node>`;
+function basicValues(): void {
+	print("\n=== Basic values ===");
 
-/**
- * Demonstrates basic variant usage with simple types
- */
-function testBasicVariants() {
-	print("\n=== Basic Variant Tests ===");
+	const vBool = new GLib.Variant("b", true);
+	const vStr = new GLib.Variant("s", "hello");
+	const vInt = new GLib.Variant("i", 42);
 
-	// Simple string variant
-	const basic = new GLib.Variant("s", "hello");
-	print("Basic string variant:", basic.print(true));
+	// Recommended: deepUnpack for simple values → typed JS values
+	const boolValue = vBool.deepUnpack(); // boolean
+	const strValue = vStr.deepUnpack(); // string
+	const intValue = vInt.deepUnpack(); // number
 
-	// Tuple combining string and integer
-	const tuple = new GLib.Variant("(si)", ["hello", 42]);
-	print("Tuple variant:", tuple.print(true));
-
-	// Array of strings
-	const array = new GLib.Variant("as", ["one", "two", "three"]);
-	print("String array variant:", array.print(true));
-
-	// Compare with JSON for reference
-	const json = {
-		name: "Mario",
-		lives: 3,
-		active: true,
-	};
-	print("\nJSON equivalent:", JSON.stringify(json, null, 2));
+	print(`boolean: ${boolValue}`);
+	print(`string: ${strValue}`);
+	print(`int32: ${intValue}`);
 }
 
-/**
- * Demonstrates DBus-related variant usage
- */
-function testDBusVariants() {
-	print("\n=== DBus Variant Tests ===");
+function tuples(): void {
+	print("\n=== Tuples ===");
 
-	// Create and export DBus object
-	const dbus = Gio.DBusExportedObject.wrapJSObject(ifaceXml, {});
-	dbus.export(Gio.DBus.session, "/org/example/Test");
+	// (si) → [string, number]
+	const vTuple = new GLib.Variant("(si)", ["score", 99]);
 
-	// Emit signal with string variant
-	const wmClass = "test-window";
-	const variant = new GLib.Variant("(s)", [wmClass]);
-	print("DBus signal variant:", variant.print(true));
-	dbus.emit_signal("picked", variant);
+	// deepUnpack gives typed tuple values
+	const tupleDeep = vTuple.deepUnpack(); // [string, number]
+	print(`deepUnpack(): [${tupleDeep[0]}, ${tupleDeep[1]}]`);
 
-	// Example of a complex DBus method call parameters
-	const methodParams = new GLib.Variant("(ssa{sv})", ["some-extension@someone.github.io", "", {}]);
-	print("DBus method parameters:", methodParams.print(true));
+	// unpack keeps elements as Variants (useful for manual control)
+	const tupleShallow = vTuple.unpack(); // Variant[]
+	print(`unpack(): [Variant x${tupleShallow.length}]`);
 }
 
-/**
- * Demonstrates complex variant structures and nested types
- */
-function testComplexVariants() {
-	print("\n=== Complex Variant Tests ===");
+function arrays(): void {
+	print("\n=== Arrays ===");
 
-	// Dictionary with variant values
-	const dict = new GLib.Variant("a{sv}", {
-		key1: new GLib.Variant("s", "value1"),
-		key2: new GLib.Variant("i", 123),
-		key3: new GLib.Variant("as", ["a", "b", "c"]),
+	// as → string[]
+	const vStrArray = new GLib.Variant("as", ["one", "two", "three"]);
+
+	const deep = vStrArray.deepUnpack(); // string[]
+	print(`deepUnpack(): ${JSON.stringify(deep)}`);
+
+	const shallow = vStrArray.unpack(); // Variant[] (elements still Variants)
+	print(`unpack(): Variant[] length=${shallow.length}`);
+}
+
+function dictionaries(): void {
+	print("\n=== Dictionaries (a{sv}) ===");
+
+	// Values must be Variants for a{sv}
+	const vDict = new GLib.Variant("a{sv}", {
+		name: new GLib.Variant("s", "Mario"),
+		lives: new GLib.Variant("i", 3),
+		active: new GLib.Variant("b", true),
 	});
-	print("Dictionary variant:", dict.print(true));
 
-	// Nested structure combining multiple types
-	const nested = new GLib.Variant("(sa{sv})", [
-		"test",
-		{
-			bool: new GLib.Variant("b", true),
-			number: new GLib.Variant("d", 3.14),
-			array: new GLib.Variant("ai", [1, 2, 3]),
-		},
-	]);
-	print("Nested variant:", nested.print(true));
+	// deepUnpack keeps Variant values for a{sv} (so you can inspect types)
+	const deep = vDict.deepUnpack(); // { [k: string]: GLib.Variant }
+	print(
+		`deepUnpack(): name=${deep.name.deepUnpack()}, lives=${deep.lives.deepUnpack()}, active=${deep.active.deepUnpack()}`,
+	);
+
+	// recursiveUnpack converts everything to plain JS values
+	const recursive = vDict.recursiveUnpack(); // { name: string, lives: number, active: boolean }
+	print(`recursiveUnpack(): ${JSON.stringify(recursive)}`);
 }
 
-/**
- * Demonstrates variant unpacking methods
- */
-function testVariantUnpacking() {
-	print("\n=== Variant Unpacking Tests ===");
+function signaturesAndInference(): void {
+	print("\n=== Signatures & Type inference ===");
 
-	// Simple unpack
-	const boolVariant = new GLib.Variant("b", true);
-	const boolValue = boolVariant.unpack<boolean>();
-	print("Unpacked boolean:", boolValue);
+	// Types are inferred from the signature literal
+	const numbers = new GLib.Variant("ai", [1, 2, 3]);
+	const numbersDeep = numbers.deepUnpack(); // number[]
+	const first: number | undefined = numbersDeep[0];
+	print(`numbers: ${JSON.stringify(numbersDeep)}, first=${first}`);
 
-	// Deep unpack for arrays
-	const arrayVariant = new GLib.Variant("as", ["one", "two"]);
-	const arrayValue = arrayVariant.deepUnpack<string[]>();
-	print("Deep unpacked array:", JSON.stringify(arrayValue));
+	// Tuple with nested array: (sai) → [string, number[]]
+	const nested = new GLib.Variant("(sai)", ["items", [1, 2, 3]]);
+	const nestedDeep = nested.deepUnpack(); // [string, number[]]
+	print(`nested tuple: [${nestedDeep[0]}, [${nestedDeep[1].join(", ")}]]`);
+}
 
-	// Recursive unpack for complex structures
-	const complexVariant = new GLib.Variant("a{sv}", {
-		key1: new GLib.Variant("s", "string"),
-		key2: new GLib.Variant("b", true),
+function main(): void {
+	print("GLib.Variant — typed GJS examples\n");
+
+	basicValues();
+	tuples();
+	arrays();
+	dictionaries();
+	signaturesAndInference();
+
+	// Keep the example short-lived in CI and local runs
+	const loop = GLib.MainLoop.new(null, false);
+	GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, () => {
+		print("\nDone.");
+		loop.quit();
+		return GLib.SOURCE_REMOVE;
 	});
-	const complexValue = complexVariant.recursiveUnpack();
-	print("Recursively unpacked structure:", JSON.stringify(complexValue, null, 2));
+	loop.run();
 }
 
-// Main execution
-print("Starting GLib.Variant tests...");
-
-// Run all test categories
-testBasicVariants();
-testDBusVariants();
-testComplexVariants();
-testVariantUnpacking();
-
-// Create main loop and exit timer
-const loop = GLib.MainLoop.new(null, false);
-GLib.timeout_add(GLib.PRIORITY_DEFAULT, 2000, () => {
-	print("\nTests completed, exiting...");
-	loop.quit();
-	return GLib.SOURCE_REMOVE;
-});
-
-// Run main loop
-loop.run();
+main();

@@ -167,34 +167,36 @@ export default {
 
 			Variant.constructors.unshift(VariantConstructor.copy(), internalConstructor);
 
-			const unpackedReturnType = new GenericType("T");
+			const genericAnyReturnType = new GenericType("T", new NativeType("any"));
 			// unpack<T= any>(): T;
 			const unpack = new IntrospectedClassFunction({
 				name: "unpack",
-				return_type: unpackedReturnType,
+				return_type: genericAnyReturnType,
 				parent: Variant,
 			});
-			unpack.generics.push(new Generic(unpackedReturnType));
+			unpack.generics.push(new Generic(genericAnyReturnType));
 
 			// deepUnpack<T = any>(): T;
 			const deepUnpack = new IntrospectedClassFunction({
 				name: "deepUnpack",
-				return_type: unpackedReturnType,
+				return_type: genericAnyReturnType,
 				parent: Variant,
 			});
-			deepUnpack.generics.push(new Generic(unpackedReturnType));
+			deepUnpack.generics.push(new Generic(genericAnyReturnType));
+
+			const recursiveUnpack = new IntrospectedClassFunction({
+				name: "recursiveUnpack",
+				return_type: genericAnyReturnType,
+				parent: Variant,
+			});
+			recursiveUnpack.generics.push(new Generic(genericAnyReturnType));
 
 			Variant.members.push(
 				unpack,
 				deepUnpack,
 				// deep_unpack<T = any>(): T;
 				deepUnpack.copy({ name: "deep_unpack" }),
-				// recursiveUnpack: () => any;
-				new IntrospectedClassFunction({
-					name: "recursiveUnpack",
-					return_type: AnyType,
-					parent: Variant,
-				}),
+				recursiveUnpack,
 				// _init(sig: any, value: any): Variant;
 				new IntrospectedClassFunction({
 					name: "_init",

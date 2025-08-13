@@ -1,11 +1,10 @@
 ---
-description: 
-globs: 
+globs: **/*.gir
 alwaysApply: false
 ---
 # GIR XML Format Reference
 
-AI reference guide for understanding GObject Introspection (GIR) XML files used to generate TypeScript type definitions.
+Reference guide for understanding GObject Introspection (GIR) XML files used to generate TypeScript type definitions.
 
 Based on the GObject Introspection specification (https://gitlab.gnome.org/GNOME/gobject-introspection/-/raw/main/docs/gir-1.2.rnc) and implemented in `packages/parser`.
 

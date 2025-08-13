@@ -4,10 +4,6 @@
 
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import { APP_NAME, APP_USAGE } from "@ts-for-gir/lib";
-
-export const appName = APP_NAME;
-export const usage = APP_USAGE;
 
 /**
  * Default CLI flag and argument values
@@ -29,10 +25,7 @@ export const defaults = {
 	workspace: false,
 	onlyVersionPrefix: false,
 	noPrettyPrint: false,
-	// Disabled by default because advanced variants are complicated,
-	// it does impact performance (especially on older typescript versions)
-	// and we'd need to test it works with the updated bindings
-	noAdvancedVariants: true,
+	noAdvancedVariants: false,
 	package: false,
 	reporter: false,
 	reporterOutput: "ts-for-gir-report.json",
