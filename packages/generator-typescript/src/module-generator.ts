@@ -86,8 +86,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 	config: OptionsGeneration;
 	moduleTemplateProcessor: TemplateProcessor;
-	/** Output format for the generator */
-	private outputFormat: ModuleGeneratorFormat = ModuleGeneratorFormat.StringArray;
 
 	/**
 	 * @param _config The config to use without the override config
@@ -125,27 +123,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			girModule.transitiveDependencies,
 			this.config,
 		);
-	}
-
-	/**
-	 * Sets the output format for the generator
-	 */
-	setOutputFormat(format: ModuleGeneratorFormat): void {
-		this.outputFormat = format;
-	}
-
-	/**
-	 * Converts output based on the current format setting
-	 */
-	private formatOutput(output: string[]): string[] | string {
-		switch (this.outputFormat) {
-			case ModuleGeneratorFormat.String:
-			case ModuleGeneratorFormat.ModuleDeclaration:
-			case ModuleGeneratorFormat.Inline:
-				return output.join("\n");
-			default:
-				return output;
-		}
 	}
 
 	/**

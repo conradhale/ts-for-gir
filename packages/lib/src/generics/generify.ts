@@ -69,6 +69,6 @@ export function generify(registry: NSRegistry, inferGenerics: boolean): void {
 	applyDefinitions(OPTIONAL_DEFINITIONS, processOptionalDefinition);
 
 	// Register visitor for runtime transformations
-	const visitor = new GenericVisitor(registry, inferGenerics);
+	const visitor = new GenericVisitor(inferGenerics);
 	registry.registerTransformation(visitor);
 }
