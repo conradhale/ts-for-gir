@@ -894,6 +894,7 @@ export class Variant<S extends string = any> {
      */
     unpack(): $ParseShallowVariant<S>;
     unpack<T>(): T;
+    unpack(): $ParseShallowVariant<S>; // Duplicate overload ensures optimal type inference for ReturnType<...>
     
     /**
      * Recursively unpacks the variant's data into JavaScript values.
@@ -992,6 +993,7 @@ export class Variant<S extends string = any> {
      */
     recursiveUnpack(): $ParseRecursiveVariant<S>;
     recursiveUnpack<T>(): T;
+    recursiveUnpack(): $ParseRecursiveVariant<S>; // Duplicate overload ensures optimal type inference for ReturnType<...>
 }
 
 /**
