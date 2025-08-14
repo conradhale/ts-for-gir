@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir-example/soup-3-http-example",
-	"version": "4.0.0-beta.25",
+	"version": "4.0.0-beta.26",
 	"description": "Simple GJS Soup 3 HTTP client/server example app",
 	"main": "index.js",
 	"type": "module",
