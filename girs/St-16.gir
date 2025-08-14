@@ -2459,12 +2459,12 @@ applications to set further properties.
       <constructor name="new" c:identifier="st_entry_new">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1094">Create a new #StEntry with the specified text.</doc>
+             line="1108">Create a new #StEntry with the specified text.</doc>
         <source-position filename="src/st/st-entry.h" line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-entry.c"
-               line="1100">a new #StEntry</doc>
+               line="1114">a new #StEntry</doc>
           <type name="Widget" c:type="StWidget*"/>
         </return-value>
         <parameters>
@@ -2474,7 +2474,7 @@ applications to set further properties.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1096">text to set the entry to</doc>
+                 line="1110">text to set the entry to</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2484,7 +2484,7 @@ applications to set further properties.
                 introspectable="0">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="771">This function is for private use by libgnome-shell.
+             line="782">This function is for private use by libgnome-shell.
 Do not ever use.</doc>
         <source-position filename="src/st/st-entry.h" line="73"/>
         <return-value transfer-ownership="none">
@@ -2529,19 +2529,19 @@ Do not ever use.</doc>
               glib:get-property="clutter-text">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1160">Retrieve the internal #ClutterText so that extra parameters can be set.</doc>
+             line="1174">Retrieve the internal #ClutterText so that extra parameters can be set.</doc>
         <source-position filename="src/st/st-entry.h" line="46"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-entry.c"
-               line="1166">the #ClutterText used by @entry</doc>
+               line="1180">the #ClutterText used by @entry</doc>
           <type name="Clutter.Text" c:type="ClutterText*"/>
         </return-value>
         <parameters>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1162">a #StEntry</doc>
+                 line="1176">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
         </parameters>
@@ -2551,19 +2551,19 @@ Do not ever use.</doc>
               glib:get-property="hint-actor">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1496">Get the value of the #StEntry:hint-actor property.</doc>
+             line="1512">Get the value of the #StEntry:hint-actor property.</doc>
         <source-position filename="src/st/st-entry.h" line="70"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/st/st-entry.c"
-               line="1502">a #ClutterActor</doc>
+               line="1518">a #ClutterActor</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1498">a #StEntry</doc>
+                 line="1514">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
         </parameters>
@@ -2573,7 +2573,7 @@ Do not ever use.</doc>
               glib:get-property="hint-text">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1204">Gets the text that is displayed when the entry is empty and unfocused or
+             line="1218">Gets the text that is displayed when the entry is empty and unfocused or
 %NULL if the #StEntry:hint-actor was set to an actor that is not a #StLabel.
 
 Unlike st_entry_get_text() this function may return %NULL if
@@ -2582,14 +2582,14 @@ Unlike st_entry_get_text() this function may return %NULL if
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/st/st-entry.c"
-               line="1214">the current value of the hint property</doc>
+               line="1228">the current value of the hint property</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1206">a #StEntry</doc>
+                 line="1220">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
         </parameters>
@@ -2599,12 +2599,12 @@ Unlike st_entry_get_text() this function may return %NULL if
               glib:get-property="input-hints">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1307">Gets the value of the #StEntry:input-hints property.</doc>
+             line="1321">Gets the value of the #StEntry:input-hints property.</doc>
         <source-position filename="src/st/st-entry.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-entry.c"
-               line="1313">the input hints for the entry</doc>
+               line="1327">the input hints for the entry</doc>
           <type name="Clutter.InputContentHintFlags"
                 c:type="ClutterInputContentHintFlags"/>
         </return-value>
@@ -2612,7 +2612,7 @@ Unlike st_entry_get_text() this function may return %NULL if
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1309">a #StEntry</doc>
+                 line="1323">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
         </parameters>
@@ -2622,12 +2622,12 @@ Unlike st_entry_get_text() this function may return %NULL if
               glib:get-property="input-purpose">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1260">Gets the value of the #StEntry:input-purpose property.</doc>
+             line="1274">Gets the value of the #StEntry:input-purpose property.</doc>
         <source-position filename="src/st/st-entry.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-entry.c"
-               line="1266">the input purpose of the entry</doc>
+               line="1280">the input purpose of the entry</doc>
           <type name="Clutter.InputContentPurpose"
                 c:type="ClutterInputContentPurpose"/>
         </return-value>
@@ -2635,7 +2635,7 @@ Unlike st_entry_get_text() this function may return %NULL if
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1262">a #StEntry</doc>
+                 line="1276">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
         </parameters>
@@ -2645,19 +2645,19 @@ Unlike st_entry_get_text() this function may return %NULL if
               glib:get-property="primary-icon">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1396">Get the value of the #StEntry:primary-icon property.</doc>
+             line="1410">Get the value of the #StEntry:primary-icon property.</doc>
         <source-position filename="src/st/st-entry.h" line="62"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/st/st-entry.c"
-               line="1402">a #ClutterActor</doc>
+               line="1416">a #ClutterActor</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1398">a #StEntry</doc>
+                 line="1412">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
         </parameters>
@@ -2667,19 +2667,19 @@ Unlike st_entry_get_text() this function may return %NULL if
               glib:get-property="secondary-icon">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1439">Get the value of the #StEntry:secondary-icon property.</doc>
+             line="1453">Get the value of the #StEntry:secondary-icon property.</doc>
         <source-position filename="src/st/st-entry.h" line="66"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/st/st-entry.c"
-               line="1445">a #ClutterActor</doc>
+               line="1459">a #ClutterActor</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1441">a #StEntry</doc>
+                 line="1455">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
         </parameters>
@@ -2689,20 +2689,20 @@ Unlike st_entry_get_text() this function may return %NULL if
               glib:get-property="text">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1115">Get the text displayed on the entry. If @entry is empty, an empty string will
+             line="1129">Get the text displayed on the entry. If @entry is empty, an empty string will
 be returned instead of %NULL.</doc>
         <source-position filename="src/st/st-entry.h" line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-entry.c"
-               line="1122">the text for the entry</doc>
+               line="1136">the text for the entry</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1117">a #StEntry</doc>
+                 line="1131">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
         </parameters>
@@ -2712,7 +2712,7 @@ be returned instead of %NULL.</doc>
               glib:set-property="hint-actor">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1458">Set the hint actor of the entry to @hint_actor.</doc>
+             line="1472">Set the hint actor of the entry to @hint_actor.</doc>
         <source-position filename="src/st/st-entry.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2721,7 +2721,7 @@ be returned instead of %NULL.</doc>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1460">a #StEntry</doc>
+                 line="1474">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
           <parameter name="hint_actor"
@@ -2730,7 +2730,7 @@ be returned instead of %NULL.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1461">a #ClutterActor</doc>
+                 line="1475">a #ClutterActor</doc>
             <type name="Clutter.Actor" c:type="ClutterActor*"/>
           </parameter>
         </parameters>
@@ -2740,7 +2740,7 @@ be returned instead of %NULL.</doc>
               glib:set-property="hint-text">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1180">Sets the text to display when the entry is empty and unfocused. When the
+             line="1194">Sets the text to display when the entry is empty and unfocused. When the
 entry is displaying the hint, it has a pseudo class of `indeterminate`.
 A value of %NULL unsets the hint.</doc>
         <source-position filename="src/st/st-entry.h" line="48"/>
@@ -2751,7 +2751,7 @@ A value of %NULL unsets the hint.</doc>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1182">a #StEntry</doc>
+                 line="1196">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
           <parameter name="text"
@@ -2760,7 +2760,7 @@ A value of %NULL unsets the hint.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1183">text to set as the entry hint</doc>
+                 line="1197">text to set as the entry hint</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2770,7 +2770,7 @@ A value of %NULL unsets the hint.</doc>
               glib:set-property="input-hints">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1279">Sets the #StEntry:input-hints property, which
+             line="1293">Sets the #StEntry:input-hints property, which
 allows input methods to fine-tune their behaviour.</doc>
         <source-position filename="src/st/st-entry.h" line="54"/>
         <return-value transfer-ownership="none">
@@ -2780,13 +2780,13 @@ allows input methods to fine-tune their behaviour.</doc>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1281">a #StEntry</doc>
+                 line="1295">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
           <parameter name="hints" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1282">the hints</doc>
+                 line="1296">the hints</doc>
             <type name="Clutter.InputContentHintFlags"
                   c:type="ClutterInputContentHintFlags"/>
           </parameter>
@@ -2797,7 +2797,7 @@ allows input methods to fine-tune their behaviour.</doc>
               glib:set-property="input-purpose">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1231">Sets the #StEntry:input-purpose property which
+             line="1245">Sets the #StEntry:input-purpose property which
 can be used by on-screen keyboards and other input
 methods to adjust their behaviour.</doc>
         <source-position filename="src/st/st-entry.h" line="52"/>
@@ -2808,13 +2808,13 @@ methods to adjust their behaviour.</doc>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1233">a #StEntry</doc>
+                 line="1247">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
           <parameter name="purpose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1234">the purpose</doc>
+                 line="1248">the purpose</doc>
             <type name="Clutter.InputContentPurpose"
                   c:type="ClutterInputContentPurpose"/>
           </parameter>
@@ -2825,7 +2825,7 @@ methods to adjust their behaviour.</doc>
               glib:set-property="primary-icon">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1372">Set the primary icon of the entry to @icon.</doc>
+             line="1386">Set the primary icon of the entry to @icon.</doc>
         <source-position filename="src/st/st-entry.h" line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2834,7 +2834,7 @@ methods to adjust their behaviour.</doc>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1374">a #StEntry</doc>
+                 line="1388">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
           <parameter name="icon"
@@ -2843,7 +2843,7 @@ methods to adjust their behaviour.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1375">a #ClutterActor</doc>
+                 line="1389">a #ClutterActor</doc>
             <type name="Clutter.Actor" c:type="ClutterActor*"/>
           </parameter>
         </parameters>
@@ -2853,7 +2853,7 @@ methods to adjust their behaviour.</doc>
               glib:set-property="secondary-icon">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1415">Set the secondary icon of the entry to @icon.</doc>
+             line="1429">Set the secondary icon of the entry to @icon.</doc>
         <source-position filename="src/st/st-entry.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2862,7 +2862,7 @@ methods to adjust their behaviour.</doc>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1417">a #StEntry</doc>
+                 line="1431">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
           <parameter name="icon"
@@ -2871,7 +2871,7 @@ methods to adjust their behaviour.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1418">an #ClutterActor</doc>
+                 line="1432">an #ClutterActor</doc>
             <type name="Clutter.Actor" c:type="ClutterActor*"/>
           </parameter>
         </parameters>
@@ -2881,7 +2881,7 @@ methods to adjust their behaviour.</doc>
               glib:set-property="text">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1136">Sets the text displayed on the entry. If @text is %NULL, the #ClutterText
+             line="1150">Sets the text displayed on the entry. If @text is %NULL, the #ClutterText
 will instead be set to an empty string.</doc>
         <source-position filename="src/st/st-entry.h" line="44"/>
         <return-value transfer-ownership="none">
@@ -2891,7 +2891,7 @@ will instead be set to an empty string.</doc>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1138">a #StEntry</doc>
+                 line="1152">a #StEntry</doc>
             <type name="Entry" c:type="StEntry*"/>
           </instance-parameter>
           <parameter name="text"
@@ -2900,7 +2900,7 @@ will instead be set to an empty string.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-entry.c"
-                 line="1139">text to set the entry to</doc>
+                 line="1153">text to set the entry to</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2910,7 +2910,7 @@ will instead be set to an empty string.</doc>
                 getter="get_clutter_text">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="912">The internal #ClutterText actor supporting the #StEntry.</doc>
+             line="923">The internal #ClutterText actor supporting the #StEntry.</doc>
         <type name="Clutter.Text"/>
       </property>
       <property name="hint-actor"
@@ -2920,7 +2920,7 @@ will instead be set to an empty string.</doc>
                 getter="get_hint_actor">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="953">A #ClutterActor to display when the entry is empty and unfocused. Setting
+             line="964">A #ClutterActor to display when the entry is empty and unfocused. Setting
 this will replace the actor displaying #StEntry:hint-text.</doc>
         <type name="Clutter.Actor"/>
       </property>
@@ -2932,7 +2932,7 @@ this will replace the actor displaying #StEntry:hint-text.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="942">The text to display when the entry is empty and unfocused. Setting this
+             line="953">The text to display when the entry is empty and unfocused. Setting this
 will replace the actor of #StEntry::hint-actor.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -2944,7 +2944,7 @@ will replace the actor of #StEntry::hint-actor.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="986">The #ClutterInputContentHintFlags providing additional hints (beyond
+             line="997">The #ClutterInputContentHintFlags providing additional hints (beyond
 #StEntry:input-purpose) that allow input methods to fine-tune their
 behaviour.</doc>
         <type name="Clutter.InputContentHintFlags"/>
@@ -2957,7 +2957,7 @@ behaviour.</doc>
                 default-value="CLUTTER_INPUT_CONTENT_PURPOSE_NORMAL">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="974">The #ClutterInputContentPurpose that helps on-screen keyboards and similar
+             line="985">The #ClutterInputContentPurpose that helps on-screen keyboards and similar
 input methods to decide which keys should be presented to the user.</doc>
         <type name="Clutter.InputContentPurpose"/>
       </property>
@@ -2968,7 +2968,7 @@ input methods to decide which keys should be presented to the user.</doc>
                 getter="get_primary_icon">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="922">The #ClutterActor acting as the primary icon at the start of the #StEntry.</doc>
+             line="933">The #ClutterActor acting as the primary icon at the start of the #StEntry.</doc>
         <type name="Clutter.Actor"/>
       </property>
       <property name="secondary-icon"
@@ -2978,7 +2978,7 @@ input methods to decide which keys should be presented to the user.</doc>
                 getter="get_secondary_icon">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="932">The #ClutterActor acting as the secondary icon at the end of the #StEntry.</doc>
+             line="943">The #ClutterActor acting as the secondary icon at the end of the #StEntry.</doc>
         <type name="Clutter.Actor"/>
       </property>
       <property name="text"
@@ -2989,7 +2989,7 @@ input methods to decide which keys should be presented to the user.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="964">The current text value of the #StEntry.</doc>
+             line="975">The current text value of the #StEntry.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent_instance">
@@ -2998,7 +2998,7 @@ input methods to decide which keys should be presented to the user.</doc>
       <glib:signal name="primary-icon-clicked" when="last">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1002">Emitted when the primary icon is clicked.</doc>
+             line="1013">Emitted when the primary icon is clicked.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3006,7 +3006,7 @@ input methods to decide which keys should be presented to the user.</doc>
       <glib:signal name="secondary-icon-clicked" when="last">
         <doc xml:space="preserve"
              filename="src/st/st-entry.c"
-             line="1016">Emitted when the secondary icon is clicked.</doc>
+             line="1027">Emitted when the secondary icon is clicked.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
