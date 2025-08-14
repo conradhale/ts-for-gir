@@ -14,7 +14,7 @@
 		"build:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run build",
 		"build:types": "yarn ts-for-gir generate --configName='.ts-for-gir.packages-all.rc.js' && yarn install",
 		"build": "yarn build:examples && yarn build:types",
-		"copy:girs": "yarn start copy --configName='.ts-for-gir.copy-all.rc.js' --verbose",
+		"copy:girs": "yarn ts-for-gir copy --configName='.ts-for-gir.copy-all.rc.js' --verbose",
 		"check:lint": "biome check .",
 		"check:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run check",
 		"check:types": "yarn workspaces foreach -v --all --parallel --include '@girs/*' run test",
