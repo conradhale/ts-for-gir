@@ -6,6 +6,9 @@ await build({
 	bundle: true,
 	platform: "node",
 	format: "esm",
+	banner: {
+		js: "#!/usr/bin/env node",
+	},
 	external: [
 		"@ts-for-gir/templates",
 		"@inquirer/prompts",
