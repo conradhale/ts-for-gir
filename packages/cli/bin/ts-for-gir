@@ -19971,18 +19971,19 @@ var handler6 = async (args) => {
   const generateConfig = getOptionsGeneration(config);
   const registry = new NSRegistry();
   const moduleLoader = new ModuleLoader(generateConfig, registry);
-  logger8.info(`Searching for modules: ${JSON.stringify(config.modules)}`);
-  logger8.info(`GIR directories: ${JSON.stringify(config.girDirectories)}`);
   const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore);
   const moduleGroups = Object.values(grouped);
-  logger8.info(`Found ${moduleGroups.length} module groups`);
   if (Object.keys(grouped).length === 0) {
     return logger8.error(ERROR_NO_MODULES_FOUND(config.girDirectories));
   }
   const conflictModules = moduleGroups.filter((moduleGroup) => moduleGroup.hasConflict);
   const allModules = moduleGroups.filter((moduleGroup) => !moduleGroup.hasConflict);
-  const byHandModules = allModules.filter((moduleGroup) => moduleGroup.modules[0].resolvedBy === 1 /* BY_HAND */);
-  const depModules = allModules.filter((moduleGroup) => moduleGroup.modules[0].resolvedBy === 0 /* DEPENDENCE */);
+  const byHandModules = allModules.filter(
+    (moduleGroup) => moduleGroup.modules.length > 0 && moduleGroup.modules[0].resolvedBy === 1 /* BY_HAND */
+  );
+  const depModules = allModules.filter(
+    (moduleGroup) => moduleGroup.modules.length > 0 && moduleGroup.modules[0].resolvedBy === 0 /* DEPENDENCE */
+  );
   logger8.info("\nSearch for gir files in:");
   for (const dir of config.girDirectories) {
     logger8.white(`- ${dir}`);

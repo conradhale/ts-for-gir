@@ -26,13 +26,27 @@ export class FileFinder {
 				continue;
 			}
 
-			const filename = `${globPackageNames[i]}.gir`;
-			const pattern = this.girDirectories.map((girDirectory) => join(girDirectory, filename));
-			const ignoreGirs = ignore.map((girDirectory) => `${girDirectory}.gir`);
-			const files = await glob(pattern, { ignore: ignoreGirs });
+			// Handle wildcard patterns
+			if (globPackageNames[i] === "*") {
+				// Special case: find all .gir files
+				for (const girDirectory of this.girDirectories) {
+					const pattern = join(girDirectory, "*.gir");
+					const ignoreGirs = ignore.map((ignored) => join(girDirectory, `${ignored}.gir`));
+					const files = await glob(pattern, { ignore: ignoreGirs });
+					for (const file of files) {
+						foundFiles.add(file);
+					}
+				}
+			} else {
+				// Handle specific module names or patterns like "Gtk*"
+				const filename = `${globPackageNames[i]}.gir`;
+				const pattern = this.girDirectories.map((girDirectory) => join(girDirectory, filename));
+				const ignoreGirs = ignore.map((girDirectory) => `${girDirectory}.gir`);
+				const files = await glob(pattern, { ignore: ignoreGirs });
 
-			for (const file of files) {
-				foundFiles.add(file);
+				for (const file of files) {
+					foundFiles.add(file);
+				}
 			}
 		}
 
