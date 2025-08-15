@@ -17252,7 +17252,9 @@ var FileFinder = class {
       }
       const filename = `${globPackageNames[i]}.gir`;
       const pattern = this.girDirectories.map((girDirectory) => join7(girDirectory, filename));
-      const ignoreGirs = ignore.map((girDirectory) => `${girDirectory}.gir`);
+      const ignoreGirs = this.girDirectories.flatMap(
+        (girDirectory) => ignore.map((ignored) => join7(girDirectory, `${ignored}.gir`))
+      );
       const files = await glob2(pattern, { ignore: ignoreGirs });
       for (const file of files) {
         foundFiles.add(file);
@@ -17525,7 +17527,7 @@ var ModuleLoader = class {
    */
   async loadGirModules(dependencies, ignoreDependencies = [], girModules = [], resolvedBy = 1 /* BY_HAND */, failedGirModules = /* @__PURE__ */ new Set()) {
     let newModuleFound = false;
-    dependencies = [...dependencies];
+    dependencies = [...dependencies].filter((dep) => !ignoreDependencies.includes(dep.packageName));
     while (dependencies.length > 0) {
       const dependency = dependencies.shift();
       if (!dependency?.packageName) continue;
@@ -17635,7 +17637,7 @@ var ModuleLoader = class {
 // src/commands/copy.ts
 var command2 = "copy [modules..]";
 var description2 = "Scan for *.gir files and copy them to a new directory";
-var logger3 = new Logger(false, "CopyCommand");
+var logger3 = new Logger(true, "CopyCommand");
 var examples2 = [
   [`${APP_NAME} copy -o ./gir`, "Copy found *.gir files to ./gir"],
   [
@@ -19198,9 +19200,10 @@ ${girClass.__ts__indexSignature}
       if (Type) {
         return ` extends ${Type}`;
       }
-      throw new Error(
+      this.log.warn(
         `Unable to resolve type: ${node.superType.name} from ${node.superType.namespace} in ${node.namespace.namespace} ${node.namespace.version}, falling back to GObject.Object`
       );
+      return ` extends GObject.Object`;
     }
     return "";
   }
@@ -19773,7 +19776,7 @@ var GenerationHandler = class {
 // src/commands/doc.ts
 var command3 = "doc [modules..]";
 var description3 = "The HTML documentation generator is not yet implemented, but feel free to implement it \u{1F917}";
-var logger4 = new Logger(false, "DocCommand");
+var logger4 = new Logger(true, "DocCommand");
 var builder3 = (yargs2) => {
   const optionNames = Object.keys(docOptions);
   for (const optionName of optionNames) {
@@ -19833,7 +19836,7 @@ var TypeScriptFormatter = class extends Formatter {
 // src/commands/generate.ts
 var command4 = "generate [modules..]";
 var description4 = "Generates Typescript type definition .d.ts files from GIR for GJS";
-var logger6 = new Logger(false, "GenerateCommand");
+var logger6 = new Logger(true, "GenerateCommand");
 var examples4 = [
   [
     `${APP_NAME} generate`,
@@ -19880,7 +19883,7 @@ var handler4 = async (args) => {
           "Generation failed"
         );
       }
-      await service.printComprehensiveSummary();
+      service.printComprehensiveSummary();
       await service.saveComprehensiveReport();
     }
     throw error;
@@ -19897,7 +19900,7 @@ var generate = {
 // src/commands/json.ts
 var command5 = "json [modules..]";
 var description5 = "Generates JSON representation from GIR files for analysis and tooling";
-var logger7 = new Logger(false, "JsonCommand");
+var logger7 = new Logger(true, "JsonCommand");
 var examples5 = [
   [`${APP_NAME} json`, `Run '${APP_NAME} json' in your gjs project to generate JSON files for your project`],
   [`${APP_NAME} json Gtk*`, "You can also use wild cards"],
@@ -19957,7 +19960,7 @@ var json = {
 // src/commands/list.ts
 var command6 = "list [modules..]";
 var description6 = "Lists all available GIR modules";
-var logger8 = new Logger(false, "ListCommand");
+var logger8 = new Logger(true, "ListCommand");
 var examples6 = [
   [`${APP_NAME} list -g ./vala-girs/gir-1.0`, "Lists all available GIR modules in ./vala-girs/gir-1.0"],
   [
@@ -19978,40 +19981,15 @@ var handler6 = async (args) => {
   }
   const conflictModules = moduleGroups.filter((moduleGroup) => moduleGroup.hasConflict);
   const allModules = moduleGroups.filter((moduleGroup) => !moduleGroup.hasConflict);
-  const byHandModules = allModules.filter(
-    (moduleGroup) => moduleGroup.modules.length > 0 && moduleGroup.modules[0].resolvedBy === 1 /* BY_HAND */
-  );
-  const depModules = allModules.filter(
-    (moduleGroup) => moduleGroup.modules.length > 0 && moduleGroup.modules[0].resolvedBy === 0 /* DEPENDENCE */
-  );
   logger8.info("\nSearch for gir files in:");
   for (const dir of config.girDirectories) {
     logger8.white(`- ${dir}`);
   }
-  if (config.modules.length === 0 || config.modules.length === 1 && config.modules[0] === "*") {
-    logger8.info("\nAvailable Modules:");
-    for (const moduleGroup of allModules) {
-      for (const module of moduleGroup.modules) {
-        logger8.white(`- ${module.packageName}`);
-        logger8.gray(`  - ${module.path}`);
-      }
-    }
-  } else {
-    logger8.info("\nSelected Modules:");
-    for (const moduleGroup of byHandModules) {
-      for (const module of moduleGroup.modules) {
-        logger8.white(`- ${module.packageName}`);
-        logger8.gray(`  - ${module.path}`);
-      }
-    }
-  }
-  if (depModules.length > 0) {
-    logger8.yellow("\nDependencies:");
-    for (const moduleGroup of depModules) {
-      for (const depModule of moduleGroup.modules) {
-        logger8.white(`- ${depModule.packageName}`);
-        logger8.gray(`- ${depModule.path}`);
-      }
+  logger8.info("\nAvailable Modules:");
+  for (const moduleGroup of allModules) {
+    for (const module of moduleGroup.modules) {
+      logger8.white(`- ${module.packageName}`);
+      logger8.gray(`  - ${module.path}`);
     }
   }
   if (conflictModules.length > 0) {

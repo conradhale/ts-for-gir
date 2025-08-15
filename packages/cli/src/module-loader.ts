@@ -150,8 +150,15 @@ export class ModuleLoader {
 	): Promise<{ loaded: GirModuleResolvedBy[]; failed: Set<string> }> {
 		let newModuleFound = false;
 
-		// Clone array
-		dependencies = [...dependencies];
+		// Clone array and filter out ignored dependencies
+		dependencies = [...dependencies].filter((dep) => {
+			const packageName = dep.packageName;
+			return !ignoreDependencies.some((ignored) => {
+				// Remove */ prefix if present (e.g., "*/Gtk-4.0" -> "Gtk-4.0")
+				const cleanIgnored = ignored.startsWith("*/") ? ignored.slice(2) : ignored;
+				return packageName === cleanIgnored;
+			});
+		});
 
 		while (dependencies.length > 0) {
 			const dependency = dependencies.shift();

@@ -93,7 +93,7 @@ const handler = async (args: ConfigFlags) => {
 			}
 
 			// Generate and save the report
-			await service.printComprehensiveSummary();
+			service.printComprehensiveSummary();
 			await service.saveComprehensiveReport();
 		}
 
