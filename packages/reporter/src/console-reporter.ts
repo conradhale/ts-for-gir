@@ -5,7 +5,7 @@
 
 import { writeFile } from "node:fs/promises";
 import { blue, gray, green, red, yellow, yellowBright } from "colorette";
-import { REPORTER_VERSION } from "./constants.ts";
+import { PACKAGE_VERSION } from "./constants.ts";
 import { analyzeError, analyzeWarning } from "./message-analyzer.ts";
 import { ReporterBase } from "./reporter-base.ts";
 import type { GenerationReport, ProblemEntry, ReporterConfig, ReportStatistics } from "./types/index.ts";
@@ -416,7 +416,7 @@ export class ConsoleReporter extends ReporterBase {
 
 		return {
 			metadata: {
-				version: REPORTER_VERSION,
+				version: PACKAGE_VERSION,
 				generatedAt: new Date(),
 			},
 			statistics,

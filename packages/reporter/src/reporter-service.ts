@@ -6,7 +6,7 @@
 import { writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { blue, green, red, yellow } from "colorette";
-import { REPORTER_VERSION } from "./constants.ts";
+import { PACKAGE_VERSION } from "./constants.ts";
 import type { ReporterBase } from "./reporter-base.ts";
 import type { GenerationReport, ProblemEntry, ReportStatistics } from "./types/index.ts";
 import { ProblemCategory, ProblemSeverity } from "./types/index.ts";
@@ -323,7 +323,7 @@ export class ReporterService {
 
 		return {
 			metadata: {
-				version: REPORTER_VERSION,
+				version: PACKAGE_VERSION,
 				generatedAt: new Date(),
 			},
 			statistics,
