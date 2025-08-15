@@ -1,6 +1,5 @@
 {
   "name": "@ts-for-gir-test/language-server-validation",
-  "version": "0.1.0",
   "description": "Tests for TypeScript Language Server validation of generated GIR types",
   "type": "module",
   "private": true,
@@ -9,7 +8,7 @@
     "test": "yarn generate && vitest run --no-isolate",
     "test:watch": "yarn generate && vitest --no-isolate",
     "test:dev": "vitest --no-isolate",
-    "generate": "ts-for-gir generate Adw-1 --girDirectories ../../girs"
+    "generate": "ts-for-gir-dev generate Adw-1 --girDirectories ../../girs"
   },
   "keywords": [
     "typescript",
@@ -18,7 +17,7 @@
     "testing",
     "validation"
   ],
-  "author": "ts-for-gir contributors",
+  "author": "Pascal Garber <pascal@mailfreun.de>",
   "license": "MIT",
   "engines": {
     "node": ">=22"
