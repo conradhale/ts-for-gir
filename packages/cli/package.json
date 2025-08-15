@@ -1,9 +1,8 @@
 {
 	"name": "@ts-for-gir/cli",
-	"version": "4.0.0-beta.27",
+	"version": "4.0.0-beta.28",
 	"description": "TypeScript type definition generator for GObject introspection GIR files",
-	"main": "src/index.ts",
-	"module": "src/index.ts",
+	"main": "bin/ts-for-gir-dev.js",
 	"type": "module",
 	"bin": {
 		"ts-for-gir": "bin/ts-for-gir.js",
@@ -15,7 +14,7 @@
 	"scripts": {
 		"start": "node bin/ts-for-gir-dev.js",
 		"start:prod": "node bin/ts-for-gir.js",
-		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
+		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts && chmod +x bin/ts-for-gir-dev.js && chmod +x bin/ts-for-gir.js",
 		"check:types": "tsc --noEmit",
 		"check:deps": "dpdm -T src/index.ts",
 		"check": "yarn check:types && yarn check:deps"
@@ -26,7 +25,8 @@
 	},
 	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"files": [
-		"src"
+		"src",
+		"bin"
 	],
 	"license": "Apache-2.0",
 	"bugs": {
