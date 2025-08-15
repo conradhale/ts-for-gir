@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/language-server",
-	"version": "0.1.0",
+	"version": "4.0.0-beta.33",
 	"description": "TypeScript Language Server utilities for validating generated GIR type definitions",
 	"type": "module",
 	"main": "src/index.ts",
@@ -15,7 +15,7 @@
 		"introspection",
 		"validation"
 	],
-	"author": "ts-for-gir contributors",
+	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "MIT",
 	"engines": {
 		"node": ">=22"

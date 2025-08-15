@@ -1,6 +1,5 @@
 {
 	"name": "@ts-for-gir-example/timers-example",
-	"version": "4.0.0-beta.26",
 	"description": "Simple GJS Gtk 4 example app to demonstrate how you can use .ui template XML files",
 	"type": "module",
 	"private": true,
@@ -10,7 +9,7 @@
 		"check": "tsc --noEmit",
 		"clear": "rm -rf dist @types"
 	},
-	"author": "Pascal Garber <pascal@artandcode.studio>",
+	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "MIT",
 	"devDependencies": {
 		"esbuild": "^0.25.9",

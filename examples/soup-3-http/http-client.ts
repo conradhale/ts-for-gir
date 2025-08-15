@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT OR LGPL-2.0-or-later
 // SPDX-FileCopyrightText: 2019 Sonny Piers <sonny@fastmail.net>
-// Copyright 2022 Pascal Garber <pascal@artandcode.studio>
+// Copyright 2022 Pascal Garber <pascal@mailfreun.de>
 
 // This is a simple example of a HTTP client in GJS using libsoup 3
 // https://developer.gnome.org/libsoup/stable/libsoup-client-howto.html

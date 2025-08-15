@@ -614,7 +614,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
 				});
 
 				// Find the index and replace
-				const bindPropertyFullIndex = GObject.members.findIndex((m) => m === bindPropertyFullWithClosures);
+				const bindPropertyFullIndex = GObject.members.indexOf(bindPropertyFullWithClosures);
 				GObject.members[bindPropertyFullIndex] = bindPropertyFullWithClosures.copy({
 					parameters: correctedParameters,
 				});

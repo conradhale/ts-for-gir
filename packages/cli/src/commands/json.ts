@@ -24,7 +24,7 @@ const command = "json [modules..]";
 
 const description = "Generates JSON representation from GIR files for analysis and tooling";
 
-const logger = new Logger(false, "JsonCommand");
+const logger = new Logger(true, "JsonCommand");
 
 const examples: ReadonlyArray<[string, string?]> = [
 	[`${APP_NAME} json`, `Run '${APP_NAME} json' in your gjs project to generate JSON files for your project`],

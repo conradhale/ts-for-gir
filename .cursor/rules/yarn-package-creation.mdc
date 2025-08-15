@@ -36,7 +36,7 @@ packages/[package-name]/
 ```json
 {
   "name": "@ts-for-gir/[package-name]",
-  "version": "4.0.0-beta.26",
+  "version": "4.0.0-beta.33",
   "description": "[Package description]",
   "main": "src/index.ts",
   "module": "src/index.ts",
@@ -54,7 +54,7 @@ packages/[package-name]/
     "type": "git",
     "url": "git+https://github.com/gjsify/ts-for-gir.git"
   },
-  "author": "Pascal Garber <pascal@artandcode.studio>",
+  "author": "Pascal Garber <pascal@mailfreun.de>",
   "files": ["src"],
   "license": "Apache-2.0",
   "bugs": {

@@ -1,18 +1,22 @@
 {
 	"name": "@ts-for-gir/cli",
-	"version": "4.0.0-beta.26",
+	"version": "4.0.0-beta.33",
 	"description": "TypeScript type definition generator for GObject introspection GIR files",
 	"main": "src/index.ts",
 	"module": "src/index.ts",
 	"type": "module",
 	"bin": {
-		"ts-for-gir": "bin/ts-for-gir.js"
+		"cli": "bin/ts-for-gir",
+		"ts-for-gir": "bin/ts-for-gir",
+		"ts-for-gir-dev": "bin/ts-for-gir-dev"
 	},
 	"engines": {
-		"node": ">=22.7.0"
+		"node": ">=18"
 	},
 	"scripts": {
-		"start": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings src/start.ts",
+		"start": "node bin/ts-for-gir-dev",
+		"start:prod": "node bin/ts-for-gir",
+		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts && chmod +x bin/ts-for-gir-dev && chmod +x bin/ts-for-gir",
 		"check:types": "tsc --noEmit",
 		"check:deps": "dpdm -T src/index.ts",
 		"check": "yarn check:types && yarn check:deps"
@@ -21,9 +25,10 @@
 		"type": "git",
 		"url": "git+https://github.com/gjsify/ts-for-gir.git"
 	},
-	"author": "Pascal Garber <pascal@artandcode.studio>",
+	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"files": [
-		"src"
+		"src",
+		"bin"
 	],
 	"license": "Apache-2.0",
 	"bugs": {
@@ -48,22 +53,23 @@
 		".": "./src/index.ts"
 	},
 	"devDependencies": {
-		"@types/ejs": "^3.1.5",
-		"@types/inquirer": "^9.0.9",
-		"@types/node": "^24.2.1",
-		"@types/yargs": "^17.0.33",
-		"dpdm": "^3.14.0",
-		"typescript": "^5.9.2"
-	},
-	"dependencies": {
 		"@gi.ts/parser": "workspace:^",
-		"@inquirer/prompts": "^7.8.2",
 		"@ts-for-gir/generator-base": "workspace:^",
 		"@ts-for-gir/generator-html-doc": "workspace:^",
 		"@ts-for-gir/generator-json": "workspace:^",
 		"@ts-for-gir/generator-typescript": "workspace:^",
 		"@ts-for-gir/lib": "workspace:^",
 		"@ts-for-gir/reporter": "workspace:^",
+		"@types/ejs": "^3.1.5",
+		"@types/inquirer": "^9.0.9",
+		"@types/node": "^24.2.1",
+		"@types/yargs": "^17.0.33",
+		"dpdm": "^3.14.0",
+		"esbuild": "^0.25.9",
+		"typescript": "^5.9.2"
+	},
+	"dependencies": {
+		"@inquirer/prompts": "^7.8.2",
 		"@ts-for-gir/templates": "workspace:^",
 		"colorette": "^2.0.20",
 		"cosmiconfig": "^9.0.0",

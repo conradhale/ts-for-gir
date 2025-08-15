@@ -61,7 +61,7 @@ TypeScript type definition generator for GObject Introspection (GIR) files. Gene
 - **`/types/*` (Git submodule)**: Official published types, may have cached/different results
 - **Custom output dirs**: Fresh generation, immediately reflects template/override changes
 - **Testing approach**: Use `--outdir=./test-types-*` for development and testing
-- **Template changes**: Require regeneration to take effect (`yarn ts-for-gir generate`)
+- **Template changes**: Require regeneration to take effect (`yarn ts-for-gir-dev generate`)
 
 ### Advanced Variants Feature
 - Controlled by `noAdvancedVariants: false` flag

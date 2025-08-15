@@ -15,7 +15,7 @@ const command = "copy [modules..]";
 
 const description = "Scan for *.gir files and copy them to a new directory";
 
-const logger = new Logger(false, "CopyCommand");
+const logger = new Logger(true, "CopyCommand");
 
 const examples: ReadonlyArray<[string, string?]> = [
 	[`${APP_NAME} copy -o ./gir`, "Copy found *.gir files to ./gir"],
