@@ -15,7 +15,7 @@
 		"introspection",
 		"validation"
 	],
-	"author": "ts-for-gir contributors",
+	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "MIT",
 	"engines": {
 		"node": ">=22"

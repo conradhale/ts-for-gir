@@ -1,6 +1,6 @@
 {
 	"name": "ts-for-gir",
-	"version": "4.0.0-beta.26",
+	"version": "4.0.0-beta.27",
 	"description": "Typescript .d.ts generator from GIR for gjs",
 	"type": "module",
 	"private": true,
@@ -9,13 +9,13 @@
 	},
 	"scripts": {
 		"clear": "yarn workspaces foreach -v --all --parallel run clear",
-		"start": "yarn ts-for-gir-dev",
+		"start": "ts-for-gir-dev",
 		"start:prod": "yarn ts-for-gir",
 		"format": "biome check . --write --unsafe",
 		"build:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run build",
-		"build:types": "yarn ts-for-gir-dev generate --configName='.ts-for-gir.packages-all.rc.js' && yarn install",
+		"build:types": "ts-for-gir-dev generate --configName='.ts-for-gir.packages-all.rc.js' && yarn install",
 		"build": "yarn build:examples && yarn build:types",
-		"copy:girs": "yarn ts-for-gir-dev copy --configName='.ts-for-gir.copy-all.rc.js' --verbose",
+		"copy:girs": "ts-for-gir-dev copy --configName='.ts-for-gir.copy-all.rc.js' --verbose",
 		"check:lint": "biome check .",
 		"check:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run check",
 		"check:types": "yarn workspaces foreach -v --all --parallel --include '@girs/*' run test",
@@ -37,7 +37,7 @@
 		"type": "git",
 		"url": "git+https://github.com/gjsify/ts-for-gir.git"
 	},
-	"author": "Pascal Garber <pascal@artandcode.studio>",
+	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "Apache-2.0",
 	"bugs": {
 		"url": "https://github.com/gjsify/ts-for-gir/issues"

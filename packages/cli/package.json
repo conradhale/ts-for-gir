@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/cli",
-	"version": "4.0.0-beta.26",
+	"version": "4.0.0-beta.27",
 	"description": "TypeScript type definition generator for GObject introspection GIR files",
 	"main": "src/index.ts",
 	"module": "src/index.ts",
@@ -24,7 +24,7 @@
 		"type": "git",
 		"url": "git+https://github.com/gjsify/ts-for-gir.git"
 	},
-	"author": "Pascal Garber <pascal@artandcode.studio>",
+	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"files": [
 		"src"
 	],
