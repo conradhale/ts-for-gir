@@ -3,7 +3,7 @@
  */
 
 import type { ConfigFlags } from "@ts-for-gir/lib";
-import { APP_NAME, ERROR_NO_MODULES_FOUND, Logger, NSRegistry, ResolveType } from "@ts-for-gir/lib";
+import { APP_NAME, ERROR_NO_MODULES_FOUND, Logger, NSRegistry } from "@ts-for-gir/lib";
 import { getOptionsGeneration, listOptions, load } from "../config.ts";
 import { ModuleLoader } from "../module-loader.ts";
 import type { ListCommandArgs } from "../types/index.ts";
