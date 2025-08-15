@@ -569,18 +569,26 @@ export class GirModule implements IGirModule {
 			throw new Error(`Missing namespace in ${packageName}`);
 		}
 
-		const importConflicts = (el: IntrospectedConstant | IntrospectedBaseClass | IntrospectedFunction) => {
+		const importConflicts = (
+			el: IntrospectedConstant | IntrospectedBaseClass | IntrospectedFunction | IntrospectedEnum | IntrospectedError,
+		) => {
 			return !this.hasImport(el.name);
 		};
 
 		if (ns.enumeration) {
 			// Get the requested enums
-			for (const enumeration of ns.enumeration) {
-				if (enumeration.$["glib:error-domain"]) {
-					this.members.set(enumeration.$.name, IntrospectedError.fromXML(enumeration as GirEnumElement, this, options));
-				} else {
-					this.members.set(enumeration.$.name, IntrospectedEnum.fromXML(enumeration as GirEnumElement, this, options));
-				}
+			const enumerations = ns.enumeration
+				?.map((enumeration) => {
+					if (enumeration.$["glib:error-domain"]) {
+						return IntrospectedError.fromXML(enumeration as GirEnumElement, this, options);
+					} else {
+						return IntrospectedEnum.fromXML(enumeration as GirEnumElement, this, options);
+					}
+				})
+				.filter(importConflicts);
+
+			for (const c of enumerations) {
+				this.members.set(c.name, c);
 			}
 		}
 
