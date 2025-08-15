@@ -5,6 +5,7 @@ await build({
 	outfile: "bin/ts-for-gir.js",
 	bundle: true,
 	platform: "node",
+	target: "node18",
 	format: "esm",
 	banner: {
 		js: "#!/usr/bin/env node",
