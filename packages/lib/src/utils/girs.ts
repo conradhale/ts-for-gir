@@ -71,7 +71,7 @@ export const isCommentLine = (line: string) => {
  */
 export const girBool = (boolStr: string | undefined, defaultVal = false): boolean => {
 	if (boolStr) {
-		if (parseInt(boolStr) === 0) return false;
+		if (parseInt(boolStr, 10) === 0) return false;
 		return true;
 	}
 	return defaultVal;

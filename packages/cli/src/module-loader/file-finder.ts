@@ -31,7 +31,9 @@ export class FileFinder {
 			const ignoreGirs = ignore.map((girDirectory) => `${girDirectory}.gir`);
 			const files = await glob(pattern, { ignore: ignoreGirs });
 
-			files.forEach((file) => foundFiles.add(file));
+			for (const file of files) {
+				foundFiles.add(file);
+			}
 		}
 
 		return foundFiles;

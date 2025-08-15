@@ -411,13 +411,17 @@ export class ReporterService {
 		// Key issues
 		if (summary.keyIssues.length > 0) {
 			console.log(`\n⚠️  Key Issues:`);
-			summary.keyIssues.forEach((issue) => console.log(`  • ${issue}`));
+			for (const issue of summary.keyIssues) {
+				console.log(`  • ${issue}`);
+			}
 		}
 
 		// Recommendations
 		if (summary.recommendations.length > 0) {
 			console.log(`\n💡 Recommendations:`);
-			summary.recommendations.forEach((rec) => console.log(`  • ${rec}`));
+			for (const rec of summary.recommendations) {
+				console.log(`  • ${rec}`);
+			}
 		}
 
 		console.log(`\n${"=".repeat(60)}`);
