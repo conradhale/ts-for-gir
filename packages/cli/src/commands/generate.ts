@@ -25,7 +25,7 @@ const command = "generate [modules..]";
 
 const description = "Generates Typescript type definition .d.ts files from GIR for GJS";
 
-const logger = new Logger(false, "GenerateCommand");
+const logger = new Logger(true, "GenerateCommand");
 
 const examples: ReadonlyArray<[string, string?]> = [
 	[
