@@ -13755,8 +13755,8 @@ __metadata:
     typescript: "npm:^5.9.2"
     yargs: "npm:^18.0.0"
   bin:
-    ts-for-gir: bin/ts-for-gir.js
-    ts-for-gir-dev: bin/ts-for-gir-dev.js
+    ts-for-gir: bin/ts-for-gir
+    ts-for-gir-dev: bin/ts-for-gir-dev
   languageName: unknown
   linkType: soft
 

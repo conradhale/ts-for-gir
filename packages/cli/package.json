@@ -1,20 +1,21 @@
 {
 	"name": "@ts-for-gir/cli",
-	"version": "4.0.0-beta.28",
+	"version": "4.0.0-beta.29",
 	"description": "TypeScript type definition generator for GObject introspection GIR files",
-	"main": "bin/ts-for-gir-dev.js",
+	"main": "src/index.ts",
+	"module": "src/index.ts",
 	"type": "module",
 	"bin": {
-		"ts-for-gir": "bin/ts-for-gir.js",
-		"ts-for-gir-dev": "bin/ts-for-gir-dev.js"
+		"ts-for-gir": "bin/ts-for-gir",
+		"ts-for-gir-dev": "bin/ts-for-gir-dev"
 	},
 	"engines": {
 		"node": ">=18"
 	},
 	"scripts": {
-		"start": "node bin/ts-for-gir-dev.js",
-		"start:prod": "node bin/ts-for-gir.js",
-		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts && chmod +x bin/ts-for-gir-dev.js && chmod +x bin/ts-for-gir.js",
+		"start": "node bin/ts-for-gir-dev",
+		"start:prod": "node bin/ts-for-gir",
+		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts && chmod +x bin/ts-for-gir-dev && chmod +x bin/ts-for-gir",
 		"check:types": "tsc --noEmit",
 		"check:deps": "dpdm -T src/index.ts",
 		"check": "yarn check:types && yarn check:deps"

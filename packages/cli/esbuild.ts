@@ -2,7 +2,7 @@ import { build } from "esbuild";
 
 await build({
 	entryPoints: ["src/start.ts"],
-	outfile: "bin/ts-for-gir.js",
+	outfile: "bin/ts-for-gir",
 	bundle: true,
 	platform: "node",
 	target: "node18",
