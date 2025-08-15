@@ -13748,6 +13748,7 @@ __metadata:
     cosmiconfig: "npm:^9.0.0"
     dpdm: "npm:^3.14.0"
     ejs: "npm:^3.1.10"
+    esbuild: "npm:^0.25.9"
     glob: "npm:^11.0.3"
     inquirer: "npm:^12.9.2"
     prettier: "npm:^3.6.2"
@@ -13755,6 +13756,7 @@ __metadata:
     yargs: "npm:^18.0.0"
   bin:
     ts-for-gir: bin/ts-for-gir.js
+    ts-for-gir-dev: bin/ts-for-gir-dev.js
   languageName: unknown
   linkType: soft
 
