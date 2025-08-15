@@ -1,147 +1,32 @@
-# Fix Generated Type Errors
+---
+description: How fixing errors in generated TypeScript type definitions for GObject introspection bindings
+globs: 
+alwaysApply: false
+---
+# Generated TypeScript Type Definition Error Fix Specialist
 
-This guide helps resolve TypeScript type definition errors that occur during GIR type generation.
+AI specialist for diagnosing and fixing errors in generated TypeScript type definitions for GObject introspection bindings.
 
-## Quick Fix Workflow
+Follow [typescript-best-practices](mdc:.cursor/rules/typescript-best-practices.mdc), [development-workflow](mdc:.cursor/rules/development-workflow.mdc), [git-commit-best-practices](mdc:.cursor/rules/git-commit-best-practices.mdc).
 
-1. **Identify the error** from CLI output or TypeScript compiler
-2. **Locate the problematic type** in generated files or GIR source
-3. **Apply targeted fixes** using overrides or template modifications
-4. **Regenerate types** to verify the fix
-5. **Test the result** with TypeScript compilation
+## Prerequisites
 
-## Common Error Types
+**CRITICAL**: User must provide error information. If missing, request:
+- Complete error message(s) from TypeScript compiler
+- Which package(s) are affected (e.g., `@girs/gtk-4.0`)
+- Context of when the error occurred
+- Specific usage pattern that triggers the error
 
-### Type Resolution Failures
-- **Unresolved type references**: Missing or incorrect type imports
-- **Circular dependencies**: Self-referencing type definitions
-- **Missing GIR definitions**: Incomplete GIR file coverage
+## Project Structure
 
-### Generation Errors
-- **Template syntax issues**: Invalid EJS template code
-- **Type mapping problems**: Incorrect GIR to TypeScript conversions
-- **Validation failures**: Type constraint violations
+- **GIR XML files**: `girs/` directory contains GObject introspection XML files
+- **Generated types**: `types/` directory (git submodule - separate repository)
+- **Package structure**: Each type definition is an individual npm package
+- **Individual testing**: `yarn workspace @girs/[package-name] run test`
+- **Full type check**: `yarn check:types`
+- **Regeneration**: `yarn test:types` to regenerate and verify types
 
-### Parsing Issues
-- **GIR XML errors**: Malformed or incomplete GIR files
-- **Schema violations**: GIR content doesn't match expected format
-- **Encoding problems**: Character encoding issues in GIR files
-
-## Fix Strategies
-
-### 1. Override Problematic Types
-Use type overrides in your configuration to fix specific issues:
-
-```javascript
-// .ts-for-gir.rc.js
-export default {
-  overrides: {
-    'Gtk.Widget': {
-      'get_allocated_width': {
-        returnType: 'number',
-        doc: 'Override for problematic return type'
-      }
-    }
-  }
-};
-```
-
-### 2. Template Modifications
-Customize templates to handle edge cases:
-
-```ejs
-<% if (type === 'gpointer' && isOptional) { %>
-  any | null
-<% } else if (type === 'gpointer') { %>
-  any
-<% } else { %>
-  <%= type %>
-<% } %>
-```
-
-### 3. GIR Source Fixes
-Update GIR files to correct source issues:
-
-```xml
-<!-- Fix incorrect type reference -->
-<parameter name="data" transfer-ownership="none">
-  <type name="gpointer" c:type="gpointer"/>
-</parameter>
-```
-
-## Debugging Process
-
-### Step 1: Enable Detailed Reporting
-```bash
-yarn ts-for-gir-dev generate --reporter --verbose
-```
-
-### Step 2: Analyze Error Patterns
-```bash
-yarn ts-for-gir-dev analyze -f ./ts-for-gir-report.json
-```
-
-### Step 3: Focus on Specific Issues
-```bash
-# Show only critical errors
-yarn ts-for-gir-dev analyze -f ./report.json --severity critical
-
-# Focus on type resolution issues
-yarn ts-for-gir-dev analyze -f ./report.json --category type_resolution
-```
-
-## Advanced Fixes
-
-### Custom Type Mappers
-Implement custom type conversion logic:
-
-```javascript
-// .ts-for-gir.rc.js
-export default {
-  typeMappers: {
-    'gpointer': 'any',
-    'gconstpointer': 'any',
-    'gchar*': 'string | null'
-  }
-};
-```
-
-### Namespace Overrides
-Fix entire namespace issues:
-
-```javascript
-export default {
-  namespaceOverrides: {
-    'Gtk': {
-      ignore: ['DeprecatedWidget'],
-      prefix: 'Gtk'
-    }
-  }
-};
-```
-
-## Validation and Testing
-
-### TypeScript Compilation
-```bash
-# Check generated types compile correctly
-tsc --noEmit --project ./types/tsconfig.json
-```
-
-### Runtime Testing
-```bash
-# Test with actual GJS code
-gjs test-script.js
-```
-
-## Prevention Strategies
-
-1. **Regular validation** of generated types
-2. **Template testing** with sample GIR data
-3. **Override documentation** for complex fixes
-4. **Regression testing** after template changes
-
-## Resources
+## CLI Commands for Error Analysis
 
 **For comprehensive CLI usage, filtering options, and command examples, see [cli-usage](mdc:.cursor/rules/cli-usage.mdc).**
 
@@ -152,24 +37,77 @@ Key error analysis workflow:
 
 ## Diagnostic Workflow
 
-### Error Classification
-- **Critical**: Prevents type generation
-- **Error**: Causes compilation failures
-- **Warning**: Potential runtime issues
-- **Info**: Informational messages
+### 1. Report-Driven Analysis
+- **Generate comprehensive reports**: Enable reporter during generation
+- **Analyze problem patterns**: Use analyze command with appropriate filters (see [cli-usage](mdc:.cursor/rules/cli-usage.mdc))
+- **Identify high-frequency issues**: Focus on statistics section for common problems
+- **Export targeted data**: Use CSV/JSON exports for external analysis tools
 
-### Resolution Priority
-1. Fix critical errors first
-2. Address compilation-blocking issues
-3. Resolve warnings for production quality
-4. Review info messages for optimization
+### 2. Change Analysis
+- Examine git diff in `types/`: `cd types && git diff | cat`
+- Compare generated .d.ts files with corresponding GIR XML files in `girs/`
+- Identify changed signatures/interfaces and trace back to GIR source
+- Use [gir-xml-format](mdc:.cursor/rules/gir-xml-format.mdc) reference to understand GIR structure
 
-### Testing Strategy
-- **Unit tests** for individual type fixes
-- **Integration tests** for complete modules
-- **Regression tests** after template changes
-- **Performance tests** for large type sets
+### 3. Recent Changes Investigation
+- Review last 10 commits: `git log --oneline -10 | cat`
+- Focus on commits affecting:
+  - `packages/generator-typescript/` (TypeScript generator)
+  - `packages/parser/` (GIR XML parser)
+  - `packages/lib/` (core transformation logic)
+  - `packages/templates/` (generation templates)
 
+### 4. Root Cause Analysis
+- Correlate error patterns with generator changes
+- Check GIR parsing logic against actual XML structure
+- Examine type mapping and signature transformation
+- Verify inheritance, generics, and namespace handling
+- **Use reporter data**: Cross-reference with analyze command results for systematic investigation
+
+## Fix Implementation
+
+### Error Resolution with Reporter Integration
+- **Pre-fix analysis**: Generate baseline report before making changes
+- **Make targeted fixes** in generator/parser logic based on reporter insights
+- **Post-fix validation**: Generate new report and compare with baseline
+- **Regression testing**: Use analyze command to verify no new issues introduced
+
+### Validation Process
+1. **Generate baseline**: Create report before changes
+2. **Make fixes**: Implement targeted changes based on analysis
+3. **Regenerate**: `yarn test:types | cat`
+4. **Compare reports**: Analyze before/after differences
+5. **Targeted test**: `yarn workspace @girs/[package] run test | cat`
+6. **Full validation**: `yarn check:types | cat`
+7. **Integration check**: Verify original error is resolved
+
+## Error-Specific Analysis Patterns
+
+### Problem Categories in Reports
+- **Type Resolution**: Unresolved types, fallback inferences, missing imports
+- **Type Conflicts**: Namespace collisions, inheritance issues
+- **Parsing Failures**: GIR XML parsing errors, malformed structures
+- **Generation Failures**: Template processing errors, output generation issues
+
+### Error-Fix Specific Workflows
+Focus on these patterns when analyzing generation errors:
+- **Cross-module dependencies**: Identify dependency resolution failures
+- **GIR parsing issues**: Compare with XML structure for accuracy
+- **Template processing errors**: Check conditional logic and string processing
+- **Type mapping failures**: Verify TypeScript mapping from GIR XML
+
+## Common Issues
+
+- **Property/Method Types**: Wrong TypeScript mapping from GIR XML
+- **Inheritance**: Missing or incorrect class hierarchies 
+- **Generics**: Parameter type handling issues
+- **Imports/Exports**: Namespace resolution problems
+- **Template Logic**: Generator conditional/string processing errors
+- **Cross-Module Dependencies**: Use reporter to identify dependency resolution failures
+
+## Quality Assurance
+
+**Before**: Generate report, document error patterns, verify failing tests, understand impact scope
 **During**: Minimal targeted changes, incremental testing with reporter validation, maintain compatibility  
 **After**: All checks pass, reporter shows issue resolution, original error resolved, no regressions
 

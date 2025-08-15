@@ -1,180 +1,33 @@
-# GIR Sources and Management
+---
+description: GIR file sources and paths
+globs: 
+alwaysApply: false
+---
+# GIR Sources and Paths
 
-This guide covers GIR (GObject Introspection Repository) file sources, management, and integration with the ts-for-gir project.
+## GIR File Locations
+- `/girs/` - Copied GIR files for consistent builds
+- `/vala-girs/` - Git submodule with additional GIR files
+- System paths (Ubuntu/Fedora): `/usr/share/gir-1.0/`
 
-## GIR File Sources
+## Important Scripts
+- `/scripts/` - Build and utility scripts
+- `yarn copy:girs` - Updates local GIR files from system
 
-### System GIR Files
-- **Fedora/RHEL**: `/usr/share/gir-1.0/`
-- **Ubuntu/Debian**: `/usr/share/gir-1.0/`
-- **Arch Linux**: `/usr/share/gir-1.0/`
-- **macOS**: `/usr/share/gir-1.0/` (via Homebrew)
+## GIR File Format
+- XML-based introspection data
+- Contains C API information
+- Describes GObject classes, interfaces, enums
+- Includes documentation and annotations
 
-### Package-Specific Locations
-- **GTK**: `/usr/share/gir-1.0/Gtk-4.0.gir`
-- **GLib**: `/usr/share/gir-1.0/GLib-2.0.gir`
-- **GIO**: `/usr/share/gir-1.0/Gio-2.0.gir`
-- **Cairo**: `/usr/share/gir-1.0/Cairo-1.0.gir`
+## Module Naming
+- Format: `ModuleName-Version.gir`
+- Example: `Gtk-4.0.gir`, `GLib-2.0.gir`
+- Version is part of the module identifier
 
-### Project GIR Files
-- **`./girs/`**: Local copy of system GIR files
-- **`./vala-girs/`**: Vala-generated GIR files
-- **Git submodule**: `./types/` contains generated types
-
-## GIR File Management
-
-### Copying System GIR Files
-```bash
-# Copy all available GIR files to project
-yarn copy:girs
-
-# Copy specific GIR files manually
-cp /usr/share/gir-1.0/Gtk-4.0.gir ./girs/
-cp /usr/share/gir-1.0/Gio-2.0.gir ./girs/
-```
-
-### GIR File Updates
-```bash
-# Update GIR files from system
-yarn copy:girs
-
-# Check for new GIR versions
-ls -la /usr/share/gir-1.0/ | grep "\.gir$"
-```
-
-### GIR File Validation
-```bash
-# Validate GIR file structure
-xmllint --noout ./girs/Gtk-4.0.gir
-
-# Check GIR file version
-grep -E '<repository.*version=' ./girs/Gtk-4.0.gir
-```
-
-## GIR File Structure
-
-### Basic GIR Format
-```xml
-<?xml version="1.0"?>
-<repository version="1.2">
-  <include name="GObject" version="2.0"/>
-  <package name="GTK"/>
-  <c:include name="gtk/gtk.h"/>
-  
-  <namespace name="Gtk" version="4.0" shared-library="libgtk-4">
-    <class name="Widget" parent="GObject.Object" abstract="1">
-      <method name="show" c:identifier="gtk_widget_show">
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-      </method>
-    </class>
-  </namespace>
-</repository>
-```
-
-### Key Elements
-- **`<repository>`**: Root element with version info
-- **`<include>`**: Dependencies on other GIR files
-- **`<namespace>`**: Module namespace and library info
-- **`<class>`**: Class definitions with inheritance
-- **`<method>`**: Method signatures and types
-- **`<property>`**: Property definitions and types
-
-## GIR File Dependencies
-
-### Dependency Resolution
-```bash
-# Check GIR file dependencies
-grep -E '<include.*name=' ./girs/Gtk-4.0.gir
-
-# Common dependencies
-# - GObject-2.0: Base object system
-# - GLib-2.0: Core utilities
-# - Gio-2.0: I/O and networking
-# - Pango-1.0: Text layout
-# - GdkPixbuf-2.0: Image loading
-```
-
-### Circular Dependencies
-- **Avoid**: Circular include references
-- **Handle**: Use forward declarations
-- **Resolve**: Restructure GIR files if needed
-
-## GIR File Customization
-
-### Local Modifications
-```bash
-# Create custom GIR file
-cp ./girs/Gtk-4.0.gir ./girs/Gtk-4.0-custom.gir
-
-# Edit custom GIR file
-vim ./girs/Gtk-4.0-custom.gir
-```
-
-### Common Customizations
-- **Type overrides**: Fix incorrect type definitions
-- **Method additions**: Add missing methods
-- **Property fixes**: Correct property types
-- **Namespace changes**: Modify namespace structure
-
-## Integration with ts-for-gir
-
-### Configuration
-```javascript
-// .ts-for-gir.rc.js
-export default {
-  girDirectories: [
-    './girs',           // Local GIR files
-    '/usr/share/gir-1.0', // System GIR files
-    './vala-girs'       // Vala-generated GIR files
-  ],
-  modules: ['Gtk-4.0', 'Gio-2.0'],
-  outdir: './types'
-};
-```
-
-### Generation Process
-```bash
-# Generate types from local GIR files
-yarn ts-for-gir-dev generate Gtk-4.0
-
-# Generate with custom GIR directory
-yarn ts-for-gir-dev generate Gtk-4.0 --girDirectories=./custom-girs
-```
-
-## Troubleshooting
-
-### Common Issues
-1. **Missing GIR files**: Install required development packages
-2. **Version mismatches**: Ensure GIR file versions are compatible
-3. **Parse errors**: Validate GIR file XML structure
-4. **Dependency issues**: Check include references and paths
-
-### Debug Commands
-```bash
-# Check available GIR files
-ls -la ./girs/
-
-# Validate GIR file structure
-xmllint --noout ./girs/*.gir
-
-# Check GIR file versions
-grep -E '<repository.*version=' ./girs/*.gir
-```
-
-## Best Practices
-
-1. **Keep GIR files updated**: Regular updates from system packages
-2. **Version control**: Track GIR file changes in git
-3. **Validation**: Always validate GIR file structure
-4. **Documentation**: Document custom GIR file modifications
-5. **Testing**: Test generated types after GIR file changes
-
-## Adding New GIR Files
-1. Install system package with GIR files
-2. Run `yarn copy:girs` to copy to project
-3. Generate types: `yarn ts-for-gir-dev generate ModuleName-Version`
+## Dependencies
+- GIR files reference other GIR files
+- Dependency resolution is automatic
 
 ## Adding New GIR Files
 1. Install system package with GIR files

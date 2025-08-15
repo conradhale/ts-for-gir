@@ -1,186 +1,63 @@
-# Yarn Workspace Structure and Package Organization
+---
+description: Yarn workspace structure and package organization
+globs: 
+alwaysApply: false
+---
+# ts-for-gir Workspace Structure
 
-This guide covers the ts-for-gir project's yarn workspace structure, package organization, and development workflow.
+## Purpose
+TypeScript type definition generator for GObject Introspection (GIR) files. Generates TypeScript definitions for GNOME libraries to use with GJS (GNOME JavaScript).
 
-## Workspace Structure
+## Monorepo Structure
+- Uses Yarn v4 workspaces
+- Node.js >= 22 required
+- All packages use ES modules (`"type": "module"`)
 
-### Root Level
-```
-ts-for-gir/
-├── packages/           # Core application packages
-├── examples/           # Example applications and packages
-├── tests/             # Test packages and configurations
-├── types/             # Generated type definitions (git submodule)
-├── girs/              # GIR source files
-├── gjs/               # GJS runtime source (git submodule)
-└── vala-girs/         # Vala-generated GIR files
-```
+## Package Categories
 
-### Core Packages (`packages/`)
-- **`@ts-for-gir/cli`**: Command-line interface and main application
-- **`@ts-for-gir/lib`**: Core library and utilities
-- **`@ts-for-gir/parser`**: GIR XML parsing and processing
-- **`@ts-for-gir/generator-base`**: Base generator framework
-- **`@ts-for-gir/generator-typescript`**: TypeScript type generator
-- **`@ts-for-gir/generator-html-doc`**: HTML documentation generator
-- **`@ts-for-gir/generator-json`**: JSON output generator
-- **`@ts-for-gir/templates`**: EJS templates for type generation
-- **`@ts-for-gir/reporter`**: Error reporting and analysis
-- **`@gi.ts/parser`**: GIR parser for gi.ts module generation
+### Core Generator Packages (`/packages/*`)
+- `@ts-for-gir/cli` - Main CLI tool, entry point for users
+- `@gi.ts/parser` - GIR XML parser (uses different namespace)
+- `@ts-for-gir/lib` - Core library with shared functionality
+- `@ts-for-gir/reporter` - Reporting system for problems and statistics with dependency injection
+- `@ts-for-gir/generator-base` - Base classes for generators
+- `@ts-for-gir/generator-typescript` - TypeScript definition generator
+- `@ts-for-gir/generator-html-doc` - HTML documentation generator
+- `@ts-for-gir/templates` - Additional templates for the generated `.d.ts` files
 
-### Example Packages (`examples/`)
-- **`@ts-for-gir-example/*`**: Example applications demonstrating generated types
-- **GTK examples**: Hello world, calculator, browser, editor
-- **GLib examples**: Spawn commands, variants, types
-- **GIO examples**: File operations, async operations, DBus
-- **Cairo examples**: Drawing and graphics
+**Important:** Core packages run directly as TypeScript files - no build step required!
 
-### Test Packages (`tests/`)
-- **`@ts-for-gir-test/*`**: Test configurations and validation
-- **Language server tests**: TypeScript language server integration
-- **Type validation tests**: Generated type correctness
-- **Local type tests**: Development workflow validation
+### Generated Type Packages (`/types/*`)
+- Namespace: `@girs/*` (e.g., @girs/gtk-4.0, @girs/glib-2.0)
+- Auto-generated - DO NOT manually edit
+- Published to npm: https://github.com/gjsify/types
 
-## Package Management
+### Examples (`/examples/*`)
+- Namespace: `@ts-for-gir-example/*`
+- Private packages demonstrating usage
+- Use workspace `@girs/*` packages
+- **Require building** since GJS cannot execute TypeScript directly
 
-### Workspace Commands
-```bash
-# List all workspaces
-yarn workspaces list
+### Tests (`/tests/*`)
+- Namespace: `@ts-for-gir-test/*`
+- Automated tests for the generator
 
-# Run command in specific workspace
-yarn workspace @ts-for-gir/cli run build
+## Type Generation System
 
-# Run command in all workspaces
-yarn workspaces foreach run build
+### Template System (`/packages/templates/templates/`)
+- **Primary approach** for manual type definitions and overrides
+- Templates are injected **before** auto-generated content
+- Use for complex types like GLib.Variant with advanced features
+- Templates support TSDoc comments and backward compatibility
+- Example: `glib-2.0.d.ts` template provides `deepUnpack<T extends $ParseDeepVariant<S> = $ParseDeepVariant<S>>(): T;`
 
-# Run command in filtered workspaces
-yarn workspaces foreach --include '@ts-for-gir/*' run check
-```
+### Override System (`/packages/generator-typescript/src/overrides/`)
+- Secondary approach for preventing auto-generation of specific classes
+- Use `node.assertClass("ClassName").noEmit()` to disable auto-generation
+- Allows templates to provide complete manual implementations
+- Prefer templates over large override strings for maintainability
 
-### Dependency Management
-```bash
-# Add dependency to specific workspace
-yarn workspace @ts-for-gir/cli add lodash
-
-# Add dev dependency to specific workspace
-yarn workspace @ts-for-gir/cli add -D @types/lodash
-
-# Add workspace dependency
-yarn workspace @ts-for-gir/cli add @ts-for-gir/lib@workspace:^
-```
-
-## Development Workflow
-
-### Package Development
-1. **Make changes** in source packages
-2. **Test locally** with workspace dependencies
-3. **Build packages** if needed
-4. **Run tests** to validate changes
-5. **Commit changes** following git best practices
-
-### Type Generation Workflow
-1. **Update GIR files**: `yarn copy:girs`
-2. **Generate types**: `yarn ts-for-gir-dev generate [modules]`
-3. **Validate types**: `yarn check:types`
-4. **Test examples**: `yarn test:examples`
-5. **Commit types**: Update types submodule
-
-## Build and Test Commands
-
-### Core Commands
-```bash
-# Build all examples
-yarn build:examples
-
-# Build all types
-yarn build:types
-
-# Build everything
-yarn build
-
-# Check linting
-yarn check:lint
-
-# Check examples
-yarn check:examples
-
-# Check types
-yarn check:types
-
-# Check everything
-yarn check
-```
-
-### Testing Commands
-```bash
-# Test types
-yarn test:types
-
-# Test examples
-yarn test:examples
-
-# Test all
-yarn test
-
-# Test specific workspace
-yarn workspace @ts-for-gir/cli run test
-```
-
-## Package Configuration
-
-### Package.json Structure
-```json
-{
-  "name": "@ts-for-gir/cli",
-  "version": "4.0.0-beta.26",
-  "type": "module",
-  "main": "src/index.ts",
-  "module": "src/index.ts",
-  "exports": {
-    ".": "./src/index.ts"
-  },
-  "bin": {
-    "ts-for-gir": "bin/ts-for-gir.js",
-    "ts-for-gir-dev": "bin/ts-for-gir-dev.js"
-  }
-}
-```
-
-### Workspace Dependencies
-```json
-{
-  "devDependencies": {
-    "@ts-for-gir/lib": "workspace:^",
-    "@ts-for-gir/parser": "workspace:^"
-  }
-}
-```
-
-## Type Generation
-
-### Type Generation Process
-- **GIR files**: Source GIR XML files in `girs/` directory
-- **Generator**: TypeScript generator in `@ts-for-gir/generator-typescript`
-- **Templates**: EJS templates in `@ts-for-gir/templates`
-- **Output**: Generated types in `types/` directory (git submodule)
-
-### Type Generation Commands
-```bash
-# Generate specific module
-yarn ts-for-gir-dev generate Gtk-4.0
-
-# Generate multiple modules
-yarn ts-for-gir-dev generate Gtk-4.0 Gio-2.0
-
-# Generate all modules
-yarn ts-for-gir-dev generate --all
-
-# Generate with custom config
-yarn ts-for-gir-dev generate --configName=.ts-for-gir.custom.rc.js
-```
-
-### Type Output Locations
+### Output Directory Behavior
 - **`/types/*` (Git submodule)**: Official published types, may have cached/different results
 - **Custom output dirs**: Fresh generation, immediately reflects template/override changes
 - **Testing approach**: Use `--outdir=./test-types-*` for development and testing
@@ -188,97 +65,13 @@ yarn ts-for-gir-dev generate --configName=.ts-for-gir.custom.rc.js
 
 ### Advanced Variants Feature
 - Controlled by `noAdvancedVariants: false` flag
-- Generates additional type variants for better TypeScript inference
-- Increases bundle size but improves developer experience
-- Can be disabled for production builds
+- Provides automatic type inference for GLib.Variant operations
+- Template system ensures backward compatibility with explicit type parameters
+- Examples should work with both automatic inference and explicit types
 
-## Example Development
-
-### Example Package Structure
-```
-examples/gtk-4-hello/
-├── package.json       # Package configuration
-├── src/               # Source code
-├── tsconfig.json      # TypeScript configuration
-└── README.md          # Documentation
-```
-
-### Example Development Workflow
-1. **Create example**: Use existing examples as templates
-2. **Add dependencies**: Include generated type packages
-3. **Write code**: Use generated types in example code
-4. **Test locally**: Run example to validate types
-5. **Update types**: Regenerate types if needed
-
-## Testing and Validation
-
-### Test Package Structure
-```
-tests/types-locally/
-├── package.json       # Test configuration
-├── src/               # Test source code
-├── tsconfig.json      # TypeScript configuration
-└── README.md          # Test documentation
-```
-
-### Test Workflow
-1. **Setup test environment**: Install test dependencies
-2. **Run tests**: Execute test commands
-3. **Validate output**: Check test results
-4. **Debug issues**: Fix failing tests
-5. **Update tests**: Maintain test coverage
-
-## Publishing
-
-### Package Publishing
-```bash
-# Publish application packages
-yarn publish:app
-
-# Publish type packages
-yarn publish:types
-
-# Publish everything
-yarn publish
-```
-
-### Publishing Workflow
-1. **Build packages**: Ensure all packages are built
-2. **Run tests**: Validate package functionality
-3. **Update versions**: Bump package versions
-4. **Publish packages**: Release to npm registry
-5. **Update types**: Commit type submodule changes
-
-## Troubleshooting
-
-### Common Issues
-1. **Workspace dependency issues**: Check workspace references
-2. **Build failures**: Verify package dependencies
-3. **Type generation errors**: Check GIR file validity
-4. **Test failures**: Validate test configurations
-
-### Debug Commands
-```bash
-# Check workspace status
-yarn workspaces list
-
-# Verify dependencies
-yarn install
-
-# Check package builds
-yarn workspace @ts-for-gir/cli run build
-
-# Validate types
-yarn check:types
-```
-
-## Best Practices
-
-1. **Use workspace dependencies**: Leverage yarn workspace features
-2. **Maintain consistency**: Keep package versions aligned
-3. **Test thoroughly**: Validate changes across all affected packages
-4. **Document changes**: Update documentation for significant changes
-5. **Follow conventions**: Maintain consistent package structure and naming
+## Key Commands
+- `yarn start` - Run CLI directly (no build needed)
+- `yarn build:types` - Generate all type packages
 - `yarn build:examples` - Build all examples for GJS execution
 - `yarn copy:girs` - Copy system GIR files
 - `yarn test` - Run full test suite

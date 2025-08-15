@@ -1,8 +1,11 @@
-# CLI Usage Guide
+---
+description: ts-for-git CLI usage, generation and analyze commands
+globs: 
+alwaysApply: false
+---
+# CLI Usage and Commands
 
-This guide covers the ts-for-gir CLI commands for generating TypeScript type definitions from GIR files.
-
-## Quick Start
+## Core Commands
 
 ### Generate Types
 ```bash
@@ -58,78 +61,46 @@ yarn ts-for-gir-dev analyze -f ./ts-for-gir-report.json --category type_resoluti
 ```
 
 **Step 3: Pattern Analysis**
-Use the analyze command's filtering capabilities to identify systematic issues:
+The analyze command provides AI-friendly structured output for:
+- Most problematic types across modules
+- Common error categories and patterns
+- Namespace-specific issues
+- Type resolution failures
 
-```bash
-# Find all type resolution failures
-yarn ts-for-gir-dev analyze -f ./report.json --category type_resolution --format table
+## Important CLI Options
+- `--reporter`: Enable problem reporting (ESSENTIAL for AI debugging)
+- `--reporterOutput`: Specify report file path
+- `--outdir`: Output directory (default: `@types`)
+- `--girDirectories`: Additional GIR search paths
+- `--verbose`: Detailed output for debugging
+- `--configName`: Use specific config file
 
-# Identify most problematic namespaces
-yarn ts-for-gir-dev analyze -f ./report.json --top 10 --format json
+## Config Files
+Located in project root:
+- `.ts-for-gir.packages-all.rc.js` - Generate npm packages
 
-# Search for specific error patterns
-yarn ts-for-gir-dev analyze -f ./report.json --search "Unable to resolve" --format table
-```
-
-## Advanced Analysis Commands
-
-### Filtering by Severity
-```bash
-# Show only critical and error level issues
-yarn ts-for-gir-dev analyze -f ./report.json --severity critical error
-
-# Focus on warnings and info for optimization
-yarn ts-for-gir-dev analyze -f ./report.json --severity warning info
-```
-
-### Filtering by Category
-```bash
-# Type resolution issues
-yarn ts-for-gir-dev analyze -f ./report.json --category type_resolution
-
-# Template generation problems
-yarn ts-for-gir-dev analyze -f ./report.json --category template_generation
-
-# GIR parsing errors
-yarn ts-for-gir-dev analyze -f ./report.json --category gir_parsing
-```
-
-### Search and Export
-```bash
-# Search for specific error messages
-yarn ts-for-gir-dev analyze -f ./report.json --search "Unable to resolve"
-
-# Export filtered results to JSON for further analysis
-yarn ts-for-gir-dev analyze -f ./report.json --severity critical --export critical-issues.json
-
-# Export specific namespace issues
-yarn ts-for-gir-dev analyze -f ./report.json --namespace Gtk --export gtk-issues.json
-```
-
-### Output Formats
-```bash
-# Table format for human reading
-yarn ts-for-gir-dev analyze -f ./report.json --format table
-
-# JSON format for programmatic processing
-yarn ts-for-gir-dev analyze -f ./report.json --format json
-
-# Summary format for quick overview
-yarn ts-for-gir-dev analyze -f ./report.json --format summary
-```
-
-## Configuration Examples
-
-### Basic Configuration
+## Config Structure
 ```javascript
-// .ts-for-gir.rc.js
 export default {
-	modules: ['Gtk-4.0', 'Gio-2.0'],
-	outdir: './types',
-	reporter: true,
-	reporterOutput: './ts-for-gir-report.json'
-};
+  outdir: './types',
+  girDirectories: ['/usr/share/gir-1.0'],
+  modules: ['*'], // or specific modules
+  ignore: [], // modules to ignore
+  packageVersion: '4.0.0-beta.26',
+  npmScope: '@girs',
+  package: true, // generate package.json
+  reporter: true, // ENABLE for AI analysis
+  reporterOutput: './analysis-report.json'
+}
 ```
+
+## AI Analysis Patterns
+
+**Common Error Categories to Focus On:**
+- `type_resolution`: Unresolved type references
+- `parsing_failure`: GIR parsing issues  
+- `generation_error`: TypeScript generation problems
+- `validation_error`: Type validation failures
 
 **Useful Analyze Command Combinations for AI:**
 ```bash
@@ -147,40 +118,10 @@ yarn ts-for-gir-dev analyze -f ./report.json --top 10 --format json
 ```
 
 ## Generation Targets
+- **Types only**: For local development
+- **NPM packages**: For publishing (`package: true`)
+- **Documentation**: HTML docs (experimental)
 
-### Output Directories
-- **`./types` (Default)**: Standard output directory
-- **`./test-types-*`**: Development/testing output
-- **Custom paths**: Use `--outdir` flag
-
-### Module Selection
-- **Single module**: `yarn ts-for-gir-dev generate Gtk-4.0`
-- **Multiple modules**: `yarn ts-for-gir-dev generate Gtk-4.0 Gio-2.0`
-- **All available**: `yarn ts-for-gir-dev generate --all`
-
-## Troubleshooting
-
-### Common Issues
-1. **Module not found**: Use `yarn ts-for-gir-dev list` to see available modules
-2. **Type resolution errors**: Use reporter and analyze commands for detailed debugging
-3. **Template errors**: Check template syntax and override configurations
-
-### Debug Mode
-```bash
-# Enable verbose output
-yarn ts-for-gir-dev generate Gtk-4.0 --verbose
-
-# Generate with detailed reporter
-yarn ts-for-gir-dev generate Gtk-4.0 --reporter --reporterOutput=./debug.json
-```
-
-## Best Practices
-
-1. **Always use reporter** during development to capture issues
-2. **Analyze reports regularly** to identify patterns
-3. **Use specific filters** to focus on relevant problems
-4. **Export results** for further analysis and tracking
-5. **Test with multiple modules** to ensure compatibility
 ## Workspace Integration
 After generation:
 1. Run `yarn install` to link generated packages
