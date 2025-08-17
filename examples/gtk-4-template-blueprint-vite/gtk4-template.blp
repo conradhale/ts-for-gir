@@ -1,0 +1,20 @@
+using Gtk 4.0;
+
+template $ExampleWindow: Window {
+  default-width: 480;
+  default-height: 320;
+
+  Box box {
+    visible: true;
+
+    Button button {
+      label: "Button";
+      halign: center;
+      hexpand: true;
+      valign: center;
+      visible: true;
+      clicked => $_onButtonClicked();
+    }
+  }
+}
+
