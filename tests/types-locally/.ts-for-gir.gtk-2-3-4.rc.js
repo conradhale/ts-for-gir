@@ -1,5 +1,5 @@
 export default {
-    modules: ['Gtk-*', 'Json-*', 'Gee-*'],
+    modules: ['Gtk-*', 'Json-*', 'Gee-*', 'Gpseq-*'],
     girDirectories: [
         '../../girs',
     ],
