@@ -5,6 +5,7 @@ import gee08 from "./gee08.ts";
 import gio from "./gio.ts";
 import glib from "./glib.ts";
 import gobject from "./gobject.ts";
+import gpseq from "./gpseq.ts";
 import gtk4 from "./gtk4.ts";
 import { shell14, shell15 } from "./shell.ts";
 import tracker1 from "./tracker1.ts";
@@ -34,9 +35,11 @@ export function inject(registry: NSRegistry) {
 
 	const $_ = injectDefinitions(registry, false);
 
+	// Optional injections
 	$_(tracker1);
 	$_(gee08);
 	$_(gee1);
+	$_(gpseq);
 	$_(gtk4);
 	$_(shell14);
 	$_(shell15);

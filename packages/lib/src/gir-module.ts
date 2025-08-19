@@ -469,18 +469,43 @@ export class GirModule implements IGirModule {
 		const clazzes = Array.from(this.members.values()).filter(
 			(m): m is IntrospectedBaseClass => m instanceof IntrospectedBaseClass,
 		);
-		const res = clazzes
+
+		// Find all matches first
+		const allMatches = clazzes
 			.map<[IntrospectedBaseClass, IntrospectedClassCallback | undefined]>((m) => [
 				m,
 				m.callbacks.find((c) => c.name === name || c.resolve_names.includes(name)),
 			])
-			.find((r): r is [IntrospectedBaseClass, IntrospectedClassCallback] => r[1] != null);
+			.filter((r): r is [IntrospectedBaseClass, IntrospectedClassCallback] => r[1] != null);
 
-		if (res) {
-			return [res[0].name, res[1].name];
-		} else {
+		if (allMatches.length === 0) {
 			return [null, name];
 		}
+
+		// If there are multiple matches, prefer more specific ones
+		// For example, prefer Result.FlatMapFunc over global FlatMapFunc
+		if (allMatches.length > 1) {
+			// Sort by specificity: prefer callbacks from classes with longer names (more specific)
+			// and prefer exact name matches over resolve_names matches
+			allMatches.sort((a, b) => {
+				const [classA, callbackA] = a;
+				const [classB, callbackB] = b;
+
+				// Prefer exact name matches over resolve_names matches
+				const aIsExactMatch = callbackA.name === name;
+				const bIsExactMatch = callbackB.name === name;
+
+				if (aIsExactMatch && !bIsExactMatch) return -1;
+				if (!aIsExactMatch && bIsExactMatch) return 1;
+
+				// If both are exact matches or both are resolve_names matches,
+				// prefer the one from a class with a longer name (more specific)
+				return classB.name.length - classA.name.length;
+			});
+		}
+
+		const res = allMatches[0];
+		return [res[0].name, res[1].name];
 	}
 
 	/**
