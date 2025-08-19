@@ -470,7 +470,20 @@ export class GirModule implements IGirModule {
 			(m): m is IntrospectedBaseClass => m instanceof IntrospectedBaseClass,
 		);
 
-		// Find all matches first
+		// First, try to handle compound names like "ResultFlatMapFunc" -> "Result.FlatMapFunc"
+		// This is the main fix for the Gpseq namespace collision issue
+		for (const clazz of clazzes) {
+			// Check if the name starts with the class name (compound name pattern)
+			if (name.startsWith(clazz.name)) {
+				const potentialCallbackName = name.slice(clazz.name.length);
+				const callback = clazz.callbacks.find((c) => c.name === potentialCallbackName);
+				if (callback) {
+					return [clazz.name, callback.name];
+				}
+			}
+		}
+
+		// Find all matches using the original logic
 		const allMatches = clazzes
 			.map<[IntrospectedBaseClass, IntrospectedClassCallback | undefined]>((m) => [
 				m,
@@ -483,25 +496,8 @@ export class GirModule implements IGirModule {
 		}
 
 		// If there are multiple matches, prefer more specific ones
-		// For example, prefer Result.FlatMapFunc over global FlatMapFunc
 		if (allMatches.length > 1) {
-			// Sort by specificity: prefer callbacks from classes with longer names (more specific)
-			// and prefer exact name matches over resolve_names matches
-			allMatches.sort((a, b) => {
-				const [classA, callbackA] = a;
-				const [classB, callbackB] = b;
-
-				// Prefer exact name matches over resolve_names matches
-				const aIsExactMatch = callbackA.name === name;
-				const bIsExactMatch = callbackB.name === name;
-
-				if (aIsExactMatch && !bIsExactMatch) return -1;
-				if (!aIsExactMatch && bIsExactMatch) return 1;
-
-				// If both are exact matches or both are resolve_names matches,
-				// prefer the one from a class with a longer name (more specific)
-				return classB.name.length - classA.name.length;
-			});
+			this.log.warn(`Found multiple matches for ${name}: ${allMatches.map((m) => m[0].name).join(", ")}`);
 		}
 
 		const res = allMatches[0];
