@@ -583,7 +583,7 @@ export function hasVfuncSignatureConflicts(ns: IntrospectedNamespace, interfaceC
 
 		// Check if the parent interface has virtual methods (which means it probably inherits from its .Interface namespace)
 		const parentHasVirtualMethods = parent.members.some((m) => m instanceof IntrospectedVirtualClassFunction);
-		
+
 		if (!parentHasVirtualMethods) {
 			return false; // Parent has no virtual methods, no conflict
 		}
@@ -602,17 +602,17 @@ export function hasVfuncSignatureConflicts(ns: IntrospectedNamespace, interfaceC
 				// So we need to check if there's any difference in signatures
 				// Note: We can't just use isConflictingFunction because it allows subtype relationships
 				// but TypeScript doesn't allow that for interface multiple inheritance
-				
+
 				// Check if return types are different (even if one is a subtype of the other)
 				const ourReturn = vmethod.return();
 				const parentReturn = parentMethod.return();
-				
+
 				// Check if return types are not exactly the same
 				// For interface inheritance, even subtype relationships cause conflicts
 				if (!ourReturn.equals(parentReturn)) {
 					return true; // Different return types = conflict
 				}
-				
+
 				// Also check parameters using the existing conflict detection
 				if (isConflictingFunction(ns, thisType, vmethod, parent.getType(), parentMethod)) {
 					return true;
