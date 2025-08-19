@@ -494,9 +494,9 @@ function checkVfuncSignatureConflicts(
 		return undefined;
 	}
 
-	// Check if this virtual method conflicts with parent class methods
+	// Check if this virtual method conflicts with parent class or interface methods
 	return c.findParentMap((resolved_parent) => {
-		// Look for virtual methods with the same name in parent classes
+		// Look for virtual methods with the same name in parent classes/interfaces
 		const parentVirtualMethods = resolved_parent.members.filter(
 			(m) => m instanceof IntrospectedVirtualClassFunction && m.name === element.name,
 		);
@@ -505,6 +505,22 @@ function checkVfuncSignatureConflicts(
 			// Check if signatures conflict
 			if (isConflictingFunction(ns, thisType, element, resolved_parent.getType(), parentMethod)) {
 				return ConflictType.VFUNC_SIGNATURE_CONFLICT;
+			}
+		}
+
+		// Also check if the parent is an interface that might have virtual methods from its Interface namespace
+		// This is important for cases like List extends Collection where both have vfunc_get_read_only_view
+		if (resolved_parent instanceof IntrospectedInterface) {
+			// Get the virtual methods from the parent interface
+			const parentInterfaceVirtualMethods = resolved_parent.members.filter(
+				(m) => m instanceof IntrospectedVirtualClassFunction && m.name === element.name,
+			);
+
+			for (const parentMethod of parentInterfaceVirtualMethods) {
+				// Check if signatures conflict between the interfaces
+				if (isConflictingFunction(ns, thisType, element, resolved_parent.getType(), parentMethod)) {
+					return ConflictType.VFUNC_SIGNATURE_CONFLICT;
+				}
 			}
 		}
 
@@ -534,7 +550,7 @@ function createConflictElement<T extends IntrospectedClassMember | IntrospectedC
 }
 
 /**
- * Check if an interface has virtual methods that conflict with parent class methods.
+ * Check if an interface has virtual methods that conflict with parent class or interface methods.
  * This is used to determine whether to inherit from Interface namespace or generate method overloads.
  */
 export function hasVfuncSignatureConflicts(ns: IntrospectedNamespace, interfaceClass: IntrospectedInterface): boolean {
@@ -543,7 +559,12 @@ export function hasVfuncSignatureConflicts(ns: IntrospectedNamespace, interfaceC
 		(m) => m instanceof IntrospectedVirtualClassFunction,
 	) as IntrospectedVirtualClassFunction[];
 
-	// Check each virtual method for conflicts
+	// If we don't have any virtual methods, no conflicts possible
+	if (virtualMethods.length === 0) {
+		return false;
+	}
+
+	// Check each virtual method for conflicts with parent classes/interfaces
 	for (const vmethod of virtualMethods) {
 		const conflictType = checkVfuncSignatureConflicts(ns, interfaceClass, vmethod, thisType);
 		if (conflictType === ConflictType.VFUNC_SIGNATURE_CONFLICT) {
@@ -551,5 +572,56 @@ export function hasVfuncSignatureConflicts(ns: IntrospectedNamespace, interfaceC
 		}
 	}
 
-	return false;
+	// Check if any parent interface already inherits from its own .Interface namespace
+	// If it does, and we have virtual methods with the same name but different signatures,
+	// we have a conflict (e.g., List extends Collection, List.Interface and BidirList extends List, BidirList.Interface)
+	const hasParentWithVirtualMethods = interfaceClass.someParent((parent) => {
+		// Only check parent interfaces (not classes)
+		if (!(parent instanceof IntrospectedInterface)) {
+			return false;
+		}
+
+		// Check if the parent interface has virtual methods (which means it probably inherits from its .Interface namespace)
+		const parentHasVirtualMethods = parent.members.some((m) => m instanceof IntrospectedVirtualClassFunction);
+		
+		if (!parentHasVirtualMethods) {
+			return false; // Parent has no virtual methods, no conflict
+		}
+
+		// Check if any of our virtual methods have the same name as parent's virtual methods
+		// but with different signatures (especially return types)
+		for (const vmethod of virtualMethods) {
+			// Find virtual methods with the same name in the parent
+			const parentVirtualMethods = parent.members.filter(
+				(m) => m instanceof IntrospectedVirtualClassFunction && m.name === vmethod.name,
+			) as IntrospectedVirtualClassFunction[];
+
+			for (const parentMethod of parentVirtualMethods) {
+				// For interfaces, even if the return type is a subtype, TypeScript won't allow
+				// multiple inheritance from interfaces with the same method but different return types
+				// So we need to check if there's any difference in signatures
+				// Note: We can't just use isConflictingFunction because it allows subtype relationships
+				// but TypeScript doesn't allow that for interface multiple inheritance
+				
+				// Check if return types are different (even if one is a subtype of the other)
+				const ourReturn = vmethod.return();
+				const parentReturn = parentMethod.return();
+				
+				// Check if return types are not exactly the same
+				// For interface inheritance, even subtype relationships cause conflicts
+				if (!ourReturn.equals(parentReturn)) {
+					return true; // Different return types = conflict
+				}
+				
+				// Also check parameters using the existing conflict detection
+				if (isConflictingFunction(ns, thisType, vmethod, parent.getType(), parentMethod)) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	});
+
+	return hasParentWithVirtualMethods;
 }
