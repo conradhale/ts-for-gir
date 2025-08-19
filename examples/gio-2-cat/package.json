@@ -1,6 +1,5 @@
 {
 	"name": "@ts-for-gir-example/gio-2-cat-example",
-	"version": "4.0.0-beta.25",
 	"description": "Simple GJS Gtk 3 example app that shows how to use Gio-2.0 to read a file from the local file system",
 	"main": "index.js",
 	"type": "module",
@@ -11,10 +10,10 @@
 		"check": "tsc --noEmit",
 		"clear": "rm -rf dist @types "
 	},
-	"author": "Pascal Garber <pascal@artandcode.studio>",
+	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "MIT",
 	"devDependencies": {
-		"esbuild": "^0.25.8",
+		"esbuild": "^0.25.9",
 		"typescript": "^5.9.2"
 	},
 	"dependencies": {

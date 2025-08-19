@@ -22,7 +22,7 @@ const command = "doc [modules..]";
 
 const description = "The HTML documentation generator is not yet implemented, but feel free to implement it 🤗";
 
-const logger = new Logger(false, "DocCommand");
+const logger = new Logger(true, "DocCommand");
 
 const builder: BuilderCallback<DocCommandArgs, ConfigFlags> = (yargs: Argv<DocCommandArgs>) => {
 	const optionNames = Object.keys(docOptions);

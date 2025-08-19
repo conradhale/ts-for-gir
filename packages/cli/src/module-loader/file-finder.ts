@@ -26,12 +26,21 @@ export class FileFinder {
 				continue;
 			}
 
+			// Handle all patterns uniformly (including wildcards like "*" and "Gtk*")
 			const filename = `${globPackageNames[i]}.gir`;
 			const pattern = this.girDirectories.map((girDirectory) => join(girDirectory, filename));
-			const ignoreGirs = ignore.map((girDirectory) => `${girDirectory}.gir`);
+			const ignoreGirs = this.girDirectories.flatMap((girDirectory) =>
+				ignore.map((ignored) => {
+					// Remove */ prefix if present (e.g., "*/Gtk-4.0" -> "Gtk-4.0")
+					const cleanIgnored = ignored.startsWith("*/") ? ignored.slice(2) : ignored;
+					return join(girDirectory, `${cleanIgnored}.gir`);
+				}),
+			);
 			const files = await glob(pattern, { ignore: ignoreGirs });
 
-			files.forEach((file) => foundFiles.add(file));
+			for (const file of files) {
+				foundFiles.add(file);
+			}
 		}
 
 		return foundFiles;

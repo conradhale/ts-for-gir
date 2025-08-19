@@ -5,14 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
-            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gtk" version="3.0"/>
   <include name="JavaScriptCore" version="4.1"/>
   <include name="Soup" version="3.0"/>
   <package name="webkit2gtk-4.1"/>
   <c:include name="webkit2/webkit2.h"/>
-  <doc:format name="unknown"/>
   <namespace name="WebKit2"
              version="4.1"
              shared-library="libwebkit2gtk-4.1.so.0,libjavascriptcoregtk-4.1.so.0"
@@ -12425,7 +12423,7 @@ against at application run time.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="0" c:type="WEBKIT_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="5" c:type="WEBKIT_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="Source/WebKit/UIProcess/API/glib/WebKitVersion.cpp"
            line="39">Like webkit_get_micro_version(), but from the headers used at
@@ -35683,13 +35681,13 @@ to @reason.</doc>
                    version="2.12">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-             line="451">Creates a new #WebKitWebViewSessionState from serialized data.</doc>
+             line="455">Creates a new #WebKitWebViewSessionState from serialized data.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebViewSessionState.h"
                          line="40"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-               line="457">a new #WebKitWebViewSessionState, or %NULL if @data doesn't contain a
+               line="461">a new #WebKitWebViewSessionState, or %NULL if @data doesn't contain a
     valid serialized #WebKitWebViewSessionState.</doc>
           <type name="WebViewSessionState"
                 c:type="WebKitWebViewSessionState*"/>
@@ -35698,7 +35696,7 @@ to @reason.</doc>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-                 line="453">a #GBytes</doc>
+                 line="457">a #GBytes</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -35708,7 +35706,7 @@ to @reason.</doc>
               version="2.12">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-             line="472">Atomically increments the reference count of @state by one.
+             line="476">Atomically increments the reference count of @state by one.
 
 This
 function is MT-safe and may be called from any thread.</doc>
@@ -35717,7 +35715,7 @@ function is MT-safe and may be called from any thread.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-               line="481">The passed in #WebKitWebViewSessionState</doc>
+               line="485">The passed in #WebKitWebViewSessionState</doc>
           <type name="WebViewSessionState"
                 c:type="WebKitWebViewSessionState*"/>
         </return-value>
@@ -35725,7 +35723,7 @@ function is MT-safe and may be called from any thread.</doc>
           <instance-parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-                 line="474">a #WebKitWebViewSessionState</doc>
+                 line="478">a #WebKitWebViewSessionState</doc>
             <type name="WebViewSessionState"
                   c:type="WebKitWebViewSessionState*"/>
           </instance-parameter>
@@ -35736,20 +35734,20 @@ function is MT-safe and may be called from any thread.</doc>
               version="2.12">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-             line="513">Serializes a #WebKitWebViewSessionState.</doc>
+             line="517">Serializes a #WebKitWebViewSessionState.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebViewSessionState.h"
                          line="49"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-               line="519">a #GBytes containing the @state serialized.</doc>
+               line="523">a #GBytes containing the @state serialized.</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
           <instance-parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-                 line="515">a #WebKitWebViewSessionState</doc>
+                 line="519">a #WebKitWebViewSessionState</doc>
             <type name="WebViewSessionState"
                   c:type="WebKitWebViewSessionState*"/>
           </instance-parameter>
@@ -35760,7 +35758,7 @@ function is MT-safe and may be called from any thread.</doc>
               version="2.12">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-             line="492">Atomically decrements the reference count of @state by one.
+             line="496">Atomically decrements the reference count of @state by one.
 
 If the
 reference count drops to 0, all memory allocated by the #WebKitWebViewSessionState is
@@ -35774,7 +35772,7 @@ released. This function is MT-safe and may be called from any thread.</doc>
           <instance-parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebViewSessionState.cpp"
-                 line="494">a #WebKitWebViewSessionState</doc>
+                 line="498">a #WebKitWebViewSessionState</doc>
             <type name="WebViewSessionState"
                   c:type="WebKitWebViewSessionState*"/>
           </instance-parameter>

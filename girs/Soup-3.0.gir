@@ -8684,7 +8684,7 @@ You may not modify the headers from @func.</doc>
               c:identifier="soup_message_headers_free_ranges">
         <doc xml:space="preserve"
              filename="libsoup/soup-message-headers.c"
-             line="1313">Frees the array of ranges returned from [method@MessageHeaders.get_ranges].</doc>
+             line="1314">Frees the array of ranges returned from [method@MessageHeaders.get_ranges].</doc>
         <source-position filename="libsoup/soup-message-headers.h" line="135"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8693,13 +8693,13 @@ You may not modify the headers from @func.</doc>
           <instance-parameter name="hdrs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1315">a #SoupMessageHeaders</doc>
+                 line="1316">a #SoupMessageHeaders</doc>
             <type name="MessageHeaders" c:type="SoupMessageHeaders*"/>
           </instance-parameter>
           <parameter name="ranges" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1316">an array of #SoupRange</doc>
+                 line="1317">an array of #SoupRange</doc>
             <type name="Range" c:type="SoupRange*"/>
           </parameter>
         </parameters>
@@ -8708,7 +8708,7 @@ You may not modify the headers from @func.</doc>
               c:identifier="soup_message_headers_get_content_disposition">
         <doc xml:space="preserve"
              filename="libsoup/soup-message-headers.c"
-             line="1615">Looks up the "Content-Disposition" header in @hdrs, parses it, and
+             line="1616">Looks up the "Content-Disposition" header in @hdrs, parses it, and
 returns its value in *@disposition and *@params.
 
 @params can be %NULL if you are only interested in the disposition-type.
@@ -8729,7 +8729,7 @@ form methods.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-message-headers.c"
-               line="1641">%TRUE if @hdrs contains a "Content-Disposition"
+               line="1642">%TRUE if @hdrs contains a "Content-Disposition"
   header, %FALSE if not (in which case *@disposition and *@params
   will be unchanged).</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -8738,7 +8738,7 @@ form methods.</doc>
           <instance-parameter name="hdrs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1617">a #SoupMessageHeaders</doc>
+                 line="1618">a #SoupMessageHeaders</doc>
             <type name="MessageHeaders" c:type="SoupMessageHeaders*"/>
           </instance-parameter>
           <parameter name="disposition"
@@ -8747,7 +8747,7 @@ form methods.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1618">return location for the
+                 line="1619">return location for the
   disposition-type, or %NULL</doc>
             <type name="utf8" c:type="char**"/>
           </parameter>
@@ -8757,7 +8757,7 @@ form methods.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1620">return
+                 line="1621">return
   location for the Content-Disposition parameters, or %NULL</doc>
             <type name="GLib.HashTable" c:type="GHashTable**">
               <type name="utf8"/>
@@ -8794,14 +8794,14 @@ This will only be non-0 if [method@MessageHeaders.get_encoding] returns
               c:identifier="soup_message_headers_get_content_range">
         <doc xml:space="preserve"
              filename="libsoup/soup-message-headers.c"
-             line="1395">Parses @hdrs's Content-Range header and returns it in @start,
+             line="1396">Parses @hdrs's Content-Range header and returns it in @start,
 @end, and @total_length. If the total length field in the header
 was specified as "*", then @total_length will be set to -1.</doc>
         <source-position filename="libsoup/soup-message-headers.h" line="147"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-message-headers.c"
-               line="1407">%TRUE if @hdrs contained a "Content-Range" header
+               line="1408">%TRUE if @hdrs contained a "Content-Range" header
   containing a byte range which could be parsed, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -8809,7 +8809,7 @@ was specified as "*", then @total_length will be set to -1.</doc>
           <instance-parameter name="hdrs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1397">a #SoupMessageHeaders</doc>
+                 line="1398">a #SoupMessageHeaders</doc>
             <type name="MessageHeaders" c:type="SoupMessageHeaders*"/>
           </instance-parameter>
           <parameter name="start"
@@ -8818,7 +8818,7 @@ was specified as "*", then @total_length will be set to -1.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1398">return value for the start of the range</doc>
+                 line="1399">return value for the start of the range</doc>
             <type name="gint64" c:type="goffset*"/>
           </parameter>
           <parameter name="end"
@@ -8827,7 +8827,7 @@ was specified as "*", then @total_length will be set to -1.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1399">return value for the end of the range</doc>
+                 line="1400">return value for the end of the range</doc>
             <type name="gint64" c:type="goffset*"/>
           </parameter>
           <parameter name="total_length"
@@ -8838,7 +8838,7 @@ was specified as "*", then @total_length will be set to -1.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1400">return value for the total length of the
+                 line="1401">return value for the total length of the
   resource, or %NULL if you don't care.</doc>
             <type name="gint64" c:type="goffset*"/>
           </parameter>
@@ -8848,7 +8848,7 @@ was specified as "*", then @total_length will be set to -1.</doc>
               c:identifier="soup_message_headers_get_content_type">
         <doc xml:space="preserve"
              filename="libsoup/soup-message-headers.c"
-             line="1564">Looks up the "Content-Type" header in @hdrs, parses it, and returns
+             line="1565">Looks up the "Content-Type" header in @hdrs, parses it, and returns
 its value in *@content_type and *@params.
 
 @params can be %NULL if you are only interested in the content type itself.</doc>
@@ -8856,7 +8856,7 @@ its value in *@content_type and *@params.
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-message-headers.c"
-               line="1576">a string with the value of the
+               line="1577">a string with the value of the
   "Content-Type" header or %NULL if @hdrs does not contain that
   header or it cannot be parsed (in which case *@params will be
   unchanged).</doc>
@@ -8866,7 +8866,7 @@ its value in *@content_type and *@params.
           <instance-parameter name="hdrs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1566">a #SoupMessageHeaders</doc>
+                 line="1567">a #SoupMessageHeaders</doc>
             <type name="MessageHeaders" c:type="SoupMessageHeaders*"/>
           </instance-parameter>
           <parameter name="params"
@@ -8877,7 +8877,7 @@ its value in *@content_type and *@params.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1567">
+                 line="1568">
   return location for the Content-Type parameters (eg, "charset"), or
   %NULL</doc>
             <type name="GLib.HashTable" c:type="GHashTable**">
@@ -9033,7 +9033,7 @@ implementations.)</doc>
       <method name="get_ranges" c:identifier="soup_message_headers_get_ranges">
         <doc xml:space="preserve"
              filename="libsoup/soup-message-headers.c"
-             line="1258">Parses @hdrs's Range header and returns an array of the requested
+             line="1259">Parses @hdrs's Range header and returns an array of the requested
 byte ranges.
 
 The returned array must be freed with [method@MessageHeaders.free_ranges].
@@ -9065,7 +9065,7 @@ actually requested by the client.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-message-headers.c"
-               line="1295">%TRUE if @hdrs contained a syntactically-valid
+               line="1296">%TRUE if @hdrs contained a syntactically-valid
   "Range" header, %FALSE otherwise (in which case @range and @length
   will not be set).</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -9074,13 +9074,13 @@ actually requested by the client.</doc>
           <instance-parameter name="hdrs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1260">a #SoupMessageHeaders</doc>
+                 line="1261">a #SoupMessageHeaders</doc>
             <type name="MessageHeaders" c:type="SoupMessageHeaders*"/>
           </instance-parameter>
           <parameter name="total_length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1261">the total_length of the response body</doc>
+                 line="1262">the total_length of the response body</doc>
             <type name="gint64" c:type="goffset"/>
           </parameter>
           <parameter name="ranges"
@@ -9089,7 +9089,7 @@ actually requested by the client.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1262">return location for an array
+                 line="1263">return location for an array
   of #SoupRange</doc>
             <array length="2" zero-terminated="0" c:type="SoupRange**">
               <type name="Range" c:type="SoupRange*"/>
@@ -9101,7 +9101,7 @@ actually requested by the client.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1264">the length of the returned array</doc>
+                 line="1265">the length of the returned array</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -9262,7 +9262,7 @@ syntactically correct.</doc>
               c:identifier="soup_message_headers_set_content_disposition">
         <doc xml:space="preserve"
              filename="libsoup/soup-message-headers.c"
-             line="1676">Sets the "Content-Disposition" header in @hdrs to @disposition,
+             line="1677">Sets the "Content-Disposition" header in @hdrs to @disposition,
 optionally with additional parameters specified in @params.
 
 See [method@MessageHeaders.get_content_disposition] for a discussion
@@ -9275,13 +9275,13 @@ of how Content-Disposition is used in HTTP.</doc>
           <instance-parameter name="hdrs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1678">a #SoupMessageHeaders</doc>
+                 line="1679">a #SoupMessageHeaders</doc>
             <type name="MessageHeaders" c:type="SoupMessageHeaders*"/>
           </instance-parameter>
           <parameter name="disposition" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1679">the disposition-type</doc>
+                 line="1680">the disposition-type</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="params"
@@ -9290,7 +9290,7 @@ of how Content-Disposition is used in HTTP.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1680">additional parameters</doc>
+                 line="1681">additional parameters</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="utf8"/>
               <type name="utf8"/>
@@ -9336,7 +9336,7 @@ memory by filling in a response body which won't actually be sent.</doc>
               c:identifier="soup_message_headers_set_content_range">
         <doc xml:space="preserve"
              filename="libsoup/soup-message-headers.c"
-             line="1451">Sets @hdrs's Content-Range header according to the given values.
+             line="1452">Sets @hdrs's Content-Range header according to the given values.
 
 (Note that @total_length is the total length of the entire resource
 that this is a range of, not simply @end - @start + 1.)
@@ -9352,25 +9352,25 @@ not normally need to call this function youself. See
           <instance-parameter name="hdrs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1453">a #SoupMessageHeaders</doc>
+                 line="1454">a #SoupMessageHeaders</doc>
             <type name="MessageHeaders" c:type="SoupMessageHeaders*"/>
           </instance-parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1454">the start of the range</doc>
+                 line="1455">the start of the range</doc>
             <type name="gint64" c:type="goffset"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1455">the end of the range</doc>
+                 line="1456">the end of the range</doc>
             <type name="gint64" c:type="goffset"/>
           </parameter>
           <parameter name="total_length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1456">the total length of the resource, or -1 if unknown</doc>
+                 line="1457">the total length of the resource, or -1 if unknown</doc>
             <type name="gint64" c:type="goffset"/>
           </parameter>
         </parameters>
@@ -9379,7 +9379,7 @@ not normally need to call this function youself. See
               c:identifier="soup_message_headers_set_content_type">
         <doc xml:space="preserve"
              filename="libsoup/soup-message-headers.c"
-             line="1595">Sets the "Content-Type" header in @hdrs to @content_type.
+             line="1596">Sets the "Content-Type" header in @hdrs to @content_type.
 
 Accepts additional parameters specified in @params.</doc>
         <source-position filename="libsoup/soup-message-headers.h" line="162"/>
@@ -9390,13 +9390,13 @@ Accepts additional parameters specified in @params.</doc>
           <instance-parameter name="hdrs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1597">a #SoupMessageHeaders</doc>
+                 line="1598">a #SoupMessageHeaders</doc>
             <type name="MessageHeaders" c:type="SoupMessageHeaders*"/>
           </instance-parameter>
           <parameter name="content_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1598">the MIME type</doc>
+                 line="1599">the MIME type</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="params"
@@ -9405,7 +9405,7 @@ Accepts additional parameters specified in @params.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1599">additional parameters</doc>
+                 line="1600">additional parameters</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="utf8"/>
               <type name="utf8"/>
@@ -9476,7 +9476,7 @@ server is just going to ignore it anyway.</doc>
       <method name="set_range" c:identifier="soup_message_headers_set_range">
         <doc xml:space="preserve"
              filename="libsoup/soup-message-headers.c"
-             line="1368">Sets @hdrs's Range header to request the indicated range.
+             line="1369">Sets @hdrs's Range header to request the indicated range.
 
 @start and @end are interpreted as in a [struct@Range].
 
@@ -9490,19 +9490,19 @@ If you need to request multiple ranges, use
           <instance-parameter name="hdrs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1370">a #SoupMessageHeaders</doc>
+                 line="1371">a #SoupMessageHeaders</doc>
             <type name="MessageHeaders" c:type="SoupMessageHeaders*"/>
           </instance-parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1371">the start of the range to request</doc>
+                 line="1372">the start of the range to request</doc>
             <type name="gint64" c:type="goffset"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1372">the end of the range to request</doc>
+                 line="1373">the end of the range to request</doc>
             <type name="gint64" c:type="goffset"/>
           </parameter>
         </parameters>
@@ -9510,7 +9510,7 @@ If you need to request multiple ranges, use
       <method name="set_ranges" c:identifier="soup_message_headers_set_ranges">
         <doc xml:space="preserve"
              filename="libsoup/soup-message-headers.c"
-             line="1327">Sets @hdrs's Range header to request the indicated ranges.
+             line="1328">Sets @hdrs's Range header to request the indicated ranges.
 
 If you only want to request a single range, you can use
 [method@MessageHeaders.set_range].</doc>
@@ -9522,19 +9522,19 @@ If you only want to request a single range, you can use
           <instance-parameter name="hdrs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1329">a #SoupMessageHeaders</doc>
+                 line="1330">a #SoupMessageHeaders</doc>
             <type name="MessageHeaders" c:type="SoupMessageHeaders*"/>
           </instance-parameter>
           <parameter name="ranges" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1330">an array of #SoupRange</doc>
+                 line="1331">an array of #SoupRange</doc>
             <type name="Range" c:type="SoupRange*"/>
           </parameter>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-message-headers.c"
-                 line="1331">the length of @range</doc>
+                 line="1332">the length of @range</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -18210,7 +18210,7 @@ This is in addition to any other "Set-Cookie" headers
               c:identifier="soup_date_time_new_from_http_string">
       <doc xml:space="preserve"
            filename="libsoup/soup-date-utils.c"
-           line="297">Parses @date_string and tries to extract a date from it.
+           line="304">Parses @date_string and tries to extract a date from it.
 
 This recognizes all of the "HTTP-date" formats from RFC 2616, RFC 2822 dates,
 and reasonable approximations thereof. (Eg, it is lenient about whitespace,
@@ -18219,7 +18219,7 @@ leading "0"s, etc.)</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-date-utils.c"
-             line="307">a new #GDateTime, or %NULL if @date_string
+             line="314">a new #GDateTime, or %NULL if @date_string
   could not be parsed.</doc>
         <type name="GLib.DateTime" c:type="GDateTime*"/>
       </return-value>
@@ -18227,7 +18227,7 @@ leading "0"s, etc.)</doc>
         <parameter name="date_string" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-date-utils.c"
-               line="299">The date as a string</doc>
+               line="306">The date as a string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>

@@ -1,6 +1,5 @@
 {
 	"name": "@ts-for-gir-example/adw-1-hello-example",
-	"version": "4.0.0-beta.25",
 	"description": "Simple GJS Typescript hello-world example using Libadwaita",
 	"type": "module",
 	"private": true,
@@ -12,11 +11,11 @@
 		"check": "tsc --noEmit",
 		"clear": "rm -rf dist"
 	},
-	"author": "Pascal Garber <pascal@artandcode.studio>",
+	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "MIT",
 	"devDependencies": {
 		"typescript": "^5.9.2",
-		"vite": "^7.1.0"
+		"vite": "^7.1.2"
 	},
 	"dependencies": {
 		"@girs/adw-1": "workspace:^",

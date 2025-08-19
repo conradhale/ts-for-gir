@@ -1,9 +1,5 @@
 #!/usr/bin/env gjs -m
 
-// SPDX-License-Identifier: MIT OR LGPL-2.0-or-later
-// SPDX-FileCopyrightText: 2021 Andy Holmes <andyholmes@gnome.org>
-// Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/gtk4-template.js
-
 import Gdk from "gi://Gdk?version=4.0";
 import GLib from "gi://GLib?version=2.0";
 import GObject from "gi://GObject?version=2.0";

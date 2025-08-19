@@ -1,6 +1,5 @@
 {
 	"name": "@ts-for-gir-example/glib-2-variant",
-	"version": "4.0.0-beta.25",
 	"description": "GLib.Variant example",
 	"type": "module",
 	"private": true,
@@ -10,10 +9,10 @@
 		"check": "tsc --noEmit",
 		"clear": "rm -rf dist @types"
 	},
-	"author": "Pascal Garber <pascal@artandcode.studio>",
+	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "MIT",
 	"devDependencies": {
-		"esbuild": "^0.25.8",
+		"esbuild": "^0.25.9",
 		"typescript": "^5.9.2"
 	},
 	"dependencies": {

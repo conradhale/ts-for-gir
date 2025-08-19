@@ -28,7 +28,7 @@ const GenericNames = [
 
 export function* getGenericNames(start: string = "A") {
 	let names = GenericNames.map((s) => `${s}`);
-	const startIteration = Number.parseInt(start.slice(1) || "0");
+	const startIteration = Number.parseInt(start.slice(1) || "0", 10);
 
 	let i = startIteration;
 

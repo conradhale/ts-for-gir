@@ -81,13 +81,14 @@ class CustomListModel extends GObject.Object implements Gio.ListModel.Interface<
 
 ### GTK 4 Examples
 
-| Example                                            | Description                                            | Bundler |
-| -------------------------------------------------- | ------------------------------------------------------ | ------- |
-| [GTK 4 Template (Vite)](gtk-4-template-vite)       | Modern UI with Vite for template and CSS loading       | Vite    |
-| [GTK 4 Template (esbuild)](gtk-4-template-esbuild) | Template-based UI using esbuild for asset loading      | esbuild |
-| [GTK 4 Template (TSC)](gtk-4-template-tsc)         | Pure TypeScript compilation with runtime asset loading | TSC     |
-| [GTK 4 ListStore](gtk-4-list-store)                | Data management with TreeView and ListStore            | esbuild |
-| [GTK 4 Custom Widget](gtk-4-custom-widget)         | Creating custom widgets and virtual functions          | esbuild |
+| Example                                                            | Description                                                   | Bundler |
+| ------------------------------------------------------------------ | ------------------------------------------------------------- | ------- |
+| [GTK 4 Template (Blueprint + Vite)](gtk-4-template-blueprint-vite) | Blueprint UI files with Vite plugin for direct import support | Vite    |
+| [GTK 4 Template (Vite)](gtk-4-template-vite)                       | Modern UI with Vite for template and CSS loading              | Vite    |
+| [GTK 4 Template (esbuild)](gtk-4-template-esbuild)                 | Template-based UI using esbuild for asset loading             | esbuild |
+| [GTK 4 Template (TSC)](gtk-4-template-tsc)                         | Pure TypeScript compilation with runtime asset loading        | TSC     |
+| [GTK 4 ListStore](gtk-4-list-store)                                | Data management with TreeView and ListStore                   | esbuild |
+| [GTK 4 Custom Widget](gtk-4-custom-widget)                         | Creating custom widgets and virtual functions                 | esbuild |
 
 ### GTK 3 Examples
 
@@ -196,6 +197,9 @@ If you discover cases where the generated type definitions don't work correctly,
 Here are visual previews of the examples:
 
 ### GTK 4 Examples
+
+#### GTK 4 Template (Blueprint + Vite)
+![GTK 4 Template Blueprint Vite](gtk-4-template-blueprint-vite/preview.png)
 
 #### GTK 4 Template (Vite)
 ![GTK 4 Template Vite](gtk-4-template-vite/preview.png)

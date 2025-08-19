@@ -1586,9 +1586,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 				return ` extends ${Type}`;
 			}
 
-			throw new Error(
+			// Fallback to GObject.Object when supertype can't be resolved
+			this.log.warn(
 				`Unable to resolve type: ${node.superType.name} from ${node.superType.namespace} in ${node.namespace.namespace} ${node.namespace.version}, falling back to GObject.Object`,
 			);
+			return ` extends GObject.Object`;
 		}
 
 		return "";

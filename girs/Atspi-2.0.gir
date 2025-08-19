@@ -4913,12 +4913,12 @@ value can be passed to atspi_device_add_key_grab.</doc>
       <constructor name="new" c:identifier="atspi_device_legacy_new">
         <doc xml:space="preserve"
              filename="atspi/atspi-device-legacy.c"
-             line="403">Creates a new #AtspiDeviceLegacy.</doc>
+             line="409">Creates a new #AtspiDeviceLegacy.</doc>
         <source-position filename="atspi/atspi-device-legacy.h" line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-device-legacy.c"
-               line="408">a pointer to a newly-created #AtspiDeviceLegacy.</doc>
+               line="414">a pointer to a newly-created #AtspiDeviceLegacy.</doc>
           <type name="DeviceLegacy" c:type="AtspiDeviceLegacy*"/>
         </return-value>
       </constructor>
@@ -4927,12 +4927,12 @@ value can be passed to atspi_device_add_key_grab.</doc>
                    version="2.55">
         <doc xml:space="preserve"
              filename="atspi/atspi-device-legacy.c"
-             line="385">Creates a new #AtspiDeviceLegacy with the given app id.</doc>
+             line="391">Creates a new #AtspiDeviceLegacy with the given app id.</doc>
         <source-position filename="atspi/atspi-device-legacy.h" line="57"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-device-legacy.c"
-               line="391">a pointer to a newly-created #AtspiDeviceLegacy.</doc>
+               line="397">a pointer to a newly-created #AtspiDeviceLegacy.</doc>
           <type name="DeviceLegacy" c:type="AtspiDeviceLegacy*"/>
         </return-value>
         <parameters>
@@ -4942,7 +4942,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device-legacy.c"
-                 line="387">The application id.</doc>
+                 line="393">The application id.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -14456,7 +14456,7 @@ desktops.</doc>
               version="2.50">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="2204">Returns the version of the AT-SPI library being used at runtime.</doc>
+           line="2211">Returns the version of the AT-SPI library being used at runtime.</doc>
       <source-position filename="atspi/atspi-misc.h" line="53"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -14468,7 +14468,7 @@ desktops.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2206">the major version.</doc>
+               line="2213">the major version.</doc>
           <type name="gint" c:type="gint*"/>
         </parameter>
         <parameter name="minor"
@@ -14477,7 +14477,7 @@ desktops.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2207">the minor version.</doc>
+               line="2214">the minor version.</doc>
           <type name="gint" c:type="gint*"/>
         </parameter>
         <parameter name="micro"
@@ -14486,7 +14486,7 @@ desktops.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2208">the micro/patch version.</doc>
+               line="2215">the micro/patch version.</doc>
           <type name="gint" c:type="gint*"/>
         </parameter>
       </parameters>

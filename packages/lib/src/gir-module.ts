@@ -569,13 +569,15 @@ export class GirModule implements IGirModule {
 			throw new Error(`Missing namespace in ${packageName}`);
 		}
 
-		const importConflicts = (el: IntrospectedConstant | IntrospectedBaseClass | IntrospectedFunction) => {
+		const importConflicts = (
+			el: IntrospectedConstant | IntrospectedBaseClass | IntrospectedFunction | IntrospectedEnum | IntrospectedError,
+		) => {
 			return !this.hasImport(el.name);
 		};
 
 		if (ns.enumeration) {
 			// Get the requested enums
-			ns.enumeration
+			const enumerations = ns.enumeration
 				?.map((enumeration) => {
 					if (enumeration.$["glib:error-domain"]) {
 						return IntrospectedError.fromXML(enumeration as GirEnumElement, this, options);
@@ -583,55 +585,72 @@ export class GirModule implements IGirModule {
 						return IntrospectedEnum.fromXML(enumeration as GirEnumElement, this, options);
 					}
 				})
-				.forEach((c) => this.members.set(c.name, c));
+				.filter(importConflicts);
+
+			for (const c of enumerations) {
+				this.members.set(c.name, c);
+			}
 		}
 
 		// Constants
 		if (ns.constant) {
-			ns.constant
+			const constants = ns.constant
 				?.filter(isIntrospectable)
 				.map((constant) => IntrospectedConstant.fromXML(constant, this, options))
-				.filter(importConflicts)
-				.forEach((c) => this.members.set(c.name, c));
+				.filter(importConflicts);
+
+			for (const c of constants) {
+				this.members.set(c.name, c);
+			}
 		}
 
 		// Get the requested functions
 		if (ns.function) {
-			ns.function
+			const functions = ns.function
 				?.filter(isIntrospectable)
 				.map((func) => IntrospectedFunction.fromXML(func, this, options))
-				.filter(importConflicts)
-				.forEach((c) => this.members.set(c.name, c));
+				.filter(importConflicts);
+
+			for (const c of functions) {
+				this.members.set(c.name, c);
+			}
 		}
 
 		if (ns.callback) {
-			ns.callback
+			const callbacks = ns.callback
 				?.filter(isIntrospectable)
 				.map((callback) => IntrospectedCallback.fromXML(callback, this, options))
-				.filter(importConflicts)
-				.forEach((c) => this.members.set(c.name, c));
+				.filter(importConflicts);
+
+			for (const c of callbacks) {
+				this.members.set(c.name, c);
+			}
 		}
 
 		if (ns["glib:boxed"]) {
-			ns["glib:boxed"]
-				?.filter(isIntrospectable)
-				.map(
-					(boxed) =>
-						new IntrospectedAlias({
-							name: boxed.$["glib:name"],
-							namespace: this,
-							type: new NullableType(ObjectType),
-						}),
-				)
-				.forEach((c) => this.members.set(c.name, c));
+			const boxed = ns["glib:boxed"]?.filter(isIntrospectable).map(
+				(boxed) =>
+					new IntrospectedAlias({
+						name: boxed.$["glib:name"],
+						namespace: this,
+						type: new NullableType(ObjectType),
+					}),
+			);
+
+			for (const c of boxed) {
+				this.members.set(c.name, c);
+			}
 		}
 
 		// Bitfield is a type of enum
 		if (ns.bitfield) {
-			ns.bitfield
+			const bitfields = ns.bitfield
 				?.filter(isIntrospectable)
-				.map((field) => IntrospectedEnum.fromXML(field as GirBitfieldElement, this, options, true))
-				.forEach((c) => this.members.set(c.name, c));
+				.map((field) => IntrospectedEnum.fromXML(field as GirBitfieldElement, this, options, true));
+
+			for (const c of bitfields) {
+				this.members.set(c.name, c);
+			}
 		}
 
 		// The `enum_constants` map maps the C identifiers (GTK_BUTTON_TYPE_Y)
@@ -646,40 +665,52 @@ export class GirModule implements IGirModule {
 
 		// Get the requested classes
 		if (ns.class) {
-			ns.class
+			const classes = ns.class
 				?.filter(isIntrospectable)
 				.map((klass) => IntrospectedClass.fromXML(klass, this, options))
-				.filter(importConflicts)
-				.forEach((c) => this.members.set(c.name, c));
+				.filter(importConflicts);
+
+			for (const c of classes) {
+				this.members.set(c.name, c);
+			}
 		}
 
 		if (ns.record) {
-			ns.record
+			const records = ns.record
 				?.filter(isIntrospectable)
 				.map((record) => IntrospectedRecord.fromXML(record, this, options))
-				.filter(importConflicts)
-				.forEach((c) => this.members.set(c.name, c));
+				.filter(importConflicts);
+
+			for (const c of records) {
+				this.members.set(c.name, c);
+			}
 		}
 
 		if (ns.union) {
-			ns.union
+			const unions = ns.union
 				?.filter(isIntrospectable)
 				.map((union) => IntrospectedRecord.fromXML(union, this, options))
-				.filter(importConflicts)
-				.forEach((c) => this.members.set(c.name, c));
+				.filter(importConflicts);
+
+			for (const c of unions) {
+				this.members.set(c.name, c);
+			}
 		}
 
 		if (ns.interface) {
-			ns.interface
+			const interfaces = ns.interface
 				?.map((inter) => IntrospectedInterface.fromXML(inter as GirInterfaceElement, this, options))
-				.filter(importConflicts)
-				.forEach((c) => this.members.set(c.name, c));
+				.filter(importConflicts);
+
+			for (const c of interfaces) {
+				this.members.set(c.name, c);
+			}
 		}
 
 		if (ns.alias) {
 			type NamedType = GirType & { $: { name: string } };
 
-			ns.alias
+			const aliases = ns.alias
 				?.filter(isIntrospectable)
 				// Avoid attempting to alias non-introspectable symbols.
 				.map((b) => {
@@ -696,8 +727,11 @@ export class GirModule implements IGirModule {
 					return b;
 				})
 				.map((alias) => IntrospectedAlias.fromXML(alias, this, options))
-				.filter((alias): alias is IntrospectedAlias => alias != null)
-				.forEach((c) => this.members.set(c.name, c));
+				.filter((alias): alias is IntrospectedAlias => alias != null);
+
+			for (const c of aliases) {
+				this.members.set(c.name, c);
+			}
 		}
 	}
 }

@@ -1,4 +1,3 @@
-#!/usr/bin/env -S node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings
 import { APP_NAME, APP_USAGE, APP_VERSION } from "@ts-for-gir/lib";
 import yargs, { type CommandModule } from "yargs";
 import { hideBin } from "yargs/helpers";

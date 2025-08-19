@@ -31,8 +31,8 @@ Follow [typescript-best-practices](mdc:.cursor/rules/typescript-best-practices.m
 **For comprehensive CLI usage, filtering options, and command examples, see [cli-usage](mdc:.cursor/rules/cli-usage.mdc).**
 
 Key error analysis workflow:
-1. **Generate with reporter**: `yarn ts-for-gir generate --reporter`
-2. **Analyze reports**: `yarn ts-for-gir analyze -f ./ts-for-gir-report.json`
+1. **Generate with reporter**: `yarn ts-for-gir-dev generate --reporter`
+2. **Analyze reports**: `yarn ts-for-gir-dev analyze -f ./ts-for-gir-report.json`
 3. **Apply targeted filters**: Use severity, category, and search filters as documented in cli-usage
 
 ## Diagnostic Workflow

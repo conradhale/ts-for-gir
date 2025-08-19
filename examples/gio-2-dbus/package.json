@@ -1,6 +1,5 @@
 {
 	"name": "@ts-for-gir-example/gio-2-dbus-example",
-	"version": "4.0.0-beta.25",
 	"description": "GJS example showing how to build a DBus server/client",
 	"main": "index.js",
 	"type": "module",
@@ -13,11 +12,11 @@
 		"check": "tsc --noEmit",
 		"clear": "rm -rf dist @types"
 	},
-	"author": "Pascal Garber <pascal@artandcode.studio>",
+	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "MIT",
 	"devDependencies": {
 		"concurrently": "^9.2.0",
-		"esbuild": "^0.25.8",
+		"esbuild": "^0.25.9",
 		"typescript": "^5.9.2"
 	},
 	"dependencies": {

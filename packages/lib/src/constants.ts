@@ -1,8 +1,7 @@
-import { createRequire } from "node:module";
+import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import type { LibraryVersion } from "./library-version.ts";
-
-const require = createRequire(import.meta.url);
 
 export const COMMENT_REG_EXP = /\/\*.*\*\//g;
 export const PARAM_REG_EXP = /[0-9a-zA-Z_]*:/g;
@@ -10,9 +9,9 @@ export const OPT_PARAM_REG_EXP = /[0-9a-zA-Z_]*\?:/g;
 export const NEW_LINE_REG_EXP = /[\n\r]+/g;
 
 /**
- * Package information interface for workspace root package.json
+ * Package information interface for package.json
  */
-interface WorkspacePackage {
+interface Package {
 	name: string;
 	version: string;
 	description: string;
@@ -22,44 +21,43 @@ interface WorkspacePackage {
 }
 
 /**
- * Resolves the workspace root package.json path
- * Uses require.resolve to find the correct path regardless of execution context
+ * Resolves the current package's package.json path
+ * Uses import.meta.url for ES Module compatibility
+ * Works both in workspace and after publishing
  */
-function resolveWorkspacePackageJson(): string {
+function resolvePackageJson(): string {
 	try {
-		// Try to resolve from the workspace root by going up from this package
-		// @ts-for-gir/lib -> ts-for-gir root
-		return require.resolve("../../../package.json");
-	} catch {
-		// Fallback: try to resolve from current package's package.json location
-		try {
-			const currentPackageJson = require.resolve("@ts-for-gir/lib/package.json");
-			return join(dirname(dirname(currentPackageJson)), "package.json");
-		} catch {
-			throw new Error("Unable to resolve workspace package.json path");
-		}
+		// Get the directory of the current module
+		const currentModulePath = fileURLToPath(import.meta.url);
+		const currentDir = dirname(currentModulePath);
+
+		// Go up to the package root (src/ -> package root)
+		const packageRoot = join(currentDir, "..");
+		const packageJsonPath = join(packageRoot, "package.json");
+
+		return packageJsonPath;
+	} catch (error) {
+		throw new Error(`Unable to resolve package.json path: ${error instanceof Error ? error.message : "Unknown error"}`);
 	}
 }
 
 /**
- * Reads and parses the workspace package.json file synchronously
- * Contains version and metadata shared across all workspace packages
+ * Reads and parses the current package's package.json file synchronously
+ * Contains version and metadata for this specific package
  */
-function readWorkspacePackageSync(): WorkspacePackage {
+function readPackageSync(): Package {
 	try {
-		const packagePath = resolveWorkspacePackageJson();
-		// Use dynamic import to avoid top-level await in constants
-		const { readFileSync } = require("node:fs");
+		const packagePath = resolvePackageJson();
 		const content = readFileSync(packagePath, "utf-8");
-		return JSON.parse(content) as WorkspacePackage;
+		return JSON.parse(content) as Package;
 	} catch (error) {
 		const message = error instanceof Error ? error.message : "Unknown error";
-		throw new Error(`Failed to read workspace package.json: ${message}`);
+		throw new Error(`Failed to read package.json: ${message}`);
 	}
 }
 
 // Read package information once at module load
-export const PACKAGE = readWorkspacePackageSync();
+export const PACKAGE = readPackageSync();
 
 export const APP_NAME = "ts-for-gir";
 export const APP_USAGE = "TypeScript type definition generator for GObject introspection GIR files";

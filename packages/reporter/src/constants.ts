@@ -1,69 +1,57 @@
 import { readFileSync } from "node:fs";
-import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
-
-const require = createRequire(import.meta.url);
+import { fileURLToPath } from "node:url";
 
 /**
- * Package information interface for workspace root package.json
- * All packages in the workspace share the same version from the root
+ * Package information interface for package.json
+ * Each package has its own version and metadata
  */
-interface WorkspacePackage {
+interface Package {
 	version: string;
 	name: string;
 	description: string;
 }
 
 /**
- * Resolves the workspace root package.json path
- * Uses require.resolve to find the correct path regardless of execution context
+ * Resolves the current package's package.json path
+ * Uses import.meta.url for ES Module compatibility
+ * Works both in workspace and after publishing
  */
-function resolveWorkspacePackageJson(): string {
+function resolvePackageJson(): string {
 	try {
-		// Try to resolve from the workspace root by going up from this package
-		// @ts-for-gir/reporter -> ts-for-gir root
-		return require.resolve("../../../package.json");
-	} catch {
-		// Fallback: try to resolve from current package's package.json location
-		try {
-			const currentPackageJson = require.resolve("@ts-for-gir/reporter/package.json");
-			return join(dirname(dirname(currentPackageJson)), "package.json");
-		} catch {
-			throw new Error("Unable to resolve workspace package.json path");
-		}
+		// Get the directory of the current module
+		const currentModulePath = fileURLToPath(import.meta.url);
+		const currentDir = dirname(currentModulePath);
+
+		// Go up to the package root (src/ -> package root)
+		const packageRoot = join(currentDir, "..");
+		const packageJsonPath = join(packageRoot, "package.json");
+
+		return packageJsonPath;
+	} catch (error) {
+		throw new Error(`Unable to resolve package.json path: ${error instanceof Error ? error.message : "Unknown error"}`);
 	}
 }
 
 /**
- * Reads and parses the workspace package.json file
- * Contains version and metadata shared across all workspace packages
+ * Reads and parses the current package's package.json file
+ * Contains version and metadata for this specific package
  */
-function readWorkspacePackage(): WorkspacePackage {
+function readPackage(): Package {
 	try {
-		const packagePath = resolveWorkspacePackageJson();
+		const packagePath = resolvePackageJson();
 		const content = readFileSync(packagePath, "utf-8");
-		return JSON.parse(content) as WorkspacePackage;
+		return JSON.parse(content) as Package;
 	} catch (error) {
 		const message = error instanceof Error ? error.message : "Unknown error";
-		throw new Error(`Failed to read workspace package.json: ${message}`);
+		throw new Error(`Failed to read package.json: ${message}`);
 	}
 }
 
 // Read package information once at module load
-const WORKSPACE_PACKAGE = readWorkspacePackage();
+export const PACKAGE = readPackage();
 
 /**
- * The current version of ts-for-gir
- * Shared across all workspace packages from the root package.json
+ * The current version of the reporter package
  */
-export const REPORTER_VERSION = WORKSPACE_PACKAGE.version;
-
-/**
- * The name of the workspace project
- */
-export const PACKAGE_NAME = WORKSPACE_PACKAGE.name;
-
-/**
- * The description of the workspace project
- */
-export const PACKAGE_DESCRIPTION = WORKSPACE_PACKAGE.description;
+export const PACKAGE_VERSION = PACKAGE.version;

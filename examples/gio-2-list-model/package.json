@@ -1,6 +1,5 @@
 {
 	"name": "@ts-for-gir-example/gio-2-list-model-example",
-	"version": "4.0.0-beta.25",
 	"description": "An example of implementing the GListModel interface in GJS",
 	"main": "index.js",
 	"type": "module",
@@ -12,10 +11,10 @@
 		"check": "tsc --noEmit",
 		"clear": "rm -rf dist"
 	},
-	"author": "Pascal Garber <pascal@artandcode.studio>",
+	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "MIT",
 	"devDependencies": {
-		"esbuild": "^0.25.8",
+		"esbuild": "^0.25.9",
 		"typescript": "^5.9.2"
 	},
 	"dependencies": {

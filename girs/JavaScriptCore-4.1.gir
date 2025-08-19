@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <package name="javascriptcoregtk-4.1"/>
   <c:include name="jsc/jsc.h"/>
+  <doc:format name="unknown"/>
   <namespace name="JavaScriptCore"
              version="4.1"
              shared-library="libjavascriptcoregtk-4.1.so.0"
@@ -2653,7 +2655,7 @@ against at application run time.</doc>
                        line="38"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="JSC_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="5" c:type="JSC_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCVersion.h"
            line="49">Like jsc_get_micro_version(), but from the headers used at

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT OR LGPL-2.0-or-later
 // SPDX-FileCopyrightText: 2010 litl, LLC
-// Copyright 2022 Pascal Garber <pascal@artandcode.studio>
+// Copyright 2022 Pascal Garber <pascal@mailfreun.de>
 
 // This is a simple example of a HTTP server in GJS using libsoup 3
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-server.js

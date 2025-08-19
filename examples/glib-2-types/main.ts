@@ -79,7 +79,7 @@ function testUtf16ToUcs4(): void {
 	console.log("Testing UTF-16 to UCS-4 conversion:");
 
 	try {
-		// @ts-ignore - API may have different signatures
+		// @ts-expect-error - API may have different signatures
 		const [result, itemsRead, itemsWritten] = GLib.utf16_to_ucs4(TEST_STRING);
 		console.log(`  Input: "${TEST_STRING}"`);
 		console.log(`  Result type: ${typeof result}`);
@@ -96,9 +96,9 @@ function testUnicodeCharacterFunctions(): void {
 	console.log("\n=== Unicode Character Functions ===");
 
 	try {
-		// @ts-ignore - Unicode character functions may have different type definitions
+		// @ts-expect-error - Unicode character functions may have different type definitions
 		const isAlnum = GLib.unichar_isalnum(UNICODE_EMOJI);
-		// @ts-ignore
+		// @ts-expect-error
 		const isDigit = GLib.unichar_isdigit(UNICODE_EMOJI);
 
 		console.log(`Unicode character 0x${UNICODE_EMOJI.toString(16)}:`);

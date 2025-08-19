@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.1.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
 	"linter": {
 		"enabled": true,
 		"rules": {
@@ -16,21 +16,21 @@
 	"files": {
 		"includes": [
 			"**",
-			"!**/node_modules/**",
-			"!**/dist/**",
-			"!**/build/**",
-			"!**/tmp/**",
-			"!**/test/**",
-			"!**/tests/**",
-			"!**/templates/**",
-			"!**/@types/**",
-			"!**/gjs/**",
-			"!**/types/**",
-			"!**/vala-girs/**",
+			"!**/node_modules",
+			"!**/dist",
+			"!**/build",
+			"!**/tmp",
+			"!**/test",
+			"!**/tests",
+			"!**/templates",
+			"!**/@types",
+			"!**/gjs",
+			"!**/types",
+			"!**/vala-girs",
 			"!**/*.js",
 			"!**/*.mjs",
 			"!**/*.cjs",
-			"!**/.*/**",
+			"!**/.*",
 			"!ts-for-gir-report.json"
 		]
 	}

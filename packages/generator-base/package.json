@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/generator-base",
-	"version": "4.0.0-beta.25",
+	"version": "4.0.0-beta.34",
 	"description": "Base generator for ts-for-gir",
 	"main": "src/index.ts",
 	"module": "src/index.ts",
@@ -15,7 +15,7 @@
 		"type": "git",
 		"url": "git+https://github.com/gjsify/ts-for-gir.git"
 	},
-	"author": "Pascal Garber <pascal@artandcode.studio>",
+	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"files": [
 		"src"
 	],
@@ -31,7 +31,7 @@
 		".": "./src/index.ts"
 	},
 	"devDependencies": {
-		"@types/node": "^24.2.0",
+		"@types/node": "^24.2.1",
 		"typescript": "^5.9.2"
 	},
 	"dependencies": {
