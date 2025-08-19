@@ -8,6 +8,7 @@ import type { IntrospectedBaseClass } from "../gir/introspected-classes.ts";
 import {
 	IntrospectedClass,
 	IntrospectedClassFunction,
+	IntrospectedInterface,
 	IntrospectedStaticClassFunction,
 	IntrospectedVirtualClassFunction,
 } from "../gir/introspected-classes.ts";
@@ -391,6 +392,12 @@ function detectConflictType<T extends IntrospectedClassMember | IntrospectedClas
 	const propertyConflict = checkPropertyConflicts(ns, c, element, thisType);
 	if (propertyConflict) return propertyConflict;
 
+	// Check virtual function signature conflicts (for interfaces)
+	if (element instanceof IntrospectedVirtualClassFunction) {
+		const vfuncConflict = checkVfuncSignatureConflicts(ns, c, element, thisType);
+		if (vfuncConflict) return vfuncConflict;
+	}
+
 	// Check function conflicts
 	return checkFunctionNameConflicts(ns, c, element, thisType);
 }
@@ -476,6 +483,35 @@ function checkFunctionNameConflicts<
 	);
 }
 
+function checkVfuncSignatureConflicts(
+	ns: IntrospectedNamespace,
+	c: IntrospectedBaseClass,
+	element: IntrospectedVirtualClassFunction,
+	thisType: TypeIdentifier,
+): ConflictType | undefined {
+	// Only check for vfunc conflicts on interfaces
+	if (!(c instanceof IntrospectedInterface)) {
+		return undefined;
+	}
+
+	// Check if this virtual method conflicts with parent class methods
+	return c.findParentMap((resolved_parent) => {
+		// Look for virtual methods with the same name in parent classes
+		const parentVirtualMethods = resolved_parent.members.filter(
+			(m) => m instanceof IntrospectedVirtualClassFunction && m.name === element.name,
+		);
+
+		for (const parentMethod of parentVirtualMethods) {
+			// Check if signatures conflict
+			if (isConflictingFunction(ns, thisType, element, resolved_parent.getType(), parentMethod)) {
+				return ConflictType.VFUNC_SIGNATURE_CONFLICT;
+			}
+		}
+
+		return undefined;
+	});
+}
+
 function createConflictElement<T extends IntrospectedClassMember | IntrospectedClassFunction | IntrospectedProperty>(
 	element: T,
 	conflictType: ConflictType,
@@ -486,5 +522,34 @@ function createConflictElement<T extends IntrospectedClassMember | IntrospectedC
 		}) as T;
 	}
 
+	// For VFUNC_SIGNATURE_CONFLICT, we'll handle it differently in the generator
+	// Just mark the element so the generator knows to create overloads
+	if (conflictType === ConflictType.VFUNC_SIGNATURE_CONFLICT && element instanceof IntrospectedVirtualClassFunction) {
+		// Return the element with a marker that will be handled in the generator
+		// We don't use TypeConflict here as that causes resolution errors
+		return element;
+	}
+
 	return null;
+}
+
+/**
+ * Check if an interface has virtual methods that conflict with parent class methods.
+ * This is used to determine whether to inherit from Interface namespace or generate method overloads.
+ */
+export function hasVfuncSignatureConflicts(ns: IntrospectedNamespace, interfaceClass: IntrospectedInterface): boolean {
+	const thisType = interfaceClass.getType();
+	const virtualMethods = interfaceClass.members.filter(
+		(m) => m instanceof IntrospectedVirtualClassFunction,
+	) as IntrospectedVirtualClassFunction[];
+
+	// Check each virtual method for conflicts
+	for (const vmethod of virtualMethods) {
+		const conflictType = checkVfuncSignatureConflicts(ns, interfaceClass, vmethod, thisType);
+		if (conflictType === ConflictType.VFUNC_SIGNATURE_CONFLICT) {
+			return true;
+		}
+	}
+
+	return false;
 }

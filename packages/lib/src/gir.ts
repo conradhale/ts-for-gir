@@ -18,6 +18,7 @@ export enum ConflictType {
 	FUNCTION_NAME_CONFLICT,
 	ACCESSOR_PROPERTY_CONFLICT,
 	PROPERTY_ACCESSOR_CONFLICT,
+	VFUNC_SIGNATURE_CONFLICT,
 }
 
 import { ConsoleReporter, ReporterService } from "@ts-for-gir/reporter";

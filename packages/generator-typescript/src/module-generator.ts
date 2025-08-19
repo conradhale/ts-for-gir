@@ -17,6 +17,7 @@ import {
 	type GirModule,
 	generateIndent,
 	generateMemberName,
+	hasVfuncSignatureConflicts,
 	IntrospectedAlias,
 	type IntrospectedBaseClass,
 	IntrospectedCallback,
@@ -1177,6 +1178,97 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		return def;
 	}
 
+	/**
+	 * Generate virtual methods with overloads for interfaces that have conflicting signatures.
+	 * This is used when an interface can't inherit from Interface namespace due to signature conflicts.
+	 * @param girInterface The interface to generate virtual methods for
+	 * @param indentCount Indentation level
+	 */
+	generateVirtualMethodOverloads(girInterface: IntrospectedInterface, indentCount = 1): string[] {
+		const def: string[] = [];
+		const indent = generateIndent(indentCount);
+
+		// Get all virtual methods from this interface
+		const virtualMethods = girInterface.members.filter(
+			(m) => m instanceof IntrospectedVirtualClassFunction,
+		) as IntrospectedVirtualClassFunction[];
+
+		if (virtualMethods.length === 0) {
+			return def;
+		}
+
+		def.push("");
+		def.push(`${indent}// Virtual methods - generated with overloads due to conflicts`);
+		def.push("");
+
+		// Group virtual methods by name to handle overloads
+		const methodsByName = new Map<string, IntrospectedVirtualClassFunction[]>();
+		for (const vmethod of virtualMethods) {
+			const methods = methodsByName.get(vmethod.name) || [];
+			methods.push(vmethod);
+			methodsByName.set(vmethod.name, methods);
+		}
+
+		// For each method name, generate overloads
+		for (const [methodName, methods] of methodsByName) {
+			// Find parent methods with the same name
+			const parentMethods: IntrospectedVirtualClassFunction[] = [];
+
+			girInterface.someParent((parent) => {
+				const parentVirtualMethods = parent.members.filter(
+					(m) => m instanceof IntrospectedVirtualClassFunction && m.name === methodName,
+				) as IntrospectedVirtualClassFunction[];
+				parentMethods.push(...parentVirtualMethods);
+				return false; // Continue searching all parents
+			});
+
+			// Generate overloads for all signatures
+			const allMethods = [...methods, ...parentMethods];
+			const uniqueSignatures = new Map<string, IntrospectedVirtualClassFunction>();
+
+			// Deduplicate by signature
+			for (const method of allMethods) {
+				const signature = this.generateMethodSignature(method);
+				if (!uniqueSignatures.has(signature)) {
+					uniqueSignatures.set(signature, method);
+				}
+			}
+
+			// Generate all unique overloads
+			for (const method of uniqueSignatures.values()) {
+				const methodDef = method.asString(this);
+				// Add @ignore tag to hide from documentation
+				if (methodDef.length > 0 && !methodDef[0].includes("@ignore")) {
+					const docLines: string[] = [];
+					if (method.doc) {
+						docLines.push(...this.addGirDocComment(method.doc, [], indentCount));
+					}
+					// Add @ignore tag
+					if (docLines.length > 0) {
+						// Insert @ignore before the closing */
+						const lastLine = docLines[docLines.length - 1];
+						docLines[docLines.length - 1] = lastLine.replace(" */", ` * @ignore\n${indent} */`);
+					} else {
+						docLines.push(`${indent}/** @ignore */`);
+					}
+					def.push(...docLines);
+				}
+				def.push(...methodDef);
+			}
+		}
+
+		return def;
+	}
+
+	/**
+	 * Generate a signature string for a virtual method (used for deduplication)
+	 */
+	private generateMethodSignature(method: IntrospectedVirtualClassFunction): string {
+		const params = method.parameters.map((p) => `${p.name}:${p.type.print(this.namespace, this.config)}`).join(",");
+		const returnType = method.return().print(this.namespace, this.config);
+		return `${method.name}(${params}):${returnType}`;
+	}
+
 	generateClassSignalInterfaces(girClass: IntrospectedClass, indentCount = 0) {
 		const def: string[] = [];
 		const _tsSignals = girClass.signals;
@@ -1455,20 +1547,31 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 				: []),
 		];
 
-		// For interfaces: inherit from the Interface namespace to get vfunc_* methods automatically
+		// For interfaces: check if we should inherit from Interface namespace or generate method overloads
+		let shouldGenerateVirtualMethodOverloads = false;
 		if (girClass instanceof IntrospectedInterface) {
 			// Check if this interface has virtual methods
 			const hasVirtualMethods = girClass.members.some((m) => m instanceof IntrospectedVirtualClassFunction);
 
 			if (hasVirtualMethods) {
-				// Extract only the generic type names (e.g., "A", "B") from the generic definitions
-				const typeNames = girClass.generics
-					.map((g) => g.type.identifier) // Use g.type.identifier to get the generic name
-					.filter((name) => name && name.length > 0);
+				// Check if there are conflicts with parent virtual methods
+				const hasConflicts = hasVfuncSignatureConflicts(this.namespace, girClass);
 
-				const genericTypeNames = typeNames.length > 0 ? `<${typeNames.join(", ")}>` : "";
+				if (hasConflicts) {
+					// Don't inherit from Interface namespace if there are conflicts
+					// We'll generate method overloads instead
+					shouldGenerateVirtualMethodOverloads = true;
+				} else {
+					// No conflicts, inherit from Interface namespace as usual
+					// Extract only the generic type names (e.g., "A", "B") from the generic definitions
+					const typeNames = girClass.generics
+						.map((g) => g.type.identifier) // Use g.type.identifier to get the generic name
+						.filter((name) => name && name.length > 0);
 
-				implementationNames.push(`${girClass.name}.Interface${genericTypeNames}`);
+					const genericTypeNames = typeNames.length > 0 ? `<${typeNames.join(", ")}>` : "";
+
+					implementationNames.push(`${girClass.name}.Interface${genericTypeNames}`);
+				}
 			}
 		}
 
@@ -1488,9 +1591,15 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		// Methods
 		def.push(...this.generateClassMethods(girClass));
 
-		// Virtual methods - only for classes/records, interfaces inherit them from Interface namespace
-		if (!(girClass instanceof IntrospectedInterface)) {
-			def.push(...this.generateClassVirtualMethods(girClass));
+		// Virtual methods - generate for classes/records always, for interfaces only when there are conflicts
+		if (!(girClass instanceof IntrospectedInterface) || shouldGenerateVirtualMethodOverloads) {
+			if (shouldGenerateVirtualMethodOverloads && girClass instanceof IntrospectedInterface) {
+				// Generate virtual methods with overloads for conflicting signatures
+				def.push(...this.generateVirtualMethodOverloads(girClass));
+			} else {
+				// Generate normal virtual methods
+				def.push(...this.generateClassVirtualMethods(girClass));
+			}
 		}
 		// END BODY
 
