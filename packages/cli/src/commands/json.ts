@@ -28,7 +28,7 @@ const logger = new Logger(true, "JsonCommand");
 
 const examples: ReadonlyArray<[string, string?]> = [
 	[`${APP_NAME} json`, `Run '${APP_NAME} json' in your gjs project to generate JSON files for your project`],
-	[`${APP_NAME} json Gtk*`, "You can also use wild cards"],
+	[`${APP_NAME} json 'Gtk*'`, "You can also use wild cards"],
 	[`${APP_NAME} json '*'`, "If you want to parse all of your locally installed gir modules run"],
 	[`${APP_NAME} json --configName='.ts-for-gir.gtk4.rc.js`, "Use a special config file"],
 	[`${APP_NAME} json --ignore=Gtk-4.0 xrandr-1.3`, "Generate JSON files but not for Gtk-4.0 and xrandr-1.3"],

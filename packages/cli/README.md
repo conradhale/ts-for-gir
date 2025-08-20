@@ -125,7 +125,7 @@ Examples:
   ts-for-gir generate                       Run 'ts-for-gir generate' in your gjs
                                             project to generate typings for your
                                             project, pass the gir modules you need
-  ts-for-gir generate Gtk*                  You can also use wild cards
+  ts-for-gir generate 'Gtk*'                  You can also use wild cards
   ts-for-gir generate '*'                   If you want to parse all of your locally
                                             installed gir modules run
   ts-for-gir generate --configName='.ts-for-gir.gtk4.rc.js'  Use a special config file

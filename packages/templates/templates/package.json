@@ -72,11 +72,13 @@ _%>
     },
     "dependencies": {
       <%_ if (packageName !== 'Gjs') { _%>
-      "<%- npmScope %>/gjs": "<%- depVersion %>"<%_ if(deps.length > 0 ) { _%>,<%_ } _%>
+      "<%- npmScope %>/gjs": "<%- depVersion %>"<%_ if(deps.length > 0 ) { _%>,
+      <%_ } _%>
       <%_ } _%>
       <%_ for (let i = 0; i < deps.length;  i++ ) { _%>
-      <%- deps[i].packageJsonImport %><%_ if(i < deps.length - 1) { _%>,<%_ } _%>
-      <% } %>
+      <%- deps[i].packageJsonImport %><%_ if(i < deps.length - 1) { _%>,
+      <%_ } _%>
+      <%_ } _%>
     },
     "devDependencies": {
       "typescript": "*"
