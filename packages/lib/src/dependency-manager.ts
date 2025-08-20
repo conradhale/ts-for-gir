@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { type GirInclude, type GirNamespace, type GirRepository, type GirXML, parser } from "@gi.ts/parser";
+import { APP_VERSION } from "./constants.ts";
 import type { GirModule } from "./gir-module.ts";
 import { LibraryVersion } from "./library-version.ts";
 import { Logger } from "./logger.ts";
@@ -109,10 +110,10 @@ export class DependencyManager {
 		];
 	}
 
-	createImportProperties(namespace: string, packageName: string, version: string) {
+	createImportProperties(namespace: string, packageName: string, version: string, libraryVersion?: LibraryVersion) {
 		const importPath = this.createImportPath(packageName, namespace, version);
 		const importDef = this.createImportDef(namespace, importPath);
-		const packageJsonImport = this.createPackageJsonImport(importPath);
+		const packageJsonImport = this.createPackageJsonImport(importPath, libraryVersion);
 		return {
 			importPath,
 			importDef,
@@ -135,8 +136,15 @@ export class DependencyManager {
 			: `import type ${namespace} from '${importPath}';`;
 	}
 
-	createPackageJsonImport(importPath: string): string {
-		const depVersion = this.config.workspace ? "workspace:^" : "*";
+	createPackageJsonImport(importPath: string, libraryVersion?: LibraryVersion): string {
+		let depVersion: string;
+		if (this.config.workspace) {
+			depVersion = "workspace:^";
+		} else if (libraryVersion) {
+			depVersion = `${libraryVersion.toString()}-${APP_VERSION}`;
+		} else {
+			depVersion = APP_VERSION;
+		}
 		return `"${importPath}": "${depVersion}"`;
 	}
 
@@ -258,7 +266,7 @@ export class DependencyManager {
 			version,
 			libraryVersion,
 			girXML,
-			...this.createImportProperties(namespace, packageName, version),
+			...this.createImportProperties(namespace, packageName, version, libraryVersion),
 		};
 
 		// Special case for Cairo
