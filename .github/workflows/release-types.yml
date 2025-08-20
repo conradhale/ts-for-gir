@@ -1,0 +1,112 @@
+# Workflow to automatically update types submodule on new releases
+name: Release Types
+
+on:
+  release:
+    types: [published]
+  # Allow manual triggering for testing
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Release tag to use for commit message'
+        required: false
+        default: 'manual'
+
+jobs:
+  update-types:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read    # Allow reading workflow info
+    
+    steps:
+    - name: Checkout repository with submodules
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+        # Use a personal access token to allow pushing to submodule
+        token: ${{ secrets.PAT_TOKEN }}
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.x'
+        
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get --yes install \
+          gjs \
+          blueprint-compiler \
+          libappindicator3-dev \
+          libgda-5.0-dev \
+          libgirepository1.0-dev \
+          libgtk-3-dev \
+          libgtk-4-dev \
+          libgtksourceview-3.0-dev \
+          libnotify-dev \
+          libsoup2.4-dev \
+          libsoup-3.0-dev \
+          libwebkit2gtk-4.1-dev \
+          libadwaita-1-dev \
+          gnome-shell-common \
+          libmutter-14-dev \
+          libgcr-3-dev \
+          libgnome-desktop-4-dev \
+          build-essential \
+          gobject-introspection \
+          libgirepository1.0-dev \
+          libcairo2-dev
+          
+    - name: Install yarn dependencies
+      run: yarn install
+      
+    - name: Generate release types
+      run: yarn build:types:release
+      
+    - name: Configure git for submodule
+      run: |
+        cd types
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        # Configure remote URL with token for authentication
+        git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/gjsify/types.git
+        
+    - name: Check for changes in types submodule
+      id: check-changes
+      run: |
+        cd types
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changes=true" >> $GITHUB_OUTPUT
+          echo "Changes detected in types submodule"
+        else
+          echo "changes=false" >> $GITHUB_OUTPUT
+          echo "No changes detected in types submodule"
+        fi
+        
+    - name: Commit and push types changes
+      if: steps.check-changes.outputs.changes == 'true'
+      run: |
+        cd types
+        git add .
+        
+        # Get release tag from event or workflow dispatch input
+        RELEASE_TAG="${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}"
+        
+        git commit -m "chore: update types for release ${RELEASE_TAG}
+
+        Automated commit from ts-for-gir release workflow.
+        Generated types for release: ${RELEASE_TAG}
+        
+        Source: ${{ github.repository }}@${RELEASE_TAG}"
+        
+        # Push to the types repository
+        git push origin HEAD:main
+        
+
+    - name: Summary
+      run: |
+        if [ "${{ steps.check-changes.outputs.changes }}" == "true" ]; then
+          echo "✅ Types successfully updated and committed for release ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}"
+        else
+          echo "ℹ️ No changes detected in generated types"
+        fi
