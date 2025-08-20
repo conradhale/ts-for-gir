@@ -113,7 +113,17 @@ export class DependencyManager {
 	createImportProperties(namespace: string, packageName: string, version: string, libraryVersion?: LibraryVersion) {
 		const importPath = this.createImportPath(packageName, namespace, version);
 		const importDef = this.createImportDef(namespace, importPath);
-		const packageJsonImport = this.createPackageJsonImport(importPath, libraryVersion);
+
+		// For GObject and Gio, use GLib's library version if available
+		let effectiveLibraryVersion = libraryVersion;
+		if ((namespace === "GObject" || namespace === "Gio") && this._cache["GLib-2.0"]) {
+			const glibDep = this._cache["GLib-2.0"];
+			if (glibDep.libraryVersion.toString() !== "0.0.0") {
+				effectiveLibraryVersion = glibDep.libraryVersion;
+			}
+		}
+
+		const packageJsonImport = this.createPackageJsonImport(importPath, effectiveLibraryVersion);
 		return {
 			importPath,
 			importDef,

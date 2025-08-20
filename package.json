@@ -1,6 +1,6 @@
 {
 	"name": "ts-for-gir",
-	"version": "4.0.0-beta.35",
+	"version": "4.0.0-beta.36",
 	"description": "Typescript .d.ts generator from GIR for gjs",
 	"type": "module",
 	"private": true,
@@ -38,7 +38,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/gjsify/ts-for-gir.git"
+		"url": "https://github.com/gjsify/ts-for-gir.git"
 	},
 	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "Apache-2.0",

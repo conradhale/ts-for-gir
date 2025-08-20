@@ -235,6 +235,8 @@ export class ModuleLoader {
 		const GObject = await this.dependencyManager.get("GObject", "2.0");
 		const Cairo = await this.dependencyManager.get("cairo", "1.0");
 
+		// Update library versions for GObject and Gio to use GLib's version
+
 		const dependencies = await this.fileFinder.girFilePathToDependencies(girFiles);
 
 		const { loaded, failed } = await this.loadGirModules(
