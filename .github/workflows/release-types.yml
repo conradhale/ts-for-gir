@@ -60,16 +60,20 @@ jobs:
     - name: Install yarn dependencies
       run: yarn install
       
-    - name: Generate release types
-      run: yarn build:types:release
-      
-    - name: Configure git for submodule
+    - name: Prepare types submodule
       run: |
         cd types
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         # Configure remote URL with token for authentication
         git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/gjsify/types.git
+        # Checkout main branch to ensure we're up to date
+        git fetch origin
+        git checkout main
+        git pull origin main
+        
+    - name: Generate release types
+      run: yarn build:types:release
         
     - name: Check for changes in types submodule
       id: check-changes
@@ -100,7 +104,7 @@ jobs:
         Source: ${{ github.repository }}@${RELEASE_TAG}"
         
         # Push to the types repository
-        git push origin HEAD:main
+        git push origin main
         
 
     - name: Summary
