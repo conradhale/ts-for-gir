@@ -34,6 +34,7 @@ export function inject(registry: NSRegistry) {
 
 	const $_ = injectDefinitions(registry, false);
 
+	// Optional injections
 	$_(tracker1);
 	$_(gee08);
 	$_(gee1);

@@ -469,18 +469,39 @@ export class GirModule implements IGirModule {
 		const clazzes = Array.from(this.members.values()).filter(
 			(m): m is IntrospectedBaseClass => m instanceof IntrospectedBaseClass,
 		);
-		const res = clazzes
+
+		// First, try to handle compound names like "ResultFlatMapFunc" -> "Result.FlatMapFunc"
+		// This is the main fix for the Gpseq namespace collision issue
+		for (const clazz of clazzes) {
+			// Check if the name starts with the class name (compound name pattern)
+			if (name.startsWith(clazz.name)) {
+				const potentialCallbackName = name.slice(clazz.name.length);
+				const callback = clazz.callbacks.find((c) => c.name === potentialCallbackName);
+				if (callback) {
+					return [clazz.name, callback.name];
+				}
+			}
+		}
+
+		// Find all matches using the original logic
+		const allMatches = clazzes
 			.map<[IntrospectedBaseClass, IntrospectedClassCallback | undefined]>((m) => [
 				m,
 				m.callbacks.find((c) => c.name === name || c.resolve_names.includes(name)),
 			])
-			.find((r): r is [IntrospectedBaseClass, IntrospectedClassCallback] => r[1] != null);
+			.filter((r): r is [IntrospectedBaseClass, IntrospectedClassCallback] => r[1] != null);
 
-		if (res) {
-			return [res[0].name, res[1].name];
-		} else {
+		if (allMatches.length === 0) {
 			return [null, name];
 		}
+
+		// If there are multiple matches, prefer more specific ones
+		if (allMatches.length > 1) {
+			this.log.warn(`Found multiple matches for ${name}: ${allMatches.map((m) => m[0].name).join(", ")}`);
+		}
+
+		const res = allMatches[0];
+		return [res[0].name, res[1].name];
 	}
 
 	/**
