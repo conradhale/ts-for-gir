@@ -23,6 +23,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        submodules: true
     
     # This also setups a .npmrc file to publish to npm
     - name: Setup Node.js
