@@ -27,7 +27,7 @@
 		"update:submodules": "git submodule foreach git pull",
 		"update:packages": "yarn upgrade-interactive",
 		"update": "yarn update:submodules && yarn update:packages",
-		"publish:app": "yarn build:app && yarn workspaces foreach -v --all --parallel --no-private --include '@ts-for-gir/*' --include '@gi.ts/*' npm publish --tolerate-republish --tag latest --access public",
+		"publish:app": "yarn build:app && yarn workspaces foreach -v --all --parallel --no-private --include '@ts-for-gir/*' --include '@gi.ts/*' npm publish --tolerate-republish --tag latest --access public --provenance",
 		"publish:types": "yarn workspaces foreach -v --all --parallel --no-private --include '@girs/*' npm publish --tolerate-republish --tag latest --access public",
 		"publish": "yarn publish:app && yarn publish:types",
 		"test:types": "yarn build:types && yarn check:types",
