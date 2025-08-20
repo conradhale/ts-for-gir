@@ -36,47 +36,6 @@ If you encounter a situation where the generated types don't work correctly, we 
 
 This collaborative approach helps us improve the quality of the type definitions for everyone.
 
-## New Virtual Interface Pattern 🎯
-
-Several examples now demonstrate the **new virtual interface pattern** that makes implementing GObject interfaces much cleaner:
-
-### Before (Old Way)
-```typescript
-class CustomListModel extends GObject.Object implements Gio.ListModel {
-  // Had to implement ALL interface methods:
-  get_item_type(): GObject.GType { ... }
-  get_item(position: number): GObject.Object | null { ... }
-  get_n_items(): number { ... }
-  
-  // PLUS all virtual methods:
-  vfunc_get_item_type(): GObject.GType { ... }
-  vfunc_get_item(position: number): GObject.Object | null { ... }
-  vfunc_get_n_items(): number { ... }
-}
-```
-
-### After (New Way)
-```typescript
-class CustomListModel extends GObject.Object implements Gio.ListModel.Interface<GObject.Object> {
-  // Only implement virtual methods - regular methods provided automatically:
-  vfunc_get_item_type(): GObject.GType { ... }
-  vfunc_get_item(position: number): GObject.Object | null { ... }
-  vfunc_get_n_items(): number { ... }
-  
-  // That's it! get_item(), get_n_items(), etc. are automatically available
-}
-```
-
-**Key Benefits:**
-- 🚀 **Less boilerplate** - only implement what you need
-- 🔒 **Better type safety** - TypeScript catches missing virtual methods
-- 🎯 **Matches GObject patterns** - follows actual GObject-Introspection behavior
-- ⚡ **Automatic methods** - regular interface methods provided by runtime
-
-**Examples using this pattern:**
-- [`gio-2-list-model`](gio-2-list-model/) - Clean `Gio.ListModel` implementation
-- [`virtual-interface-test`](virtual-interface-test/) - Comprehensive examples with `ListModel` and `Paintable`
-
 ## Available Examples
 
 ### GTK 4 Examples
@@ -87,8 +46,12 @@ class CustomListModel extends GObject.Object implements Gio.ListModel.Interface<
 | [GTK 4 Template (Vite)](gtk-4-template-vite)                       | Modern UI with Vite for template and CSS loading              | Vite    |
 | [GTK 4 Template (esbuild)](gtk-4-template-esbuild)                 | Template-based UI using esbuild for asset loading             | esbuild |
 | [GTK 4 Template (TSC)](gtk-4-template-tsc)                         | Pure TypeScript compilation with runtime asset loading        | TSC     |
+| [GTK 4 Application](gtk-4-application)                             | Basic GTK 4 application structure                             | esbuild |
 | [GTK 4 ListStore](gtk-4-list-store)                                | Data management with TreeView and ListStore                   | esbuild |
 | [GTK 4 Custom Widget](gtk-4-custom-widget)                         | Creating custom widgets and virtual functions                 | esbuild |
+| [GTK 4 Gettext](gtk-4-gettext)                                     | Internationalization with gettext                             | esbuild |
+| [GTK 4 Signal Helpers](gtk-4-signal-helpers)                       | Signal connection utilities and patterns                      | esbuild |
+| [GTK 4 Signal Interfaces](gtk-4-signal-interfaces)                 | Advanced signal handling and interface patterns               | esbuild |
 
 ### GTK 3 Examples
 
@@ -100,6 +63,9 @@ class CustomListModel extends GObject.Object implements Gio.ListModel.Interface<
 | [GTK 3 Clutter](gtk-3-clutter-tsc) | Graphics with Clutter integration | TSC     |
 | [GTK 3 Editor](gtk-3-editor)       | Text editor application           | Parcel  |
 | [GTK 3 Hello World](gtk-3-hello)   | Minimal GTK 3 application         | Rollup  |
+| [GTK 3 Hello World 2](gtk-3-hello-2) | Alternative GTK 3 hello world   | esbuild |
+| [GTK 3 Template](gtk-3-template)   | GTK 3 template-based UI           | esbuild |
+| [GTK 3 WebKit](gtk-3-webkit)       | WebKit integration example        | esbuild |
 
 ### Libadwaita Examples
 
@@ -107,15 +73,50 @@ class CustomListModel extends GObject.Object implements Gio.ListModel.Interface<
 | ---------------------------------- | ------------------------------- | ------- |
 | [Adwaita Hello World](adw-1-hello) | Modern GNOME UI with Libadwaita | Vite    |
 
-### Gio and Other Libraries
+### Gio and GLib Examples
 
 | Example                                          | Description                              | Bundler |
 | ------------------------------------------------ | ---------------------------------------- | ------- |
+| [Gio Action Entries](gio-2-action-entries)       | GAction and menu integration             | esbuild |
+| [Gio Async Operations](gio-2-async)              | Asynchronous file and network operations | esbuild |
 | [Gio Cat](gio-2-cat)                             | File system operations with Gio          | esbuild |
 | [Gio DBus](gio-2-dbus)                           | DBus client/server communication         | esbuild |
+| [Gio Iteration](gio-2-iterate)                   | File and directory iteration             | esbuild |
 | [Gio List Model](gio-2-list-model)               | Virtual interface implementation example | esbuild |
-| [Virtual Interface Test](virtual-interface-test) | Comprehensive virtual interface examples | esbuild |
+| [GLib Spawn Command](glib-2-spawn-command)       | Process spawning and command execution   | esbuild |
+| [GLib Types](glib-2-types)                       | GLib data types and utilities            | esbuild |
+| [GLib Variant](glib-2-variant)                   | GVariant serialization and handling      | esbuild |
+| [GObject Param Spec](gobject-param-spec)         | GObject property specifications          | esbuild |
+
+### Cairo and Graphics Examples
+
+| Example                               | Description                       | Bundler |
+| ------------------------------------- | --------------------------------- | ------- |
+| [Cairo Drawing](cairo-tsc)            | 2D graphics with Cairo            | TSC     |
+| [Clutter Graphics](gtk-3-clutter-tsc) | 3D graphics with Clutter          | TSC     |
+
+### Network and Communication Examples
+
+| Example                                          | Description                              | Bundler |
+| ------------------------------------------------ | ---------------------------------------- | ------- |
 | [Soup HTTP](soup-3-http)                         | HTTP client/server with Soup 3           | esbuild |
+| [Soup WebSocket](soup-3-websocket)               | WebSocket communication with Soup 3      | esbuild |
+
+### Utility and System Examples
+
+| Example                                          | Description                              | Bundler |
+| ------------------------------------------------ | ---------------------------------------- | ------- |
+| [Console Application](console-tsc)               | Command-line application example         | TSC     |
+| [Package TSC](pkg-tsc)                           | Package structure with TypeScript        | TSC     |
+| [Run Async](run-async)                           | Asynchronous execution patterns          | esbuild |
+| [ST Layout Manager](st-15-layout-manager)        | St layout management utilities           | esbuild |
+| [Timers](timers)                                 | Timer and scheduling examples            | esbuild |
+
+### Virtual Interface Examples
+
+| Example                                          | Description                              | Bundler |
+| ------------------------------------------------ | ---------------------------------------- | ------- |
+| [Virtual Interface Test](virtual-interface-test) | Comprehensive virtual interface examples | esbuild |
 
 ## How to Run Examples
 
@@ -167,7 +168,6 @@ For example:
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
-
 ```
 
 ## Using with Different Type Generation Methods
