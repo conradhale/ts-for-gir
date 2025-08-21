@@ -15,10 +15,15 @@ import GObject from "gi://GObject?version=2.0";
  * by the GObject runtime.
  */
 export class GjsListStore extends GObject.Object implements Gio.ListModel.Interface<GObject.Object> {
-	/**
-	 * An example of implementing the GListModel interface using virtual interface pattern.
-	 * Only virtual methods need to be implemented - regular methods are provided automatically.
-	 */
+	// ===============================================================
+	// REGULAR METHODS - These are automatically provided by GObject runtime
+	// but included for TypeScript compatibility during development
+	// ===============================================================
+
+	declare get_item: Gio.ListModel["get_item"];
+	declare get_item_type: Gio.ListModel["get_item_type"];
+	declare get_n_items: Gio.ListModel["get_n_items"];
+
 	static {
 		GObject.registerClass(
 			{
@@ -68,23 +73,6 @@ export class GjsListStore extends GObject.Object implements Gio.ListModel.Interf
 		const res = this._items.length;
 		print("vfunc_get_n_items", res);
 		return res;
-	}
-
-	// ===============================================================
-	// REGULAR METHODS - These are automatically provided by GObject runtime
-	// but included for TypeScript compatibility during development
-	// ===============================================================
-
-	get_item_type() {
-		return this.vfunc_get_item_type();
-	}
-
-	get_item(position: number) {
-		return this.vfunc_get_item(position);
-	}
-
-	get_n_items() {
-		return this.vfunc_get_n_items();
 	}
 
 	// items_changed is provided by GObject.Object, signal emission
@@ -191,4 +179,3 @@ listStore.appendItem(new GObject.Object());
 print("GjsListStore example:");
 print(`Items in store: ${listStore.get_n_items()}`);
 print(`Item type: ${listStore.get_item_type()}`);
-print("✅ Virtual interface implementation working correctly!");

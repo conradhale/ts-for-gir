@@ -4,25 +4,15 @@ This example demonstrates how to implement the `Gio.ListModel` interface using t
 
 ## What's New: Virtual Interface Pattern
 
-### Before (Old Way)
-```typescript
-class GjsListStore extends GObject.Object implements Gio.ListModel {
-  // Had to implement ALL methods of Gio.ListModel:
-  get_item_type(): GObject.GType { ... }
-  get_item(position: number): GObject.Object | null { ... }
-  get_n_items(): number { ... }
-  items_changed(position: number, removed: number, added: number): void { ... }
-  
-  // PLUS all virtual methods:
-  vfunc_get_item_type(): GObject.GType { ... }
-  vfunc_get_item(position: number): GObject.Object | null { ... }
-  vfunc_get_n_items(): number { ... }
-}
-```
+The example demonstrates the elegant implementation pattern using `declare` statements and virtual function implementations:
 
-### After (New Way)
 ```typescript
 class GjsListStore extends GObject.Object implements Gio.ListModel.Interface<GObject.Object> {
+  // Declare interface methods for TypeScript compatibility
+  declare get_item: Gio.ListModel["get_item"];
+  declare get_item_type: Gio.ListModel["get_item_type"];
+  declare get_n_items: Gio.ListModel["get_n_items"];
+
   // Only implement virtual methods - regular methods are provided automatically:
   vfunc_get_item_type(): GObject.GType { ... }
   vfunc_get_item(position: number): GObject.Object | null { ... }
@@ -32,12 +22,23 @@ class GjsListStore extends GObject.Object implements Gio.ListModel.Interface<GOb
 }
 ```
 
+## How It Works
+
+The `declare` statements provide TypeScript with the method signatures it needs for type checking, while the `vfunc_*` methods provide the actual implementations. GJS automatically creates the public interface methods that delegate to these virtual functions.
+
+This approach gives you:
+- ✅ Full TypeScript type safety
+- 🎯 Clean separation of concerns
+- 🔧 No duplicate method implementations
+- 🚀 Automatic delegation to virtual functions
+
 ## Key Benefits
 
 1. **Less Boilerplate**: Only implement the methods you actually need to override
 2. **Better Type Safety**: TypeScript will catch missing virtual method implementations
 3. **Matches GObject-Introspection**: Follows the actual GObject pattern where only virtual methods need implementation
 4. **Automatic Methods**: Regular interface methods are provided by the GObject runtime
+5. **Elegant TypeScript Integration**: Uses `declare` for clean type declarations without implementation duplication
 
 ## How Virtual Methods Work
 
@@ -47,6 +48,14 @@ In GObject-Introspection, interfaces have two types of methods:
 - **Regular Methods**: Automatically provided by GObject, typically call the virtual methods
 
 The new pattern ensures you only implement what's actually required!
+
+## Implementation Pattern
+
+For each interface method you need to implement:
+
+1. **Declare the method signature** using `declare` for TypeScript compatibility
+2. **Implement the virtual function** (`vfunc_*`) with your actual logic
+3. **Let GJS handle the delegation** automatically
 
 ## Running the Example
 
@@ -80,6 +89,7 @@ Item type: [object GObject_GType]
 - Regular methods that are automatically provided
 - Proper TypeScript generics for the item type
 - Complete list store functionality with add/remove/clear operations
+- Elegant `declare` pattern for TypeScript compatibility
 
 ## Related Examples
 

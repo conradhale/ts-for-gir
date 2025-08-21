@@ -5,11 +5,9 @@ import GObject from "gi://GObject";
 /**
  * Example demonstrating the new virtual interface functionality.
  *
- * With the new virtual interface generation, you can now implement GObject interfaces
+ * With the new virtual interface generation, you can implement GObject interfaces
  * by only implementing the virtual methods (vfunc_*) instead of all methods.
  */
-
-// ===== Example 1: Implementing Gio.ListModel using virtual interface =====
 
 /**
  * Custom list model implementation using the new virtual interface approach.
@@ -19,6 +17,12 @@ import GObject from "gi://GObject";
  */
 class CustomListModel extends GObject.Object implements Gio.ListModel.Interface<GObject.Object> {
 	private items: GObject.Object[] = [];
+
+	// Regular methods are automatically provided by GObject runtime
+	// but we add them for TypeScript compatibility during development
+	declare get_item: Gio.ListModel["get_item"];
+	declare get_item_type: Gio.ListModel["get_item_type"];
+	declare get_n_items: Gio.ListModel["get_n_items"];
 
 	static {
 		GObject.registerClass(
@@ -38,33 +42,19 @@ class CustomListModel extends GObject.Object implements Gio.ListModel.Interface<
 	}
 
 	// ONLY virtual methods need to be implemented!
-	vfunc_get_item(position: number): GObject.Object | null {
+	vfunc_get_item(this: this & Gio.ListModel, position: number): GObject.Object | null {
 		if (position < 0 || position >= this.items.length) {
 			return null;
 		}
 		return this.items[position];
 	}
 
-	vfunc_get_item_type(): GObject.GType {
+	vfunc_get_item_type(this: this & Gio.ListModel): GObject.GType {
 		return GObject.Object.$gtype;
 	}
 
-	vfunc_get_n_items(): number {
+	vfunc_get_n_items(this: this & Gio.ListModel): number {
 		return this.items.length;
-	}
-
-	// Regular methods are automatically provided by GObject runtime
-	// but we add them for TypeScript compatibility during development
-	get_item_type(): GObject.GType {
-		return this.vfunc_get_item_type();
-	}
-
-	get_n_items(): number {
-		return this.vfunc_get_n_items();
-	}
-
-	get_item(position: number): GObject.Object | null {
-		return this.vfunc_get_item(position);
 	}
 
 	// items_changed is provided by GObject.Object, but we need to declare it
@@ -80,8 +70,6 @@ class CustomListModel extends GObject.Object implements Gio.ListModel.Interface<
 	}
 }
 
-// ===== Example 2: Implementing Gdk.Paintable using virtual interface =====
-
 /**
  * Custom paintable implementation using the new virtual interface approach.
  *
@@ -91,6 +79,15 @@ class CustomListModel extends GObject.Object implements Gio.ListModel.Interface<
 class CustomPaintable extends GObject.Object implements Gdk.Paintable.Interface {
 	private width: number = 100;
 	private height: number = 100;
+
+	// Regular methods are automatically provided by GObject runtime
+	// but we add them for TypeScript compatibility during development
+	declare get_current_image: Gdk.Paintable["get_current_image"];
+	declare get_flags: Gdk.Paintable["get_flags"];
+	declare get_intrinsic_aspect_ratio: Gdk.Paintable["get_intrinsic_aspect_ratio"];
+	declare get_intrinsic_height: Gdk.Paintable["get_intrinsic_height"];
+	declare get_intrinsic_width: Gdk.Paintable["get_intrinsic_width"];
+	declare snapshot: Gdk.Paintable["snapshot"];
 
 	static {
 		GObject.registerClass(
@@ -109,8 +106,8 @@ class CustomPaintable extends GObject.Object implements Gdk.Paintable.Interface 
 	}
 
 	// ONLY virtual methods need to be implemented!
-	vfunc_get_current_image(): Gdk.Paintable {
-		return this as unknown as Gdk.Paintable; // Cast needed since this implements the interface
+	vfunc_get_current_image(this: this & Gdk.Paintable): Gdk.Paintable {
+		return this;
 	}
 
 	vfunc_get_flags(): Gdk.PaintableFlags {
@@ -141,49 +138,10 @@ class CustomPaintable extends GObject.Object implements Gdk.Paintable.Interface 
 		// In a real implementation, you would draw something here
 		console.log(`Drawing rectangle: ${width}x${height}`);
 	}
-
-	// Regular methods are automatically provided by GObject runtime
-	// but we add them for TypeScript compatibility during development
-	get_current_image(): Gdk.Paintable {
-		return this.vfunc_get_current_image();
-	}
-
-	get_flags(): Gdk.PaintableFlags {
-		return this.vfunc_get_flags();
-	}
-
-	get_intrinsic_aspect_ratio(): number {
-		return this.vfunc_get_intrinsic_aspect_ratio();
-	}
-
-	get_intrinsic_height(): number {
-		return this.vfunc_get_intrinsic_height();
-	}
-
-	get_intrinsic_width(): number {
-		return this.vfunc_get_intrinsic_width();
-	}
-
-	snapshot(snapshot: Gdk.Snapshot, width: number, height: number): void {
-		this.vfunc_snapshot(snapshot, width, height);
-	}
-
-	// Additional methods that might be required by the Paintable interface
-	compute_concrete_size(
-		_specified_width: number,
-		_specified_height: number,
-		_default_width: number,
-		_default_height: number,
-	): [number, number] {
-		// Default implementation
-		return [this.get_intrinsic_width(), this.get_intrinsic_height()];
-	}
 }
 
-// ===== Test the implementations =====
-
 function main() {
-	console.log("=== Virtual Interface Test ===");
+	console.log("=== Virtual Interface Demo ===");
 
 	// Test CustomListModel
 	console.log("\n1. Testing CustomListModel:");
@@ -205,18 +163,6 @@ function main() {
 	console.log(`Intrinsic height: ${paintable.get_intrinsic_height()}`);
 	console.log(`Aspect ratio: ${paintable.get_intrinsic_aspect_ratio()}`);
 	console.log(`Flags: ${paintable.get_flags()}`);
-
-	// Test snapshot (this would normally be called by GTK)
-	// We can't create a real Gdk.Snapshot without a drawing context,
-	// but we can test the method exists and is callable
-	console.log("Paintable snapshot method exists:", typeof paintable.vfunc_snapshot === "function");
-
-	console.log("\n✅ All virtual interface tests passed!");
-	console.log("\nKey benefits demonstrated:");
-	console.log("- Only virtual methods need to be implemented");
-	console.log("- TypeScript provides full type safety");
-	console.log("- Backward compatibility maintained");
-	console.log("- Clear separation between interface and implementation");
 }
 
 // Run the test
