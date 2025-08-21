@@ -20,6 +20,13 @@
 	"engines": {
 		"node": ">=22"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gjsify/ts-for-gir.git"
+	},
+	"bugs": {
+		"url": "https://github.com/gjsify/ts-for-gir/issues"
+	},
 	"dependencies": {
 		"@ts-for-gir/lib": "workspace:^",
 		"typescript": "^5.9.2"

@@ -40,11 +40,11 @@
 		"type": "git",
 		"url": "git+https://github.com/gjsify/ts-for-gir.git"
 	},
-	"author": "Pascal Garber <pascal@mailfreun.de>",
-	"license": "Apache-2.0",
 	"bugs": {
 		"url": "https://github.com/gjsify/ts-for-gir/issues"
 	},
+	"author": "Pascal Garber <pascal@mailfreun.de>",
+	"license": "Apache-2.0",
 	"homepage": "https://github.com/gjsify/ts-for-gir#readme",
 	"keywords": [
 		"gjs",

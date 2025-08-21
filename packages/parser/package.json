@@ -18,6 +18,13 @@
 		"access": "public"
 	},
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gjsify/ts-for-gir.git"
+	},
+	"bugs": {
+		"url": "https://github.com/gjsify/ts-for-gir/issues"
+	},
 	"scripts": {
 		"check": "tsc --noEmit"
 	},
