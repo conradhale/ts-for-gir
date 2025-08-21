@@ -32,14 +32,6 @@ This approach gives you:
 - 🔧 No duplicate method implementations
 - 🚀 Automatic delegation to virtual functions
 
-## Key Benefits
-
-1. **Less Boilerplate**: Only implement the methods you actually need to override
-2. **Better Type Safety**: TypeScript will catch missing virtual method implementations
-3. **Matches GObject-Introspection**: Follows the actual GObject pattern where only virtual methods need implementation
-4. **Automatic Methods**: Regular interface methods are provided by the GObject runtime
-5. **Elegant TypeScript Integration**: Uses `declare` for clean type declarations without implementation duplication
-
 ## How Virtual Methods Work
 
 In GObject-Introspection, interfaces have two types of methods:
@@ -79,7 +71,6 @@ vfunc_get_n_items 2
 Items in store: 2
 vfunc_get_item_type [object GObject_GType]
 Item type: [object GObject_GType]
-✅ Virtual interface implementation working correctly!
 ```
 
 ## What This Example Shows
