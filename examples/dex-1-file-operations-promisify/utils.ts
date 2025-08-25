@@ -38,6 +38,8 @@ export async function replaceFileContents(file: Gio.File, contents: string): Pro
  * This function leverages Dex's built-in callback mechanism instead of polling.
  * Enhanced with proper error handling and cleanup using Dex.Future.catch() and finally().
  *
+ * TypeScript will automatically infer the return type based on usage context.
+ *
  * This utility is part of our hybrid approach where we use Dex for some operations
  * and GIO for others. This function bridges the gap between Dex's Future-based API
  * and modern async/await patterns.
@@ -48,17 +50,13 @@ export async function replaceFileContents(file: Gio.File, contents: string): Pro
  *
  * @example
  * ```typescript
- * // For boolean results:
- * const success = await promisifyDexFuture(copyFuture, 'boolean');
- *
- * // For GBoxed results:
- * const contents = await promisifyDexFuture(loadFuture, 'boxed');
- *
- * // For integer results:
- * const count = await promisifyDexFuture(countFuture, 'int');
+ * // TypeScript will infer the correct return type:
+ * const success: boolean = await promisifyDexFuture(copyFuture, 'boolean');
+ * const count: number = await promisifyDexFuture(countFuture, 'int');
+ * const contents: any = await promisifyDexFuture(loadFuture, 'boxed');
  * ```
  */
-export function promisifyDexFuture<T>(
+export function promisifyDexFuture<T = unknown>(
 	future: Dex.Future,
 	expectedType:
 		| "boolean"
@@ -74,7 +72,8 @@ export function promisifyDexFuture<T>(
 		| "variant"
 		| "pointer"
 		| "enum"
-		| "flags",
+		| "flags"
+		| "future",
 ): Promise<T> {
 	return new Promise((resolve, reject) => {
 		// Use Dex.Future.catch() for proper error handling
@@ -93,56 +92,59 @@ export function promisifyDexFuture<T>(
 		const successHandledFuture = Dex.Future.then(errorHandledFuture, (resolvedFuture) => {
 			try {
 				// Extract result using the appropriate method based on expected type
-				let result: T;
+				let result: unknown;
 
 				switch (expectedType) {
 					case "boolean":
-						result = resolvedFuture.await_boolean() as T;
+						result = resolvedFuture.await_boolean();
 						break;
 					case "boxed":
-						result = resolvedFuture.await_boxed() as T;
+						result = resolvedFuture.await_boxed();
 						break;
 					case "int":
-						result = resolvedFuture.await_int() as T;
+						result = resolvedFuture.await_int();
 						break;
 					case "int64":
-						result = resolvedFuture.await_int64() as T;
+						result = resolvedFuture.await_int64();
 						break;
 					case "uint":
-						result = resolvedFuture.await_uint() as T;
+						result = resolvedFuture.await_uint();
 						break;
 					case "uint64":
-						result = resolvedFuture.await_uint64() as T;
+						result = resolvedFuture.await_uint64();
 						break;
 					case "double":
-						result = resolvedFuture.await_double() as T;
+						result = resolvedFuture.await_double();
 						break;
 					case "float":
-						result = resolvedFuture.await_float() as T;
+						result = resolvedFuture.await_float();
 						break;
 					case "string":
-						result = resolvedFuture.await_string() as T;
+						result = resolvedFuture.await_string();
 						break;
 					case "object":
-						result = resolvedFuture.await_object() as T;
+						result = resolvedFuture.await_object();
 						break;
 					case "variant":
-						result = resolvedFuture.await_variant() as T;
+						result = resolvedFuture.await_variant();
 						break;
 					case "pointer":
-						result = resolvedFuture.await_pointer() as T;
+						result = resolvedFuture.await_pointer();
 						break;
 					case "enum":
-						result = resolvedFuture.await_enum() as T;
+						result = resolvedFuture.await_enum();
 						break;
 					case "flags":
-						result = resolvedFuture.await_flags() as T;
+						result = resolvedFuture.await_flags();
+						break;
+					case "future":
+						result = resolvedFuture;
 						break;
 					default:
 						throw new Error(`Unknown expected type: ${expectedType}`);
 				}
 
-				resolve(result);
+				resolve(result as T);
 			} catch (error) {
 				reject(new Error(`Failed to extract Dex Future result: ${error}`));
 			}
