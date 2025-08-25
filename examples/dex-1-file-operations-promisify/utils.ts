@@ -2,8 +2,54 @@
 
 import Dex from "gi://Dex";
 import Gio from "gi://Gio";
+import type GLib from "gi://GLib";
+import type GObject from "gi://GObject";
 
 Gio._promisify(Gio.File.prototype, "replace_contents_async", "replace_contents_finish");
+
+/**
+ * Type definitions for Dex Future return types
+ * These types map expectedType strings to their corresponding TypeScript types
+ */
+export type DexFutureReturnType<T extends string> = T extends "boolean"
+	? boolean
+	: T extends "int" | "int64" | "uint" | "uint64" | "double" | "float"
+		? number
+		: T extends "string"
+			? string
+			: T extends "object"
+				? GObject.Object
+				: T extends "variant"
+					? GLib.Variant
+					: T extends "pointer"
+						? unknown
+						: T extends "enum" | "flags"
+							? number
+							: T extends "future"
+								? Dex.Future
+								: T extends "boxed"
+									? unknown
+									: never;
+
+/**
+ * Union type of all valid expectedType values
+ */
+export type DexFutureExpectedType =
+	| "boolean"
+	| "boxed"
+	| "int"
+	| "int64"
+	| "uint"
+	| "uint64"
+	| "double"
+	| "float"
+	| "string"
+	| "object"
+	| "variant"
+	| "pointer"
+	| "enum"
+	| "flags"
+	| "future";
 
 /**
  * Utility functions for working with a hybrid Dex/GIO approach in GJS
@@ -38,7 +84,7 @@ export async function replaceFileContents(file: Gio.File, contents: string): Pro
  * This function leverages Dex's built-in callback mechanism instead of polling.
  * Enhanced with proper error handling and cleanup using Dex.Future.catch() and finally().
  *
- * TypeScript will automatically infer the return type based on usage context.
+ * The return type is automatically inferred based on the expectedType parameter.
  *
  * This utility is part of our hybrid approach where we use Dex for some operations
  * and GIO for others. This function bridges the gap between Dex's Future-based API
@@ -50,31 +96,22 @@ export async function replaceFileContents(file: Gio.File, contents: string): Pro
  *
  * @example
  * ```typescript
- * // TypeScript will infer the correct return type:
- * const success: boolean = await promisifyDexFuture(copyFuture, 'boolean');
- * const count: number = await promisifyDexFuture(countFuture, 'int');
- * const contents: any = await promisifyDexFuture(loadFuture, 'boxed');
+ * // TypeScript automatically infers the correct return type:
+ * const success = await promisifyDexFuture(copyFuture, 'boolean'); // Promise<boolean>
+ * const count = await promisifyDexFuture(countFuture, 'int'); // Promise<number>
+ * const contents = await promisifyDexFuture(loadFuture, 'boxed'); // Promise<unknown>
+ * const future = await promisifyDexFuture(someFuture, 'future'); // Promise<Dex.Future>
  * ```
  */
-export function promisifyDexFuture<T = unknown>(
+
+// Function overloads for automatic type inference
+export function promisifyDexFuture<T extends DexFutureExpectedType>(
 	future: Dex.Future,
-	expectedType:
-		| "boolean"
-		| "boxed"
-		| "int"
-		| "int64"
-		| "uint"
-		| "uint64"
-		| "double"
-		| "float"
-		| "string"
-		| "object"
-		| "variant"
-		| "pointer"
-		| "enum"
-		| "flags"
-		| "future",
-): Promise<T> {
+	expectedType: T,
+): Promise<DexFutureReturnType<T>>;
+
+// Implementation
+export function promisifyDexFuture(future: Dex.Future, expectedType: DexFutureExpectedType): Promise<unknown> {
 	return new Promise((resolve, reject) => {
 		// Use Dex.Future.catch() for proper error handling
 		const errorHandledFuture = Dex.Future.catch(future, (errorFuture) => {
@@ -144,7 +181,7 @@ export function promisifyDexFuture<T = unknown>(
 						throw new Error(`Unknown expected type: ${expectedType}`);
 				}
 
-				resolve(result as T);
+				resolve(result);
 			} catch (error) {
 				reject(new Error(`Failed to extract Dex Future result: ${error}`));
 			}
