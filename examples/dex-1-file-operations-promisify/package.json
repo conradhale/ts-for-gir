@@ -1,0 +1,30 @@
+{
+	"name": "@ts-for-gir-example/dex-1-file-operations-promisify",
+	"version": "1.0.0",
+	"description": "A file management utility using Dex for efficient, non-blocking file operations with promisify",
+	"main": "dist/main.js",
+	"type": "module",
+	"scripts": {
+		"build": "tsc",
+		"start": "gjs -m dist/main.js",
+		"clean": "rm -rf dist"
+	},
+	"dependencies": {
+		"@girs/dex-1": "workspace:*",
+		"@girs/gio-2.0": "workspace:*",
+		"@girs/gjs": "workspace:*",
+		"@girs/glib-2.0": "workspace:*"
+	},
+	"devDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"keywords": [
+		"dex",
+		"file-management",
+		"gjs",
+		"gnome",
+		"typescript"
+	],
+	"author": "ts-for-gir",
+	"license": "MIT"
+}
