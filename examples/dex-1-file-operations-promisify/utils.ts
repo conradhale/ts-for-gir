@@ -18,22 +18,11 @@ Gio._promisify(Gio.File.prototype, "replace_contents_async", "replace_contents_f
  *
  * @param file - The Gio.File to modify
  * @param content - The new content as a string
- * @param etag - Optional ETag for conflict detection
- * @param makeBackup - Whether to create a backup before replacing
- * @param flags - File creation flags
- * @param cancellable - Optional cancellable object
  * @returns Promise that resolves when the operation completes
  */
-export async function replaceFileContents(
-	file: Gio.File,
-	content: string,
-	etag?: string | null,
-	makeBackup = false,
-	flags = Gio.FileCreateFlags.NONE,
-	cancellable?: Gio.Cancellable | null,
-): Promise<void> {
+export async function replaceFileContents(file: Gio.File, content: string): Promise<void> {
 	const encoder = new TextEncoder();
 	const bytes = encoder.encode(content);
 
-	await file.replace_contents_async(bytes, etag ?? null, makeBackup, flags, cancellable);
+	await file.replace_contents_async(bytes, null, false, Gio.FileCreateFlags.NONE, null);
 }

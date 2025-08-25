@@ -3,7 +3,7 @@
 import Dex from "gi://Dex";
 import Gio from "gi://Gio";
 import GLib from "gi://GLib";
-import { promisifyDexFuture } from "./promisify.js";
+import { promisify } from "./promisify.js";
 import { replaceFileContents } from "./utils.js";
 
 // Promisify the GIO methods we need for file operations
@@ -40,7 +40,7 @@ class DexFileManager {
 
 		if (!this.tempDir.query_exists(null)) {
 			// Create working directory using Dex
-			await promisifyDexFuture("boolean", Dex.file_make_directory(this.tempDir, GLib.PRIORITY_DEFAULT));
+			await promisify(Dex.file_make_directory(this.tempDir, GLib.PRIORITY_DEFAULT), "boolean");
 			console.log("✓ Working directory created");
 		}
 
@@ -77,7 +77,7 @@ class DexFileManager {
 		}
 
 		// Copy file using Dex
-		await promisifyDexFuture("boolean", Dex.file_copy(source, dest, Gio.FileCopyFlags.NONE, GLib.PRIORITY_DEFAULT));
+		await promisify(Dex.file_copy(source, dest, Gio.FileCopyFlags.NONE, GLib.PRIORITY_DEFAULT), "boolean");
 
 		this.operations.push(`Copied: ${sourceName} → ${destName}`);
 		console.log(`✓ File copied: ${sourceName} → ${destName}`);
@@ -199,53 +199,67 @@ class DexFileManager {
  * based on what works reliably for each operation type.
  */
 async function main(): Promise<void> {
-	console.log("DexFileManager - File Management Utility");
-	console.log("=======================================");
+	let fileManager: DexFileManager | undefined;
 
-	const fileManager = new DexFileManager();
+	try {
+		console.log("DexFileManager - File Management Utility");
+		console.log("=======================================");
 
-	// Initialize Dex
-	Dex.init();
-	console.log("✓ Dex library initialized");
+		fileManager = new DexFileManager();
 
-	// Initialize file manager
-	await fileManager.initialize();
+		// Initialize Dex
+		Dex.init();
+		console.log("✓ Dex library initialized");
 
-	// Demonstrate file operations
-	console.log("\n📝 Creating sample files...");
-	await fileManager.createFile("welcome.txt", "Welcome to DexFileManager!\nThis file was created using Dex.");
-	await fileManager.createFile("config.json", '{"app": "DexFileManager", "version": "1.0.0"}');
+		// Initialize file manager
+		await fileManager.initialize();
 
-	// Copy a file
-	console.log("\n📋 Copying files...");
-	await fileManager.copyFile("welcome.txt", "welcome-backup.txt");
+		// Demonstrate file operations
+		console.log("\n📝 Creating sample files...");
+		await fileManager.createFile("welcome.txt", "Welcome to DexFileManager!\nThis file was created using Dex.");
+		await fileManager.createFile("config.json", '{"app": "DexFileManager", "version": "1.0.0"}');
 
-	// List all files
-	console.log("\n📁 Listing files...");
-	await fileManager.listFiles();
+		// Copy a file
+		console.log("\n📋 Copying files...");
+		await fileManager.copyFile("welcome.txt", "welcome-backup.txt");
 
-	// Show file contents
-	console.log("\n📖 Showing file contents...");
-	await fileManager.showFileContents("welcome.txt");
+		// List all files
+		console.log("\n📁 Listing files...");
+		await fileManager.listFiles();
 
-	// Show operation history
-	fileManager.showHistory();
+		// Show file contents
+		console.log("\n📖 Showing file contents...");
+		await fileManager.showFileContents("welcome.txt");
 
-	console.log("\n✅ File management operations completed successfully!");
-	console.log("\nKey features demonstrated:");
-	console.log("  • File creation with GIO");
-	console.log("  • File copying with Dex");
-	console.log("  • Directory enumeration with GIO");
-	console.log("  • File content loading with GIO");
-	console.log("  • Hybrid approach: using the best tool for each operation");
-	console.log("  • Cleanup and resource management");
+		// Show operation history
+		fileManager.showHistory();
 
-	// Cleanup with proper error handling
-	console.log("\n🧹 Starting cleanup...");
-	await fileManager.cleanup();
+		console.log("\n✅ File management operations completed successfully!");
+		console.log("\nKey features demonstrated:");
+		console.log("  • File creation with GIO");
+		console.log("  • File copying with Dex");
+		console.log("  • Directory enumeration with GIO");
+		console.log("  • File content loading with GIO");
+		console.log("  • Hybrid approach: using the best tool for each operation");
+		console.log("  • Cleanup and resource management");
 
-	console.log("\n👋 DexFileManager finished");
-	mainLoop.quit();
+		// Cleanup with proper error handling
+		console.log("\n🧹 Starting cleanup...");
+		await fileManager.cleanup();
+
+		console.log("\n👋 DexFileManager finished");
+	} catch (error) {
+		console.error("❌ Error in main:", error);
+		console.log("\n🧹 Starting emergency cleanup...");
+		try {
+			await fileManager?.cleanup();
+		} catch (cleanupError) {
+			console.error("❌ Emergency cleanup failed:", cleanupError);
+		}
+	} finally {
+		// Always quit the main loop, even if errors occur
+		mainLoop.quit();
+	}
 }
 
 // Create main loop

@@ -54,37 +54,40 @@ export type DexFutureExpectedType =
  * Enhanced with proper error handling and cleanup using Dex.Future.catch() and finally().
  *
  * The return type is automatically inferred based on the expectedType parameter.
- * The expectedType parameter comes first for better readability and chaining.
+ * The expectedType parameter is optional and defaults to "future" for convenience.
  *
  * This utility is part of our hybrid approach where we use Dex for some operations
  * and GIO for others. This function bridges the gap between Dex's Future-based API
  * and modern async/await patterns.
  *
- * @param expectedType - The expected return type to determine which await method to use
  * @param future - The Dex Future to promisify
+ * @param expectedType - The expected return type to determine which await method to use (defaults to "future")
  * @returns Promise that resolves with the Future result or rejects with an error
  *
  * @example
  * ```typescript
  * // TypeScript automatically infers the correct return type:
- * const success = await promisifyDexFuture('boolean', copyFuture); // Promise<boolean>
- * const count = await promisifyDexFuture('int', countFuture); // Promise<number>
- * const contents = await promisifyDexFuture('boxed', loadFuture); // Promise<unknown>
- * const future = await promisifyDexFuture('future', someFuture); // Promise<Dex.Future>
+ * const success = await promisify(copyFuture, 'boolean'); // Promise<boolean>
+ * const count = await promisify(countFuture, 'int'); // Promise<number>
+ * const contents = await promisify(loadFuture, 'boxed'); // Promise<unknown>
+ * const future = await promisify(someFuture); // Promise<Dex.Future> (default)
  *
  * // Can be chained for better readability:
- * await promisifyDexFuture('boolean', Dex.file_make_directory(dir, priority));
+ * await promisify(Dex.file_make_directory(dir, priority), 'boolean');
  * ```
  */
 
 // Function overloads for automatic type inference
-export function promisifyDexFuture<T extends DexFutureExpectedType>(
-	expectedType: T,
+export function promisify<T extends DexFutureExpectedType>(
 	future: Dex.Future,
+	expectedType: T,
 ): Promise<DexFutureReturnType<T>>;
 
+// Overload for default "future" type
+export function promisify(future: Dex.Future): Promise<Dex.Future>;
+
 // Implementation
-export function promisifyDexFuture(expectedType: DexFutureExpectedType, future: Dex.Future): Promise<unknown> {
+export function promisify(future: Dex.Future, expectedType: DexFutureExpectedType = "future"): Promise<unknown> {
 	return new Promise((resolve, reject) => {
 		// Use Dex.Future.catch() for proper error handling
 		const errorHandledFuture = Dex.Future.catch(future, (errorFuture) => {
@@ -168,120 +171,6 @@ export function promisifyDexFuture(expectedType: DexFutureExpectedType, future: 
 			// This will be called regardless of success or failure
 			// Useful for logging or cleanup operations
 			return finalFuture;
-		});
-	});
-}
-
-/**
- * Converts multiple Dex Futures to JavaScript Promises for parallel execution.
- * Uses Dex.Future.all() for concurrent processing with proper error handling.
- *
- * @param expectedTypes - Array of expected return types for each future
- * @param futures - Array of Dex Futures to promisify
- * @returns Promise that resolves with an array of results or rejects with an error
- *
- * @example
- * ```typescript
- * const results = await promisifyDexFutures(
- *   ['boolean', 'int', 'string'],
- *   [future1, future2, future3]
- * );
- * // results is [boolean, number, string]
- * ```
- */
-export function promisifyDexFutures<T extends readonly unknown[]>(
-	expectedTypes: { [K in keyof T]: DexFutureExpectedType },
-	futures: Dex.Future[],
-): Promise<T> {
-	return new Promise((resolve, reject) => {
-		const allFutures = Dex.Future.all(futures);
-
-		const errorHandledFuture = Dex.Future.catch(allFutures, (errorFuture) => {
-			try {
-				const errorValue = errorFuture.get_value();
-				const errorMessage = errorValue ? String(errorValue) : "Parallel Dex operation failed";
-				reject(new Error(errorMessage));
-			} catch (extractError) {
-				reject(new Error(`Failed to extract parallel operation error: ${extractError}`));
-			}
-			return errorFuture;
-		});
-
-		Dex.Future.then(errorHandledFuture, (resolvedFuture) => {
-			try {
-				const results: unknown[] = [];
-
-				for (let i = 0; i < futures.length; i++) {
-					const future = futures[i];
-					const expectedType = expectedTypes[i];
-
-					if (future.get_status() === Dex.FutureStatus.RESOLVED) {
-						// Extract result using the appropriate method based on expected type
-						let result: unknown;
-
-						switch (expectedType) {
-							case "boolean":
-								result = future.await_boolean();
-								break;
-							case "boxed":
-								result = future.await_boxed();
-								break;
-							case "int":
-								result = future.await_int();
-								break;
-							case "int64":
-								result = future.await_int64();
-								break;
-							case "uint":
-								result = future.await_uint();
-								break;
-							case "uint64":
-								result = future.await_uint64();
-								break;
-							case "double":
-								result = future.await_double();
-								break;
-							case "float":
-								result = future.await_float();
-								break;
-							case "string":
-								result = future.await_string();
-								break;
-							case "object":
-								result = future.await_object();
-								break;
-							case "variant":
-								result = future.await_variant();
-								break;
-							case "pointer":
-								result = future.await_pointer();
-								break;
-							case "enum":
-								result = future.await_enum();
-								break;
-							case "flags":
-								result = future.await_flags();
-								break;
-							case "future":
-								result = future;
-								break;
-							default:
-								throw new Error(`Unknown expected type: ${expectedType}`);
-						}
-
-						results.push(result);
-					} else {
-						reject(new Error(`Future at index ${i} is not resolved`));
-						return resolvedFuture;
-					}
-				}
-
-				resolve(results as unknown as T);
-			} catch (error) {
-				reject(new Error(`Failed to extract parallel operation results: ${error}`));
-			}
-
-			return resolvedFuture;
 		});
 	});
 }
