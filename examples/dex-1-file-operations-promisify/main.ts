@@ -3,7 +3,8 @@
 import Dex from "gi://Dex";
 import Gio from "gi://Gio";
 import GLib from "gi://GLib";
-import { promisifyDexFuture, replaceFileContents } from "./utils.js";
+import { promisifyDexFuture } from "./promisify.js";
+import { replaceFileContents } from "./utils.js";
 
 // Promisify the GIO methods we need for file operations
 Gio._promisify(Gio.File.prototype, "make_directory_async", "make_directory_finish");
@@ -38,9 +39,8 @@ class DexFileManager {
 		console.log("🚀 Initializing DexFileManager...");
 
 		if (!this.tempDir.query_exists(null)) {
-			// Use Dex for directory creation
-			const makeDirFuture = Dex.file_make_directory(this.tempDir, GLib.PRIORITY_DEFAULT);
-			await promisifyDexFuture<boolean>(makeDirFuture, "boolean");
+			// Create working directory using Dex
+			await promisifyDexFuture("boolean", Dex.file_make_directory(this.tempDir, GLib.PRIORITY_DEFAULT));
 			console.log("✓ Working directory created");
 		}
 
@@ -76,9 +76,8 @@ class DexFileManager {
 			console.log("⚠️ Destination file already existed, removed it");
 		}
 
-		// Use Dex for file copying
-		const copyFuture = Dex.file_copy(source, dest, Gio.FileCopyFlags.NONE, GLib.PRIORITY_DEFAULT);
-		await promisifyDexFuture<boolean>(copyFuture, "boolean");
+		// Copy file using Dex
+		await promisifyDexFuture("boolean", Dex.file_copy(source, dest, Gio.FileCopyFlags.NONE, GLib.PRIORITY_DEFAULT));
 
 		this.operations.push(`Copied: ${sourceName} → ${destName}`);
 		console.log(`✓ File copied: ${sourceName} → ${destName}`);
