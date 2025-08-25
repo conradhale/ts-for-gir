@@ -99,22 +99,24 @@ class DexFileManager {
 			null,
 		);
 
-		if (enumerator) {
-			const files = await enumerator.next_files_async(50, GLib.PRIORITY_DEFAULT, null);
-
-			if (files && files.length > 0) {
-				for (const fileInfo of files) {
-					const name = fileInfo.get_name();
-					const type = fileInfo.get_file_type();
-					const size = fileInfo.get_size();
-					const icon = type === Gio.FileType.DIRECTORY ? "📁" : "📄";
-					console.log(`  ${icon} ${name} (${size} bytes)`);
-				}
-			} else {
-				console.log("  (no files found)");
-			}
-		} else {
+		if (!enumerator) {
 			console.log("  (enumerator creation failed)");
+			return;
+		}
+
+		const files = await enumerator.next_files_async(50, GLib.PRIORITY_DEFAULT, null);
+
+		if (!files || files.length === 0) {
+			console.log("  (no files found)");
+			return;
+		}
+
+		for (const fileInfo of files) {
+			const name = fileInfo.get_name();
+			const type = fileInfo.get_file_type();
+			const size = fileInfo.get_size();
+			const icon = type === Gio.FileType.DIRECTORY ? "📁" : "📄";
+			console.log(`  ${icon} ${name} (${size} bytes)`);
 		}
 	}
 
@@ -156,14 +158,18 @@ class DexFileManager {
 			null,
 		);
 
-		if (enumerator) {
-			const files = await enumerator.next_files_async(50, GLib.PRIORITY_DEFAULT, null);
+		if (!enumerator) {
+			await this.tempDir.delete_async(GLib.PRIORITY_DEFAULT, null);
+			console.log("✓ Cleanup completed");
+			return;
+		}
 
-			if (files && files.length > 0) {
-				for (const fileInfo of files) {
-					const file = this.tempDir.get_child(fileInfo.get_name());
-					await file.delete_async(GLib.PRIORITY_DEFAULT, null);
-				}
+		const files = await enumerator.next_files_async(50, GLib.PRIORITY_DEFAULT, null);
+
+		if (files && files.length > 0) {
+			for (const fileInfo of files) {
+				const file = this.tempDir.get_child(fileInfo.get_name());
+				await file.delete_async(GLib.PRIORITY_DEFAULT, null);
 			}
 		}
 
@@ -176,13 +182,15 @@ class DexFileManager {
 	 */
 	showHistory(): void {
 		console.log("\n📋 Operation History:");
+
 		if (this.operations.length === 0) {
 			console.log("  No operations performed yet");
-		} else {
-			this.operations.forEach((op, index) => {
-				console.log(`  ${index + 1}. ${op}`);
-			});
+			return;
 		}
+
+		this.operations.forEach((op, index) => {
+			console.log(`  ${index + 1}. ${op}`);
+		});
 	}
 }
 
