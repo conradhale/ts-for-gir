@@ -13,6 +13,11 @@
 		"enabled": true,
 		"lineWidth": 120
 	},
+	"javascript": {
+		"parser": {
+			"unsafeParameterDecoratorsEnabled": true
+		}
+	},
 	"files": {
 		"includes": [
 			"**",

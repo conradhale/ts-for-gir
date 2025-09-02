@@ -1,99 +1,47 @@
-# Needle DI CLI Example with Decorators
+# GObject + Needle DI Constructor Injection
 
-This example demonstrates modern Dependency Injection using Needle DI decorators in a simple GJS CLI application.
+This example demonstrates how to combine GObject properties/signals with automatic dependency resolution using [Needle DI](https://github.com/needle-di/needle-di) decorators.
 
 ## Features
 
-- **Modern Decorators**: Uses `@injectable()` and `inject()` for clean dependency injection
-- **Type Safety**: Full TypeScript support with automatic type inference
-- **Simple Setup**: No manual token creation or factory functions required
-- **CLI Interface**: Easy to run and test without GUI dependencies
-- **Command Line Arguments**: Accepts names as arguments for personalized greetings
+- **Automatic Dependency Resolution**: Services are automatically resolved without manual registration
+- **GObject Integration**: Combines GObject properties, signals, and lifecycle with dependency injection
+- **Simple API**: Uses clean decorator syntax without experimental TypeScript features
+- **No Polyfills**: Works with standard TypeScript compilation
 
-## How It Works
+## Key Components
 
-### 1. Service Definition with Decorators
+- `GObjectLogger`: GObject-based logger with properties and signals
+- `GObjectDatabase`: Database service with constructor injection
+- `GObjectEmail`: Email service with GObject properties
+- `GObjectUserService`: User management with multiple dependencies
+- `GObjectApp`: Main application extending Gio.Application
+
+## Usage
+
+```bash
+cd examples/di-needle
+yarn install
+yarn start alice alice@example.com
+```
+
+## TypeScript Configuration
+
+This example works with standard TypeScript settings:
+- `experimentalDecorators: false`
+- `emitDecoratorMetadata: false`
+- No reflection polyfills required
+
+## Dependency Injection Pattern
 
 ```typescript
-@injectable()
-export class LoggerService implements Logger {
-    log(msg: string): void {
-        console.log(`[Needle] ${msg}`);
-    }
-}
-
-@injectable()
-export class GreeterService implements Greeter {
-    constructor(private logger = inject(LoggerService)) {}
-
-    greet(name: string): string {
-        const msg = `Hallo, ${name}!`;
-        this.logger.log(`greet() -> ${msg}`);
-        return msg;
-    }
+// Simple service decoration
+@Injectable()
+class MyService {
+  constructor(private logger = inject(GObjectLogger)) {
+    // Dependencies automatically resolved
+  }
 }
 ```
 
-### 2. Container Usage
-
-```typescript
-// Create container (no manual bindings needed!)
-const container = new Container();
-
-// Get service with automatically resolved dependencies
-const greeter = container.get(GreeterService);
-```
-
-## Key Improvements Over Traditional DI
-
-1. **No Token Creation**: Services are automatically registered by the `@injectable()` decorator
-2. **No Factory Functions**: Dependencies are resolved automatically via constructor injection
-3. **Cleaner Code**: Focus on business logic instead of DI setup
-4. **Type Safety**: Full TypeScript inference without manual type annotations
-
-## Running the Example
-
-### Build the example
-```bash
-yarn run build
-```
-
-### Run without arguments (greets "World")
-```bash
-yarn start
-# or
-yarn greet
-```
-
-### Run with custom name
-```bash
-yarn greet Alice
-# or
-gjs -m dist/main.js Alice
-```
-
-### Example Output
-```
-🚀 Needle DI CLI Example Started
-=====================================
-📝 Greeting requested for: Alice
-
-✅ Result: Hallo, Alice!
-
-🎯 Additional greetings:
-   Hallo, Alice!
-   Hallo, Bob!
-   Hallo, Charlie!
-
-✨ Dependency Injection working perfectly!
-   LoggerService was automatically injected into GreeterService
-```
-
-## Understanding the DI Flow
-
-1. **Service Registration**: `@injectable()` decorators automatically register services
-2. **Dependency Resolution**: `inject(LoggerService)` in constructor tells the container what to inject
-3. **Service Retrieval**: `container.get(GreeterService)` resolves all dependencies automatically
-4. **Type Safety**: TypeScript ensures all dependencies are correctly typed
-
-This example shows how clean and simple dependency injection can be with modern decorators!
+The container automatically discovers and resolves all dependencies at runtime.

@@ -1,12 +1,11 @@
 {
-	"name": "@ts-for-gir-example/di-ditox",
-	"description": "Simple GJS CLI Dependency Injection example using Ditox",
+	"name": "@ts-for-gir-example/di-wise",
+	"description": "Simple GJS CLI Dependency Injection example using Wise DI decorators",
 	"type": "module",
 	"private": true,
 	"scripts": {
 		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
-		"start": "gjs -m dist/main.js",
-		"greet": "gjs -m dist/main.js",
+		"start": "gjs -m dist/main.js alice alice@example.com",
 		"check": "tsc --noEmit",
 		"clear": "rm -rf dist @types"
 	},
@@ -17,7 +16,9 @@
 		"typescript": "^5.9.2"
 	},
 	"dependencies": {
+		"@girs/gio-2.0": "workspace:^",
 		"@girs/gjs": "workspace:^",
-		"ditox": "^3.1.0"
+		"@girs/gobject-2.0": "workspace:^",
+		"di-wise": "^0.2.8"
 	}
 }

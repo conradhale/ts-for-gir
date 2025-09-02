@@ -5,6 +5,13 @@ __metadata:
   version: 8
   cacheKey: 10
 
+"@abraham/reflection@npm:^0.13.0":
+  version: 0.13.0
+  resolution: "@abraham/reflection@npm:0.13.0"
+  checksum: 10/92f079ebc43fc6c8014e3e33de1490d1b86dc12e3680d244deb9d9c6c1276e4fa902538c97ccf199c65485cf8c93b521bed67b12e5f82405651bb01b0eded7a1
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.0.0":
   version: 7.24.2
   resolution: "@babel/code-frame@npm:7.24.2"
@@ -13462,43 +13469,41 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir-example/di-brandi@workspace:examples/di-brandi":
-  version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/di-brandi@workspace:examples/di-brandi"
-  dependencies:
-    "@girs/gio-2.0": "workspace:^"
-    "@girs/gjs": "workspace:^"
-    "@girs/glib-2.0": "workspace:^"
-    "@girs/gtk-4.0": "workspace:^"
-    brandi: "npm:^5.0.0"
-    esbuild: "npm:^0.25.9"
-    typescript: "npm:^5.9.2"
-  languageName: unknown
-  linkType: soft
-
-"@ts-for-gir-example/di-ditox@workspace:examples/di-ditox":
-  version: 0.0.0-use.local
-  resolution: "@ts-for-gir-example/di-ditox@workspace:examples/di-ditox"
-  dependencies:
-    "@girs/gio-2.0": "workspace:^"
-    "@girs/gjs": "workspace:^"
-    "@girs/glib-2.0": "workspace:^"
-    "@girs/gtk-4.0": "workspace:^"
-    ditox: "npm:^3.1.0"
-    esbuild: "npm:^0.25.9"
-    typescript: "npm:^5.9.2"
-  languageName: unknown
-  linkType: soft
-
 "@ts-for-gir-example/di-needle@workspace:examples/di-needle":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/di-needle@workspace:examples/di-needle"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
-    "@girs/glib-2.0": "workspace:^"
-    "@girs/gtk-4.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
     "@needle-di/core": "npm:^1.0.0"
+    esbuild: "npm:^0.25.9"
+    typescript: "npm:^5.9.2"
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir-example/di-tsyringe@workspace:examples/di-tsyringe":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/di-tsyringe@workspace:examples/di-tsyringe"
+  dependencies:
+    "@abraham/reflection": "npm:^0.13.0"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    esbuild: "npm:^0.25.9"
+    tsyringe: "npm:^4.10.0"
+    typescript: "npm:^5.9.2"
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir-example/di-wise@workspace:examples/di-wise":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir-example/di-wise@workspace:examples/di-wise"
+  dependencies:
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    di-wise: "npm:^0.2.8"
     esbuild: "npm:^0.25.9"
     typescript: "npm:^5.9.2"
   languageName: unknown
@@ -14797,13 +14802,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"brandi@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "brandi@npm:5.0.0"
-  checksum: 10/b902bfa04ab3ad90368e9576b42a8e83d35290ade402eaab0f5136031ecc9559b716ce32393cff94a86f66cde786639605987c1cb33bdfda5d492f7048739e6e
-  languageName: node
-  linkType: hard
-
 "browserslist@npm:^4.24.0":
   version: 4.24.2
   resolution: "browserslist@npm:4.24.2"
@@ -15257,10 +15255,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ditox@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "ditox@npm:3.1.0"
-  checksum: 10/414a5230040451f1c8977a898ed7d6454ebdc67867004cfd4247df06869a44375b358512f5272ef9ed1b1ea8df10f854db10a5fb18a27d38eeba20b1d19bd463
+"di-wise@npm:^0.2.8":
+  version: 0.2.8
+  resolution: "di-wise@npm:0.2.8"
+  checksum: 10/4d2583350641facc7fc8895e780a65a43e55cbd1481dd376d69b59f34b4ed0521cd616741774dbb3c5091fc20e2e339684b197f10db37057f8367b0cf29231d3
   languageName: node
   linkType: hard
 
@@ -18456,6 +18454,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tslib@npm:^1.9.3":
+  version: 1.14.1
+  resolution: "tslib@npm:1.14.1"
+  checksum: 10/7dbf34e6f55c6492637adb81b555af5e3b4f9cc6b998fb440dac82d3b42bdc91560a35a5fb75e20e24a076c651438234da6743d139e4feabf0783f3cdfe1dddb
+  languageName: node
+  linkType: hard
+
 "tslib@npm:^2.1.0":
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
@@ -18474,6 +18479,15 @@ __metadata:
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10/3e2e043d5c2316461cb54e5c7fe02c30ef6dccb3384717ca22ae5c6b5bc95232a6241df19c622d9c73b809bea33b187f6dbc73030963e29950c2141bc32a79f7
+  languageName: node
+  linkType: hard
+
+"tsyringe@npm:^4.10.0":
+  version: 4.10.0
+  resolution: "tsyringe@npm:4.10.0"
+  dependencies:
+    tslib: "npm:^1.9.3"
+  checksum: 10/b42660dc112cee2db02b3d69f2ef6a6a9d185afd96b18d8f88e47c1e62be94b69a9f5a58fcfdb2a3fbb7c6c175b8162ea00f7db6499bf333ce945e570e31615c
   languageName: node
   linkType: hard
 

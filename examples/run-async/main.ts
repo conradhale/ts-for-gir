@@ -1,10 +1,25 @@
-// SPDX-License-Identifier: MIT OR LGPL-2.0-or-later
-// SPDX-FileCopyrightText: 2009 Red Hat, Inc.
-// Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/gio-cat.js
-
 import Gio from "gi://Gio";
+import GObject from "gi://GObject";
 
-const gioApp = new Gio.Application();
+class ExampleApplication extends Gio.Application {
+	static {
+		GObject.registerClass(ExampleApplication);
+	}
+
+	constructor() {
+		super({
+			application_id: "com.example.ExampleApplication",
+			flags: Gio.ApplicationFlags.FLAGS_NONE,
+		});
+	}
+
+	override vfunc_activate() {
+		log("Application activated");
+	}
+}
+
+const gioApp = new ExampleApplication();
+
 gioApp
 	.runAsync(ARGV)
 	.then((exitStatus: number) => {

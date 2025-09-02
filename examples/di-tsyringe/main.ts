@@ -3,9 +3,11 @@
 // GObject + Needle DI Constructor Injection Example
 // Combines GObject properties/signals with automatic dependency resolution
 
+import "@abraham/reflection";
+
 import Gio from "gi://Gio";
 import GObject from "gi://GObject";
-import { Container, inject, injectable } from "@needle-di/core";
+import { container, inject, injectable } from "tsyringe";
 
 // GObject-based Logger with properties and constructor injection
 @injectable()
@@ -38,7 +40,7 @@ class GObjectLogger extends GObject.Object {
 	}
 
 	log(msg: string): void {
-		log(`${this._prefix} ${msg}`);
+		console.log(`${this._prefix} ${msg}`);
 		this._logCount++;
 		this.notify("log-count");
 	}
@@ -65,15 +67,13 @@ class GObjectDatabase extends GObject.Object {
 		);
 	}
 
-	private _connectionStatus = "connected";
-
-	constructor(private logger = inject(GObjectLogger)) {
+	constructor(@inject(GObjectLogger) private logger: GObjectLogger) {
 		super();
 		this.logger.log("Database connected");
 	}
 
 	get connectionStatus() {
-		return this._connectionStatus;
+		return "connected"; // Always connected for this example
 	}
 
 	save(data: string): void {
@@ -101,7 +101,7 @@ class GObjectEmail extends GObject.Object {
 	private _smtpHost = "localhost";
 	private _emailsSent = 0;
 
-	constructor(private logger = inject(GObjectLogger)) {
+	constructor(@inject(GObjectLogger) private logger: GObjectLogger) {
 		super();
 		this.logger.log("Email service initialized");
 	}
@@ -143,9 +143,9 @@ class GObjectUserService extends GObject.Object {
 	private _usersCreated = 0;
 
 	constructor(
-		public readonly logger = inject(GObjectLogger),
-		public readonly database = inject(GObjectDatabase),
-		public readonly email = inject(GObjectEmail),
+		@inject(GObjectLogger) public readonly logger: GObjectLogger,
+		@inject(GObjectDatabase) public readonly database: GObjectDatabase,
+		@inject(GObjectEmail) public readonly email: GObjectEmail,
 	) {
 		super();
 		this.logger.log("User service initialized with all dependencies");
@@ -200,8 +200,8 @@ class GObjectApp extends Gio.Application {
 	private _appName = "User Management App";
 
 	constructor(
-		public readonly userService = inject(GObjectUserService),
-		public readonly logger = inject(GObjectLogger),
+		@inject(GObjectUserService) public readonly userService: GObjectUserService,
+		@inject(GObjectLogger) public readonly logger: GObjectLogger,
 	) {
 		super({
 			application_id: "com.example.UserManagementApp",
@@ -242,8 +242,7 @@ class GObjectApp extends Gio.Application {
 }
 
 // All GObject services automatically resolved with their dependencies!
-const needle = new Container();
-const app = needle.get(GObjectApp);
+const app = container.resolve(GObjectApp);
 
 app
 	.runAsync(ARGV)

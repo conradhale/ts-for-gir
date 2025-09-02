@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"lib": ["ESNext"],
-		"types": ["@girs/gjs", "@girs/gjs/dom", "@girs/gjs/ambient"],
+		"types": ["@girs/gjs", "@girs/gjs/dom", "@girs/gjs/ambient", "@girs/gio-2.0", "@girs/gobject-2.0"],
 		"target": "ESNext",
 		"module": "ESNext",
 		"moduleResolution": "bundler",
@@ -10,10 +10,10 @@
 		"strictNullChecks": true,
 		"noImplicitThis": true,
 		"alwaysStrict": true,
-		"experimentalDecorators": true,
+		"experimentalDecorators": false,
 		"emitDecoratorMetadata": false,
 		"noEmit": true,
 		"allowImportingTsExtensions": true
 	},
-	"files": ["main.ts", "needle.ts"]
+	"files": ["main.ts"]
 }
