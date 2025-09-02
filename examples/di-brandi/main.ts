@@ -1,10 +1,10 @@
 #!/usr/bin/env gjs -m
 
-// Simple CLI demonstration of Dependency Injection with Needle DI
+// Simple CLI demonstration of Dependency Injection with Brandi
 // This example shows how services are automatically resolved and injected
 // All DI configuration and CLI application in one file
 
-import { Container, inject, injectable } from "@needle-di/core";
+import { Container, injected, token } from "brandi";
 
 // Define service interfaces
 interface Logger {
@@ -15,40 +15,49 @@ interface Greeter {
 	greet(name: string): string;
 }
 
-// Logger service with injectable decorator
-@injectable()
+// Create tokens for dependency injection
+const TOKENS = {
+	LOGGER: token<Logger>("LOGGER"),
+	GREETER: token<Greeter>("GREETER"),
+} as const;
+
+// Logger service implementation
 class LoggerService implements Logger {
 	log(msg: string): void {
-		console.log(`[Needle] ${msg}`);
+		console.log(`[Brandi] ${msg}`);
 	}
 }
 
-// Greeter service with dependency injection via constructor
-@injectable()
+// Greeter service implementation with injected dependency
 class GreeterService implements Greeter {
-	constructor(private logger = inject(LoggerService)) {}
+	constructor(private logger: Logger) {}
 
 	greet(name: string): string {
-		const msg = `Hallo, ${name}!`;
+		const msg = `Servus, ${name}!`;
 		this.logger.log(`greet() -> ${msg}`);
 		return msg;
 	}
 }
 
+// Register injection metadata for constructor parameters
+injected(GreeterService, TOKENS.LOGGER);
+
 // Create and configure the container
-const needle = new Container();
+const container = new Container();
+container.bind(TOKENS.LOGGER).toInstance(LoggerService).inSingletonScope();
+container.bind(TOKENS.GREETER).toInstance(GreeterService).inSingletonScope();
 
 /**
- * Main CLI application demonstrating Dependency Injection with Needle
+ * Main CLI application demonstrating Dependency Injection with Brandi
  */
 class DiCliApp {
-	private greeter: GreeterService; // Will be resolved from container
+	private greeter: Greeter; // Will be resolved from container
 
 	constructor() {
 		// Get GreeterService from DI container - dependencies are automatically resolved!
-		this.greeter = needle.get(GreeterService);
-		console.log("🚀 Needle DI CLI Example Started");
-		console.log("=====================================");
+		this.greeter = container.get(TOKENS.GREETER);
+		console.log("🚀 Brandi DI CLI Example Started");
+		console.log("==================================");
 	}
 
 	/**
@@ -69,7 +78,7 @@ class DiCliApp {
 
 		// Demonstrate multiple greetings
 		console.log("🎯 Additional greetings:");
-		const names = ["Alice", "Bob", "Charlie"];
+		const names = ["Anna", "Ben", "Clara"];
 
 		for (const person of names) {
 			const message = this.greeter.greet(person);
@@ -79,7 +88,8 @@ class DiCliApp {
 		console.log("");
 		console.log("✨ Dependency Injection working perfectly!");
 		console.log("   LoggerService was automatically injected into GreeterService");
-		console.log("   Needle used @injectable() decorators for service registration");
+		console.log("   Brandi used tokens and explicit binding configuration");
+		console.log("   Services bound as singletons with explicit scope management");
 	}
 }
 

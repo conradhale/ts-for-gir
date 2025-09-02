@@ -10,10 +10,8 @@
 		"strictNullChecks": true,
 		"noImplicitThis": true,
 		"alwaysStrict": true,
-		"experimentalDecorators": true,
-		"emitDecoratorMetadata": false,
 		"noEmit": true,
 		"allowImportingTsExtensions": true
 	},
-	"files": ["main.ts", "needle.ts"]
+	"files": ["main.ts", "ditox.ts"]
 }

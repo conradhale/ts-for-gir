@@ -10,10 +10,9 @@
 		"strictNullChecks": true,
 		"noImplicitThis": true,
 		"alwaysStrict": true,
-		"experimentalDecorators": true,
-		"emitDecoratorMetadata": false,
 		"noEmit": true,
-		"allowImportingTsExtensions": true
+		"allowImportingTsExtensions": true,
+		"skipLibCheck": true
 	},
-	"files": ["main.ts", "needle.ts"]
+	"files": ["main.ts", "brandi.ts"]
 }

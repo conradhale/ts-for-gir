@@ -1,6 +1,6 @@
 {
-	"name": "@ts-for-gir-example/di-needle",
-	"description": "Simple GJS CLI Dependency Injection example using Needle DI decorators",
+	"name": "@ts-for-gir-example/di-brandi",
+	"description": "Simple GJS CLI Dependency Injection example using Brandi",
 	"type": "module",
 	"private": true,
 	"scripts": {
@@ -18,6 +18,6 @@
 	},
 	"dependencies": {
 		"@girs/gjs": "workspace:^",
-		"@needle-di/core": "^1.0.0"
+		"brandi": "^5.0.0"
 	}
 }

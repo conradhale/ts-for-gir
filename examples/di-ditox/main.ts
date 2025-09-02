@@ -1,10 +1,10 @@
 #!/usr/bin/env gjs -m
 
-// Simple CLI demonstration of Dependency Injection with Needle DI
+// Simple CLI demonstration of Dependency Injection with Ditox
 // This example shows how services are automatically resolved and injected
 // All DI configuration and CLI application in one file
 
-import { Container, inject, injectable } from "@needle-di/core";
+import { createContainer, injectable, token } from "ditox";
 
 // Define service interfaces
 interface Logger {
@@ -15,40 +15,44 @@ interface Greeter {
 	greet(name: string): string;
 }
 
-// Logger service with injectable decorator
-@injectable()
-class LoggerService implements Logger {
-	log(msg: string): void {
-		console.log(`[Needle] ${msg}`);
-	}
-}
-
-// Greeter service with dependency injection via constructor
-@injectable()
-class GreeterService implements Greeter {
-	constructor(private logger = inject(LoggerService)) {}
-
-	greet(name: string): string {
-		const msg = `Hallo, ${name}!`;
-		this.logger.log(`greet() -> ${msg}`);
-		return msg;
-	}
-}
+// Create tokens for dependency injection
+const LOGGER_TOKEN = token<Logger>("LOGGER");
+const GREETER_TOKEN = token<Greeter>("GREETER");
 
 // Create and configure the container
-const needle = new Container();
+const container = createContainer();
+
+// Bind logger service as a simple value
+container.bindValue(LOGGER_TOKEN, {
+	log: (msg: string) => console.log(`[Ditox] ${msg}`),
+});
+
+// Bind greeter service as a factory function with dependency injection
+container.bindFactory(
+	GREETER_TOKEN,
+	injectable(
+		(logger: Logger) => ({
+			greet: (name: string) => {
+				const msg = `Moin, ${name}!`;
+				logger.log(`greet() -> ${msg}`);
+				return msg;
+			},
+		}),
+		LOGGER_TOKEN,
+	),
+);
 
 /**
- * Main CLI application demonstrating Dependency Injection with Needle
+ * Main CLI application demonstrating Dependency Injection with Ditox
  */
 class DiCliApp {
-	private greeter: GreeterService; // Will be resolved from container
+	private greeter: Greeter; // Will be resolved from container
 
 	constructor() {
 		// Get GreeterService from DI container - dependencies are automatically resolved!
-		this.greeter = needle.get(GreeterService);
-		console.log("🚀 Needle DI CLI Example Started");
-		console.log("=====================================");
+		this.greeter = container.resolve(GREETER_TOKEN);
+		console.log("🚀 Ditox DI CLI Example Started");
+		console.log("=================================");
 	}
 
 	/**
@@ -69,7 +73,7 @@ class DiCliApp {
 
 		// Demonstrate multiple greetings
 		console.log("🎯 Additional greetings:");
-		const names = ["Alice", "Bob", "Charlie"];
+		const names = ["Diana", "Eva", "Felix"];
 
 		for (const person of names) {
 			const message = this.greeter.greet(person);
@@ -79,7 +83,8 @@ class DiCliApp {
 		console.log("");
 		console.log("✨ Dependency Injection working perfectly!");
 		console.log("   LoggerService was automatically injected into GreeterService");
-		console.log("   Needle used @injectable() decorators for service registration");
+		console.log("   Ditox used functional API with injectable() and bindFactory()");
+		console.log("   Services defined as factory functions with explicit dependencies");
 	}
 }
 
