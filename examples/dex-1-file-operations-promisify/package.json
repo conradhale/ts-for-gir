@@ -16,7 +16,7 @@
 		"@girs/glib-2.0": "workspace:*"
 	},
 	"devDependencies": {
-		"typescript": "^5.0.0"
+		"typescript": "^5.9.2"
 	},
 	"keywords": [
 		"dex",

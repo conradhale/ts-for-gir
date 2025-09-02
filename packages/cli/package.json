@@ -62,20 +62,20 @@
 		"@ts-for-gir/reporter": "workspace:^",
 		"@types/ejs": "^3.1.5",
 		"@types/inquirer": "^9.0.9",
-		"@types/node": "^24.2.1",
+		"@types/node": "^24.3.0",
 		"@types/yargs": "^17.0.33",
 		"dpdm": "^3.14.0",
 		"esbuild": "^0.25.9",
 		"typescript": "^5.9.2"
 	},
 	"dependencies": {
-		"@inquirer/prompts": "^7.8.2",
+		"@inquirer/prompts": "^7.8.4",
 		"@ts-for-gir/templates": "workspace:^",
 		"colorette": "^2.0.20",
 		"cosmiconfig": "^9.0.0",
 		"ejs": "^3.1.10",
 		"glob": "^11.0.3",
-		"inquirer": "^12.9.2",
+		"inquirer": "^12.9.4",
 		"prettier": "^3.6.2",
 		"yargs": "^18.0.0"
 	}

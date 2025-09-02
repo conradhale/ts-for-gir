@@ -112,6 +112,14 @@ This collaborative approach helps us improve the quality of the type definitions
 | [ST Layout Manager](st-15-layout-manager)        | St layout management utilities           | esbuild |
 | [Timers](timers)                                 | Timer and scheduling examples            | esbuild |
 
+### Dependency Injection Examples
+
+| Example                                    | Description                                         | DI Library | Bundler |
+| ------------------------------------------ | --------------------------------------------------- | ---------- | ------- |
+| [DI with Needle](di-needle)                | GObject + automatic dependency resolution           | Needle DI  | esbuild |
+| [DI with Wise](di-wise)                    | Type-safe dependency injection with interfaces      | di-wise    | esbuild |
+| [DI with TSyringe](di-tsyringe)            | Traditional DI with parameter decorators            | TSyringe   | esbuild |
+
 ### Virtual Interface Examples
 
 | Example                                          | Description                              | Bundler |
