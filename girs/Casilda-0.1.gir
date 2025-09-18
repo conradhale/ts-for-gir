@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gtk" version="4.0"/>
+  <doc:format name="unknown"/>
+  <namespace name="Casilda"
+             version="0.1"
+             shared-library="libcasilda-0.1.so"
+             c:identifier-prefixes="Casilda"
+             c:symbol-prefixes="casilda">
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="CASILDA_CHECK_VERSION"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="src/casilda-version.h"
+           line="84">Compile-time version checking. Evaluates to %TRUE if the version
+of casilda is greater than the required one.</doc>
+      <source-position filename="src/casilda-version.h" line="92"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="src/casilda-version.h"
+               line="86">required major version</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="src/casilda-version.h"
+               line="87">required minor version</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="src/casilda-version.h"
+               line="88">required micro version</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Compositor"
+           c:symbol-prefix="compositor"
+           c:type="CasildaCompositor"
+           parent="Gtk.Widget"
+           glib:type-name="CasildaCompositor"
+           glib:get-type="casilda_compositor_get_type"
+           glib:type-struct="CompositorClass">
+      <source-position filename="src/casilda-compositor.h" line="31"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new" c:identifier="casilda_compositor_new">
+        <source-position filename="src/casilda-compositor.h" line="33"/>
+        <return-value transfer-ownership="none">
+          <type name="Compositor" c:type="CasildaCompositor*"/>
+        </return-value>
+        <parameters>
+          <parameter name="socket" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="bg-color"
+                readable="0"
+                writable="1"
+                transfer-ownership="none">
+        <type name="Gdk.RGBA"/>
+      </property>
+      <property name="socket"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="CompositorClass"
+            c:type="CasildaCompositorClass"
+            glib:is-gtype-struct-for="Compositor">
+      <source-position filename="src/casilda-compositor.h" line="31"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
+    <function-macro name="ENCODE_VERSION"
+                    c:identifier="CASILDA_ENCODE_VERSION"
+                    introspectable="0">
+      <source-position filename="src/casilda-version.h" line="72"/>
+      <parameters>
+        <parameter name="major">
+        </parameter>
+        <parameter name="minor">
+        </parameter>
+        <parameter name="micro">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="MAJOR_VERSION" value="0" c:type="CASILDA_MAJOR_VERSION">
+      <doc xml:space="preserve"
+           filename="src/casilda-version.h"
+           line="36">casilda major version component (e.g. 1 if %CASILDA_VERSION is 1.2.3)</doc>
+      <source-position filename="src/casilda-version.h" line="41"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION" value="0" c:type="CASILDA_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="src/casilda-version.h"
+           line="50">casilda micro version component (e.g. 3 if %CASILDA_VERSION is 1.2.3)</doc>
+      <source-position filename="src/casilda-version.h" line="55"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION" value="2" c:type="CASILDA_MINOR_VERSION">
+      <doc xml:space="preserve"
+           filename="src/casilda-version.h"
+           line="43">casilda minor version component (e.g. 2 if %CASILDA_VERSION is 1.2.3)</doc>
+      <source-position filename="src/casilda-version.h" line="48"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_S" value="0.2.0" c:type="CASILDA_VERSION_S">
+      <doc xml:space="preserve"
+           filename="src/casilda-version.h"
+           line="64">casilda version, encoded as a string, useful for printing and
+concatenation.</doc>
+      <source-position filename="src/casilda-version.h" line="70"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <docsection name="casildaversion">
+      <doc xml:space="preserve"
+           filename="src/casilda-version.h"
+           line="28">casilda provides macros to check the version of the library
+at compile-time</doc>
+    </docsection>
+    <function name="wayland_source_new"
+              c:identifier="casilda_wayland_source_new">
+      <source-position filename="src/casilda-wayland-source.h" line="31"/>
+      <return-value transfer-ownership="full">
+        <type name="GLib.Source" c:type="GSource*"/>
+      </return-value>
+      <parameters>
+        <parameter name="display"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="wl_display*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>
