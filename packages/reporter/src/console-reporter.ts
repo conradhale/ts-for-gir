@@ -352,10 +352,8 @@ export class ConsoleReporter extends ReporterBase {
 	private generateSummary(statistics: ReportStatistics): GenerationReport["summary"] {
 		const { bySeverity, byCategory, totalProblems } = statistics;
 
-		let status: "success" | "partial" | "failed" = "success";
-		if (bySeverity[ProblemSeverity.CRITICAL] > 0 || bySeverity[ProblemSeverity.ERROR] > 10) {
-			status = "failed";
-		} else if (bySeverity[ProblemSeverity.ERROR] > 0 || bySeverity[ProblemSeverity.WARNING] > 20) {
+		let status: "success" | "partial" = "success";
+		if (bySeverity[ProblemSeverity.ERROR] > 0 || bySeverity[ProblemSeverity.WARNING] > 20) {
 			status = "partial";
 		}
 
