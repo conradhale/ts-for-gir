@@ -66,6 +66,15 @@ export const clutter10 = createClutterTemplate("10");
 export const clutter11 = createClutterTemplate("11");
 export const clutter12 = createClutterTemplate("12");
 export const clutter13 = createClutterTemplate("13");
+// GNOME 45
 export const clutter14 = createClutterTemplate("14");
+// GNOME 47
 export const clutter15 = createClutterTemplate("15");
+// GNOME 48
 export const clutter16 = createClutterTemplate("16");
+// GNOME 49
+export const clutter17 = createClutterTemplate("17");
+// Possibly future versions, adjust if necessary
+export const clutter18 = createClutterTemplate("18");
+export const clutter19 = createClutterTemplate("19");
+export const clutter20 = createClutterTemplate("20");
