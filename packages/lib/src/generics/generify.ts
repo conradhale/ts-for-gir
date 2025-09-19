@@ -1,6 +1,18 @@
 import type { NSRegistry } from "../gir/registry.ts";
 import type { NamespaceDefinition } from "../types/generics-config.ts";
-import { clutter10, clutter11, clutter12, clutter13, clutter14, clutter15, clutter16, clutter17, clutter18, clutter19, clutter20 } from "./clutter.ts";
+import {
+	clutter10,
+	clutter11,
+	clutter12,
+	clutter13,
+	clutter14,
+	clutter15,
+	clutter16,
+	clutter17,
+	clutter18,
+	clutter19,
+	clutter20,
+} from "./clutter.ts";
 import gio from "./gio.ts";
 import glib from "./glib.ts";
 import gtk from "./gtk.ts";
@@ -19,7 +31,7 @@ const OPTIONAL_DEFINITIONS: NamespaceDefinition[] = [
 	clutter12,
 	clutter13,
 	clutter14,
-	clutter15,	
+	clutter15,
 	clutter16,
 	clutter17,
 	clutter18,

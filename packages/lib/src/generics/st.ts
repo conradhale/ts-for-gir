@@ -192,14 +192,15 @@ function updatePropertyType(
 export const st1 = createStTemplate("1.0");
 export const st12 = createStTemplate("12");
 export const st13 = createStTemplate("13");
-// GNOME 45
+/** St-14 was introduced with GNOME 45 */
 export const st14 = createStTemplate("14");
-// GNOME 47
+/** St-15 was introduced with GNOME 47 */
 export const st15 = createStTemplate("15");
-// GNOME 48
+/** St-16 was introduced with GNOME 48 */
 export const st16 = createStTemplate("16");
-// Not applicable in GNOME 49? Remove exports below this line if ST is not applicable in GNOME 49
+/** St-17 was introduced with GNOME 49 */
 export const st17 = createStTemplate("17");
+// Possibly future versions, adjust if necessary
 export const st18 = createStTemplate("18");
 export const st19 = createStTemplate("19");
 export const st20 = createStTemplate("20");
