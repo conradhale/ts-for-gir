@@ -32,8 +32,8 @@ jobs:
         node-version: '22.x'
         registry-url: 'https://registry.npmjs.org'
           
-    - name: Install yarn dependencies (CLI workspace only)
-      run: yarn workspaces focus @ts-for-gir/cli
+    - name: Install yarn dependencies
+      run: yarn install
       
     - name: Prepare types submodule
       run: |
