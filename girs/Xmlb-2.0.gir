@@ -2333,7 +2333,7 @@ major.minor.micro.</doc>
       <source-position filename="src/xb-version.h" line="24"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="23" c:type="XMLB_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="24" c:type="XMLB_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/xb-version.h"
            line="36">The compile-time micro version</doc>
@@ -4248,11 +4248,12 @@ and does not need to be freed explicitly.</doc>
               version="0.3.4">
         <doc xml:space="preserve"
              filename="src/xb-node.c"
-             line="583">Returns the current attribute name and value and advances the iterator.
+             line="582">Returns the current attribute name and value and advances the iterator.
 Example:
 |[&lt;!-- language="C" --&gt;
 XbNodeAttrIter iter;
-const gchar *attr_name, *attr_value;
+const gchar *attr_name;
+const gchar *attr_value;
 
 xb_node_attr_iter_init (&amp;iter, node);
 while (xb_node_attr_iter_next (&amp;iter, &amp;attr_name, &amp;attr_value)) {
@@ -4270,7 +4271,7 @@ while (xb_node_attr_iter_next (&amp;iter, &amp;attr_name, &amp;attr_value)) {
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/xb-node.c"
-                 line="585">an initialized #XbNodeAttrIter</doc>
+                 line="584">an initialized #XbNodeAttrIter</doc>
             <type name="NodeAttrIter" c:type="XbNodeAttrIter*"/>
           </instance-parameter>
           <parameter name="name"
@@ -4281,7 +4282,7 @@ while (xb_node_attr_iter_next (&amp;iter, &amp;attr_name, &amp;attr_value)) {
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-node.c"
-                 line="586">Destination of the returned attribute name</doc>
+                 line="585">Destination of the returned attribute name</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
           <parameter name="value"
@@ -4292,7 +4293,7 @@ while (xb_node_attr_iter_next (&amp;iter, &amp;attr_name, &amp;attr_value)) {
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/xb-node.c"
-                 line="587">Destination of the returned attribute value</doc>
+                 line="586">Destination of the returned attribute value</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
         </parameters>

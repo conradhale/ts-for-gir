@@ -900,14 +900,14 @@ used as the "return value" from execution.</doc>
       <source-position filename="src/tmpl-version.h" line="31"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="4" c:type="TMPL_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="TMPL_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/tmpl-version.h"
            line="40">Template-GLibl micro version component (e.g. 3 if %TMPL_VERSION is 1.2.3)</doc>
       <source-position filename="src/tmpl-version.h" line="45"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="36" c:type="TMPL_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="38" c:type="TMPL_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="src/tmpl-version.h"
            line="33">Template-GLibl minor version component (e.g. 2 if %TMPL_VERSION is 1.2.3)</doc>
@@ -933,12 +933,12 @@ used as the "return value" from execution.</doc>
       <constructor name="new" c:identifier="tmpl_scope_new">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="66">Creates a new scope to contain variables and custom expressions,</doc>
+             line="67">Creates a new scope to contain variables and custom expressions,</doc>
         <source-position filename="src/tmpl-scope.h" line="38"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/tmpl-scope.c"
-               line="71">A newly created #TmplScope.</doc>
+               line="72">A newly created #TmplScope.</doc>
           <type name="Scope" c:type="TmplScope*"/>
         </return-value>
       </constructor>
@@ -947,21 +947,21 @@ used as the "return value" from execution.</doc>
               version="3.36">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="497">Gets a string if the symbol @name is a string.
+             line="498">Gets a string if the symbol @name is a string.
 
 Otherwise, %NULL is returned.</doc>
         <source-position filename="src/tmpl-scope.h" line="106"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/tmpl-scope.c"
-               line="505">a string or %NULL</doc>
+               line="506">a string or %NULL</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="499">a #TmplScope</doc>
+                 line="500">a #TmplScope</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
@@ -972,12 +972,12 @@ Otherwise, %NULL is returned.</doc>
       <method name="get" c:identifier="tmpl_scope_get">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="157">If the symbol could not be found, it will be allocated.</doc>
+             line="158">If the symbol could not be found, it will be allocated.</doc>
         <source-position filename="src/tmpl-scope.h" line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/tmpl-scope.c"
-               line="162">A #TmplSymbol.</doc>
+               line="163">A #TmplSymbol.</doc>
           <type name="Symbol" c:type="TmplSymbol*"/>
         </return-value>
         <parameters>
@@ -992,12 +992,12 @@ Otherwise, %NULL is returned.</doc>
       <method name="list_symbols" c:identifier="tmpl_scope_list_symbols">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="460">Gets the names of all symbols within the scope.</doc>
+             line="461">Gets the names of all symbols within the scope.</doc>
         <source-position filename="src/tmpl-scope.h" line="100"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/tmpl-scope.c"
-               line="467">
+               line="468">
   an array containing the names of all symbols within the scope.</doc>
           <array c:type="char**">
             <type name="utf8"/>
@@ -1007,13 +1007,13 @@ Otherwise, %NULL is returned.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="462">a #TmplScope</doc>
+                 line="463">a #TmplScope</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </instance-parameter>
           <parameter name="recursive" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="463">if the parent scopes should be included</doc>
+                 line="464">if the parent scopes should be included</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1021,13 +1021,13 @@ Otherwise, %NULL is returned.</doc>
       <method name="new_with_parent" c:identifier="tmpl_scope_new_with_parent">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="85">Creates a new scope to contain variables and custom expressions,
+             line="86">Creates a new scope to contain variables and custom expressions,
 If @parent is set, the parent scope will be inherited.</doc>
         <source-position filename="src/tmpl-scope.h" line="40"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/tmpl-scope.c"
-               line="92">A newly created #TmplScope.</doc>
+               line="93">A newly created #TmplScope.</doc>
           <type name="Scope" c:type="TmplScope*"/>
         </return-value>
         <parameters>
@@ -1037,7 +1037,7 @@ If @parent is set, the parent scope will be inherited.</doc>
                               allow-none="1">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="87">An optional parent scope</doc>
+                 line="88">An optional parent scope</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </instance-parameter>
         </parameters>
@@ -1045,12 +1045,12 @@ If @parent is set, the parent scope will be inherited.</doc>
       <method name="peek" c:identifier="tmpl_scope_peek">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="367">If the symbol could not be found, %NULL is returned.</doc>
+             line="368">If the symbol could not be found, %NULL is returned.</doc>
         <source-position filename="src/tmpl-scope.h" line="46"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/tmpl-scope.c"
-               line="372">A #TmplSymbol or %NULL.</doc>
+               line="373">A #TmplSymbol or %NULL.</doc>
           <type name="Symbol" c:type="TmplSymbol*"/>
         </return-value>
         <parameters>
@@ -1076,25 +1076,25 @@ If @parent is set, the parent scope will be inherited.</doc>
       <method name="require" c:identifier="tmpl_scope_require">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="409">Imports @namespace_ into @self so it can be used by expressions.</doc>
+             line="410">Imports @namespace_ into @self so it can be used by expressions.</doc>
         <source-position filename="src/tmpl-scope.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/tmpl-scope.c"
-               line="417">%TRUE if successful; otherwise %FALSE</doc>
+               line="418">%TRUE if successful; otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="411">a #TmplScope</doc>
+                 line="412">a #TmplScope</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </instance-parameter>
           <parameter name="namespace_" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="412">the namespace to import into the scope</doc>
+                 line="413">the namespace to import into the scope</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="version"
@@ -1103,7 +1103,7 @@ If @parent is set, the parent scope will be inherited.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="413">the version of @namespace_ to import</doc>
+                 line="414">the version of @namespace_ to import</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1111,7 +1111,7 @@ If @parent is set, the parent scope will be inherited.</doc>
       <method name="set" c:identifier="tmpl_scope_set">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="206">If the symbol already exists, it will be overwritten.
+             line="207">If the symbol already exists, it will be overwritten.
 
 If @symbol is %NULL, the symbol will be removed from scope.</doc>
         <source-position filename="src/tmpl-scope.h" line="52"/>
@@ -1122,13 +1122,13 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="208">A #TmplScope</doc>
+                 line="209">A #TmplScope</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="209">the name of the symbol</doc>
+                 line="210">the name of the symbol</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="symbol"
@@ -1137,7 +1137,7 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="210">An #TmplSymbol or %NULL.</doc>
+                 line="211">An #TmplSymbol or %NULL.</doc>
             <type name="Symbol" c:type="TmplSymbol*"/>
           </parameter>
         </parameters>
@@ -1145,7 +1145,7 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
       <method name="set_boolean" c:identifier="tmpl_scope_set_boolean">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="248">Sets the value of the symbol named @name to a gboolean value of @value.</doc>
+             line="249">Sets the value of the symbol named @name to a gboolean value of @value.</doc>
         <source-position filename="src/tmpl-scope.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1154,19 +1154,19 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="250">A #TmplScope</doc>
+                 line="251">A #TmplScope</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="251">a name for the symbol</doc>
+                 line="252">a name for the symbol</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="252">a #gboolean</doc>
+                 line="253">a #gboolean</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1174,7 +1174,7 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
       <method name="set_double" c:identifier="tmpl_scope_set_double">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="267">Sets the value of the symbol named @name to a gdouble value of @value.</doc>
+             line="268">Sets the value of the symbol named @name to a gdouble value of @value.</doc>
         <source-position filename="src/tmpl-scope.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1183,19 +1183,19 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="269">A #TmplScope</doc>
+                 line="270">A #TmplScope</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="270">a name for the symbol</doc>
+                 line="271">a name for the symbol</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="271">a #gdouble</doc>
+                 line="272">a #gdouble</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -1217,7 +1217,7 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
       <method name="set_object" c:identifier="tmpl_scope_set_object">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="286">Sets the value of the symbol named @name to the object @value.</doc>
+             line="287">Sets the value of the symbol named @name to the object @value.</doc>
         <source-position filename="src/tmpl-scope.h" line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1226,13 +1226,13 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="288">A #TmplScope</doc>
+                 line="289">A #TmplScope</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="289">a name for the symbol</doc>
+                 line="290">a name for the symbol</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value"
@@ -1241,7 +1241,7 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="290">a #GObject or %NULL.</doc>
+                 line="291">a #GObject or %NULL.</doc>
             <type name="GObject.Object" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1276,7 +1276,7 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
       <method name="set_string" c:identifier="tmpl_scope_set_string">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="348">Sets the value of the symbol named @name to a string matching @value.</doc>
+             line="349">Sets the value of the symbol named @name to a string matching @value.</doc>
         <source-position filename="src/tmpl-scope.h" line="72"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1285,13 +1285,13 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="350">A #TmplScope</doc>
+                 line="351">A #TmplScope</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="351">a name for the symbol</doc>
+                 line="352">a name for the symbol</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value"
@@ -1300,7 +1300,7 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="352">A string or %NULL.</doc>
+                 line="353">A string or %NULL.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1308,7 +1308,7 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
       <method name="set_strv" c:identifier="tmpl_scope_set_strv">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="328">Sets the value of the symbol named @name to the strv @value.</doc>
+             line="329">Sets the value of the symbol named @name to the strv @value.</doc>
         <source-position filename="src/tmpl-scope.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1317,13 +1317,13 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="330">A #TmplScope</doc>
+                 line="331">A #TmplScope</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="331">a name for the symbol</doc>
+                 line="332">a name for the symbol</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value"
@@ -1332,7 +1332,7 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="332">the value to set it to, or %NULL</doc>
+                 line="333">the value to set it to, or %NULL</doc>
             <array c:type="const gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -1342,7 +1342,7 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
       <method name="set_value" c:identifier="tmpl_scope_set_value">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="229">Sets the contents of the symbol named @name to the value @value.</doc>
+             line="230">Sets the contents of the symbol named @name to the value @value.</doc>
         <source-position filename="src/tmpl-scope.h" line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1351,13 +1351,13 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="231">A #TmplScope</doc>
+                 line="232">A #TmplScope</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="232">a name for the symbol</doc>
+                 line="233">a name for the symbol</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value"
@@ -1366,7 +1366,7 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="233">A #GValue or %NULL</doc>
+                 line="234">A #GValue or %NULL</doc>
             <type name="GObject.Value" c:type="const GValue*"/>
           </parameter>
         </parameters>
@@ -1374,7 +1374,7 @@ If @symbol is %NULL, the symbol will be removed from scope.</doc>
       <method name="set_variant" c:identifier="tmpl_scope_set_variant">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="306">Sets the value of the symbol named @name to the variant @value.
+             line="307">Sets the value of the symbol named @name to the variant @value.
 
 If @value has a floating reference, it is consumed.</doc>
         <source-position filename="src/tmpl-scope.h" line="86"/>
@@ -1385,13 +1385,13 @@ If @value has a floating reference, it is consumed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="308">A #TmplScope</doc>
+                 line="309">A #TmplScope</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="309">a name for the symbol</doc>
+                 line="310">a name for the symbol</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value"
@@ -1400,7 +1400,7 @@ If @value has a floating reference, it is consumed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="310">the variant to set it to, or %NULL</doc>
+                 line="311">the variant to set it to, or %NULL</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -1408,7 +1408,7 @@ If @value has a floating reference, it is consumed.</doc>
       <method name="take" c:identifier="tmpl_scope_take">
         <doc xml:space="preserve"
              filename="src/tmpl-scope.c"
-             line="171">Sets the symbol named @name to @symbol in @scope.
+             line="172">Sets the symbol named @name to @symbol in @scope.
 
 This differs from tmpl_scope_set() in that it takes ownership
 of @symbol.</doc>
@@ -1420,13 +1420,13 @@ of @symbol.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="173">A #TmplScope</doc>
+                 line="174">A #TmplScope</doc>
             <type name="Scope" c:type="TmplScope*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="174">The name of the symbol</doc>
+                 line="175">The name of the symbol</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="symbol"
@@ -1435,7 +1435,7 @@ of @symbol.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/tmpl-scope.c"
-                 line="175">A #TmplSymbol or %NULL</doc>
+                 line="176">A #TmplSymbol or %NULL</doc>
             <type name="Symbol" c:type="TmplSymbol*"/>
           </parameter>
         </parameters>
@@ -2258,7 +2258,7 @@ the template loader.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="3.36.4" c:type="TMPL_VERSION_S">
+    <constant name="VERSION_S" value="3.38.0" c:type="TMPL_VERSION_S">
       <doc xml:space="preserve"
            filename="src/tmpl-version.h"
            line="54">Template-GLib version, encoded as a string, useful for printing and

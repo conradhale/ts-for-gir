@@ -11972,12 +11972,12 @@ NOTE: Right now, this feature is only implemented for YAML!</doc>
       <constructor name="new" c:identifier="as_pool_new">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2682">Creates a new #AsPool.</doc>
+             line="2688">Creates a new #AsPool.</doc>
         <source-position filename="src/as-pool.h" line="118"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="2687">a #AsPool</doc>
+               line="2693">a #AsPool</doc>
           <type name="Pool" c:type="AsPool*"/>
         </return-value>
       </constructor>
@@ -11998,26 +11998,26 @@ NOTE: Right now, this feature is only implemented for YAML!</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="967">Register a set of components with the pool temporarily.
+             line="973">Register a set of components with the pool temporarily.
 Data from components added like this will not be cached.</doc>
         <source-position filename="src/as-pool.h" line="132"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="976">%TRUE if the new components were successfully added to the pool.</doc>
+               line="982">%TRUE if the new components were successfully added to the pool.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="969">An instance of #AsPool</doc>
+                 line="975">An instance of #AsPool</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="cbox" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="970">Components to add to the pool.</doc>
+                 line="976">Components to add to the pool.</doc>
             <type name="ComponentBox" c:type="AsComponentBox*"/>
           </parameter>
         </parameters>
@@ -12026,7 +12026,7 @@ Data from components added like this will not be cached.</doc>
               c:identifier="as_pool_add_extra_data_location">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2346">Add an additional non-standard location to the metadata pool where metadata will be read from.
+             line="2352">Add an additional non-standard location to the metadata pool where metadata will be read from.
 If @directory contains a "xml", "xmls", "yaml" or "icons" subdirectory (or all of them),
 those paths will be added to the search paths instead.</doc>
         <source-position filename="src/as-pool.h" line="153"/>
@@ -12037,19 +12037,19 @@ those paths will be added to the search paths instead.</doc>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2348">An instance of #AsPool.</doc>
+                 line="2354">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2349">An existing filesystem location.</doc>
+                 line="2355">An existing filesystem location.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="format_style" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2350">The expected format style of the metadata, e.g. %AS_FORMAT_STYLE_CATALOG</doc>
+                 line="2356">The expected format style of the metadata, e.g. %AS_FORMAT_STYLE_CATALOG</doc>
             <type name="FormatStyle" c:type="AsFormatStyle"/>
           </parameter>
         </parameters>
@@ -12059,7 +12059,7 @@ those paths will be added to the search paths instead.</doc>
               version="0.15.0">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2554">Convenience function to add one or multiple #AsPoolFlags to
+             line="2560">Convenience function to add one or multiple #AsPoolFlags to
 the flag set of this data pool.</doc>
         <source-position filename="src/as-pool.h" line="159"/>
         <return-value transfer-ownership="none">
@@ -12069,13 +12069,13 @@ the flag set of this data pool.</doc>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2556">An instance of #AsPool.</doc>
+                 line="2562">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2557">The #AsPoolFlags to add.</doc>
+                 line="2563">The #AsPoolFlags to add.</doc>
             <type name="PoolFlags" c:type="AsPoolFlags"/>
           </parameter>
         </parameters>
@@ -12084,7 +12084,7 @@ the flag set of this data pool.</doc>
               c:identifier="as_pool_build_search_tokens">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2114">Splits up a string into an array of tokens that are suitable for searching.
+             line="2120">Splits up a string into an array of tokens that are suitable for searching.
 This includes stripping whitespaces, casefolding the terms and removing greylist words.
 
 This function is usually called automatically when needed, you will only need to
@@ -12094,7 +12094,7 @@ use internally for a given phrase.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="2126">(array zero-terminated=1): Valid tokens to search for, or %NULL for error</doc>
+               line="2132">(array zero-terminated=1): Valid tokens to search for, or %NULL for error</doc>
           <array c:type="gchar**">
             <type name="utf8"/>
           </array>
@@ -12103,13 +12103,13 @@ use internally for a given phrase.</doc>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2116">An instance of #AsPool.</doc>
+                 line="2122">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="search" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2117">the (user-provided) search phrase.</doc>
+                 line="2123">the (user-provided) search phrase.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12117,7 +12117,7 @@ use internally for a given phrase.</doc>
       <method name="clear" c:identifier="as_pool_clear">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="989">Remove all metadata from the pool, data will be reloaded
+             line="995">Remove all metadata from the pool, data will be reloaded
 once %as_pool_load is called again.</doc>
         <source-position filename="src/as-pool.h" line="131"/>
         <return-value transfer-ownership="none">
@@ -12127,7 +12127,7 @@ once %as_pool_load is called again.</doc>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="991">An #AsPool.</doc>
+                 line="997">An #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
         </parameters>
@@ -12135,19 +12135,19 @@ once %as_pool_load is called again.</doc>
       <method name="get_components" c:identifier="as_pool_get_components">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="1841">Get a list of found components.</doc>
+             line="1847">Get a list of found components.</doc>
         <source-position filename="src/as-pool.h" line="134"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="1847">an #AsComponentBox.</doc>
+               line="1853">an #AsComponentBox.</doc>
           <type name="ComponentBox" c:type="AsComponentBox*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1843">An instance of #AsPool.</doc>
+                 line="1849">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
         </parameters>
@@ -12157,7 +12157,7 @@ once %as_pool_load is called again.</doc>
               version="0.16.0">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2053">Find components that are provided by a bundle with a specific ID by its prefix.
+             line="2059">Find components that are provided by a bundle with a specific ID by its prefix.
 For example, given a AS_BUNDLE_KIND_FLATPAK and a bundle_id "org.kde.dolphin/",
 it will list all the components that bundle dolphin. If the bundle_id is
 "org.kde.dolphin/x86_64" it will give those with also the architecture.</doc>
@@ -12165,32 +12165,32 @@ it will list all the components that bundle dolphin. If the bundle_id is
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="2065">an #AsComponentBox.</doc>
+               line="2071">an #AsComponentBox.</doc>
           <type name="ComponentBox" c:type="AsComponentBox*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2055">An instance of #AsPool.</doc>
+                 line="2061">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2056">The kind of the bundle we are looking for</doc>
+                 line="2062">The kind of the bundle we are looking for</doc>
             <type name="BundleKind" c:type="AsBundleKind"/>
           </parameter>
           <parameter name="bundle_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2057">The bundle ID to match, as specified in #AsBundle</doc>
+                 line="2063">The bundle ID to match, as specified in #AsBundle</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="match_prefix" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2058">%TRUE to match the ID by prefix, %FALSE to perform an absolute match.</doc>
+                 line="2064">%TRUE to match the ID by prefix, %FALSE to perform an absolute match.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -12199,25 +12199,25 @@ it will list all the components that bundle dolphin. If the bundle_id is
               c:identifier="as_pool_get_components_by_categories">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="1954">Return a list of components which are in all of the categories.</doc>
+             line="1960">Return a list of components which are in all of the categories.</doc>
         <source-position filename="src/as-pool.h" line="140"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="1961">an #AsComponentBox of found components.</doc>
+               line="1967">an #AsComponentBox of found components.</doc>
           <type name="ComponentBox" c:type="AsComponentBox*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1956">An instance of #AsDatabase.</doc>
+                 line="1962">An instance of #AsDatabase.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="categories" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1957">An array of XDG categories to include.</doc>
+                 line="1963">An array of XDG categories to include.</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -12229,7 +12229,7 @@ it will list all the components that bundle dolphin. If the bundle_id is
               version="0.15.0">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2021">Find components extending the component with the given ID. They can then be registered to the
+             line="2027">Find components extending the component with the given ID. They can then be registered to the
 #AsComponent they extend via %as_component_add_addon.
 If the %AS_POOL_FLAG_RESOLVE_ADDONS pool flag is set, addons are automatically resolved and
 this explicit function is not needed, but overall query time will be increased (so only use
@@ -12238,20 +12238,20 @@ this flag if you will be resolving addon information later anyway).</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="2032">an #AsComponentBox.</doc>
+               line="2038">an #AsComponentBox.</doc>
           <type name="ComponentBox" c:type="AsComponentBox*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2023">An instance of #AsPool.</doc>
+                 line="2029">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="extended_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2024">The ID of the component to search extensions for.</doc>
+                 line="2030">The ID of the component to search extensions for.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12260,27 +12260,27 @@ this flag if you will be resolving addon information later anyway).</doc>
               c:identifier="as_pool_get_components_by_id">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="1870">Get a specific component by its ID.
+             line="1876">Get a specific component by its ID.
 This function may contain multiple results if we have
 data describing this component from multiple scopes/origin types.</doc>
         <source-position filename="src/as-pool.h" line="135"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="1879">an #AsComponentBox.</doc>
+               line="1885">an #AsComponentBox.</doc>
           <type name="ComponentBox" c:type="AsComponentBox*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1872">An instance of #AsPool.</doc>
+                 line="1878">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="cid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1873">The AppStream-ID to look for.</doc>
+                 line="1879">The AppStream-ID to look for.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12289,25 +12289,25 @@ data describing this component from multiple scopes/origin types.</doc>
               c:identifier="as_pool_get_components_by_kind">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="1927">Return a list of all components in the pool which are of a certain kind.</doc>
+             line="1933">Return a list of all components in the pool which are of a certain kind.</doc>
         <source-position filename="src/as-pool.h" line="139"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="1934">an #AsComponentBox of found components.</doc>
+               line="1940">an #AsComponentBox of found components.</doc>
           <type name="ComponentBox" c:type="AsComponentBox*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1929">An instance of #AsDatabase.</doc>
+                 line="1935">An instance of #AsDatabase.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1930">An #AsComponentKind.</doc>
+                 line="1936">An #AsComponentKind.</doc>
             <type name="ComponentKind" c:type="AsComponentKind"/>
           </parameter>
         </parameters>
@@ -12317,32 +12317,32 @@ data describing this component from multiple scopes/origin types.</doc>
               version="0.11.4">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="1990">Find components in the AppStream data pool which provide a specific launchable.
+             line="1996">Find components in the AppStream data pool which provide a specific launchable.
 See #AsLaunchable for details on launchables, or refer to the AppStream specification.</doc>
         <source-position filename="src/as-pool.h" line="141"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="1999">an #AsComponentBox of found components.</doc>
+               line="2005">an #AsComponentBox of found components.</doc>
           <type name="ComponentBox" c:type="AsComponentBox*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1992">An instance of #AsPool.</doc>
+                 line="1998">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1993">An #AsLaunchableKind</doc>
+                 line="1999">An #AsLaunchableKind</doc>
             <type name="LaunchableKind" c:type="AsLaunchableKind"/>
           </parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1994">The ID of the launchable.</doc>
+                 line="2000">The ID of the launchable.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12351,31 +12351,31 @@ See #AsLaunchable for details on launchables, or refer to the AppStream specific
               c:identifier="as_pool_get_components_by_provided_item">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="1899">Find components in the AppStream data pool which provide a certain item.</doc>
+             line="1905">Find components in the AppStream data pool which provide a certain item.</doc>
         <source-position filename="src/as-pool.h" line="136"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="1907">an #AsComponentBox of found components.</doc>
+               line="1913">an #AsComponentBox of found components.</doc>
           <type name="ComponentBox" c:type="AsComponentBox*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1901">An instance of #AsPool.</doc>
+                 line="1907">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1902">An #AsProvidesKind</doc>
+                 line="1908">An #AsProvidesKind</doc>
             <type name="ProvidedKind" c:type="AsProvidedKind"/>
           </parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1903">The value of the provided item.</doc>
+                 line="1909">The value of the provided item.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12383,7 +12383,7 @@ See #AsLaunchable for details on launchables, or refer to the AppStream specific
       <method name="get_flags" c:identifier="as_pool_get_flags">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2522">Get the #AsPoolFlags for this data pool.</doc>
+             line="2528">Get the #AsPoolFlags for this data pool.</doc>
         <source-position filename="src/as-pool.h" line="157"/>
         <return-value transfer-ownership="none">
           <type name="PoolFlags" c:type="AsPoolFlags"/>
@@ -12392,7 +12392,7 @@ See #AsLaunchable for details on launchables, or refer to the AppStream specific
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2524">An instance of #AsPool.</doc>
+                 line="2530">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
         </parameters>
@@ -12400,19 +12400,19 @@ See #AsLaunchable for details on launchables, or refer to the AppStream specific
       <method name="get_locale" c:identifier="as_pool_get_locale">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2330">Gets the currently used locale.</doc>
+             line="2336">Gets the currently used locale.</doc>
         <source-position filename="src/as-pool.h" line="120"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="2336">Locale used for metadata parsing.</doc>
+               line="2342">Locale used for metadata parsing.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2332">An instance of #AsPool.</doc>
+                 line="2338">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
         </parameters>
@@ -12420,19 +12420,19 @@ See #AsLaunchable for details on launchables, or refer to the AppStream specific
       <method name="is_empty" c:identifier="as_pool_is_empty">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="1006">Check if this pool contains any data.</doc>
+             line="1012">Check if this pool contains any data.</doc>
         <source-position filename="src/as-pool.h" line="130"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="1012">%TRUE if the pool is empty.</doc>
+               line="1018">%TRUE if the pool is empty.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1008">An instance of #AsPool.</doc>
+                 line="1014">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
         </parameters>
@@ -12443,7 +12443,7 @@ See #AsLaunchable for details on launchables, or refer to the AppStream specific
               glib:async-func="load_async">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="1666">Builds an index of all found components in the watched locations.
+             line="1672">Builds an index of all found components in the watched locations.
 The function will try to get as much data into the pool as possible, so even if
 the update completes with %FALSE, it might still have added components to the pool.
 
@@ -12453,14 +12453,14 @@ are up to date.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="1679">%TRUE if update completed without error.</doc>
+               line="1685">%TRUE if update completed without error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1668">An instance of #AsPool.</doc>
+                 line="1674">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -12469,7 +12469,7 @@ are up to date.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1669">a #GCancellable.</doc>
+                 line="1675">a #GCancellable.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -12481,7 +12481,7 @@ are up to date.</doc>
               glib:sync-func="load">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="1715">Asynchronously loads data from all registered locations.
+             line="1721">Asynchronously loads data from all registered locations.
 Equivalent to as_pool_load() (but asynchronous)</doc>
         <source-position filename="src/as-pool.h" line="124"/>
         <return-value transfer-ownership="none">
@@ -12491,7 +12491,7 @@ Equivalent to as_pool_load() (but asynchronous)</doc>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1717">An instance of #AsPool.</doc>
+                 line="1723">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -12500,7 +12500,7 @@ Equivalent to as_pool_load() (but asynchronous)</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1718">a #GCancellable.</doc>
+                 line="1724">a #GCancellable.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -12511,7 +12511,7 @@ Equivalent to as_pool_load() (but asynchronous)</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1719">A #GAsyncReadyCallback</doc>
+                 line="1725">A #GAsyncReadyCallback</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -12520,7 +12520,7 @@ Equivalent to as_pool_load() (but asynchronous)</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1720">Data to pass to @callback</doc>
+                 line="1726">Data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -12531,25 +12531,25 @@ Equivalent to as_pool_load() (but asynchronous)</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="1737">Retrieve the result of as_pool_load_async().</doc>
+             line="1743">Retrieve the result of as_pool_load_async().</doc>
         <source-position filename="src/as-pool.h" line="128"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="1745">%TRUE for success</doc>
+               line="1751">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1739">An instance of #AsPool.</doc>
+                 line="1745">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="1740">A #GAsyncResult</doc>
+                 line="1746">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -12559,7 +12559,7 @@ Equivalent to as_pool_load() (but asynchronous)</doc>
               version="0.15.0">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2575">Convenience function to remove one or multiple #AsPoolFlags from
+             line="2581">Convenience function to remove one or multiple #AsPoolFlags from
 the flag set of this data pool.</doc>
         <source-position filename="src/as-pool.h" line="160"/>
         <return-value transfer-ownership="none">
@@ -12569,13 +12569,13 @@ the flag set of this data pool.</doc>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2577">An instance of #AsPool.</doc>
+                 line="2583">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2578">The #AsPoolFlags to remove.</doc>
+                 line="2584">The #AsPoolFlags to remove.</doc>
             <type name="PoolFlags" c:type="AsPoolFlags"/>
           </parameter>
         </parameters>
@@ -12585,7 +12585,7 @@ the flag set of this data pool.</doc>
               version="0.15.0">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2378">Remove all explicitly added metadata locations.</doc>
+             line="2384">Remove all explicitly added metadata locations.</doc>
         <source-position filename="src/as-pool.h" line="152"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12594,7 +12594,7 @@ the flag set of this data pool.</doc>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2380">An instance of #AsPool.</doc>
+                 line="2386">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
         </parameters>
@@ -12602,26 +12602,26 @@ the flag set of this data pool.</doc>
       <method name="search" c:identifier="as_pool_search" version="0.9.7">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2195">Search for a list of components matching the search term.
+             line="2201">Search for a list of components matching the search term.
 The list will be ordered by match score.</doc>
         <source-position filename="src/as-pool.h" line="149"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="2203">an #AsComponentBox of the found components.</doc>
+               line="2209">an #AsComponentBox of the found components.</doc>
           <type name="ComponentBox" c:type="AsComponentBox*"/>
         </return-value>
         <parameters>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2197">An instance of #AsPool</doc>
+                 line="2203">An instance of #AsPool</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="search" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2198">A search string</doc>
+                 line="2204">A search string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12629,7 +12629,7 @@ The list will be ordered by match score.</doc>
       <method name="set_flags" c:identifier="as_pool_set_flags">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2536">Set the #AsPoolFlags for this data pool.</doc>
+             line="2542">Set the #AsPoolFlags for this data pool.</doc>
         <source-position filename="src/as-pool.h" line="158"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12638,13 +12638,13 @@ The list will be ordered by match score.</doc>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2538">An instance of #AsPool.</doc>
+                 line="2544">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2539">The new #AsPoolFlags.</doc>
+                 line="2545">The new #AsPoolFlags.</doc>
             <type name="PoolFlags" c:type="AsPoolFlags"/>
           </parameter>
         </parameters>
@@ -12654,7 +12654,7 @@ The list will be ordered by match score.</doc>
               version="0.15.0">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2596">This is a convenience function that enables or disables loading of metadata
+             line="2602">This is a convenience function that enables or disables loading of metadata
 from well-known standard locations by configuring the #AsPoolFlags of this
 #AsPool accordingly.
 Data affected by this includes the OS data catalog, metainfo, desktop-entry
@@ -12668,13 +12668,13 @@ If you need more fine-grained control, set the #AsPoolFlags explicitly.</doc>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2598">An instance of #AsPool.</doc>
+                 line="2604">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2599">Whether loading of data from standard locations should be enabled.</doc>
+                 line="2605">Whether loading of data from standard locations should be enabled.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -12682,7 +12682,7 @@ If you need more fine-grained control, set the #AsPoolFlags explicitly.</doc>
       <method name="set_locale" c:identifier="as_pool_set_locale">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2310">Sets the current locale which should be used when parsing metadata.</doc>
+             line="2316">Sets the current locale which should be used when parsing metadata.</doc>
         <source-position filename="src/as-pool.h" line="121"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12691,13 +12691,13 @@ If you need more fine-grained control, set the #AsPoolFlags explicitly.</doc>
           <instance-parameter name="pool" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2312">An instance of #AsPool.</doc>
+                 line="2318">An instance of #AsPool.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </instance-parameter>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-pool.c"
-                 line="2313">the BCP47 or POSIX locale to use for this pool.</doc>
+                 line="2319">the BCP47 or POSIX locale to use for this pool.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12833,7 +12833,7 @@ or removed from the metadata pool.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-pool.c"
-               line="2671">An error quark.</doc>
+               line="2677">An error quark.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
@@ -19529,12 +19529,12 @@ components it may not be.</doc>
       <constructor name="new" c:identifier="as_validator_new">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4653">Creates a new #AsValidator.</doc>
+             line="4638">Creates a new #AsValidator.</doc>
         <source-position filename="src/as-validator.h" line="66"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4658">an #AsValidator</doc>
+               line="4643">an #AsValidator</doc>
           <type name="Validator" c:type="AsValidator*"/>
         </return-value>
       </constructor>
@@ -19701,19 +19701,19 @@ validation process.</doc>
               version="0.16.0">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4400">Get the number of files for which issues have been found.</doc>
+             line="4385">Get the number of files for which issues have been found.</doc>
         <source-position filename="src/as-validator.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4406">The number of files that have issues.</doc>
+               line="4391">The number of files that have issues.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4402">An instance of #AsValidator.</doc>
+                 line="4387">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
         </parameters>
@@ -19721,12 +19721,12 @@ validation process.</doc>
       <method name="get_issues" c:identifier="as_validator_get_issues">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4417">Get a list of found metadata format issues.</doc>
+             line="4402">Get a list of found metadata format issues.</doc>
         <source-position filename="src/as-validator.h" line="83"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4423">a list of #AsValidatorIssue instances, free with g_list_free()</doc>
+               line="4408">a list of #AsValidatorIssue instances, free with g_list_free()</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="ValidatorIssue"/>
           </type>
@@ -19735,7 +19735,7 @@ validation process.</doc>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4419">An instance of #AsValidator.</doc>
+                 line="4404">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
         </parameters>
@@ -19745,14 +19745,14 @@ validation process.</doc>
               version="0.12.8">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4432">Get a hash table of filenames mapped to lists of issues.
+             line="4417">Get a hash table of filenames mapped to lists of issues.
 This is useful if validation was requested for multiple files and
 a list of issues per-file is desired without prior explicit sorting.</doc>
         <source-position filename="src/as-validator.h" line="84"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4440">a file to issue list mapping</doc>
+               line="4425">a file to issue list mapping</doc>
           <type name="GLib.HashTable" c:type="GHashTable*">
             <type name="utf8"/>
             <array name="GLib.PtrArray">
@@ -19764,7 +19764,7 @@ a list of issues per-file is desired without prior explicit sorting.</doc>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4434">An instance of #AsValidator.</doc>
+                 line="4419">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
         </parameters>
@@ -19805,19 +19805,19 @@ a list of issues per-file is desired without prior explicit sorting.</doc>
               c:identifier="as_validator_get_tag_explanation">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4581">Get the explanatory text for a given issue tag.</doc>
+             line="4566">Get the explanatory text for a given issue tag.</doc>
         <source-position filename="src/as-validator.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4587">Explanation text.</doc>
+               line="4572">Explanation text.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4583">An instance of #AsValidator.</doc>
+                 line="4568">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
           <parameter name="tag" transfer-ownership="none">
@@ -19829,19 +19829,19 @@ a list of issues per-file is desired without prior explicit sorting.</doc>
               c:identifier="as_validator_get_tag_severity">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4599">Get the severity for a given issue tag.</doc>
+             line="4584">Get the severity for a given issue tag.</doc>
         <source-position filename="src/as-validator.h" line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4605">The #AsIssueSeverity</doc>
+               line="4590">The #AsIssueSeverity</doc>
           <type name="IssueSeverity" c:type="AsIssueSeverity"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4601">An instance of #AsValidator.</doc>
+                 line="4586">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
           <parameter name="tag" transfer-ownership="none">
@@ -19852,12 +19852,12 @@ a list of issues per-file is desired without prior explicit sorting.</doc>
       <method name="get_tags" c:identifier="as_validator_get_tags">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4617">Get an array of all tags known to the validator.</doc>
+             line="4602">Get an array of all tags known to the validator.</doc>
         <source-position filename="src/as-validator.h" line="101"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4623">A string array of tags</doc>
+               line="4608">A string array of tags</doc>
           <array c:type="gchar**">
             <type name="utf8"/>
           </array>
@@ -19866,7 +19866,7 @@ a list of issues per-file is desired without prior explicit sorting.</doc>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4619">An instance of #AsValidator.</doc>
+                 line="4604">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
         </parameters>
@@ -19927,27 +19927,27 @@ Otherwise, only a "warning" or "error" will cause the validation to fail.</doc>
               version="0.14.0">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="3956">Validate AppStream XML data from a byte array.
+             line="3941">Validate AppStream XML data from a byte array.
 Remember to run %as_validator_clear_issues if you do not want previous
 validation runs to affect the outcome of this validation.</doc>
         <source-position filename="src/as-validator.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="3965">%TRUE if bytes validated successfully.</doc>
+               line="3950">%TRUE if bytes validated successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="3958">An instance of #AsValidator.</doc>
+                 line="3943">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
           <parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="3959">XML metadata as #GBytes.</doc>
+                 line="3944">XML metadata as #GBytes.</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -19955,25 +19955,25 @@ validation runs to affect the outcome of this validation.</doc>
       <method name="validate_data" c:identifier="as_validator_validate_data">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4036">Validate AppStream XML data.</doc>
+             line="4021">Validate AppStream XML data.</doc>
         <source-position filename="src/as-validator.h" line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4043">%TRUE if data validated successfully.</doc>
+               line="4028">%TRUE if data validated successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4038">An instance of #AsValidator.</doc>
+                 line="4023">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
           <parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4039">XML metadata.</doc>
+                 line="4024">XML metadata.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -19981,25 +19981,25 @@ validation runs to affect the outcome of this validation.</doc>
       <method name="validate_file" c:identifier="as_validator_validate_file">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="3829">Validate an AppStream XML file.</doc>
+             line="3814">Validate an AppStream XML file.</doc>
         <source-position filename="src/as-validator.h" line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="3836">%TRUE if file validated successfully.</doc>
+               line="3821">%TRUE if file validated successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="3831">An instance of #AsValidator.</doc>
+                 line="3816">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
           <parameter name="metadata_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="3832">An AppStream XML file.</doc>
+                 line="3817">An AppStream XML file.</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -20007,25 +20007,25 @@ validation runs to affect the outcome of this validation.</doc>
       <method name="validate_tree" c:identifier="as_validator_validate_tree">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4218">Validate a full directory tree for issues in AppStream metadata.</doc>
+             line="4203">Validate a full directory tree for issues in AppStream metadata.</doc>
         <source-position filename="src/as-validator.h" line="71"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4225">%TRUE if file validated successfully.</doc>
+               line="4210">%TRUE if file validated successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4220">An instance of #AsValidator.</doc>
+                 line="4205">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
           <parameter name="root_dir" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4221">The root directory of the filesystem tree that should be validated.</doc>
+                 line="4206">The root directory of the filesystem tree that should be validated.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -23029,7 +23029,7 @@ than @line_len. Words are not split.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/as-pool.c"
-             line="2671">An error quark.</doc>
+             line="2677">An error quark.</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>

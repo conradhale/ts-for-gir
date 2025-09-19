@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gdk" version="4.0"/>
   <include name="GdkPixbuf" version="2.0"/>
   <include name="GnomeDesktop" version="4.0"/>
   <package name="gnome-bg-4"/>
+  <doc:format name="unknown"/>
   <namespace name="GnomeBG"
              version="4.0"
              shared-library="libgnome-bg-4.so.2"
@@ -48,7 +50,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gnome_bg_create_frame_thumbnail">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg/gnome-bg.c"
-             line="2358">Creates a thumbnail for a certain frame, where 'frame' is somewhat
+             line="2370">Creates a thumbnail for a certain frame, where 'frame' is somewhat
 vaguely defined as 'suitable point to show while single-stepping
 through the slideshow'.</doc>
         <source-position filename="libgnome-desktop/gnome-bg/gnome-bg.h"
@@ -56,7 +58,7 @@ through the slideshow'.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-bg/gnome-bg.c"
-               line="2365">the newly created thumbnail or
+               line="2377">the newly created thumbnail or
 or NULL if frame_num is out of bounds.</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>

@@ -136,7 +136,7 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="sushi_media_bin_new">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="1940">Returns a new #SushiMediaBin</doc>
+             line="1938">Returns a new #SushiMediaBin</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="37"/>
         <return-value transfer-ownership="none">
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
@@ -151,7 +151,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="sushi_media_bin_get_audio_tags">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2132">Returns a #GstTagList with the audio tags for the played media</doc>
+             line="2130">Returns a #GstTagList with the audio tags for the played media</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="67"/>
         <return-value transfer-ownership="full">
           <type name="Gst.TagList" c:type="GstTagList*"/>
@@ -160,7 +160,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2134">a #SushiMediaBin</doc>
+                 line="2132">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
         </parameters>
@@ -170,7 +170,7 @@ and/or use gtk-doc annotations.  -->
               glib:get-property="autohide-timeout">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="1996">Returns control's auto hide timeout in seconds.</doc>
+             line="1994">Returns control's auto hide timeout in seconds.</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="47"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="gint"/>
@@ -179,7 +179,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="1998">a #SushiMediaBin</doc>
+                 line="1996">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
         </parameters>
@@ -189,7 +189,7 @@ and/or use gtk-doc annotations.  -->
               glib:get-property="description">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2089">Returns the media description if any</doc>
+             line="2087">Returns the media description if any</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -198,7 +198,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2091">a #SushiMediaBin</doc>
+                 line="2089">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
         </parameters>
@@ -208,7 +208,7 @@ and/or use gtk-doc annotations.  -->
               glib:get-property="fullscreen">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2013">Returns whether video is fullscreen or not</doc>
+             line="2011">Returns whether video is fullscreen or not</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -217,7 +217,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2015">a #SushiMediaBin</doc>
+                 line="2013">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
         </parameters>
@@ -227,7 +227,7 @@ and/or use gtk-doc annotations.  -->
               glib:get-property="show-stream-info">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2034">Returns whether streams information are show or not</doc>
+             line="2032">Returns whether streams information are show or not</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -236,7 +236,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2036">a #SushiMediaBin</doc>
+                 line="2034">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
         </parameters>
@@ -246,7 +246,7 @@ and/or use gtk-doc annotations.  -->
               glib:get-property="title">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2067">Returns the media title if any</doc>
+             line="2065">Returns the media title if any</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -255,7 +255,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2069">a #SushiMediaBin</doc>
+                 line="2067">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
         </parameters>
@@ -265,7 +265,7 @@ and/or use gtk-doc annotations.  -->
               glib:get-property="uri">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="1955">Return the media URI</doc>
+             line="1953">Return the media URI</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="39"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -274,7 +274,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="1957">a #SushiMediaBin</doc>
+                 line="1955">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
         </parameters>
@@ -283,7 +283,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="sushi_media_bin_get_video_tags">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2142">Returns a #GstTagList with the video tags for the played media</doc>
+             line="2140">Returns a #GstTagList with the video tags for the played media</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="68"/>
         <return-value transfer-ownership="full">
           <type name="Gst.TagList" c:type="GstTagList*"/>
@@ -292,7 +292,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2144">a #SushiMediaBin</doc>
+                 line="2142">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
         </parameters>
@@ -302,7 +302,7 @@ and/or use gtk-doc annotations.  -->
               glib:get-property="volume">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2109">Returns audio volume from 0.0 to 1.0</doc>
+             line="2107">Returns audio volume from 0.0 to 1.0</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="43"/>
         <return-value transfer-ownership="none">
           <type name="gdouble" c:type="gdouble"/>
@@ -311,7 +311,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2111">a #SushiMediaBin</doc>
+                 line="2109">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
         </parameters>
@@ -319,7 +319,7 @@ and/or use gtk-doc annotations.  -->
       <method name="pause" c:identifier="sushi_media_bin_pause">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2171">Pause media playback</doc>
+             line="2169">Pause media playback</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -328,7 +328,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2173">a #SushiMediaBin</doc>
+                 line="2171">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
         </parameters>
@@ -336,7 +336,7 @@ and/or use gtk-doc annotations.  -->
       <method name="play" c:identifier="sushi_media_bin_play">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2152">Start media playback</doc>
+             line="2150">Start media playback</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -345,7 +345,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2154">a #SushiMediaBin</doc>
+                 line="2152">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
         </parameters>
@@ -353,31 +353,31 @@ and/or use gtk-doc annotations.  -->
       <method name="screenshot" c:identifier="sushi_media_bin_screenshot">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2203">Takes a screenshot of the current frame.</doc>
+             line="2201">Takes a screenshot of the current frame.</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="74"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libsushi/sushi-media-bin.c"
-               line="2211">a new #GdkPixbuf</doc>
+               line="2209">a new #GdkPixbuf</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2205">a #SushiMediaBin</doc>
+                 line="2203">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2206">desired screenshot width or -1 for original size</doc>
+                 line="2204">desired screenshot width or -1 for original size</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2207">desired screenshot height or -1 for original size</doc>
+                 line="2205">desired screenshot height or -1 for original size</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -387,7 +387,7 @@ and/or use gtk-doc annotations.  -->
               glib:set-property="autohide-timeout">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2004">Sets the timeout to auto hide controls</doc>
+             line="2002">Sets the timeout to auto hide controls</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -396,13 +396,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2006">a #SushiMediaBin</doc>
+                 line="2004">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
           <parameter name="autohide_timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2007">A timeout in seconds</doc>
+                 line="2005">A timeout in seconds</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -412,7 +412,7 @@ and/or use gtk-doc annotations.  -->
               glib:set-property="description">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2097">Sets the media description.
+             line="2095">Sets the media description.
 By default SushiMediaBin will use the description from the media metadata</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="64"/>
         <return-value transfer-ownership="none">
@@ -422,7 +422,7 @@ By default SushiMediaBin will use the description from the media metadata</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2099">a #SushiMediaBin</doc>
+                 line="2097">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
           <parameter name="description" transfer-ownership="none">
@@ -435,7 +435,7 @@ By default SushiMediaBin will use the description from the media metadata</doc>
               glib:set-property="fullscreen">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2021">Sets whether to show the video in fullscreen mode or not</doc>
+             line="2019">Sets whether to show the video in fullscreen mode or not</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -444,7 +444,7 @@ By default SushiMediaBin will use the description from the media metadata</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2023">a #SushiMediaBin</doc>
+                 line="2021">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
           <parameter name="fullscreen" transfer-ownership="none">
@@ -457,7 +457,7 @@ By default SushiMediaBin will use the description from the media metadata</doc>
               glib:set-property="show-stream-info">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2042">Sets whether to show stream information or not</doc>
+             line="2040">Sets whether to show stream information or not</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="56"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -466,7 +466,7 @@ By default SushiMediaBin will use the description from the media metadata</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2044">a #SushiMediaBin</doc>
+                 line="2042">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
           <parameter name="show_stream_info" transfer-ownership="none">
@@ -479,7 +479,7 @@ By default SushiMediaBin will use the description from the media metadata</doc>
               glib:set-property="title">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2075">Sets the media title.
+             line="2073">Sets the media title.
 By default SushiMediaBin will use the title from the media metadata</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="60"/>
         <return-value transfer-ownership="none">
@@ -489,7 +489,7 @@ By default SushiMediaBin will use the title from the media metadata</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2077">a #SushiMediaBin</doc>
+                 line="2075">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
@@ -502,7 +502,7 @@ By default SushiMediaBin will use the title from the media metadata</doc>
               glib:set-property="uri">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="1963">Sets the media URI to play</doc>
+             line="1961">Sets the media URI to play</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="40"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -511,7 +511,7 @@ By default SushiMediaBin will use the title from the media metadata</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="1965">a #SushiMediaBin</doc>
+                 line="1963">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
@@ -524,7 +524,7 @@ By default SushiMediaBin will use the title from the media metadata</doc>
               glib:set-property="volume">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2119">Sets the audio volume</doc>
+             line="2117">Sets the audio volume</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -533,13 +533,13 @@ By default SushiMediaBin will use the title from the media metadata</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2121">a #SushiMediaBin</doc>
+                 line="2119">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
           <parameter name="volume" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2122">from 0.0 to 1.0</doc>
+                 line="2120">from 0.0 to 1.0</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -547,7 +547,7 @@ By default SushiMediaBin will use the title from the media metadata</doc>
       <method name="stop" c:identifier="sushi_media_bin_stop">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-media-bin.c"
-             line="2184">Stop media playback</doc>
+             line="2182">Stop media playback</doc>
         <source-position filename="src/libsushi/sushi-media-bin.h" line="72"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -556,7 +556,7 @@ By default SushiMediaBin will use the title from the media metadata</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="2186">a #SushiMediaBin</doc>
+                 line="2184">a #SushiMediaBin</doc>
             <type name="MediaBin" c:type="SushiMediaBin*"/>
           </instance-parameter>
         </parameters>
@@ -632,7 +632,7 @@ By default SushiMediaBin will use the title from the media metadata</doc>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libsushi/sushi-media-bin.c"
-                 line="1198">the #GError</doc>
+                 line="1196">the #GError</doc>
             <type name="GLib.Error"/>
           </parameter>
         </parameters>
@@ -887,7 +887,7 @@ By default SushiMediaBin will use the title from the media metadata</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/libsushi/sushi-utils.c"
-             line="401">Whether we are running under Wayland backend.</doc>
+             line="400">Whether we are running under Wayland backend.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>

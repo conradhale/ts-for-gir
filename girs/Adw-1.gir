@@ -12436,7 +12436,7 @@ See also [class@CarouselIndicatorDots].
                  c:type="AdwCenteringPolicy">
       <doc xml:space="preserve"
            filename="src/adw-header-bar.c"
-           line="144">Describes title centering behavior of a [class@HeaderBar] widget.</doc>
+           line="139">Describes title centering behavior of a [class@HeaderBar] widget.</doc>
       <member name="loose"
               value="0"
               c:identifier="ADW_CENTERING_POLICY_LOOSE"
@@ -12444,7 +12444,7 @@ See also [class@CarouselIndicatorDots].
               glib:name="ADW_CENTERING_POLICY_LOOSE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="146">Keep the title centered when possible</doc>
+             line="141">Keep the title centered when possible</doc>
       </member>
       <member name="strict"
               value="1"
@@ -12453,7 +12453,7 @@ See also [class@CarouselIndicatorDots].
               glib:name="ADW_CENTERING_POLICY_STRICT">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="147">Keep the title centered at all cost</doc>
+             line="142">Keep the title centered at all cost</doc>
       </member>
     </enumeration>
     <class name="Clamp"
@@ -14159,7 +14159,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_1_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_1_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="201"/>
+      <source-position filename="src/adw-version.h" line="191"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14168,7 +14168,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_2_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_2_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="219"/>
+      <source-position filename="src/adw-version.h" line="209"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14177,7 +14177,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_3_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_3_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="237"/>
+      <source-position filename="src/adw-version.h" line="227"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14186,7 +14186,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_4_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_4_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="255"/>
+      <source-position filename="src/adw-version.h" line="245"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14195,7 +14195,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_5_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_5_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="273"/>
+      <source-position filename="src/adw-version.h" line="263"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14204,7 +14204,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_6_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_6_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="291"/>
+      <source-position filename="src/adw-version.h" line="281"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14213,7 +14213,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_7_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_7_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="309"/>
+      <source-position filename="src/adw-version.h" line="299"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14222,16 +14222,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_8_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_8_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="327"/>
-      <parameters>
-        <parameter name="f">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DEPRECATED_IN_1_9_FOR"
-                    c:identifier="ADW_DEPRECATED_IN_1_9_FOR"
-                    introspectable="0">
-      <source-position filename="src/adw-version.h" line="345"/>
+      <source-position filename="src/adw-version.h" line="317"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14240,7 +14231,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_1_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_1_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="203"/>
+      <source-position filename="src/adw-version.h" line="193"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14249,7 +14240,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_2_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_2_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="221"/>
+      <source-position filename="src/adw-version.h" line="211"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14258,7 +14249,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_3_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_3_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="239"/>
+      <source-position filename="src/adw-version.h" line="229"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14267,7 +14258,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_4_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_4_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="257"/>
+      <source-position filename="src/adw-version.h" line="247"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14276,7 +14267,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_5_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_5_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="275"/>
+      <source-position filename="src/adw-version.h" line="265"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14285,7 +14276,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_6_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_6_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="293"/>
+      <source-position filename="src/adw-version.h" line="283"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14294,7 +14285,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_7_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_7_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="311"/>
+      <source-position filename="src/adw-version.h" line="301"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14303,16 +14294,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_8_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_8_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="329"/>
-      <parameters>
-        <parameter name="f">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DEPRECATED_TYPE_IN_1_9_FOR"
-                    c:identifier="ADW_DEPRECATED_TYPE_IN_1_9_FOR"
-                    introspectable="0">
-      <source-position filename="src/adw-version.h" line="347"/>
+      <source-position filename="src/adw-version.h" line="319"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -18578,7 +18560,7 @@ It determines the type of animation when transitioning between children in a
            glib:type-struct="HeaderBarClass">
       <doc xml:space="preserve"
            filename="src/adw-header-bar.c"
-           line="45">A title bar widget.
+           line="40">A title bar widget.
 
 &lt;picture&gt;
   &lt;source srcset="header-bar-dark.png" media="(prefers-color-scheme: dark)"&gt;
@@ -18679,12 +18661,12 @@ contains a node with the name `widget` that contains a node with the name
       <constructor name="new" c:identifier="adw_header_bar_new">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1052">Creates a new `AdwHeaderBar`.</doc>
+             line="1009">Creates a new `AdwHeaderBar`.</doc>
         <source-position filename="src/adw-header-bar.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1057">the newly created `AdwHeaderBar`.</doc>
+               line="1014">the newly created `AdwHeaderBar`.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -18693,19 +18675,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="centering-policy">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1414">Gets the policy for aligning the center widget.</doc>
+             line="1371">Gets the policy for aligning the center widget.</doc>
         <source-position filename="src/adw-header-bar.h" line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1420">the centering policy</doc>
+               line="1377">the centering policy</doc>
           <type name="CenteringPolicy" c:type="AdwCenteringPolicy"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1416">a header bar</doc>
+                 line="1373">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18715,19 +18697,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="decoration-layout">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1366">Gets the decoration layout for @self.</doc>
+             line="1323">Gets the decoration layout for @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="82"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1372">the decoration layout</doc>
+               line="1329">the decoration layout</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1368">a header bar</doc>
+                 line="1325">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18738,19 +18720,19 @@ contains a node with the name `widget` that contains a node with the name
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1309">Gets whether @self can show the back button.</doc>
+             line="1266">Gets whether @self can show the back button.</doc>
         <source-position filename="src/adw-header-bar.h" line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1315">whether to show the back button</doc>
+               line="1272">whether to show the back button</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1311">a header bar</doc>
+                 line="1268">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18760,19 +18742,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="show-end-title-buttons">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1261">Gets whether to show title buttons at the end of @self.</doc>
+             line="1218">Gets whether to show title buttons at the end of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1267">`TRUE` if title buttons at the end are shown</doc>
+               line="1224">`TRUE` if title buttons at the end are shown</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1263">a header bar</doc>
+                 line="1220">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18782,19 +18764,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="show-start-title-buttons">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1213">Gets whether to show title buttons at the start of @self.</doc>
+             line="1170">Gets whether to show title buttons at the start of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1219">`TRUE` if title buttons at the start are shown</doc>
+               line="1176">`TRUE` if title buttons at the start are shown</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1215">a header bar</doc>
+                 line="1172">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18805,19 +18787,19 @@ contains a node with the name `widget` that contains a node with the name
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1459">Gets whether the title widget should be shown.</doc>
+             line="1416">Gets whether the title widget should be shown.</doc>
         <source-position filename="src/adw-header-bar.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1465">whether the title widget should be shown.</doc>
+               line="1422">whether the title widget should be shown.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1461">a header bar</doc>
+                 line="1418">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18827,19 +18809,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="title-widget">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1147">Gets the title widget widget of @self.</doc>
+             line="1104">Gets the title widget widget of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="58"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1153">the title widget</doc>
+               line="1110">the title widget</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1149">a header bar</doc>
+                 line="1106">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18847,7 +18829,7 @@ contains a node with the name `widget` that contains a node with the name
       <method name="pack_end" c:identifier="adw_header_bar_pack_end">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1088">Adds @child to @self, packed with reference to the end of @self.</doc>
+             line="1045">Adds @child to @self, packed with reference to the end of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18856,13 +18838,13 @@ contains a node with the name `widget` that contains a node with the name
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1090">a header bar</doc>
+                 line="1047">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1091">the widget to be added to @self</doc>
+                 line="1048">the widget to be added to @self</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -18870,7 +18852,7 @@ contains a node with the name `widget` that contains a node with the name
       <method name="pack_start" c:identifier="adw_header_bar_pack_start">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1065">Adds @child to @self, packed with reference to the start of the @self.</doc>
+             line="1022">Adds @child to @self, packed with reference to the start of the @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18879,13 +18861,13 @@ contains a node with the name `widget` that contains a node with the name
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1067">a header bar</doc>
+                 line="1024">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1068">the widget to be added to @self</doc>
+                 line="1025">the widget to be added to @self</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -18893,7 +18875,7 @@ contains a node with the name `widget` that contains a node with the name
       <method name="remove" c:identifier="adw_header_bar_remove">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1111">Removes a child from @self.
+             line="1068">Removes a child from @self.
 
 The child must have been added with [method@HeaderBar.pack_start],
 [method@HeaderBar.pack_end] or [property@HeaderBar:title-widget].</doc>
@@ -18905,13 +18887,13 @@ The child must have been added with [method@HeaderBar.pack_start],
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1113">a header bar</doc>
+                 line="1070">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1114">the child to remove</doc>
+                 line="1071">the child to remove</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -18921,7 +18903,7 @@ The child must have been added with [method@HeaderBar.pack_start],
               glib:set-property="centering-policy">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1430">Sets the policy for aligning the center widget.</doc>
+             line="1387">Sets the policy for aligning the center widget.</doc>
         <source-position filename="src/adw-header-bar.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18930,13 +18912,13 @@ The child must have been added with [method@HeaderBar.pack_start],
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1432">a header bar</doc>
+                 line="1389">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="centering_policy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1433">the centering policy</doc>
+                 line="1390">the centering policy</doc>
             <type name="CenteringPolicy" c:type="AdwCenteringPolicy"/>
           </parameter>
         </parameters>
@@ -18946,7 +18928,7 @@ The child must have been added with [method@HeaderBar.pack_start],
               glib:set-property="decoration-layout">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1382">Sets the decoration layout for @self.
+             line="1339">Sets the decoration layout for @self.
 
 If this property is not set, the
 [property@Gtk.Settings:gtk-decoration-layout] setting is used.
@@ -18966,7 +18948,7 @@ and minimize, maximize and close buttons at the end.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1384">a header bar</doc>
+                 line="1341">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="layout"
@@ -18975,7 +18957,7 @@ and minimize, maximize and close buttons at the end.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1385">a decoration layout</doc>
+                 line="1342">a decoration layout</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -18986,7 +18968,7 @@ and minimize, maximize and close buttons at the end.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1327">Sets whether @self can show the back button.
+             line="1284">Sets whether @self can show the back button.
 
 The back button will never be shown unless the header bar is placed inside an
 [class@NavigationView]. Usually, there is no reason to set it to `FALSE`.</doc>
@@ -18998,13 +18980,13 @@ The back button will never be shown unless the header bar is placed inside an
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1329">a header bar</doc>
+                 line="1286">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="show_back_button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1330">whether to show the back button</doc>
+                 line="1287">whether to show the back button</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -19014,7 +18996,7 @@ The back button will never be shown unless the header bar is placed inside an
               glib:set-property="show-end-title-buttons">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1277">Sets whether to show title buttons at the end of @self.
+             line="1234">Sets whether to show title buttons at the end of @self.
 
 See [property@HeaderBar:show-start-title-buttons] for the other side.
 
@@ -19029,13 +19011,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1279">a header bar</doc>
+                 line="1236">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1280">`TRUE` to show standard title buttons</doc>
+                 line="1237">`TRUE` to show standard title buttons</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -19045,7 +19027,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
               glib:set-property="show-start-title-buttons">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1229">Sets whether to show title buttons at the start of @self.
+             line="1186">Sets whether to show title buttons at the start of @self.
 
 See [property@HeaderBar:show-end-title-buttons] for the other side.
 
@@ -19060,13 +19042,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1231">a header bar</doc>
+                 line="1188">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1232">`TRUE` to show standard title buttons</doc>
+                 line="1189">`TRUE` to show standard title buttons</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -19077,7 +19059,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1477">Sets whether the title widget should be shown.</doc>
+             line="1434">Sets whether the title widget should be shown.</doc>
         <source-position filename="src/adw-header-bar.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -19086,13 +19068,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1479">a header bar</doc>
+                 line="1436">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="show_title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1480">whether the title widget is visible</doc>
+                 line="1437">whether the title widget is visible</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -19102,7 +19084,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
               glib:set-property="title-widget">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1163">Sets the title widget for @self.
+             line="1120">Sets the title widget for @self.
 
 When set to `NULL`, the header bar will display the title of the window it
 is contained in.
@@ -19126,7 +19108,7 @@ To use a different title, use [class@WindowTitle]:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1165">a header bar</doc>
+                 line="1122">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="title_widget"
@@ -19135,7 +19117,7 @@ To use a different title, use [class@WindowTitle]:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1166">a widget to use for a title</doc>
+                 line="1123">a widget to use for a title</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -19148,7 +19130,7 @@ To use a different title, use [class@WindowTitle]:
                 default-value="ADW_CENTERING_POLICY_LOOSE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="949">The policy for aligning the center widget.</doc>
+             line="906">The policy for aligning the center widget.</doc>
         <type name="CenteringPolicy"/>
       </property>
       <property name="decoration-layout"
@@ -19159,7 +19141,7 @@ To use a different title, use [class@WindowTitle]:
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="928">The decoration layout for buttons.
+             line="885">The decoration layout for buttons.
 
 If this property is not set, the
 [property@Gtk.Settings:gtk-decoration-layout] setting is used.
@@ -19182,7 +19164,7 @@ and minimize, maximize and close buttons at the end.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="913">Whether the header bar can show the back button.
+             line="870">Whether the header bar can show the back button.
 
 The back button will never be shown unless the header bar is placed inside an
 [class@NavigationView]. Usually, there is no reason to set this to `FALSE`.</doc>
@@ -19196,7 +19178,7 @@ The back button will never be shown unless the header bar is placed inside an
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="896">Whether to show title buttons at the end of the header bar.
+             line="853">Whether to show title buttons at the end of the header bar.
 
 See [property@HeaderBar:show-start-title-buttons] for the other side.
 
@@ -19214,7 +19196,7 @@ closed).</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="879">Whether to show title buttons at the start of the header bar.
+             line="836">Whether to show title buttons at the start of the header bar.
 
 See [property@HeaderBar:show-end-title-buttons] for the other side.
 
@@ -19233,7 +19215,7 @@ closed).</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="960">Whether the title widget should be shown.</doc>
+             line="917">Whether the title widget should be shown.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="title-widget"
@@ -19243,7 +19225,7 @@ closed).</doc>
                 getter="get_title_widget">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="854">The title widget to display.
+             line="811">The title widget to display.
 
 When set to `NULL`, the header bar will display the title of the window it
 is contained in.
@@ -21603,7 +21585,7 @@ New values may be added to this enumeration over time.</doc>
       <source-position filename="src/adw-version.h" line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="9" c:type="ADW_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="8" c:type="ADW_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="src/adw-version.h"
            line="24">Adwaita minor version component (e.g. 2 if the version is 1.2.3).</doc>
@@ -44568,7 +44550,7 @@ See also [property@ToolbarView:bottom-bar-style].</doc>
     <function-macro name="UNAVAILABLE"
                     c:identifier="ADW_UNAVAILABLE"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="355"/>
+      <source-position filename="src/adw-version.h" line="327"/>
       <parameters>
         <parameter name="major">
         </parameter>
@@ -44576,7 +44558,7 @@ See also [property@ToolbarView:bottom-bar-style].</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="1.9.alpha" c:type="ADW_VERSION_S">
+    <constant name="VERSION_S" value="1.8.0" c:type="ADW_VERSION_S">
       <doc xml:space="preserve"
            filename="src/adw-version.h"
            line="45">Adwaita version, encoded as a string, useful for printing and
@@ -49843,7 +49825,7 @@ This function is in the library, so it represents the libadwaita library your
 code is running against. Contrast with the [const@MAJOR_VERSION] constant,
 which represents the major version of the libadwaita headers you have
 included when compiling your code.</doc>
-      <source-position filename="src/adw-version.h" line="361"/>
+      <source-position filename="src/adw-version.h" line="333"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/adw-version.c"
@@ -49862,7 +49844,7 @@ This function is in the library, so it represents the libadwaita library your
 code is running against. Contrast with the [const@MAJOR_VERSION] constant,
 which represents the micro version of the libadwaita headers you have
 included when compiling your code.</doc>
-      <source-position filename="src/adw-version.h" line="365"/>
+      <source-position filename="src/adw-version.h" line="337"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/adw-version.c"
@@ -49881,7 +49863,7 @@ This function is in the library, so it represents the libadwaita library your
 code is running against. Contrast with the [const@MAJOR_VERSION] constant,
 which represents the minor version of the libadwaita headers you have
 included when compiling your code.</doc>
-      <source-position filename="src/adw-version.h" line="363"/>
+      <source-position filename="src/adw-version.h" line="335"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/adw-version.c"

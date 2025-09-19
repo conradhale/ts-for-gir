@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="Gdk" version="3.0"/>
@@ -12,6 +13,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Gio" version="2.0"/>
   <include name="Gtk" version="3.0"/>
   <package name="evince-document-3.0"/>
+  <doc:format name="unknown"/>
   <namespace name="EvinceDocument"
              version="3.0"
              shared-library="libevdocument3.so.4"
@@ -3089,19 +3091,19 @@ Returns 96 as fallback value.</doc>
       <virtual-method name="get_info" invoker="get_info">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="930">Returns the #EvDocumentInfo for the document.</doc>
+             line="934">Returns the #EvDocumentInfo for the document.</doc>
         <source-position filename="libdocument/ev-document.h" line="114"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="936">a #EvDocumentInfo</doc>
+               line="940">a #EvDocumentInfo</doc>
           <type name="DocumentInfo" c:type="EvDocumentInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="932">a #EvDocument</doc>
+                 line="936">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3122,20 +3124,20 @@ Returns 96 as fallback value.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="664">Newly created #EvPage for the given index.</doc>
+               line="668">Newly created #EvPage for the given index.</doc>
           <type name="Page" c:type="EvPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="661">a #EvDocument</doc>
+                 line="665">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="662">index of page</doc>
+                 line="666">index of page</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -3163,13 +3165,13 @@ Returns 96 as fallback value.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="849">a #EvDocument</doc>
+                 line="853">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="page_index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="850">index of page</doc>
+                 line="854">index of page</doc>
             <type name="Page" c:type="EvPage*"/>
           </parameter>
           <parameter name="width"
@@ -3180,7 +3182,7 @@ Returns 96 as fallback value.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="851">return location for the width of the page, or %NULL</doc>
+                 line="855">return location for the width of the page, or %NULL</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="height"
@@ -3191,7 +3193,7 @@ Returns 96 as fallback value.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="852">return location for the height of the page, or %NULL</doc>
+                 line="856">return location for the height of the page, or %NULL</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -3201,20 +3203,20 @@ Returns 96 as fallback value.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="990">a #GdkPixbuf</doc>
+               line="994">a #GdkPixbuf</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="987">an #EvDocument</doc>
+                 line="991">an #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="988">an #EvRenderContext</doc>
+                 line="992">an #EvRenderContext</doc>
             <type name="RenderContext" c:type="EvRenderContext*"/>
           </parameter>
         </parameters>
@@ -3226,20 +3228,20 @@ Returns 96 as fallback value.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="1009">a #cairo_surface_t</doc>
+               line="1013">a #cairo_surface_t</doc>
           <type name="cairo.Surface" c:type="cairo_surface_t*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="1006">an #EvDocument</doc>
+                 line="1010">an #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="1007">an #EvRenderContext</doc>
+                 line="1011">an #EvRenderContext</doc>
             <type name="RenderContext" c:type="EvRenderContext*"/>
           </parameter>
         </parameters>
@@ -3247,7 +3249,7 @@ Returns 96 as fallback value.</doc>
       <virtual-method name="load" invoker="load" throws="1">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="426">Loads @document from @uri.
+             line="430">Loads @document from @uri.
 
 On failure, %FALSE is returned and @error is filled in.
 If the document is encrypted, EV_DEFINE_ERROR_ENCRYPTED is returned.
@@ -3260,20 +3262,20 @@ the URI, e.g. #GIOError, #GFileError, and #GConvertError.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="442">%TRUE on success, or %FALSE on failure.</doc>
+               line="446">%TRUE on success, or %FALSE on failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="428">a #EvDocument</doc>
+                 line="432">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="429">the document's URI</doc>
+                 line="433">the document's URI</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3284,7 +3286,7 @@ the URI, e.g. #GIOError, #GFileError, and #GConvertError.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="553">Synchronously loads the document from @fd, which must refer to
+             line="557">Synchronously loads the document from @fd, which must refer to
 a regular file.
 
 Note that this function takes ownership of @fd; you must not ever
@@ -3296,26 +3298,26 @@ See ev_document_load() for more information.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="570">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
+               line="574">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="555">a #EvDocument</doc>
+                 line="559">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="556">a file descriptor</doc>
+                 line="560">a file descriptor</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="557">flags from #EvDocumentLoadFlags</doc>
+                 line="561">flags from #EvDocumentLoadFlags</doc>
             <type name="DocumentLoadFlags" c:type="EvDocumentLoadFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -3324,7 +3326,7 @@ See ev_document_load() for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="558">a #GCancellable, or %NULL</doc>
+                 line="562">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -3335,32 +3337,32 @@ See ev_document_load() for more information.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="501">Synchronously loads the document from @file.
+             line="505">Synchronously loads the document from @file.
 See ev_document_load() for more information.</doc>
         <source-position filename="libdocument/ev-document.h" line="125"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="512">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
+               line="516">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="503">a #EvDocument</doc>
+                 line="507">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="504">a #GFile</doc>
+                 line="508">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="505">flags from #EvDocumentLoadFlags</doc>
+                 line="509">flags from #EvDocumentLoadFlags</doc>
             <type name="DocumentLoadFlags" c:type="EvDocumentLoadFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -3369,7 +3371,7 @@ See ev_document_load() for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="506">a #GCancellable, or %NULL</doc>
+                 line="510">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -3380,32 +3382,32 @@ See ev_document_load() for more information.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="453">Synchronously loads the document from @stream.
+             line="457">Synchronously loads the document from @stream.
 See ev_document_load() for more information.</doc>
         <source-position filename="libdocument/ev-document.h" line="120"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="464">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
+               line="468">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="455">a #EvDocument</doc>
+                 line="459">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="456">a #GInputStream</doc>
+                 line="460">a #GInputStream</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="457">flags from #EvDocumentLoadFlags</doc>
+                 line="461">flags from #EvDocumentLoadFlags</doc>
             <type name="DocumentLoadFlags" c:type="EvDocumentLoadFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -3414,7 +3416,7 @@ See ev_document_load() for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="458">a #GCancellable, or %NULL</doc>
+                 line="462">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -3436,25 +3438,25 @@ See ev_document_load() for more information.</doc>
       <virtual-method name="save" invoker="save" throws="1">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="639">Saves @document to @uri.</doc>
+             line="643">Saves @document to @uri.</doc>
         <source-position filename="libdocument/ev-document.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="647">%TRUE on success, or %FALSE on error with @error filled in</doc>
+               line="651">%TRUE on success, or %FALSE on error with @error filled in</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="641">a #EvDocument</doc>
+                 line="645">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="642">the target URI</doc>
+                 line="646">the target URI</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3518,19 +3520,19 @@ See ev_document_load() for more information.</doc>
       <method name="get_info" c:identifier="ev_document_get_info">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="930">Returns the #EvDocumentInfo for the document.</doc>
+             line="934">Returns the #EvDocumentInfo for the document.</doc>
         <source-position filename="libdocument/ev-document.h" line="161"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="936">a #EvDocumentInfo</doc>
+               line="940">a #EvDocumentInfo</doc>
           <type name="DocumentInfo" c:type="EvDocumentInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="932">a #EvDocument</doc>
+                 line="936">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3622,20 +3624,20 @@ notify::modified signal on @document.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="664">Newly created #EvPage for the given index.</doc>
+               line="668">Newly created #EvPage for the given index.</doc>
           <type name="Page" c:type="EvPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="661">a #EvDocument</doc>
+                 line="665">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="662">index of page</doc>
+                 line="666">index of page</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -3663,13 +3665,13 @@ notify::modified signal on @document.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="849">a #EvDocument</doc>
+                 line="853">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="page_index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="850">index of page</doc>
+                 line="854">index of page</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="width"
@@ -3680,7 +3682,7 @@ notify::modified signal on @document.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="851">return location for the width of the page, or %NULL</doc>
+                 line="855">return location for the width of the page, or %NULL</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="height"
@@ -3691,7 +3693,7 @@ notify::modified signal on @document.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="852">return location for the height of the page, or %NULL</doc>
+                 line="856">return location for the height of the page, or %NULL</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -3712,20 +3714,20 @@ notify::modified signal on @document.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="990">a #GdkPixbuf</doc>
+               line="994">a #GdkPixbuf</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="987">an #EvDocument</doc>
+                 line="991">an #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="988">an #EvRenderContext</doc>
+                 line="992">an #EvRenderContext</doc>
             <type name="RenderContext" c:type="EvRenderContext*"/>
           </parameter>
         </parameters>
@@ -3737,20 +3739,20 @@ notify::modified signal on @document.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="1009">a #cairo_surface_t</doc>
+               line="1013">a #cairo_surface_t</doc>
           <type name="cairo.Surface" c:type="cairo_surface_t*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="1006">an #EvDocument</doc>
+                 line="1010">an #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="rc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="1007">an #EvRenderContext</doc>
+                 line="1011">an #EvRenderContext</doc>
             <type name="RenderContext" c:type="EvRenderContext*"/>
           </parameter>
         </parameters>
@@ -3815,7 +3817,7 @@ notify::modified signal on @document.</doc>
       <method name="load" c:identifier="ev_document_load" throws="1">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="426">Loads @document from @uri.
+             line="430">Loads @document from @uri.
 
 On failure, %FALSE is returned and @error is filled in.
 If the document is encrypted, EV_DEFINE_ERROR_ENCRYPTED is returned.
@@ -3828,20 +3830,20 @@ the URI, e.g. #GIOError, #GFileError, and #GConvertError.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="442">%TRUE on success, or %FALSE on failure.</doc>
+               line="446">%TRUE on success, or %FALSE on failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="428">a #EvDocument</doc>
+                 line="432">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="429">the document's URI</doc>
+                 line="433">the document's URI</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3852,7 +3854,7 @@ the URI, e.g. #GIOError, #GFileError, and #GConvertError.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="553">Synchronously loads the document from @fd, which must refer to
+             line="557">Synchronously loads the document from @fd, which must refer to
 a regular file.
 
 Note that this function takes ownership of @fd; you must not ever
@@ -3864,26 +3866,26 @@ See ev_document_load() for more information.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="570">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
+               line="574">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="555">a #EvDocument</doc>
+                 line="559">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="556">a file descriptor</doc>
+                 line="560">a file descriptor</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="557">flags from #EvDocumentLoadFlags</doc>
+                 line="561">flags from #EvDocumentLoadFlags</doc>
             <type name="DocumentLoadFlags" c:type="EvDocumentLoadFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -3892,7 +3894,7 @@ See ev_document_load() for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="558">a #GCancellable, or %NULL</doc>
+                 line="562">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -3900,7 +3902,7 @@ See ev_document_load() for more information.</doc>
       <method name="load_full" c:identifier="ev_document_load_full" throws="1">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="371">Loads @document from @uri.
+             line="375">Loads @document from @uri.
 
 On failure, %FALSE is returned and @error is filled in.
 If the document is encrypted, EV_DEFINE_ERROR_ENCRYPTED is returned.
@@ -3912,26 +3914,26 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="387">%TRUE on success, or %FALSE on failure.</doc>
+               line="391">%TRUE on success, or %FALSE on failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="373">a #EvDocument</doc>
+                 line="377">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="374">the document's URI</doc>
+                 line="378">the document's URI</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="375">flags from #EvDocumentLoadFlags</doc>
+                 line="379">flags from #EvDocumentLoadFlags</doc>
             <type name="DocumentLoadFlags" c:type="EvDocumentLoadFlags"/>
           </parameter>
         </parameters>
@@ -3942,32 +3944,32 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
               throws="1">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="501">Synchronously loads the document from @file.
+             line="505">Synchronously loads the document from @file.
 See ev_document_load() for more information.</doc>
         <source-position filename="libdocument/ev-document.h" line="186"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="512">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
+               line="516">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="503">a #EvDocument</doc>
+                 line="507">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="504">a #GFile</doc>
+                 line="508">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="505">flags from #EvDocumentLoadFlags</doc>
+                 line="509">flags from #EvDocumentLoadFlags</doc>
             <type name="DocumentLoadFlags" c:type="EvDocumentLoadFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -3976,7 +3978,7 @@ See ev_document_load() for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="506">a #GCancellable, or %NULL</doc>
+                 line="510">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -3987,32 +3989,32 @@ See ev_document_load() for more information.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="453">Synchronously loads the document from @stream.
+             line="457">Synchronously loads the document from @stream.
 See ev_document_load() for more information.</doc>
         <source-position filename="libdocument/ev-document.h" line="180"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="464">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
+               line="468">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="455">a #EvDocument</doc>
+                 line="459">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="456">a #GInputStream</doc>
+                 line="460">a #GInputStream</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="457">flags from #EvDocumentLoadFlags</doc>
+                 line="461">flags from #EvDocumentLoadFlags</doc>
             <type name="DocumentLoadFlags" c:type="EvDocumentLoadFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -4021,7 +4023,7 @@ See ev_document_load() for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="458">a #GCancellable, or %NULL</doc>
+                 line="462">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -4043,25 +4045,25 @@ See ev_document_load() for more information.</doc>
       <method name="save" c:identifier="ev_document_save" throws="1">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="639">Saves @document to @uri.</doc>
+             line="643">Saves @document to @uri.</doc>
         <source-position filename="libdocument/ev-document.h" line="198"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="647">%TRUE on success, or %FALSE on error with @error filled in</doc>
+               line="651">%TRUE on success, or %FALSE on error with @error filled in</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="641">a #EvDocument</doc>
+                 line="645">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="642">the target URI</doc>
+                 line="646">the target URI</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4096,14 +4098,14 @@ See ev_document_load() for more information.</doc>
               c:identifier="ev_document_synctex_backward_search">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="691">Peforms a Synctex backward search to obtain the TeX input file, line and
+             line="695">Peforms a Synctex backward search to obtain the TeX input file, line and
 (possibly) column  corresponding to the  position (@x,@y) (in 72dpi
 coordinates) in the  @page of @document.</doc>
         <source-position filename="libdocument/ev-document.h" line="253"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="702">A pointer to the EvSourceLink structure that holds the result. @NULL if synctex
+               line="706">A pointer to the EvSourceLink structure that holds the result. @NULL if synctex
 is not enabled for the document or no result is found.
 The EvSourceLink pointer should be freed with g_free after it is used.</doc>
           <type name="SourceLink" c:type="EvSourceLink*"/>
@@ -4112,25 +4114,25 @@ The EvSourceLink pointer should be freed with g_free after it is used.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="693">a #EvDocument</doc>
+                 line="697">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="page_index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="694">the target page</doc>
+                 line="698">the target page</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="695">X coordinate</doc>
+                 line="699">X coordinate</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="696">Y coordinate</doc>
+                 line="700">Y coordinate</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
@@ -4140,14 +4142,14 @@ The EvSourceLink pointer should be freed with g_free after it is used.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libdocument/ev-document.c"
-             line="742">Peforms a Synctex forward search to obtain the area in the document
+             line="746">Peforms a Synctex forward search to obtain the area in the document
 corresponding to the position (line and column in @source_link) in
 the source Tex file.</doc>
         <source-position filename="libdocument/ev-document.h" line="260"/>
         <return-value>
           <doc xml:space="preserve"
                filename="libdocument/ev-document.c"
-               line="751">An EvMapping with the page number and area corresponding to
+               line="755">An EvMapping with the page number and area corresponding to
 the given line in the source file. It must be free with g_free when done</doc>
           <type name="Mapping" c:type="EvMapping*"/>
         </return-value>
@@ -4155,13 +4157,13 @@ the given line in the source file. It must be free with g_free when done</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="744">a #EvDocument</doc>
+                 line="748">a #EvDocument</doc>
             <type name="Document" c:type="EvDocument*"/>
           </instance-parameter>
           <parameter name="source_link" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="745">a #EvSourceLink</doc>
+                 line="749">a #EvSourceLink</doc>
             <type name="SourceLink" c:type="EvSourceLink*"/>
           </parameter>
         </parameters>
@@ -4696,20 +4698,20 @@ the given line in the source file. It must be free with g_free when done</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="442">%TRUE on success, or %FALSE on failure.</doc>
+                 line="446">%TRUE on success, or %FALSE on failure.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="428">a #EvDocument</doc>
+                   line="432">a #EvDocument</doc>
               <type name="Document" c:type="EvDocument*"/>
             </parameter>
             <parameter name="uri" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="429">the document's URI</doc>
+                   line="433">the document's URI</doc>
               <type name="utf8" c:type="const char*"/>
             </parameter>
           </parameters>
@@ -4721,20 +4723,20 @@ the given line in the source file. It must be free with g_free when done</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="647">%TRUE on success, or %FALSE on error with @error filled in</doc>
+                 line="651">%TRUE on success, or %FALSE on error with @error filled in</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="641">a #EvDocument</doc>
+                   line="645">a #EvDocument</doc>
               <type name="Document" c:type="EvDocument*"/>
             </parameter>
             <parameter name="uri" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="642">the target URI</doc>
+                   line="646">the target URI</doc>
               <type name="utf8" c:type="const char*"/>
             </parameter>
           </parameters>
@@ -4759,20 +4761,20 @@ the given line in the source file. It must be free with g_free when done</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="664">Newly created #EvPage for the given index.</doc>
+                 line="668">Newly created #EvPage for the given index.</doc>
             <type name="Page" c:type="EvPage*"/>
           </return-value>
           <parameters>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="661">a #EvDocument</doc>
+                   line="665">a #EvDocument</doc>
               <type name="Document" c:type="EvDocument*"/>
             </parameter>
             <parameter name="index" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="662">index of page</doc>
+                   line="666">index of page</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
           </parameters>
@@ -4788,13 +4790,13 @@ the given line in the source file. It must be free with g_free when done</doc>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="849">a #EvDocument</doc>
+                   line="853">a #EvDocument</doc>
               <type name="Document" c:type="EvDocument*"/>
             </parameter>
             <parameter name="page_index" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="850">index of page</doc>
+                   line="854">index of page</doc>
               <type name="Page" c:type="EvPage*"/>
             </parameter>
             <parameter name="width"
@@ -4805,7 +4807,7 @@ the given line in the source file. It must be free with g_free when done</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="851">return location for the width of the page, or %NULL</doc>
+                   line="855">return location for the width of the page, or %NULL</doc>
               <type name="gdouble" c:type="double*"/>
             </parameter>
             <parameter name="height"
@@ -4816,7 +4818,7 @@ the given line in the source file. It must be free with g_free when done</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="852">return location for the height of the page, or %NULL</doc>
+                   line="856">return location for the height of the page, or %NULL</doc>
               <type name="gdouble" c:type="double*"/>
             </parameter>
           </parameters>
@@ -4860,20 +4862,20 @@ the given line in the source file. It must be free with g_free when done</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="990">a #GdkPixbuf</doc>
+                 line="994">a #GdkPixbuf</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </return-value>
           <parameters>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="987">an #EvDocument</doc>
+                   line="991">an #EvDocument</doc>
               <type name="Document" c:type="EvDocument*"/>
             </parameter>
             <parameter name="rc" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="988">an #EvRenderContext</doc>
+                   line="992">an #EvRenderContext</doc>
               <type name="RenderContext" c:type="EvRenderContext*"/>
             </parameter>
           </parameters>
@@ -4885,14 +4887,14 @@ the given line in the source file. It must be free with g_free when done</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="936">a #EvDocumentInfo</doc>
+                 line="940">a #EvDocumentInfo</doc>
             <type name="DocumentInfo" c:type="EvDocumentInfo*"/>
           </return-value>
           <parameters>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="932">a #EvDocument</doc>
+                   line="936">a #EvDocument</doc>
               <type name="Document" c:type="EvDocument*"/>
             </parameter>
           </parameters>
@@ -4934,26 +4936,26 @@ the given line in the source file. It must be free with g_free when done</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="464">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
+                 line="468">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="455">a #EvDocument</doc>
+                   line="459">a #EvDocument</doc>
               <type name="Document" c:type="EvDocument*"/>
             </parameter>
             <parameter name="stream" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="456">a #GInputStream</doc>
+                   line="460">a #GInputStream</doc>
               <type name="Gio.InputStream" c:type="GInputStream*"/>
             </parameter>
             <parameter name="flags" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="457">flags from #EvDocumentLoadFlags</doc>
+                   line="461">flags from #EvDocumentLoadFlags</doc>
               <type name="DocumentLoadFlags" c:type="EvDocumentLoadFlags"/>
             </parameter>
             <parameter name="cancellable"
@@ -4962,7 +4964,7 @@ the given line in the source file. It must be free with g_free when done</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="458">a #GCancellable, or %NULL</doc>
+                   line="462">a #GCancellable, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -4974,26 +4976,26 @@ the given line in the source file. It must be free with g_free when done</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="512">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
+                 line="516">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="503">a #EvDocument</doc>
+                   line="507">a #EvDocument</doc>
               <type name="Document" c:type="EvDocument*"/>
             </parameter>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="504">a #GFile</doc>
+                   line="508">a #GFile</doc>
               <type name="Gio.File" c:type="GFile*"/>
             </parameter>
             <parameter name="flags" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="505">flags from #EvDocumentLoadFlags</doc>
+                   line="509">flags from #EvDocumentLoadFlags</doc>
               <type name="DocumentLoadFlags" c:type="EvDocumentLoadFlags"/>
             </parameter>
             <parameter name="cancellable"
@@ -5002,7 +5004,7 @@ the given line in the source file. It must be free with g_free when done</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="506">a #GCancellable, or %NULL</doc>
+                   line="510">a #GCancellable, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -5014,20 +5016,20 @@ the given line in the source file. It must be free with g_free when done</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="1009">a #cairo_surface_t</doc>
+                 line="1013">a #cairo_surface_t</doc>
             <type name="cairo.Surface" c:type="cairo_surface_t*"/>
           </return-value>
           <parameters>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="1006">an #EvDocument</doc>
+                   line="1010">an #EvDocument</doc>
               <type name="Document" c:type="EvDocument*"/>
             </parameter>
             <parameter name="rc" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="1007">an #EvRenderContext</doc>
+                   line="1011">an #EvRenderContext</doc>
               <type name="RenderContext" c:type="EvRenderContext*"/>
             </parameter>
           </parameters>
@@ -5039,26 +5041,26 @@ the given line in the source file. It must be free with g_free when done</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libdocument/ev-document.c"
-                 line="570">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
+                 line="574">%TRUE if loading succeeded, or %FALSE on error with @error filled in</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="555">a #EvDocument</doc>
+                   line="559">a #EvDocument</doc>
               <type name="Document" c:type="EvDocument*"/>
             </parameter>
             <parameter name="fd" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="556">a file descriptor</doc>
+                   line="560">a file descriptor</doc>
               <type name="gint" c:type="int"/>
             </parameter>
             <parameter name="flags" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="557">flags from #EvDocumentLoadFlags</doc>
+                   line="561">flags from #EvDocumentLoadFlags</doc>
               <type name="DocumentLoadFlags" c:type="EvDocumentLoadFlags"/>
             </parameter>
             <parameter name="cancellable"
@@ -5067,7 +5069,7 @@ the given line in the source file. It must be free with g_free when done</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="libdocument/ev-document.c"
-                   line="558">a #GCancellable, or %NULL</doc>
+                   line="562">a #GCancellable, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -11356,7 +11358,7 @@ the given line in the source file. It must be free with g_free when done</doc>
     <record name="LinkPrivate" c:type="EvLinkPrivate" disguised="1" opaque="1">
       <source-position filename="libdocument/ev-link.h" line="36"/>
     </record>
-    <constant name="MAJOR_VERSION" value="46" c:type="EV_MAJOR_VERSION">
+    <constant name="MAJOR_VERSION" value="48" c:type="EV_MAJOR_VERSION">
       <doc xml:space="preserve"
            filename="libdocument/ev-version.h"
            line="28">The major version number of the EV library
@@ -11389,7 +11391,7 @@ the given line in the source file. It must be free with g_free when done</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MINOR_VERSION" value="3" c:type="EV_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="1" c:type="EV_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="libdocument/ev-version.h"
            line="37">The minor version number of the EV library
@@ -12763,7 +12765,7 @@ the given line in the source file. It must be free with g_free when done</doc>
     <function name="file_compress" c:identifier="ev_file_compress" throws="1">
       <doc xml:space="preserve"
            filename="libdocument/ev-file-helpers.c"
-           line="733">Compresses the file at @uri.
+           line="739">Compresses the file at @uri.
 
 If @type is %EV_COMPRESSION_NONE, it does nothing and returns %NULL.
 
@@ -12777,20 +12779,20 @@ It is the caller's responsibility to unlink the temp file after use.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libdocument/ev-file-helpers.c"
-             line="750">a newly allocated string URI, or %NULL on error</doc>
+             line="756">a newly allocated string URI, or %NULL on error</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-file-helpers.c"
-               line="735">a file URI</doc>
+               line="741">a file URI</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-file-helpers.c"
-               line="736">the compression type</doc>
+               line="742">the compression type</doc>
           <type name="CompressionType" c:type="EvCompressionType"/>
         </parameter>
       </parameters>
@@ -12801,26 +12803,26 @@ It is the caller's responsibility to unlink the temp file after use.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libdocument/ev-file-helpers.c"
-           line="355">Performs a g_file_copy_attributes() with %G_FILE_COPY_ALL_METADATA
+           line="358">Performs a g_file_copy_attributes() with %G_FILE_COPY_ALL_METADATA
 from @from to @to.</doc>
       <source-position filename="libdocument/ev-file-helpers.h" line="67"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libdocument/ev-file-helpers.c"
-             line="364">%TRUE if the attributes were copied successfully, %FALSE otherwise.</doc>
+             line="367">%TRUE if the attributes were copied successfully, %FALSE otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="from" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-file-helpers.c"
-               line="357">the source URI</doc>
+               line="360">the source URI</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="to" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-file-helpers.c"
-               line="358">the target URI</doc>
+               line="361">the target URI</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -12832,7 +12834,7 @@ from @from to @to.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libdocument/ev-file-helpers.c"
-             line="494">a newly allocated string with the MIME type of the file at
+             line="500">a newly allocated string with the MIME type of the file at
   @uri, or %NULL on error or if the MIME type could not be determined</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
@@ -12840,13 +12842,13 @@ from @from to @to.</doc>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-file-helpers.c"
-               line="490">the URI</doc>
+               line="496">the URI</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="fast" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-file-helpers.c"
-               line="491">whether to use fast MIME type detection</doc>
+               line="497">whether to use fast MIME type detection</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -12858,7 +12860,7 @@ from @from to @to.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libdocument/ev-file-helpers.c"
-             line="510">a newly allocated string with the MIME type of the file referred to
+             line="516">a newly allocated string with the MIME type of the file referred to
   by @fd, or %NULL on error or if the MIME type could not be determined</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
@@ -12866,7 +12868,7 @@ from @from to @to.</doc>
         <parameter name="fd" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-file-helpers.c"
-               line="507">an file descriptor (must be seekable)</doc>
+               line="513">an file descriptor (must be seekable)</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -12887,7 +12889,7 @@ from @from to @to.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libdocument/ev-file-helpers.c"
-           line="705">Uncompresses the file at @uri.
+           line="711">Uncompresses the file at @uri.
 
 If @type is %EV_COMPRESSION_NONE, it does nothing and returns %NULL.
 
@@ -12900,20 +12902,20 @@ It is the caller's responsibility to unlink the temp file after use.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libdocument/ev-file-helpers.c"
-             line="721">a newly allocated string URI, or %NULL on error</doc>
+             line="727">a newly allocated string URI, or %NULL on error</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-file-helpers.c"
-               line="707">a file URI</doc>
+               line="713">a file URI</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libdocument/ev-file-helpers.c"
-               line="708">the compression type</doc>
+               line="714">the compression type</doc>
           <type name="CompressionType" c:type="EvCompressionType"/>
         </parameter>
       </parameters>
