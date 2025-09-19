@@ -54,7 +54,7 @@ export interface GenerationReport {
 	/** Summary and recommendations */
 	summary: {
 		/** Overall generation status */
-		status: "success" | "partial" | "failed";
+		status: "success" | "partial";
 		/** Key issues summary */
 		keyIssues: string[];
 		/** Recommendations for fixing issues */

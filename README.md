@@ -18,13 +18,6 @@
 
 `ts-for-gir` is a robust [TypeScript](https://www.typescriptlang.org/) type definitions generator that improves the development experience of [GJS](https://gitlab.gnome.org/GNOME/gjs/) projects. It has been completely rewritten over time to provide a more complete and accurate TypeScript representation of the [GObject introspection](https://gi.readthedocs.io/en/latest/) interfaces. With `ts-for-gir`, developers can now benefit from TypeScript's strong typing and improved code navigation, making it easier to build robust and powerful applications with GJS.
 
-# Branch 'main' - Next Version
-
-You are on the `main` branch. These are the next features of `ts-for-gir` v4.x where `ts-for-gir` is merged with [gi.ts](https://github.com/gjsify/gi.ts).
-
-`main` branch: https://github.com/gjsify/ts-for-gir/tree/main  
-`3.x` branch: https://github.com/gjsify/ts-for-gir/tree/3.x
-
 ## Getting Started
 
 Install the latest LTS version of Node.js. We recommend using [NVM](https://github.com/nvm-sh/nvm) for this purpose. After Node.js has been installed, `ts-for-gir` can be executed with the following command:
@@ -94,14 +87,9 @@ ts-for-gir consists of several packages:
 - [`@ts-for-gir/generator-typescript`](/packages/generator-typescript) - TypeScript definition generator
 - [`@ts-for-gir/generator-html-doc`](/packages/generator-html-doc) - HTML documentation generator (experimental)
 
-## Maintainer Wanted for node-gtk Support
-
-Version 3.x has working [node-gtk](https://github.com/romgrk/node-gtk) support. This is currently not planned for version 4.x. We ourselves want to focus on GJS support. However, if there is a need in the community to maintain node-gtk support, then we are looking for a maintainer for that. Feel free to get in touch 🤓
-
 ## Further Information
 
 - [Examples](/examples/README.md) - Detailed examples showing TypeScript with different bundlers
 - [CLI Documentation](/packages/cli/README.md) - Comprehensive guide to CLI options and features
-- [Development](/DEVELOPMENT.md) - Learn how you can contribute to this project
 - [gjsify/types](https://github.com/gjsify/types) - Pre-generated NPM packages you can use directly
-- [GNOME Shell Extension Types](https://github.com/gjsify/gnome-shell) - Experimental hand-written type definitions for GNOME Shell Extensions
+- [GNOME Shell Extension Types](https://github.com/gjsify/gnome-shell) - Hand-written type definitions for GNOME Shell Extensions

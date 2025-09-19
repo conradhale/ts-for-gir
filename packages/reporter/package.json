@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/reporter",
-	"version": "4.0.0-beta.36",
+	"version": "4.0.0-beta.37",
 	"description": "Problem reporting and comprehensive generation analysis for ts-for-gir",
 	"main": "src/index.ts",
 	"module": "src/index.ts",
@@ -37,7 +37,7 @@
 		"analysis"
 	],
 	"devDependencies": {
-		"@types/node": "^24.3.0",
+		"@types/node": "^24.5.2",
 		"typescript": "^5.9.2"
 	},
 	"dependencies": {

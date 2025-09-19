@@ -1,0 +1,2903 @@
+<?xml version="1.0"?>
+<repository version="1.0"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="St" version="17"/>
+  <include name="PolkitAgent" version="1.0"/>
+  <include name="NM" version="1.0"/>
+  <include name="Meta" version="17"/>
+  <include name="Gvc" version="1.0"/>
+  <include name="GioUnix" version="2.0"/>
+  <include name="GdkPixbuf" version="2.0"/>
+  <include name="Gcr" version="4"/>
+  <include name="Clutter" version="17"/>
+  <namespace name="Shell" version="17" shared-library="libshell-17.so" c:prefix="Shell">
+    <bitfield name="ActionMode" glib:type-name="ShellActionMode" glib:get-type="shell_action_mode_get_type">
+      <member name="none" value="0">
+        <attribute name="c:identifier" value="SHELL_ACTION_MODE_NONE"/>
+      </member>
+      <member name="normal" value="1">
+        <attribute name="c:identifier" value="SHELL_ACTION_MODE_NORMAL"/>
+      </member>
+      <member name="overview" value="2">
+        <attribute name="c:identifier" value="SHELL_ACTION_MODE_OVERVIEW"/>
+      </member>
+      <member name="lock_screen" value="4">
+        <attribute name="c:identifier" value="SHELL_ACTION_MODE_LOCK_SCREEN"/>
+      </member>
+      <member name="unlock_screen" value="8">
+        <attribute name="c:identifier" value="SHELL_ACTION_MODE_UNLOCK_SCREEN"/>
+      </member>
+      <member name="login_screen" value="16">
+        <attribute name="c:identifier" value="SHELL_ACTION_MODE_LOGIN_SCREEN"/>
+      </member>
+      <member name="system_modal" value="32">
+        <attribute name="c:identifier" value="SHELL_ACTION_MODE_SYSTEM_MODAL"/>
+      </member>
+      <member name="looking_glass" value="64">
+        <attribute name="c:identifier" value="SHELL_ACTION_MODE_LOOKING_GLASS"/>
+      </member>
+      <member name="popup" value="128">
+        <attribute name="c:identifier" value="SHELL_ACTION_MODE_POPUP"/>
+      </member>
+      <member name="all" value="-1">
+        <attribute name="c:identifier" value="SHELL_ACTION_MODE_ALL"/>
+      </member>
+    </bitfield>
+    <class name="App" parent="GObject.Object" glib:type-struct="AppClass" glib:type-name="ShellApp" glib:get-type="shell_app_get_type">
+      <method name="activate" c:identifier="shell_app_activate">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="activate_action" c:identifier="shell_app_activate_action">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="action_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="parameter" transfer-ownership="none" allow-none="1">
+            <type name="GLib.Variant"/>
+          </parameter>
+          <parameter name="timestamp" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+          <parameter name="workspace" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="6">
+            <type name="Gio.AsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="activate_action_finish" c:identifier="shell_app_activate_action_finish" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="activate_full" c:identifier="shell_app_activate_full">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="workspace" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="timestamp" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="activate_window" c:identifier="shell_app_activate_window">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="window" transfer-ownership="none" allow-none="1">
+            <type name="Meta.Window"/>
+          </parameter>
+          <parameter name="timestamp" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_open_new_window" c:identifier="shell_app_can_open_new_window">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="compare" c:identifier="shell_app_compare">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+        <parameters>
+          <parameter name="other" transfer-ownership="none">
+            <type name="App"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="compare_by_name" c:identifier="shell_app_compare_by_name">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+        <parameters>
+          <parameter name="other" transfer-ownership="none">
+            <type name="App"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_icon_texture" c:identifier="shell_app_create_icon_texture">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Actor"/>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_action_group" c:identifier="shell_app_get_action_group" glib:get-property="action-group">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Gio.ActionGroup"/>
+        </return-value>
+      </method>
+      <method name="get_app_info" c:identifier="shell_app_get_app_info" glib:get-property="app-info">
+        <return-value transfer-ownership="none">
+          <type name="GioUnix.DesktopAppInfo"/>
+        </return-value>
+      </method>
+      <method name="get_busy" c:identifier="shell_app_get_busy" glib:get-property="busy">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_description" c:identifier="shell_app_get_description">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_icon" c:identifier="shell_app_get_icon" glib:get-property="icon">
+        <return-value transfer-ownership="none">
+          <type name="Gio.Icon"/>
+        </return-value>
+      </method>
+      <method name="get_id" c:identifier="shell_app_get_id" glib:get-property="id">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_n_windows" c:identifier="shell_app_get_n_windows">
+        <return-value transfer-ownership="none">
+          <type name="guint32"/>
+        </return-value>
+      </method>
+      <method name="get_name" c:identifier="shell_app_get_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_pids" c:identifier="shell_app_get_pids">
+        <return-value transfer-ownership="container">
+          <type name="GLib.SList">
+            <type name="gint32"/>
+          </type>
+        </return-value>
+      </method>
+      <method name="get_state" c:identifier="shell_app_get_state" glib:get-property="state">
+        <return-value transfer-ownership="none">
+          <type name="AppState"/>
+        </return-value>
+      </method>
+      <method name="get_windows" c:identifier="shell_app_get_windows">
+        <return-value transfer-ownership="container">
+          <type name="GLib.SList">
+            <type name="Meta.Window"/>
+          </type>
+        </return-value>
+      </method>
+      <method name="is_on_workspace" c:identifier="shell_app_is_on_workspace">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="workspace" transfer-ownership="none">
+            <type name="Meta.Workspace"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_window_backed" c:identifier="shell_app_is_window_backed">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="launch" c:identifier="shell_app_launch" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="timestamp" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+          <parameter name="workspace" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="gpu_pref" transfer-ownership="none">
+            <type name="AppLaunchGpu"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="launch_action" c:identifier="shell_app_launch_action">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="action_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="timestamp" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+          <parameter name="workspace" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="open_new_window" c:identifier="shell_app_open_new_window">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="workspace" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="request_quit" c:identifier="shell_app_request_quit">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="update_app_actions" c:identifier="shell_app_update_app_actions">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="window" transfer-ownership="none">
+            <type name="Meta.Window"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_window_actions" c:identifier="shell_app_update_window_actions">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="window" transfer-ownership="none">
+            <type name="Meta.Window"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="action-group" getter="get_action_group" transfer-ownership="none">
+        <type name="Gio.ActionGroup"/>
+      </property>
+      <property name="app-info" writable="1" construct-only="1" getter="get_app_info" transfer-ownership="none">
+        <type name="GioUnix.DesktopAppInfo"/>
+      </property>
+      <property name="busy" getter="get_busy" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="icon" getter="get_icon" transfer-ownership="none">
+        <type name="Gio.Icon"/>
+      </property>
+      <property name="id" getter="get_id" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="state" getter="get_state" transfer-ownership="none">
+        <type name="AppState"/>
+      </property>
+      <glib:signal name="windows-changed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="AppClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="AppLaunchGpu" glib:type-name="ShellAppLaunchGpu" glib:get-type="shell_app_launch_gpu_get_type">
+      <member name="app_pref" value="0">
+        <attribute name="c:identifier" value="SHELL_APP_LAUNCH_GPU_APP_PREF"/>
+      </member>
+      <member name="discrete" value="1">
+        <attribute name="c:identifier" value="SHELL_APP_LAUNCH_GPU_DISCRETE"/>
+      </member>
+      <member name="default" value="2">
+        <attribute name="c:identifier" value="SHELL_APP_LAUNCH_GPU_DEFAULT"/>
+      </member>
+    </enumeration>
+    <enumeration name="AppState" glib:type-name="ShellAppState" glib:get-type="shell_app_state_get_type">
+      <member name="stopped" value="0">
+        <attribute name="c:identifier" value="SHELL_APP_STATE_STOPPED"/>
+      </member>
+      <member name="starting" value="1">
+        <attribute name="c:identifier" value="SHELL_APP_STATE_STARTING"/>
+      </member>
+      <member name="running" value="2">
+        <attribute name="c:identifier" value="SHELL_APP_STATE_RUNNING"/>
+      </member>
+    </enumeration>
+    <class name="AppSystem" parent="GObject.Object" glib:type-struct="AppSystemClass" final="1" glib:type-name="ShellAppSystem" glib:get-type="shell_app_system_get_type">
+      <function name="get_default" c:identifier="shell_app_system_get_default">
+        <return-value transfer-ownership="none">
+          <type name="AppSystem"/>
+        </return-value>
+      </function>
+      <function name="search" c:identifier="shell_app_system_search">
+        <return-value transfer-ownership="full">
+          <array zero-terminated="1">
+            <array zero-terminated="1">
+              <type name="utf8"/>
+            </array>
+          </array>
+        </return-value>
+        <parameters>
+          <parameter name="search_string" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="get_installed" c:identifier="shell_app_system_get_installed">
+        <return-value transfer-ownership="none">
+          <type name="GLib.List">
+            <type name="Gio.AppInfo"/>
+          </type>
+        </return-value>
+      </method>
+      <method name="get_running" c:identifier="shell_app_system_get_running">
+        <return-value transfer-ownership="container">
+          <type name="GLib.SList">
+            <type name="App"/>
+          </type>
+        </return-value>
+      </method>
+      <method name="lookup_app" c:identifier="shell_app_system_lookup_app">
+        <return-value transfer-ownership="none">
+          <type name="App"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_desktop_wmclass" c:identifier="shell_app_system_lookup_desktop_wmclass">
+        <return-value transfer-ownership="none">
+          <type name="App"/>
+        </return-value>
+        <parameters>
+          <parameter name="wmclass" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_heuristic_basename" c:identifier="shell_app_system_lookup_heuristic_basename">
+        <return-value transfer-ownership="none">
+          <type name="App"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_startup_wmclass" c:identifier="shell_app_system_lookup_startup_wmclass">
+        <return-value transfer-ownership="none">
+          <type name="App"/>
+        </return-value>
+        <parameters>
+          <parameter name="wmclass" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="app-state-changed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="App"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="installed-changed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="AppSystemClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="AppUsage" parent="GObject.Object" glib:type-struct="AppUsageClass" glib:type-name="ShellAppUsage" glib:get-type="shell_app_usage_get_type">
+      <function name="get_default" c:identifier="shell_app_usage_get_default">
+        <return-value transfer-ownership="none">
+          <type name="AppUsage"/>
+        </return-value>
+      </function>
+      <method name="compare" c:identifier="shell_app_usage_compare">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+        <parameters>
+          <parameter name="id_a" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="id_b" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_most_used" c:identifier="shell_app_usage_get_most_used">
+        <return-value transfer-ownership="full">
+          <type name="GLib.SList">
+            <type name="App"/>
+          </type>
+        </return-value>
+      </method>
+    </class>
+    <record name="AppUsageClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="BlurEffect" parent="Clutter.Effect" glib:type-struct="BlurEffectClass" glib:type-name="ShellBlurEffect" glib:get-type="shell_blur_effect_get_type">
+      <constructor name="new" c:identifier="shell_blur_effect_new">
+        <return-value transfer-ownership="none">
+          <type name="BlurEffect"/>
+        </return-value>
+      </constructor>
+      <method name="get_brightness" c:identifier="shell_blur_effect_get_brightness" glib:get-property="brightness">
+        <return-value transfer-ownership="none">
+          <type name="gfloat"/>
+        </return-value>
+      </method>
+      <method name="get_mode" c:identifier="shell_blur_effect_get_mode" glib:get-property="mode">
+        <return-value transfer-ownership="none">
+          <type name="BlurMode"/>
+        </return-value>
+      </method>
+      <method name="get_radius" c:identifier="shell_blur_effect_get_radius" glib:get-property="radius">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="set_brightness" c:identifier="shell_blur_effect_set_brightness" glib:set-property="brightness">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="brightness" transfer-ownership="none">
+            <type name="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_mode" c:identifier="shell_blur_effect_set_mode" glib:set-property="mode">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="mode" transfer-ownership="none">
+            <type name="BlurMode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_radius" c:identifier="shell_blur_effect_set_radius" glib:set-property="radius">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="radius" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="brightness" writable="1" getter="get_brightness" setter="set_brightness" transfer-ownership="none">
+        <type name="gfloat"/>
+      </property>
+      <property name="mode" writable="1" getter="get_mode" setter="set_mode" transfer-ownership="none">
+        <type name="BlurMode"/>
+      </property>
+      <property name="radius" writable="1" getter="get_radius" setter="set_radius" transfer-ownership="none">
+        <type name="gint32"/>
+      </property>
+    </class>
+    <record name="BlurEffectClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Clutter.EffectClass"/>
+      </field>
+    </record>
+    <enumeration name="BlurMode" glib:type-name="ShellBlurMode" glib:get-type="shell_blur_mode_get_type">
+      <member name="actor" value="0">
+        <attribute name="c:identifier" value="SHELL_BLUR_MODE_ACTOR"/>
+      </member>
+      <member name="background" value="1">
+        <attribute name="c:identifier" value="SHELL_BLUR_MODE_BACKGROUND"/>
+      </member>
+    </enumeration>
+    <class name="CameraMonitor" parent="GObject.Object" glib:type-struct="CameraMonitorClass" glib:type-name="ShellCameraMonitor" glib:get-type="shell_camera_monitor_get_type">
+      <method name="get_cameras_in_use" c:identifier="shell_camera_monitor_get_cameras_in_use" glib:get-property="cameras-in-use">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <property name="cameras-in-use" getter="get_cameras_in_use" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+    </class>
+    <record name="CameraMonitorClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="EdgeDragGesture" parent="Clutter.Gesture" glib:type-struct="EdgeDragGestureClass" final="1" glib:type-name="ShellEdgeDragGesture" glib:get-type="shell_edge_drag_gesture_get_type">
+      <method name="get_side" c:identifier="shell_edge_drag_gesture_get_side" glib:get-property="side">
+        <return-value transfer-ownership="none">
+          <type name="St.Side"/>
+        </return-value>
+      </method>
+      <method name="set_side" c:identifier="shell_edge_drag_gesture_set_side" glib:set-property="side">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="side" transfer-ownership="none">
+            <type name="St.Side"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="side" writable="1" getter="get_side" setter="set_side" transfer-ownership="none">
+        <type name="Clutter.GestureState"/>
+      </property>
+      <glib:signal name="progress" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="progress_px" transfer-ownership="none">
+            <type name="gfloat"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="EdgeDragGestureClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Clutter.GestureClass"/>
+      </field>
+    </record>
+    <class name="GLSLEffect" parent="Clutter.OffscreenEffect" glib:type-struct="GLSLEffectClass" glib:type-name="ShellGLSLEffect" glib:get-type="shell_glsl_effect_get_type">
+      <field name="parent_instance">
+        <type name="Clutter.OffscreenEffect"/>
+      </field>
+      <method name="add_glsl_snippet" c:identifier="shell_glsl_effect_add_glsl_snippet">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="hook" transfer-ownership="none">
+            <type name="Cogl.SnippetHook"/>
+          </parameter>
+          <parameter name="declarations" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="code" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="is_replace" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uniform_location" c:identifier="shell_glsl_effect_get_uniform_location">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_uniform_float" c:identifier="shell_glsl_effect_set_uniform_float">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="uniform" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="n_components" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="total_count" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <array length="2">
+              <type name="gfloat"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_uniform_matrix" c:identifier="shell_glsl_effect_set_uniform_matrix">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="uniform" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="transpose" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+          <parameter name="dimensions" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="total_count" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <array length="3">
+              <type name="gfloat"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <virtual-method name="build_pipeline" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+    </class>
+    <record name="GLSLEffectClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Clutter.OffscreenEffectClass"/>
+      </field>
+      <field name="base_pipeline">
+        <type name="Cogl.Pipeline"/>
+      </field>
+      <field name="build_pipeline">
+        <callback name="build_pipeline">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="effect" transfer-ownership="none">
+              <type name="GLSLEffect"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="Global" parent="GObject.Object" glib:type-struct="GlobalClass" glib:type-name="ShellGlobal" glib:get-type="shell_global_get_type">
+      <function name="get" c:identifier="shell_global_get">
+        <return-value transfer-ownership="none">
+          <type name="Global"/>
+        </return-value>
+      </function>
+      <method name="begin_work" c:identifier="shell_global_begin_work">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="create_app_launch_context" c:identifier="shell_global_create_app_launch_context">
+        <return-value transfer-ownership="full">
+          <type name="Gio.AppLaunchContext"/>
+        </return-value>
+        <parameters>
+          <parameter name="timestamp" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+          <parameter name="workspace" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="end_work" c:identifier="shell_global_end_work">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="get_app_system" c:identifier="shell_global_get_app_system">
+        <return-value transfer-ownership="none">
+          <type name="AppSystem"/>
+        </return-value>
+      </method>
+      <method name="get_app_usage" c:identifier="shell_global_get_app_usage">
+        <return-value transfer-ownership="none">
+          <type name="AppUsage"/>
+        </return-value>
+      </method>
+      <method name="get_automation_script" c:identifier="shell_global_get_automation_script" glib:get-property="automation-script">
+        <return-value transfer-ownership="none">
+          <type name="Gio.File"/>
+        </return-value>
+      </method>
+      <method name="get_backend" c:identifier="shell_global_get_backend" glib:get-property="backend">
+        <return-value transfer-ownership="none">
+          <type name="Meta.Backend"/>
+        </return-value>
+      </method>
+      <method name="get_compositor" c:identifier="shell_global_get_compositor" glib:get-property="compositor">
+        <return-value transfer-ownership="none">
+          <type name="Meta.Compositor"/>
+        </return-value>
+      </method>
+      <method name="get_context" c:identifier="shell_global_get_context" glib:get-property="context">
+        <return-value transfer-ownership="none">
+          <type name="Meta.Context"/>
+        </return-value>
+      </method>
+      <method name="get_current_time" c:identifier="shell_global_get_current_time">
+        <return-value transfer-ownership="none">
+          <type name="guint32"/>
+        </return-value>
+      </method>
+      <method name="get_datadir" c:identifier="shell_global_get_datadir" glib:get-property="datadir">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_display" c:identifier="shell_global_get_display" glib:get-property="display">
+        <return-value transfer-ownership="none">
+          <type name="Meta.Display"/>
+        </return-value>
+      </method>
+      <method name="get_focus_manager" c:identifier="shell_global_get_focus_manager" glib:get-property="focus-manager">
+        <return-value transfer-ownership="none">
+          <type name="St.FocusManager"/>
+        </return-value>
+      </method>
+      <method name="get_force_animations" c:identifier="shell_global_get_force_animations" glib:get-property="force-animations">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_frame_finish_timestamp" c:identifier="shell_global_get_frame_finish_timestamp" glib:get-property="frame-finish-timestamp">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_frame_timestamps" c:identifier="shell_global_get_frame_timestamps" glib:get-property="frame-timestamps">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_persistent_state" c:identifier="shell_global_get_persistent_state">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Variant"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_type" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_pointer" c:identifier="shell_global_get_pointer">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="x" transfer-ownership="full" direction="out" caller-allocates="0">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="full" direction="out" caller-allocates="0">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="mods" transfer-ownership="full" direction="out" caller-allocates="0">
+            <type name="Clutter.ModifierType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_runtime_state" c:identifier="shell_global_get_runtime_state">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Variant"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_type" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_screen_height" c:identifier="shell_global_get_screen_height" glib:get-property="screen-height">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_screen_width" c:identifier="shell_global_get_screen_width" glib:get-property="screen-width">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_session_mode" c:identifier="shell_global_get_session_mode" glib:get-property="session-mode">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_settings" c:identifier="shell_global_get_settings" glib:get-property="settings">
+        <return-value transfer-ownership="none">
+          <type name="Gio.Settings"/>
+        </return-value>
+      </method>
+      <method name="get_stage" c:identifier="shell_global_get_stage" glib:get-property="stage">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Stage"/>
+        </return-value>
+      </method>
+      <method name="get_switcheroo_control" c:identifier="shell_global_get_switcheroo_control" glib:get-property="switcheroo-control">
+        <return-value transfer-ownership="none">
+          <type name="Gio.DBusProxy"/>
+        </return-value>
+      </method>
+      <method name="get_top_window_group" c:identifier="shell_global_get_top_window_group" glib:get-property="top-window-group">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Actor"/>
+        </return-value>
+      </method>
+      <method name="get_userdatadir" c:identifier="shell_global_get_userdatadir" glib:get-property="userdatadir">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_window_actors" c:identifier="shell_global_get_window_actors">
+        <return-value transfer-ownership="container">
+          <type name="GLib.List">
+            <type name="Meta.WindowActor"/>
+          </type>
+        </return-value>
+      </method>
+      <method name="get_window_group" c:identifier="shell_global_get_window_group" glib:get-property="window-group">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Actor"/>
+        </return-value>
+      </method>
+      <method name="get_window_manager" c:identifier="shell_global_get_window_manager" glib:get-property="window-manager">
+        <return-value transfer-ownership="none">
+          <type name="WM"/>
+        </return-value>
+      </method>
+      <method name="get_window_tracker" c:identifier="shell_global_get_window_tracker">
+        <return-value transfer-ownership="none">
+          <type name="WindowTracker"/>
+        </return-value>
+      </method>
+      <method name="get_workspace_manager" c:identifier="shell_global_get_workspace_manager" glib:get-property="workspace-manager">
+        <return-value transfer-ownership="none">
+          <type name="Meta.WorkspaceManager"/>
+        </return-value>
+      </method>
+      <method name="notify_error" c:identifier="shell_global_notify_error">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="msg" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="details" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reexec_self" c:identifier="shell_global_reexec_self">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="run_at_leisure" c:identifier="shell_global_run_at_leisure">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="func" transfer-ownership="none" scope="notified" closure="1" destroy="2">
+            <type name="LeisureFunction"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+          <parameter name="notify" transfer-ownership="none" scope="async">
+            <type name="GLib.DestroyNotify"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_force_animations" c:identifier="shell_global_set_force_animations" glib:set-property="force-animations">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="force" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_frame_finish_timestamp" c:identifier="shell_global_set_frame_finish_timestamp" glib:set-property="frame-finish-timestamp">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="enable" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_frame_timestamps" c:identifier="shell_global_set_frame_timestamps" glib:set-property="frame-timestamps">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="enable" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_persistent_state" c:identifier="shell_global_set_persistent_state">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="variant" transfer-ownership="none" allow-none="1">
+            <type name="GLib.Variant"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_runtime_state" c:identifier="shell_global_set_runtime_state">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="variant" transfer-ownership="none" allow-none="1">
+            <type name="GLib.Variant"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stage_input_region" c:identifier="shell_global_set_stage_input_region">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="rectangles" transfer-ownership="none">
+            <type name="GLib.SList">
+              <type name="Mtk.Rectangle"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="automation-script" writable="1" construct-only="1" getter="get_automation_script" transfer-ownership="none">
+        <type name="Gio.File"/>
+      </property>
+      <property name="backend" getter="get_backend" transfer-ownership="none">
+        <type name="Meta.Backend"/>
+      </property>
+      <property name="compositor" getter="get_compositor" transfer-ownership="none">
+        <type name="Meta.Compositor"/>
+      </property>
+      <property name="context" getter="get_context" transfer-ownership="none">
+        <type name="Meta.Context"/>
+      </property>
+      <property name="datadir" getter="get_datadir" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="display" getter="get_display" transfer-ownership="none">
+        <type name="Meta.Display"/>
+      </property>
+      <property name="focus-manager" getter="get_focus_manager" transfer-ownership="none">
+        <type name="St.FocusManager"/>
+      </property>
+      <property name="force-animations" writable="1" getter="get_force_animations" setter="set_force_animations" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="frame-finish-timestamp" writable="1" getter="get_frame_finish_timestamp" setter="set_frame_finish_timestamp" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="frame-timestamps" writable="1" getter="get_frame_timestamps" setter="set_frame_timestamps" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="screen-height" getter="get_screen_height" transfer-ownership="none">
+        <type name="gint32"/>
+      </property>
+      <property name="screen-width" getter="get_screen_width" transfer-ownership="none">
+        <type name="gint32"/>
+      </property>
+      <property name="session-mode" writable="1" construct-only="1" getter="get_session_mode" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="settings" getter="get_settings" transfer-ownership="none">
+        <type name="Gio.Settings"/>
+      </property>
+      <property name="stage" getter="get_stage" transfer-ownership="none">
+        <type name="Clutter.Stage"/>
+      </property>
+      <property name="switcheroo-control" getter="get_switcheroo_control" transfer-ownership="none">
+        <type name="Gio.DBusProxy"/>
+      </property>
+      <property name="top-window-group" getter="get_top_window_group" transfer-ownership="none">
+        <type name="Clutter.Actor"/>
+      </property>
+      <property name="userdatadir" getter="get_userdatadir" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="window-group" getter="get_window_group" transfer-ownership="none">
+        <type name="Clutter.Actor"/>
+      </property>
+      <property name="window-manager" getter="get_window_manager" transfer-ownership="none">
+        <type name="WM"/>
+      </property>
+      <property name="workspace-manager" getter="get_workspace_manager" transfer-ownership="none">
+        <type name="Meta.WorkspaceManager"/>
+      </property>
+      <glib:signal name="locate-pointer" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="notify-error" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="shutdown" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="GlobalClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="InvertLightnessEffect" parent="Clutter.OffscreenEffect" glib:type-struct="InvertLightnessEffectClass" glib:type-name="ShellInvertLightnessEffect" glib:get-type="shell_invert_lightness_effect_get_type">
+      <constructor name="new" c:identifier="shell_invert_lightness_effect_new">
+        <return-value transfer-ownership="full">
+          <type name="Clutter.Effect"/>
+        </return-value>
+      </constructor>
+    </class>
+    <record name="InvertLightnessEffectClass" glib:is-gtype-struct="1"/>
+    <constant name="KEYRING_SK_TAG" value="setting-key">
+      <type name="utf8"/>
+    </constant>
+    <constant name="KEYRING_SN_TAG" value="setting-name">
+      <type name="utf8"/>
+    </constant>
+    <constant name="KEYRING_UUID_TAG" value="connection-uuid">
+      <type name="utf8"/>
+    </constant>
+    <class name="KeyringPrompt" parent="GObject.Object" glib:type-struct="KeyringPromptClass" glib:type-name="ShellKeyringPrompt" glib:get-type="shell_keyring_prompt_get_type">
+      <implements name="Gcr.Prompt"/>
+      <constructor name="new" c:identifier="shell_keyring_prompt_new">
+        <return-value transfer-ownership="full">
+          <type name="KeyringPrompt"/>
+        </return-value>
+      </constructor>
+      <method name="cancel" c:identifier="shell_keyring_prompt_cancel">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="complete" c:identifier="shell_keyring_prompt_complete">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_choice_visible" c:identifier="shell_keyring_prompt_get_choice_visible" glib:get-property="choice-visible">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_confirm_actor" c:identifier="shell_keyring_prompt_get_confirm_actor" glib:get-property="confirm-actor">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Clutter.Text"/>
+        </return-value>
+      </method>
+      <method name="get_confirm_visible" c:identifier="shell_keyring_prompt_get_confirm_visible" glib:get-property="confirm-visible">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_password_actor" c:identifier="shell_keyring_prompt_get_password_actor" glib:get-property="password-actor">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Clutter.Text"/>
+        </return-value>
+      </method>
+      <method name="get_password_visible" c:identifier="shell_keyring_prompt_get_password_visible" glib:get-property="password-visible">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_warning_visible" c:identifier="shell_keyring_prompt_get_warning_visible" glib:get-property="warning-visible">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_confirm_actor" c:identifier="shell_keyring_prompt_set_confirm_actor" glib:set-property="confirm-actor">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="confirm_actor" transfer-ownership="none" allow-none="1">
+            <type name="Clutter.Text"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_password_actor" c:identifier="shell_keyring_prompt_set_password_actor" glib:set-property="password-actor">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="password_actor" transfer-ownership="none" allow-none="1">
+            <type name="Clutter.Text"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="choice-visible" getter="get_choice_visible" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="confirm-actor" writable="1" getter="get_confirm_actor" setter="set_confirm_actor" transfer-ownership="none">
+        <type name="Clutter.Text"/>
+      </property>
+      <property name="confirm-visible" getter="get_confirm_visible" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="password-actor" writable="1" getter="get_password_actor" setter="set_password_actor" transfer-ownership="none">
+        <type name="Clutter.Text"/>
+      </property>
+      <property name="password-visible" getter="get_password_visible" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="warning-visible" getter="get_warning_visible" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <glib:signal name="show-confirm" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="show-password" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="KeyringPromptClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <callback name="LeisureFunction">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="data" transfer-ownership="none" allow-none="1">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="MemoryInfo">
+      <field name="glibc_uordblks" writable="1">
+        <type name="guint32"/>
+      </field>
+      <field name="js_bytes" writable="1">
+        <type name="guint32"/>
+      </field>
+      <field name="gjs_boxed" writable="1">
+        <type name="guint32"/>
+      </field>
+      <field name="gjs_gobject" writable="1">
+        <type name="guint32"/>
+      </field>
+      <field name="gjs_function" writable="1">
+        <type name="guint32"/>
+      </field>
+      <field name="gjs_closure" writable="1">
+        <type name="guint32"/>
+      </field>
+      <field name="last_gc_seconds_ago" writable="1">
+        <type name="guint32"/>
+      </field>
+    </record>
+    <class name="MountOperation" parent="Gio.MountOperation" glib:type-struct="MountOperationClass" final="1" glib:type-name="ShellMountOperation" glib:get-type="shell_mount_operation_get_type">
+      <constructor name="new" c:identifier="shell_mount_operation_new">
+        <return-value transfer-ownership="full">
+          <type name="Gio.MountOperation"/>
+        </return-value>
+      </constructor>
+      <method name="get_show_processes_choices" c:identifier="shell_mount_operation_get_show_processes_choices">
+        <return-value transfer-ownership="full">
+          <array zero-terminated="1">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+      </method>
+      <method name="get_show_processes_message" c:identifier="shell_mount_operation_get_show_processes_message">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_show_processes_pids" c:identifier="shell_mount_operation_get_show_processes_pids">
+        <return-value transfer-ownership="full">
+          <array name="GLib.Array">
+            <type name="gint32"/>
+          </array>
+        </return-value>
+      </method>
+      <glib:signal name="show-processes-2" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="MountOperationClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Gio.MountOperationClass"/>
+      </field>
+    </record>
+    <class name="NetworkAgent" parent="NM.SecretAgentOld" glib:type-struct="NetworkAgentClass" final="1" glib:type-name="ShellNetworkAgent" glib:get-type="shell_network_agent_get_type">
+      <implements name="Gio.AsyncInitable"/>
+      <implements name="Gio.Initable"/>
+      <method name="add_vpn_secret" c:identifier="shell_network_agent_add_vpn_secret">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="request_id" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="setting_key" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="setting_value" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="respond" c:identifier="shell_network_agent_respond">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="request_id" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="response" transfer-ownership="none">
+            <type name="NetworkAgentResponse"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="search_vpn_plugin" c:identifier="shell_network_agent_search_vpn_plugin">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="service" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="2">
+            <type name="Gio.AsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="search_vpn_plugin_finish" c:identifier="shell_network_agent_search_vpn_plugin_finish" throws="1">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="NM.VpnPluginInfo"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_password" c:identifier="shell_network_agent_set_password">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="request_id" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="setting_key" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="setting_value" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="force-always-ask" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <glib:signal name="cancel-request" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="new-request" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="NM.Connection"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p2" transfer-ownership="none">
+            <array zero-terminated="1">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+          <parameter name="p3" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="NetworkAgentClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="NM.SecretAgentOldClass"/>
+      </field>
+    </record>
+    <enumeration name="NetworkAgentResponse" glib:type-name="ShellNetworkAgentResponse" glib:get-type="shell_network_agent_response_get_type">
+      <member name="confirmed" value="0">
+        <attribute name="c:identifier" value="SHELL_NETWORK_AGENT_CONFIRMED"/>
+      </member>
+      <member name="user_canceled" value="1">
+        <attribute name="c:identifier" value="SHELL_NETWORK_AGENT_USER_CANCELED"/>
+      </member>
+      <member name="internal_error" value="2">
+        <attribute name="c:identifier" value="SHELL_NETWORK_AGENT_INTERNAL_ERROR"/>
+      </member>
+    </enumeration>
+    <class name="PerfLog" parent="GObject.Object" glib:type-struct="PerfLogClass" glib:type-name="ShellPerfLog" glib:get-type="shell_perf_log_get_type">
+      <function name="get_default" c:identifier="shell_perf_log_get_default">
+        <return-value transfer-ownership="none">
+          <type name="PerfLog"/>
+        </return-value>
+      </function>
+      <method name="add_statistics_callback" c:identifier="shell_perf_log_add_statistics_callback">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="callback" transfer-ownership="none" scope="notified" closure="1" destroy="2">
+            <type name="PerfStatisticsCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+          <parameter name="notify" transfer-ownership="none" scope="async">
+            <type name="GLib.DestroyNotify"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="collect_statistics" c:identifier="shell_perf_log_collect_statistics">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="define_event" c:identifier="shell_perf_log_define_event">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="description" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="signature" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="define_statistic" c:identifier="shell_perf_log_define_statistic">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="description" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="signature" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="dump_events" c:identifier="shell_perf_log_dump_events" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="out" transfer-ownership="none">
+            <type name="Gio.OutputStream"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="dump_log" c:identifier="shell_perf_log_dump_log" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="out" transfer-ownership="none">
+            <type name="Gio.OutputStream"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="event" c:identifier="shell_perf_log_event">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="event_i" c:identifier="shell_perf_log_event_i">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="arg" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="event_s" c:identifier="shell_perf_log_event_s">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="arg" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="event_x" c:identifier="shell_perf_log_event_x">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="arg" transfer-ownership="none">
+            <type name="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="replay" c:identifier="shell_perf_log_replay">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="replay_function" transfer-ownership="none" scope="call" closure="1">
+            <type name="PerfReplayFunction"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_enabled" c:identifier="shell_perf_log_set_enabled">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="enabled" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_statistic_i" c:identifier="shell_perf_log_update_statistic_i">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_statistic_x" c:identifier="shell_perf_log_update_statistic_x">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="PerfLogClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <callback name="PerfReplayFunction">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="time" transfer-ownership="none">
+          <type name="gint64"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="signature" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="arg" transfer-ownership="none">
+          <type name="GObject.Value"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1" closure="4">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="PerfStatisticsCallback">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="perf_log" transfer-ownership="none">
+          <type name="PerfLog"/>
+        </parameter>
+        <parameter name="data" transfer-ownership="none" allow-none="1">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="PolkitAuthenticationAgent" parent="PolkitAgent.Listener" glib:type-struct="PolkitAuthenticationAgentClass" glib:type-name="ShellPolkitAuthenticationAgent" glib:get-type="shell_polkit_authentication_agent_get_type">
+      <constructor name="new" c:identifier="shell_polkit_authentication_agent_new">
+        <return-value transfer-ownership="full">
+          <type name="PolkitAuthenticationAgent"/>
+        </return-value>
+      </constructor>
+      <method name="complete" c:identifier="shell_polkit_authentication_agent_complete">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="dismissed" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="register" c:identifier="shell_polkit_authentication_agent_register" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="unregister" c:identifier="shell_polkit_authentication_agent_unregister">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <glib:signal name="cancel" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="initiate" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p2" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p3" transfer-ownership="none">
+            <array zero-terminated="1">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="PolkitAuthenticationAgentClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="PolkitAgent.ListenerClass"/>
+      </field>
+    </record>
+    <class name="Screenshot" parent="GObject.Object" glib:type-struct="ScreenshotClass" final="1" glib:type-name="ShellScreenshot" glib:get-type="shell_screenshot_get_type">
+      <constructor name="new" c:identifier="shell_screenshot_new">
+        <return-value transfer-ownership="full">
+          <type name="Screenshot"/>
+        </return-value>
+      </constructor>
+      <function name="composite_to_stream" c:identifier="shell_screenshot_composite_to_stream">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="texture" transfer-ownership="none">
+            <type name="Cogl.Texture"/>
+          </parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="scale" transfer-ownership="none">
+            <type name="gfloat"/>
+          </parameter>
+          <parameter name="cursor" transfer-ownership="none" allow-none="1">
+            <type name="Cogl.Texture"/>
+          </parameter>
+          <parameter name="cursor_x" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="cursor_y" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="cursor_scale" transfer-ownership="none">
+            <type name="gfloat"/>
+          </parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <type name="Gio.OutputStream"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="12">
+            <type name="Gio.AsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="composite_to_stream_finish" c:identifier="shell_screenshot_composite_to_stream_finish" throws="1">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="GdkPixbuf.Pixbuf"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="pick_color" c:identifier="shell_screenshot_pick_color">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="3">
+            <type name="Gio.AsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="pick_color_finish" c:identifier="shell_screenshot_pick_color_finish" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult"/>
+          </parameter>
+          <parameter name="color" transfer-ownership="none" direction="out" caller-allocates="1">
+            <type name="Cogl.Color"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="screenshot" c:identifier="shell_screenshot_screenshot">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="include_cursor" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <type name="Gio.OutputStream"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="3">
+            <type name="Gio.AsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="screenshot_area" c:identifier="shell_screenshot_screenshot_area">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <type name="Gio.OutputStream"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="6">
+            <type name="Gio.AsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="screenshot_area_finish" c:identifier="shell_screenshot_screenshot_area_finish" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult"/>
+          </parameter>
+          <parameter name="area" transfer-ownership="none" direction="out" caller-allocates="0">
+            <type name="Mtk.Rectangle"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="screenshot_finish" c:identifier="shell_screenshot_screenshot_finish" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult"/>
+          </parameter>
+          <parameter name="area" transfer-ownership="none" direction="out" caller-allocates="0">
+            <type name="Mtk.Rectangle"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="screenshot_stage_to_content" c:identifier="shell_screenshot_screenshot_stage_to_content">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="1">
+            <type name="Gio.AsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="screenshot_stage_to_content_finish" c:identifier="shell_screenshot_screenshot_stage_to_content_finish" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="Clutter.Content"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult"/>
+          </parameter>
+          <parameter name="scale" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gfloat"/>
+          </parameter>
+          <parameter name="cursor_content" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="Clutter.Content"/>
+          </parameter>
+          <parameter name="cursor_point" transfer-ownership="none" direction="out" caller-allocates="1" optional="1">
+            <type name="Graphene.Point"/>
+          </parameter>
+          <parameter name="cursor_scale" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="screenshot_window" c:identifier="shell_screenshot_screenshot_window">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="include_frame" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+          <parameter name="include_cursor" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <type name="Gio.OutputStream"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="4">
+            <type name="Gio.AsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="screenshot_window_finish" c:identifier="shell_screenshot_screenshot_window_finish" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult"/>
+          </parameter>
+          <parameter name="area" transfer-ownership="none" direction="out" caller-allocates="0">
+            <type name="Mtk.Rectangle"/>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="screenshot-taken" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Mtk.Rectangle"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ScreenshotClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="SecureTextBuffer" parent="Clutter.TextBuffer" glib:type-struct="SecureTextBufferClass" glib:type-name="ShellSecureTextBuffer" glib:get-type="shell_secure_text_buffer_get_type">
+      <constructor name="new" c:identifier="shell_secure_text_buffer_new">
+        <return-value transfer-ownership="full">
+          <type name="Clutter.TextBuffer"/>
+        </return-value>
+      </constructor>
+    </class>
+    <record name="SecureTextBufferClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Clutter.TextBufferClass"/>
+      </field>
+    </record>
+    <class name="SquareBin" parent="St.Bin" glib:type-struct="SquareBinClass" glib:type-name="ShellSquareBin" glib:get-type="shell_square_bin_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+    </class>
+    <record name="SquareBinClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="St.BinClass"/>
+      </field>
+    </record>
+    <class name="Stack" parent="St.Widget" glib:type-struct="StackClass" glib:type-name="ShellStack" glib:get-type="shell_stack_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+    </class>
+    <record name="StackClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="St.WidgetClass"/>
+      </field>
+    </record>
+    <class name="TrayIcon" parent="Clutter.Clone" glib:type-struct="TrayIconClass" glib:type-name="ShellTrayIcon" glib:get-type="shell_tray_icon_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <method name="click" c:identifier="shell_tray_icon_click">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="event" transfer-ownership="none">
+            <type name="Clutter.Event"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_pid" c:identifier="shell_tray_icon_get_pid" glib:get-property="pid">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_title" c:identifier="shell_tray_icon_get_title" glib:get-property="title">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_wm_class" c:identifier="shell_tray_icon_get_wm_class" glib:get-property="wm-class">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <property name="pid" getter="get_pid" transfer-ownership="none">
+        <type name="guint32"/>
+      </property>
+      <property name="title" getter="get_title" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="wm-class" getter="get_wm_class" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+    </class>
+    <record name="TrayIconClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Clutter.CloneClass"/>
+      </field>
+    </record>
+    <class name="TrayManager" parent="GObject.Object" glib:type-struct="TrayManagerClass" final="1" glib:type-name="ShellTrayManager" glib:get-type="shell_tray_manager_get_type">
+      <constructor name="new" c:identifier="shell_tray_manager_new">
+        <return-value transfer-ownership="full">
+          <type name="TrayManager"/>
+        </return-value>
+      </constructor>
+      <method name="get_bg_color" c:identifier="shell_tray_manager_get_bg_color" glib:get-property="bg-color">
+        <return-value transfer-ownership="none">
+          <type name="Cogl.Color"/>
+        </return-value>
+      </method>
+      <method name="manage_screen" c:identifier="shell_tray_manager_manage_screen">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="theme_widget" transfer-ownership="none">
+            <type name="St.Widget"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unmanage_screen" c:identifier="shell_tray_manager_unmanage_screen">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <property name="bg-color" writable="1" construct-only="1" getter="get_bg_color" transfer-ownership="none">
+        <type name="Cogl.Color"/>
+      </property>
+      <glib:signal name="tray-icon-added" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Clutter.Actor"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="tray-icon-removed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Clutter.Actor"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="TrayManagerClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="WM" parent="GObject.Object" glib:type-struct="WMClass" glib:type-name="ShellWM" glib:get-type="shell_wm_get_type">
+      <constructor name="new" c:identifier="shell_wm_new">
+        <return-value transfer-ownership="full">
+          <type name="WM"/>
+        </return-value>
+        <parameters>
+          <parameter name="plugin" transfer-ownership="none">
+            <type name="Meta.Plugin"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="complete_display_change" c:identifier="shell_wm_complete_display_change">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="ok" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="completed_destroy" c:identifier="shell_wm_completed_destroy">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="actor" transfer-ownership="none">
+            <type name="Meta.WindowActor"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="completed_map" c:identifier="shell_wm_completed_map">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="actor" transfer-ownership="none">
+            <type name="Meta.WindowActor"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="completed_minimize" c:identifier="shell_wm_completed_minimize">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="actor" transfer-ownership="none">
+            <type name="Meta.WindowActor"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="completed_size_change" c:identifier="shell_wm_completed_size_change">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="actor" transfer-ownership="none">
+            <type name="Meta.WindowActor"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="completed_switch_workspace" c:identifier="shell_wm_completed_switch_workspace">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="completed_unminimize" c:identifier="shell_wm_completed_unminimize">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="actor" transfer-ownership="none">
+            <type name="Meta.WindowActor"/>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="confirm-display-change" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="create-close-dialog" when="LAST">
+        <return-value transfer-ownership="full">
+          <type name="Meta.CloseDialog"/>
+        </return-value>
+        <parameters>
+          <parameter name="window" transfer-ownership="none">
+            <type name="Meta.Window"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="create-inhibit-shortcuts-dialog" when="LAST">
+        <return-value transfer-ownership="full">
+          <type name="Meta.InhibitShortcutsDialog"/>
+        </return-value>
+        <parameters>
+          <parameter name="window" transfer-ownership="none">
+            <type name="Meta.Window"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="destroy" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Meta.WindowActor"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="filter-keybinding" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Meta.KeyBinding"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="hide-tile-preview" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="kill-switch-workspace" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="kill-window-effects" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Meta.WindowActor"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="map" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Meta.WindowActor"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="minimize" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Meta.WindowActor"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="show-tile-preview" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Meta.Window"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="Mtk.Rectangle"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="show-window-menu" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Meta.Window"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="Mtk.Rectangle"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="size-change" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Meta.WindowActor"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="Meta.SizeChange"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="Mtk.Rectangle"/>
+          </parameter>
+          <parameter name="p2" transfer-ownership="none">
+            <type name="Mtk.Rectangle"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="size-changed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Meta.WindowActor"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="switch-workspace" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="unminimize" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Meta.WindowActor"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="WMClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="WindowPreview" parent="St.Widget" glib:type-struct="WindowPreviewClass" glib:type-name="ShellWindowPreview" glib:get-type="shell_window_preview_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <method name="get_window_container" c:identifier="shell_window_preview_get_window_container" glib:get-property="window-container">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Actor"/>
+        </return-value>
+      </method>
+      <property name="window-container" writable="1" construct-only="1" getter="get_window_container" transfer-ownership="none">
+        <type name="Clutter.Actor"/>
+      </property>
+    </class>
+    <record name="WindowPreviewClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="St.WidgetClass"/>
+      </field>
+    </record>
+    <class name="WindowPreviewLayout" parent="Clutter.LayoutManager" glib:type-struct="WindowPreviewLayoutClass" glib:type-name="ShellWindowPreviewLayout" glib:get-type="shell_window_preview_layout_get_type">
+      <field name="parent">
+        <type name="Clutter.LayoutManager"/>
+      </field>
+      <field name="priv">
+        <type name="WindowPreviewLayoutPrivate"/>
+      </field>
+      <method name="add_window" c:identifier="shell_window_preview_layout_add_window">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Clutter.Actor"/>
+        </return-value>
+        <parameters>
+          <parameter name="window" transfer-ownership="none">
+            <type name="Meta.Window"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_bounding_box" c:identifier="shell_window_preview_layout_get_bounding_box" glib:get-property="bounding-box">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.ActorBox"/>
+        </return-value>
+      </method>
+      <method name="get_windows" c:identifier="shell_window_preview_layout_get_windows">
+        <return-value transfer-ownership="container">
+          <type name="GLib.List">
+            <type name="Meta.Window"/>
+          </type>
+        </return-value>
+      </method>
+      <method name="remove_window" c:identifier="shell_window_preview_layout_remove_window">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="window" transfer-ownership="none">
+            <type name="Meta.Window"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="bounding-box" getter="get_bounding_box" transfer-ownership="none">
+        <type name="Clutter.ActorBox"/>
+      </property>
+    </class>
+    <record name="WindowPreviewLayoutClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Clutter.LayoutManagerClass"/>
+      </field>
+    </record>
+    <record name="WindowPreviewLayoutPrivate"/>
+    <class name="WindowTracker" parent="GObject.Object" glib:type-struct="WindowTrackerClass" glib:type-name="ShellWindowTracker" glib:get-type="shell_window_tracker_get_type">
+      <function name="get_default" c:identifier="shell_window_tracker_get_default">
+        <return-value transfer-ownership="none">
+          <type name="WindowTracker"/>
+        </return-value>
+      </function>
+      <method name="get_app_from_pid" c:identifier="shell_window_tracker_get_app_from_pid">
+        <return-value transfer-ownership="none">
+          <type name="App"/>
+        </return-value>
+        <parameters>
+          <parameter name="pid" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_focus_app" c:identifier="shell_window_tracker_get_focus_app" glib:get-property="focus-app">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="App"/>
+        </return-value>
+      </method>
+      <method name="get_startup_sequences" c:identifier="shell_window_tracker_get_startup_sequences">
+        <return-value transfer-ownership="none">
+          <type name="GLib.SList">
+            <type name="Meta.StartupSequence"/>
+          </type>
+        </return-value>
+      </method>
+      <method name="get_window_app" c:identifier="shell_window_tracker_get_window_app">
+        <return-value transfer-ownership="full">
+          <type name="App"/>
+        </return-value>
+        <parameters>
+          <parameter name="metawin" transfer-ownership="none">
+            <type name="Meta.Window"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="focus-app" getter="get_focus_app" transfer-ownership="none">
+        <type name="App"/>
+      </property>
+      <glib:signal name="startup-sequence-changed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Meta.StartupSequence"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="tracked-windows-changed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="WindowTrackerClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="WorkspaceBackground" parent="St.Widget" glib:type-struct="WorkspaceBackgroundClass" glib:type-name="ShellWorkspaceBackground" glib:get-type="shell_workspace_background_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <method name="get_monitor_index" c:identifier="shell_workspace_background_get_monitor_index" glib:get-property="monitor-index">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_state_adjustment_value" c:identifier="shell_workspace_background_get_state_adjustment_value" glib:get-property="state-adjustment-value">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </method>
+      <method name="set_state_adjustment_value" c:identifier="shell_workspace_background_set_state_adjustment_value" glib:set-property="state-adjustment-value">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="monitor-index" writable="1" construct-only="1" getter="get_monitor_index" transfer-ownership="none">
+        <type name="gint32"/>
+      </property>
+      <property name="state-adjustment-value" writable="1" getter="get_state_adjustment_value" setter="set_state_adjustment_value" transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+    </class>
+    <record name="WorkspaceBackgroundClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="St.WidgetClass"/>
+      </field>
+    </record>
+    <function name="get_file_contents_utf8_sync" c:identifier="shell_get_file_contents_utf8_sync" throws="1">
+      <return-value transfer-ownership="full">
+        <type name="utf8"/>
+      </return-value>
+      <parameters>
+        <parameter name="path" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="time_change_source_new" c:identifier="shell_time_change_source_new" throws="1">
+      <return-value transfer-ownership="full">
+        <type name="GLib.Source"/>
+      </return-value>
+    </function>
+    <function name="util_check_cloexec_fds" c:identifier="shell_util_check_cloexec_fds">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+    </function>
+    <function name="util_create_pixbuf_from_data" c:identifier="shell_util_create_pixbuf_from_data">
+      <return-value transfer-ownership="full">
+        <type name="GdkPixbuf.Pixbuf"/>
+      </return-value>
+      <parameters>
+        <parameter name="data" transfer-ownership="full">
+          <array length="1">
+            <type name="guint8"/>
+          </array>
+        </parameter>
+        <parameter name="len" transfer-ownership="none">
+          <type name="guint64"/>
+        </parameter>
+        <parameter name="colorspace" transfer-ownership="none">
+          <type name="GdkPixbuf.Colorspace"/>
+        </parameter>
+        <parameter name="has_alpha" transfer-ownership="none">
+          <type name="gboolean"/>
+        </parameter>
+        <parameter name="bits_per_sample" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="width" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="height" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="rowstride" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_get_translated_folder_name" c:identifier="shell_util_get_translated_folder_name">
+      <return-value transfer-ownership="full" allow-none="1">
+        <type name="utf8"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_get_uid" c:identifier="shell_util_get_uid">
+      <return-value transfer-ownership="none">
+        <type name="gint32"/>
+      </return-value>
+    </function>
+    <function name="util_get_week_start" c:identifier="shell_util_get_week_start">
+      <return-value transfer-ownership="none">
+        <type name="gint32"/>
+      </return-value>
+    </function>
+    <function name="util_has_x11_display_extension" c:identifier="shell_util_has_x11_display_extension">
+      <return-value transfer-ownership="none">
+        <type name="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="display" transfer-ownership="none">
+          <type name="Meta.Display"/>
+        </parameter>
+        <parameter name="extension" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_regex_escape" c:identifier="shell_util_regex_escape">
+      <return-value transfer-ownership="full">
+        <type name="utf8"/>
+      </return-value>
+      <parameters>
+        <parameter name="str" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_sd_notify" c:identifier="shell_util_sd_notify">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+    </function>
+    <function name="util_set_hidden_from_pick" c:identifier="shell_util_set_hidden_from_pick">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="actor" transfer-ownership="none">
+          <type name="Clutter.Actor"/>
+        </parameter>
+        <parameter name="hidden" transfer-ownership="none">
+          <type name="gboolean"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_spawn_async" c:identifier="shell_util_spawn_async" throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gint32"/>
+      </return-value>
+      <parameters>
+        <parameter name="working_directory" transfer-ownership="none" allow-none="1">
+          <type name="filename"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <array zero-terminated="1">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="envp" transfer-ownership="none" allow-none="1">
+          <array zero-terminated="1">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <type name="GLib.SpawnFlags"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_spawn_async_with_fds" c:identifier="shell_util_spawn_async_with_fds" throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gint32"/>
+      </return-value>
+      <parameters>
+        <parameter name="working_directory" transfer-ownership="none" allow-none="1">
+          <type name="filename"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <array zero-terminated="1">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="envp" transfer-ownership="none" allow-none="1">
+          <array zero-terminated="1">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <type name="GLib.SpawnFlags"/>
+        </parameter>
+        <parameter name="stdin_fd" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="stdout_fd" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="stderr_fd" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_spawn_async_with_pipes" c:identifier="shell_util_spawn_async_with_pipes" throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gint32"/>
+      </return-value>
+      <parameters>
+        <parameter name="working_directory" transfer-ownership="none" allow-none="1">
+          <type name="filename"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <array zero-terminated="1">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="envp" transfer-ownership="none" allow-none="1">
+          <array zero-terminated="1">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <type name="GLib.SpawnFlags"/>
+        </parameter>
+        <parameter name="standard_input" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="standard_output" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="standard_error" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+          <type name="gint32"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_spawn_async_with_pipes_and_fds" c:identifier="shell_util_spawn_async_with_pipes_and_fds" throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gint32"/>
+      </return-value>
+      <parameters>
+        <parameter name="working_directory" transfer-ownership="none" allow-none="1">
+          <type name="filename"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <array zero-terminated="1">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="envp" transfer-ownership="none" allow-none="1">
+          <array zero-terminated="1">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <type name="GLib.SpawnFlags"/>
+        </parameter>
+        <parameter name="stdin_fd" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="stdout_fd" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="stderr_fd" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="source_fds" transfer-ownership="none" allow-none="1">
+          <array length="9">
+            <type name="gint32"/>
+          </array>
+        </parameter>
+        <parameter name="target_fds" transfer-ownership="none" allow-none="1">
+          <array length="9">
+            <type name="gint32"/>
+          </array>
+        </parameter>
+        <parameter name="n_fds" transfer-ownership="none">
+          <type name="guint64"/>
+        </parameter>
+        <parameter name="stdin_pipe_out" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="stdout_pipe_out" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="stderr_pipe_out" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+          <type name="gint32"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_start_systemd_unit" c:identifier="shell_util_start_systemd_unit">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="unit" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="mode" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+          <type name="Gio.Cancellable"/>
+        </parameter>
+        <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="4">
+          <type name="Gio.AsyncReadyCallback"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_start_systemd_unit_finish" c:identifier="shell_util_start_systemd_unit_finish" throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="res" transfer-ownership="none">
+          <type name="Gio.AsyncResult"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_stop_systemd_unit" c:identifier="shell_util_stop_systemd_unit">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="unit" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="mode" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+          <type name="Gio.Cancellable"/>
+        </parameter>
+        <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="4">
+          <type name="Gio.AsyncReadyCallback"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_stop_systemd_unit_finish" c:identifier="shell_util_stop_systemd_unit_finish" throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="res" transfer-ownership="none">
+          <type name="Gio.AsyncResult"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_systemd_unit_exists" c:identifier="shell_util_systemd_unit_exists">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="unit" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+          <type name="Gio.Cancellable"/>
+        </parameter>
+        <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="3">
+          <type name="Gio.AsyncReadyCallback"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_systemd_unit_exists_finish" c:identifier="shell_util_systemd_unit_exists_finish" throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="res" transfer-ownership="none">
+          <type name="Gio.AsyncResult"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_touch_file_async" c:identifier="shell_util_touch_file_async">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <type name="Gio.File"/>
+        </parameter>
+        <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="2">
+          <type name="Gio.AsyncReadyCallback"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_touch_file_finish" c:identifier="shell_util_touch_file_finish" throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <type name="Gio.File"/>
+        </parameter>
+        <parameter name="res" transfer-ownership="none">
+          <type name="Gio.AsyncResult"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_translate_time_string" c:identifier="shell_util_translate_time_string">
+      <return-value transfer-ownership="none">
+        <type name="utf8"/>
+      </return-value>
+      <parameters>
+        <parameter name="str" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_wifexited" c:identifier="shell_util_wifexited">
+      <return-value transfer-ownership="none">
+        <type name="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="status" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="exit" transfer-ownership="full" direction="out" caller-allocates="0">
+          <type name="gint32"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="write_string_to_stream" c:identifier="shell_write_string_to_stream" throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="stream" transfer-ownership="none">
+          <type name="Gio.OutputStream"/>
+        </parameter>
+        <parameter name="str" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

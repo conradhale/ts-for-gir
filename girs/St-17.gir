@@ -1,0 +1,4225 @@
+<?xml version="1.0"?>
+<repository version="1.0"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Meta" version="17"/>
+  <include name="GdkPixbuf" version="2.0"/>
+  <include name="Clutter" version="17"/>
+  <namespace name="St" version="17" shared-library="libst-17.so" c:prefix="St">
+    <class name="Adjustment" parent="GObject.Object" glib:type-struct="AdjustmentClass" glib:type-name="StAdjustment" glib:get-type="st_adjustment_get_type">
+      <implements name="Clutter.Animatable"/>
+      <field name="parent_instance">
+        <type name="GObject.Object"/>
+      </field>
+      <constructor name="new" c:identifier="st_adjustment_new">
+        <return-value transfer-ownership="full">
+          <type name="Adjustment"/>
+        </return-value>
+        <parameters>
+          <parameter name="actor" transfer-ownership="none" allow-none="1">
+            <type name="Clutter.Actor"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="lower" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="upper" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="step_increment" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="page_increment" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="page_size" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_transition" c:identifier="st_adjustment_add_transition">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="transition" transfer-ownership="none">
+            <type name="Clutter.Transition"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="adjust_for_scroll_event" c:identifier="st_adjustment_adjust_for_scroll_event">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="delta" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="clamp_page" c:identifier="st_adjustment_clamp_page">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="lower" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="upper" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_actor" c:identifier="st_adjustment_get_actor" glib:get-property="actor">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Actor"/>
+        </return-value>
+      </method>
+      <method name="get_lower" c:identifier="st_adjustment_get_lower" glib:get-property="lower">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </method>
+      <method name="get_page_increment" c:identifier="st_adjustment_get_page_increment" glib:get-property="page-increment">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </method>
+      <method name="get_page_size" c:identifier="st_adjustment_get_page_size" glib:get-property="page-size">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </method>
+      <method name="get_step_increment" c:identifier="st_adjustment_get_step_increment" glib:get-property="step-increment">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </method>
+      <method name="get_transition" c:identifier="st_adjustment_get_transition">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Clutter.Transition"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_upper" c:identifier="st_adjustment_get_upper" glib:get-property="upper">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </method>
+      <method name="get_value" c:identifier="st_adjustment_get_value" glib:get-property="value">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </method>
+      <method name="get_values" c:identifier="st_adjustment_get_values">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="lower" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="upper" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="step_increment" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="page_increment" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="page_size" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_transition" c:identifier="st_adjustment_remove_transition">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_actor" c:identifier="st_adjustment_set_actor" glib:set-property="actor">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="actor" transfer-ownership="none">
+            <type name="Clutter.Actor"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_lower" c:identifier="st_adjustment_set_lower" glib:set-property="lower">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="lower" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_page_increment" c:identifier="st_adjustment_set_page_increment" glib:set-property="page-increment">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_page_size" c:identifier="st_adjustment_set_page_size" glib:set-property="page-size">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_step_increment" c:identifier="st_adjustment_set_step_increment" glib:set-property="step-increment">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="step" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_upper" c:identifier="st_adjustment_set_upper" glib:set-property="upper">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="upper" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_value" c:identifier="st_adjustment_set_value" glib:set-property="value">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_values" c:identifier="st_adjustment_set_values">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="lower" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="upper" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="step_increment" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="page_increment" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="page_size" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="actor" writable="1" getter="get_actor" setter="set_actor" transfer-ownership="none">
+        <type name="Clutter.Actor"/>
+      </property>
+      <property name="lower" writable="1" construct="1" getter="get_lower" setter="set_lower" transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+      <property name="page-increment" writable="1" construct="1" getter="get_page_increment" setter="set_page_increment" transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+      <property name="page-size" writable="1" construct="1" getter="get_page_size" setter="set_page_size" transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+      <property name="step-increment" writable="1" construct="1" getter="get_step_increment" setter="set_step_increment" transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+      <property name="upper" writable="1" construct="1" getter="get_upper" setter="set_upper" transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+      <property name="value" writable="1" construct="1" getter="get_value" setter="set_value" transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+      <glib:signal name="changed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <virtual-method name="changed" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+    </class>
+    <record name="AdjustmentClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+      <field name="changed">
+        <callback name="changed">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="adjustment" transfer-ownership="none">
+              <type name="Adjustment"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="BackgroundSize" glib:type-name="StBackgroundSize" glib:get-type="st_background_size_get_type">
+      <member name="auto" value="0">
+        <attribute name="c:identifier" value="ST_BACKGROUND_SIZE_AUTO"/>
+      </member>
+      <member name="contain" value="1">
+        <attribute name="c:identifier" value="ST_BACKGROUND_SIZE_CONTAIN"/>
+      </member>
+      <member name="cover" value="2">
+        <attribute name="c:identifier" value="ST_BACKGROUND_SIZE_COVER"/>
+      </member>
+      <member name="fixed" value="3">
+        <attribute name="c:identifier" value="ST_BACKGROUND_SIZE_FIXED"/>
+      </member>
+    </enumeration>
+    <class name="Bin" parent="Widget" glib:type-struct="BinClass" glib:type-name="StBin" glib:get-type="st_bin_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <field name="parent_instance">
+        <type name="Widget"/>
+      </field>
+      <constructor name="new" c:identifier="st_bin_new">
+        <return-value transfer-ownership="none">
+          <type name="Widget"/>
+        </return-value>
+      </constructor>
+      <method name="get_child" c:identifier="st_bin_get_child" glib:get-property="child">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Clutter.Actor"/>
+        </return-value>
+      </method>
+      <method name="set_child" c:identifier="st_bin_set_child" glib:set-property="child">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="child" transfer-ownership="none" allow-none="1">
+            <type name="Clutter.Actor"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="child" writable="1" getter="get_child" setter="set_child" transfer-ownership="none">
+        <type name="Clutter.Actor"/>
+      </property>
+    </class>
+    <record name="BinClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="WidgetClass"/>
+      </field>
+    </record>
+    <class name="BorderImage" parent="GObject.Object" glib:type-struct="BorderImageClass" glib:type-name="StBorderImage" glib:get-type="st_border_image_get_type">
+      <constructor name="new" c:identifier="st_border_image_new">
+        <return-value transfer-ownership="full">
+          <type name="BorderImage"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File"/>
+          </parameter>
+          <parameter name="border_top" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="border_right" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="border_bottom" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="border_left" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="scale_factor" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="equal" c:identifier="st_border_image_equal">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="other" transfer-ownership="none">
+            <type name="BorderImage"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_borders" c:identifier="st_border_image_get_borders">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="border_top" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="border_right" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="border_bottom" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="border_left" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_file" c:identifier="st_border_image_get_file">
+        <return-value transfer-ownership="none">
+          <type name="Gio.File"/>
+        </return-value>
+      </method>
+    </class>
+    <record name="BorderImageClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="BoxLayout" parent="Viewport" glib:type-struct="BoxLayoutClass" glib:type-name="StBoxLayout" glib:get-type="st_box_layout_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <implements name="Scrollable"/>
+      <field name="parent">
+        <type name="Viewport"/>
+      </field>
+      <field name="priv">
+        <type name="BoxLayoutPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="st_box_layout_new">
+        <return-value transfer-ownership="none">
+          <type name="Widget"/>
+        </return-value>
+      </constructor>
+      <method name="get_orientation" c:identifier="st_box_layout_get_orientation" glib:get-property="orientation">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Orientation"/>
+        </return-value>
+      </method>
+      <method name="get_vertical" c:identifier="st_box_layout_get_vertical" glib:get-property="vertical">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_orientation" c:identifier="st_box_layout_set_orientation" glib:set-property="orientation">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="orientation" transfer-ownership="none">
+            <type name="Clutter.Orientation"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_vertical" c:identifier="st_box_layout_set_vertical" glib:set-property="vertical">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="vertical" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="orientation" writable="1" getter="get_orientation" setter="set_orientation" transfer-ownership="none">
+        <type name="Clutter.Orientation"/>
+      </property>
+      <property name="vertical" writable="1" getter="get_vertical" setter="set_vertical" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+    </class>
+    <record name="BoxLayoutClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="ViewportClass"/>
+      </field>
+    </record>
+    <record name="BoxLayoutPrivate"/>
+    <class name="Button" parent="Bin" glib:type-struct="ButtonClass" glib:type-name="StButton" glib:get-type="st_button_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <field name="parent_instance">
+        <type name="Bin"/>
+      </field>
+      <constructor name="new" c:identifier="st_button_new">
+        <return-value transfer-ownership="none">
+          <type name="Widget"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_with_label" c:identifier="st_button_new_with_label">
+        <return-value transfer-ownership="none">
+          <type name="Widget"/>
+        </return-value>
+        <parameters>
+          <parameter name="text" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="fake_release" c:identifier="st_button_fake_release">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="get_button_mask" c:identifier="st_button_get_button_mask" glib:get-property="button-mask">
+        <return-value transfer-ownership="none">
+          <type name="ButtonMask"/>
+        </return-value>
+      </method>
+      <method name="get_checked" c:identifier="st_button_get_checked" glib:get-property="checked">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_icon_name" c:identifier="st_button_get_icon_name" glib:get-property="icon-name">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_label" c:identifier="st_button_get_label" glib:get-property="label">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_pressed" c:identifier="st_button_get_pressed" glib:get-property="pressed">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_toggle_mode" c:identifier="st_button_get_toggle_mode" glib:get-property="toggle-mode">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_button_mask" c:identifier="st_button_set_button_mask" glib:set-property="button-mask">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="mask" transfer-ownership="none">
+            <type name="ButtonMask"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_checked" c:identifier="st_button_set_checked" glib:set-property="checked">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="checked" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_name" c:identifier="st_button_set_icon_name" glib:set-property="icon-name">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_label" c:identifier="st_button_set_label" glib:set-property="label">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="text" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_toggle_mode" c:identifier="st_button_set_toggle_mode" glib:set-property="toggle-mode">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="toggle" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="button-mask" writable="1" getter="get_button_mask" setter="set_button_mask" transfer-ownership="none">
+        <type name="ButtonMask"/>
+      </property>
+      <property name="checked" writable="1" getter="get_checked" setter="set_checked" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="icon-name" writable="1" getter="get_icon_name" setter="set_icon_name" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="label" writable="1" getter="get_label" setter="set_label" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="pressed" getter="get_pressed" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="toggle-mode" writable="1" getter="get_toggle_mode" setter="set_toggle_mode" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <glib:signal name="clicked" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="clicked_button" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <virtual-method name="clicked" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="clicked_button" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+    </class>
+    <record name="ButtonClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="BinClass"/>
+      </field>
+      <field name="clicked">
+        <callback name="clicked">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="button" transfer-ownership="none">
+              <type name="Button"/>
+            </parameter>
+            <parameter name="clicked_button" transfer-ownership="none">
+              <type name="gint32"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <bitfield name="ButtonMask" glib:type-name="StButtonMask" glib:get-type="st_button_mask_get_type">
+      <member name="one" value="1">
+        <attribute name="c:identifier" value="ST_BUTTON_ONE"/>
+      </member>
+      <member name="two" value="2">
+        <attribute name="c:identifier" value="ST_BUTTON_TWO"/>
+      </member>
+      <member name="three" value="4">
+        <attribute name="c:identifier" value="ST_BUTTON_THREE"/>
+      </member>
+    </bitfield>
+    <class name="Clipboard" parent="GObject.Object" glib:type-struct="ClipboardClass" glib:type-name="StClipboard" glib:get-type="st_clipboard_get_type">
+      <field name="parent">
+        <type name="GObject.Object"/>
+      </field>
+      <function name="get_default" c:identifier="st_clipboard_get_default">
+        <return-value transfer-ownership="none">
+          <type name="Clipboard"/>
+        </return-value>
+      </function>
+      <method name="get_content" c:identifier="st_clipboard_get_content">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="ClipboardType"/>
+          </parameter>
+          <parameter name="mimetype" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" scope="async" closure="3">
+            <type name="ClipboardContentCallbackFunc"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_mimetypes" c:identifier="st_clipboard_get_mimetypes">
+        <return-value transfer-ownership="full">
+          <type name="GLib.List">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="ClipboardType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_text" c:identifier="st_clipboard_get_text">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="ClipboardType"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" scope="async" closure="2">
+            <type name="ClipboardCallbackFunc"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_content" c:identifier="st_clipboard_set_content">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="ClipboardType"/>
+          </parameter>
+          <parameter name="mimetype" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="bytes" transfer-ownership="none">
+            <type name="GLib.Bytes"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_text" c:identifier="st_clipboard_set_text">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="ClipboardType"/>
+          </parameter>
+          <parameter name="text" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <callback name="ClipboardCallbackFunc">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="clipboard" transfer-ownership="none">
+          <type name="Clipboard"/>
+        </parameter>
+        <parameter name="text" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1" closure="2">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="ClipboardClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <callback name="ClipboardContentCallbackFunc">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="clipboard" transfer-ownership="none">
+          <type name="Clipboard"/>
+        </parameter>
+        <parameter name="bytes" transfer-ownership="none">
+          <type name="GLib.Bytes"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1" closure="2">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <enumeration name="ClipboardType" glib:type-name="StClipboardType" glib:get-type="st_clipboard_type_get_type">
+      <member name="primary" value="0">
+        <attribute name="c:identifier" value="ST_CLIPBOARD_TYPE_PRIMARY"/>
+      </member>
+      <member name="clipboard" value="1">
+        <attribute name="c:identifier" value="ST_CLIPBOARD_TYPE_CLIPBOARD"/>
+      </member>
+    </enumeration>
+    <enumeration name="Corner" glib:type-name="StCorner" glib:get-type="st_corner_get_type">
+      <member name="topleft" value="0">
+        <attribute name="c:identifier" value="ST_CORNER_TOPLEFT"/>
+      </member>
+      <member name="topright" value="1">
+        <attribute name="c:identifier" value="ST_CORNER_TOPRIGHT"/>
+      </member>
+      <member name="bottomright" value="2">
+        <attribute name="c:identifier" value="ST_CORNER_BOTTOMRIGHT"/>
+      </member>
+      <member name="bottomleft" value="3">
+        <attribute name="c:identifier" value="ST_CORNER_BOTTOMLEFT"/>
+      </member>
+    </enumeration>
+    <enumeration name="DirectionType" glib:type-name="StDirectionType" glib:get-type="st_direction_type_get_type">
+      <member name="tab_forward" value="0">
+        <attribute name="c:identifier" value="ST_DIR_TAB_FORWARD"/>
+      </member>
+      <member name="tab_backward" value="1">
+        <attribute name="c:identifier" value="ST_DIR_TAB_BACKWARD"/>
+      </member>
+      <member name="up" value="2">
+        <attribute name="c:identifier" value="ST_DIR_UP"/>
+      </member>
+      <member name="down" value="3">
+        <attribute name="c:identifier" value="ST_DIR_DOWN"/>
+      </member>
+      <member name="left" value="4">
+        <attribute name="c:identifier" value="ST_DIR_LEFT"/>
+      </member>
+      <member name="right" value="5">
+        <attribute name="c:identifier" value="ST_DIR_RIGHT"/>
+      </member>
+    </enumeration>
+    <class name="DndStartGesture" parent="Clutter.Gesture" glib:type-struct="DndStartGestureClass" glib:type-name="StDndStartGesture" glib:get-type="st_dnd_start_gesture_get_type">
+      <method name="get_drag_coords" c:identifier="st_dnd_start_gesture_get_drag_coords">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="coords_out" transfer-ownership="none">
+            <type name="Graphene.Point"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_drag_triggering_event" c:identifier="st_dnd_start_gesture_get_drag_triggering_event">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Event"/>
+        </return-value>
+      </method>
+      <method name="get_manual_mode" c:identifier="st_dnd_start_gesture_get_manual_mode" glib:get-property="manual-mode">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_point_begin_event" c:identifier="st_dnd_start_gesture_get_point_begin_event">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Event"/>
+        </return-value>
+      </method>
+      <method name="get_timeout_threshold" c:identifier="st_dnd_start_gesture_get_timeout_threshold" glib:get-property="timeout-threshold">
+        <return-value transfer-ownership="none">
+          <type name="guint32"/>
+        </return-value>
+      </method>
+      <method name="set_manual_mode" c:identifier="st_dnd_start_gesture_set_manual_mode" glib:set-property="manual-mode">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="manual_mode" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_timeout_threshold" c:identifier="st_dnd_start_gesture_set_timeout_threshold" glib:set-property="timeout-threshold">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="timeout_threshold_ms" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start_drag" c:identifier="st_dnd_start_gesture_start_drag">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="start_event" transfer-ownership="none">
+            <type name="Clutter.Event"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="manual-mode" writable="1" getter="get_manual_mode" setter="set_manual_mode" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="timeout-threshold" writable="1" getter="get_timeout_threshold" setter="set_timeout_threshold" transfer-ownership="none">
+        <type name="guint32"/>
+      </property>
+    </class>
+    <record name="DndStartGestureClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Clutter.GestureClass"/>
+      </field>
+    </record>
+    <class name="DrawingArea" parent="Widget" glib:type-struct="DrawingAreaClass" glib:type-name="StDrawingArea" glib:get-type="st_drawing_area_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <field name="parent_instance">
+        <type name="Widget"/>
+      </field>
+      <method name="get_context" c:identifier="st_drawing_area_get_context">
+        <return-value transfer-ownership="none">
+          <type name="cairo.Context"/>
+        </return-value>
+      </method>
+      <method name="get_surface_size" c:identifier="st_drawing_area_get_surface_size">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="width" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="guint32"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="queue_repaint" c:identifier="st_drawing_area_queue_repaint">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <glib:signal name="repaint" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <virtual-method name="repaint" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+    </class>
+    <record name="DrawingAreaClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="WidgetClass"/>
+      </field>
+      <field name="repaint">
+        <callback name="repaint">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="area" transfer-ownership="none">
+              <type name="DrawingArea"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="Entry" parent="Widget" glib:type-struct="EntryClass" glib:type-name="StEntry" glib:get-type="st_entry_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <field name="parent_instance">
+        <type name="Widget"/>
+      </field>
+      <constructor name="new" c:identifier="st_entry_new">
+        <return-value transfer-ownership="none">
+          <type name="Widget"/>
+        </return-value>
+        <parameters>
+          <parameter name="text" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_clutter_text" c:identifier="st_entry_get_clutter_text" glib:get-property="clutter-text">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Text"/>
+        </return-value>
+      </method>
+      <method name="get_hint_actor" c:identifier="st_entry_get_hint_actor" glib:get-property="hint-actor">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Clutter.Actor"/>
+        </return-value>
+      </method>
+      <method name="get_hint_text" c:identifier="st_entry_get_hint_text" glib:get-property="hint-text">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_input_hints" c:identifier="st_entry_get_input_hints" glib:get-property="input-hints">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.InputContentHintFlags"/>
+        </return-value>
+      </method>
+      <method name="get_input_purpose" c:identifier="st_entry_get_input_purpose" glib:get-property="input-purpose">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.InputContentPurpose"/>
+        </return-value>
+      </method>
+      <method name="get_primary_icon" c:identifier="st_entry_get_primary_icon" glib:get-property="primary-icon">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Clutter.Actor"/>
+        </return-value>
+      </method>
+      <method name="get_secondary_icon" c:identifier="st_entry_get_secondary_icon" glib:get-property="secondary-icon">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Clutter.Actor"/>
+        </return-value>
+      </method>
+      <method name="get_text" c:identifier="st_entry_get_text" glib:get-property="text">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="set_hint_actor" c:identifier="st_entry_set_hint_actor" glib:set-property="hint-actor">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="hint_actor" transfer-ownership="none" allow-none="1">
+            <type name="Clutter.Actor"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_hint_text" c:identifier="st_entry_set_hint_text" glib:set-property="hint-text">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="text" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_input_hints" c:identifier="st_entry_set_input_hints" glib:set-property="input-hints">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="hints" transfer-ownership="none">
+            <type name="Clutter.InputContentHintFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_input_purpose" c:identifier="st_entry_set_input_purpose" glib:set-property="input-purpose">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="purpose" transfer-ownership="none">
+            <type name="Clutter.InputContentPurpose"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_primary_icon" c:identifier="st_entry_set_primary_icon" glib:set-property="primary-icon">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon" transfer-ownership="none" allow-none="1">
+            <type name="Clutter.Actor"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_secondary_icon" c:identifier="st_entry_set_secondary_icon" glib:set-property="secondary-icon">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon" transfer-ownership="none" allow-none="1">
+            <type name="Clutter.Actor"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_text" c:identifier="st_entry_set_text" glib:set-property="text">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="text" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="clutter-text" getter="get_clutter_text" transfer-ownership="none">
+        <type name="Clutter.Text"/>
+      </property>
+      <property name="hint-actor" writable="1" getter="get_hint_actor" setter="set_hint_actor" transfer-ownership="none">
+        <type name="Clutter.Actor"/>
+      </property>
+      <property name="hint-text" writable="1" getter="get_hint_text" setter="set_hint_text" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="input-hints" writable="1" getter="get_input_hints" setter="set_input_hints" transfer-ownership="none">
+        <type name="Clutter.InputContentHintFlags"/>
+      </property>
+      <property name="input-purpose" writable="1" getter="get_input_purpose" setter="set_input_purpose" transfer-ownership="none">
+        <type name="Clutter.InputContentPurpose"/>
+      </property>
+      <property name="primary-icon" writable="1" getter="get_primary_icon" setter="set_primary_icon" transfer-ownership="none">
+        <type name="Clutter.Actor"/>
+      </property>
+      <property name="secondary-icon" writable="1" getter="get_secondary_icon" setter="set_secondary_icon" transfer-ownership="none">
+        <type name="Clutter.Actor"/>
+      </property>
+      <property name="text" writable="1" getter="get_text" setter="set_text" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <glib:signal name="primary-icon-clicked" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="secondary-icon-clicked" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <virtual-method name="primary_icon_clicked" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="secondary_icon_clicked" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+    </class>
+    <record name="EntryClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="WidgetClass"/>
+      </field>
+      <field name="primary_icon_clicked">
+        <callback name="primary_icon_clicked">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="entry" transfer-ownership="none">
+              <type name="Entry"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="secondary_icon_clicked">
+        <callback name="secondary_icon_clicked">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="entry" transfer-ownership="none">
+              <type name="Entry"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <callback name="EntryCursorFunc">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="entry" transfer-ownership="none">
+          <type name="Entry"/>
+        </parameter>
+        <parameter name="use_ibeam" transfer-ownership="none">
+          <type name="gboolean"/>
+        </parameter>
+        <parameter name="data" transfer-ownership="none" allow-none="1">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="FocusManager" parent="GObject.Object" glib:type-struct="FocusManagerClass" final="1" glib:type-name="StFocusManager" glib:get-type="st_focus_manager_get_type">
+      <function name="get_for_stage" c:identifier="st_focus_manager_get_for_stage">
+        <return-value transfer-ownership="none">
+          <type name="FocusManager"/>
+        </return-value>
+        <parameters>
+          <parameter name="stage" transfer-ownership="none">
+            <type name="Clutter.Stage"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="add_group" c:identifier="st_focus_manager_add_group">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="root" transfer-ownership="none">
+            <type name="Widget"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_group" c:identifier="st_focus_manager_get_group">
+        <return-value transfer-ownership="none">
+          <type name="Widget"/>
+        </return-value>
+        <parameters>
+          <parameter name="widget" transfer-ownership="none">
+            <type name="Widget"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="navigate_from_event" c:identifier="st_focus_manager_navigate_from_event">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="event" transfer-ownership="none">
+            <type name="Clutter.Event"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_group" c:identifier="st_focus_manager_remove_group">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="root" transfer-ownership="none">
+            <type name="Widget"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="FocusManagerClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="GenericAccessible" parent="WidgetAccessible" glib:type-struct="GenericAccessibleClass" final="1" glib:type-name="StGenericAccessible" glib:get-type="st_generic_accessible_get_type">
+      <implements name="Atk.Component"/>
+      <implements name="Atk.Value"/>
+      <constructor name="new_for_actor" c:identifier="st_generic_accessible_new_for_actor">
+        <return-value transfer-ownership="full">
+          <type name="Atk.Object"/>
+        </return-value>
+        <parameters>
+          <parameter name="actor" transfer-ownership="none">
+            <type name="Clutter.Actor"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <glib:signal name="get-current-value" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="get-maximum-value" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="get-minimum-increment" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="get-minimum-value" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="set-current-value" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="new_value" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="GenericAccessibleClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="WidgetAccessibleClass"/>
+      </field>
+    </record>
+    <enumeration name="GradientType" glib:type-name="StGradientType" glib:get-type="st_gradient_type_get_type">
+      <member name="none" value="0">
+        <attribute name="c:identifier" value="ST_GRADIENT_NONE"/>
+      </member>
+      <member name="vertical" value="1">
+        <attribute name="c:identifier" value="ST_GRADIENT_VERTICAL"/>
+      </member>
+      <member name="horizontal" value="2">
+        <attribute name="c:identifier" value="ST_GRADIENT_HORIZONTAL"/>
+      </member>
+      <member name="radial" value="3">
+        <attribute name="c:identifier" value="ST_GRADIENT_RADIAL"/>
+      </member>
+    </enumeration>
+    <class name="Icon" parent="Widget" glib:type-struct="IconClass" glib:type-name="StIcon" glib:get-type="st_icon_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <field name="parent">
+        <type name="Widget"/>
+      </field>
+      <field name="priv">
+        <type name="IconPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="st_icon_new">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Actor"/>
+        </return-value>
+      </constructor>
+      <method name="get_fallback_gicon" c:identifier="st_icon_get_fallback_gicon" glib:get-property="fallback-gicon">
+        <return-value transfer-ownership="none">
+          <type name="Gio.Icon"/>
+        </return-value>
+      </method>
+      <method name="get_fallback_icon_name" c:identifier="st_icon_get_fallback_icon_name" glib:get-property="fallback-icon-name">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_gicon" c:identifier="st_icon_get_gicon" glib:get-property="gicon">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Gio.Icon"/>
+        </return-value>
+      </method>
+      <method name="get_icon_name" c:identifier="st_icon_get_icon_name" glib:get-property="icon-name">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_icon_size" c:identifier="st_icon_get_icon_size" glib:get-property="icon-size">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_is_symbolic" c:identifier="st_icon_get_is_symbolic" glib:get-property="is-symbolic">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_fallback_gicon" c:identifier="st_icon_set_fallback_gicon" glib:set-property="fallback-gicon">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="fallback_gicon" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Icon"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_fallback_icon_name" c:identifier="st_icon_set_fallback_icon_name" glib:set-property="fallback-icon-name">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="fallback_icon_name" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_gicon" c:identifier="st_icon_set_gicon" glib:set-property="gicon">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="gicon" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Icon"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_name" c:identifier="st_icon_set_icon_name" glib:set-property="icon-name">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon_name" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_size" c:identifier="st_icon_set_icon_size" glib:set-property="icon-size">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="fallback-gicon" writable="1" getter="get_fallback_gicon" setter="set_fallback_gicon" transfer-ownership="none">
+        <type name="Gio.Icon"/>
+      </property>
+      <property name="fallback-icon-name" writable="1" getter="get_fallback_icon_name" setter="set_fallback_icon_name" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="gicon" writable="1" getter="get_gicon" setter="set_gicon" transfer-ownership="none">
+        <type name="Gio.Icon"/>
+      </property>
+      <property name="icon-name" writable="1" getter="get_icon_name" setter="set_icon_name" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="icon-size" writable="1" getter="get_icon_size" setter="set_icon_size" transfer-ownership="none">
+        <type name="gint32"/>
+      </property>
+      <property name="is-symbolic" getter="get_is_symbolic" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+    </class>
+    <record name="IconClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="WidgetClass"/>
+      </field>
+    </record>
+    <record name="IconColors" glib:type-name="StIconColors" glib:get-type="st_icon_colors_get_type">
+      <field name="foreground" writable="1">
+        <type name="Cogl.Color"/>
+      </field>
+      <field name="warning" writable="1">
+        <type name="Cogl.Color"/>
+      </field>
+      <field name="error" writable="1">
+        <type name="Cogl.Color"/>
+      </field>
+      <field name="success" writable="1">
+        <type name="Cogl.Color"/>
+      </field>
+      <constructor name="new" c:identifier="st_icon_colors_new">
+        <return-value transfer-ownership="full">
+          <type name="IconColors"/>
+        </return-value>
+      </constructor>
+      <method name="copy" c:identifier="st_icon_colors_copy">
+        <return-value transfer-ownership="full">
+          <type name="IconColors"/>
+        </return-value>
+      </method>
+      <method name="equal" c:identifier="st_icon_colors_equal">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="other" transfer-ownership="none">
+            <type name="IconColors"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="st_icon_colors_ref">
+        <return-value transfer-ownership="full">
+          <type name="IconColors"/>
+        </return-value>
+      </method>
+      <method name="unref" c:identifier="st_icon_colors_unref">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+    </record>
+    <class name="IconInfo" parent="GObject.Object" glib:type-struct="IconInfoClass" glib:type-name="StIconInfo" glib:get-type="st_icon_info_get_type">
+      <constructor name="new_for_pixbuf" c:identifier="st_icon_info_new_for_pixbuf">
+        <return-value transfer-ownership="full">
+          <type name="IconInfo"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon_theme" transfer-ownership="none">
+            <type name="IconTheme"/>
+          </parameter>
+          <parameter name="pixbuf" transfer-ownership="none">
+            <type name="GdkPixbuf.Pixbuf"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_base_scale" c:identifier="st_icon_info_get_base_scale">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_base_size" c:identifier="st_icon_info_get_base_size">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_filename" c:identifier="st_icon_info_get_filename">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="filename"/>
+        </return-value>
+      </method>
+      <method name="is_symbolic" c:identifier="st_icon_info_is_symbolic">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="load_icon" c:identifier="st_icon_info_load_icon" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GdkPixbuf.Pixbuf"/>
+        </return-value>
+      </method>
+      <method name="load_icon_async" c:identifier="st_icon_info_load_icon_async">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="2">
+            <type name="Gio.AsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_icon_finish" c:identifier="st_icon_info_load_icon_finish" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GdkPixbuf.Pixbuf"/>
+        </return-value>
+        <parameters>
+          <parameter name="res" transfer-ownership="none">
+            <type name="Gio.AsyncResult"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_symbolic" c:identifier="st_icon_info_load_symbolic" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GdkPixbuf.Pixbuf"/>
+        </return-value>
+        <parameters>
+          <parameter name="colors" transfer-ownership="none">
+            <type name="IconColors"/>
+          </parameter>
+          <parameter name="was_symbolic" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_symbolic_async" c:identifier="st_icon_info_load_symbolic_async">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="colors" transfer-ownership="none">
+            <type name="IconColors"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="3">
+            <type name="Gio.AsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_symbolic_finish" c:identifier="st_icon_info_load_symbolic_finish" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GdkPixbuf.Pixbuf"/>
+        </return-value>
+        <parameters>
+          <parameter name="res" transfer-ownership="none">
+            <type name="Gio.AsyncResult"/>
+          </parameter>
+          <parameter name="was_symbolic" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="IconInfoClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <bitfield name="IconLookupFlags" glib:type-name="StIconLookupFlags" glib:get-type="st_icon_lookup_flags_get_type">
+      <member name="no_svg" value="1">
+        <attribute name="c:identifier" value="ST_ICON_LOOKUP_NO_SVG"/>
+      </member>
+      <member name="force_svg" value="2">
+        <attribute name="c:identifier" value="ST_ICON_LOOKUP_FORCE_SVG"/>
+      </member>
+      <member name="generic_fallback" value="4">
+        <attribute name="c:identifier" value="ST_ICON_LOOKUP_GENERIC_FALLBACK"/>
+      </member>
+      <member name="force_size" value="8">
+        <attribute name="c:identifier" value="ST_ICON_LOOKUP_FORCE_SIZE"/>
+      </member>
+      <member name="force_regular" value="16">
+        <attribute name="c:identifier" value="ST_ICON_LOOKUP_FORCE_REGULAR"/>
+      </member>
+      <member name="force_symbolic" value="32">
+        <attribute name="c:identifier" value="ST_ICON_LOOKUP_FORCE_SYMBOLIC"/>
+      </member>
+      <member name="dir_ltr" value="64">
+        <attribute name="c:identifier" value="ST_ICON_LOOKUP_DIR_LTR"/>
+      </member>
+      <member name="dir_rtl" value="128">
+        <attribute name="c:identifier" value="ST_ICON_LOOKUP_DIR_RTL"/>
+      </member>
+    </bitfield>
+    <record name="IconPrivate"/>
+    <enumeration name="IconStyle" glib:type-name="StIconStyle" glib:get-type="st_icon_style_get_type">
+      <member name="requested" value="0">
+        <attribute name="c:identifier" value="ST_ICON_STYLE_REQUESTED"/>
+      </member>
+      <member name="regular" value="1">
+        <attribute name="c:identifier" value="ST_ICON_STYLE_REGULAR"/>
+      </member>
+      <member name="symbolic" value="2">
+        <attribute name="c:identifier" value="ST_ICON_STYLE_SYMBOLIC"/>
+      </member>
+    </enumeration>
+    <class name="IconTheme" parent="GObject.Object" glib:type-struct="IconThemeClass" glib:type-name="StIconTheme" glib:get-type="st_icon_theme_get_type">
+      <constructor name="new" c:identifier="st_icon_theme_new">
+        <return-value transfer-ownership="full">
+          <type name="IconTheme"/>
+        </return-value>
+      </constructor>
+      <method name="add_resource_path" c:identifier="st_icon_theme_add_resource_path">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="append_search_path" c:identifier="st_icon_theme_append_search_path">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <type name="filename"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="choose_icon" c:identifier="st_icon_theme_choose_icon">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="IconInfo"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon_names" transfer-ownership="none">
+            <array zero-terminated="1">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="IconLookupFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="choose_icon_for_scale" c:identifier="st_icon_theme_choose_icon_for_scale">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="IconInfo"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon_names" transfer-ownership="none">
+            <array zero-terminated="1">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="scale" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="IconLookupFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_sizes" c:identifier="st_icon_theme_get_icon_sizes">
+        <return-value transfer-ownership="full">
+          <array zero-terminated="1">
+            <type name="gint32"/>
+          </array>
+        </return-value>
+        <parameters>
+          <parameter name="icon_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_search_path" c:identifier="st_icon_theme_get_search_path">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <array length="1">
+              <type name="filename"/>
+            </array>
+          </parameter>
+          <parameter name="n_elements" transfer-ownership="full" direction="out" caller-allocates="0">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_icon" c:identifier="st_icon_theme_has_icon">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_contexts" c:identifier="st_icon_theme_list_contexts">
+        <return-value transfer-ownership="full">
+          <type name="GLib.List">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+      </method>
+      <method name="list_icons" c:identifier="st_icon_theme_list_icons">
+        <return-value transfer-ownership="full">
+          <type name="GLib.List">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_icon" c:identifier="st_icon_theme_load_icon" throws="1">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="GdkPixbuf.Pixbuf"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="IconLookupFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_icon_for_scale" c:identifier="st_icon_theme_load_icon_for_scale" throws="1">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="GdkPixbuf.Pixbuf"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="scale" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="IconLookupFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_by_gicon" c:identifier="st_icon_theme_lookup_by_gicon">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="IconInfo"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon" transfer-ownership="none">
+            <type name="Gio.Icon"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="IconLookupFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_by_gicon_for_scale" c:identifier="st_icon_theme_lookup_by_gicon_for_scale">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="IconInfo"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon" transfer-ownership="none">
+            <type name="Gio.Icon"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="scale" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="IconLookupFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_icon" c:identifier="st_icon_theme_lookup_icon">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="IconInfo"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="IconLookupFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_icon_for_scale" c:identifier="st_icon_theme_lookup_icon_for_scale">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="IconInfo"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="scale" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="IconLookupFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="prepend_search_path" c:identifier="st_icon_theme_prepend_search_path">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <type name="filename"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="rescan_if_needed" c:identifier="st_icon_theme_rescan_if_needed">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_search_path" c:identifier="st_icon_theme_set_search_path">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <array length="1">
+              <type name="filename"/>
+            </array>
+          </parameter>
+          <parameter name="n_elements" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="changed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="IconThemeClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="IconThemeError" glib:type-name="StIconThemeError" glib:get-type="st_icon_theme_error_get_type" glib:error-domain="gtk-icon-theme-error-quark">
+      <member name="not_found" value="0">
+        <attribute name="c:identifier" value="ST_ICON_THEME_NOT_FOUND"/>
+      </member>
+      <member name="failed" value="1">
+        <attribute name="c:identifier" value="ST_ICON_THEME_FAILED"/>
+      </member>
+    </enumeration>
+    <class name="ImageContent" parent="GObject.Object" glib:type-struct="ImageContentClass" final="1" glib:type-name="StImageContent" glib:get-type="st_image_content_get_type">
+      <implements name="Clutter.Content"/>
+      <implements name="Gio.Icon"/>
+      <implements name="Gio.LoadableIcon"/>
+      <function name="new_with_preferred_size" c:identifier="st_image_content_new_with_preferred_size">
+        <return-value transfer-ownership="full">
+          <type name="Clutter.Content"/>
+        </return-value>
+        <parameters>
+          <parameter name="width" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="get_preferred_height" c:identifier="st_image_content_get_preferred_height" glib:get-property="preferred-height">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_preferred_width" c:identifier="st_image_content_get_preferred_width" glib:get-property="preferred-width">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_texture" c:identifier="st_image_content_get_texture">
+        <return-value transfer-ownership="none">
+          <type name="Cogl.Texture"/>
+        </return-value>
+      </method>
+      <method name="set_bytes" c:identifier="st_image_content_set_bytes" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="cogl_context" transfer-ownership="none">
+            <type name="Cogl.Context"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <type name="GLib.Bytes"/>
+          </parameter>
+          <parameter name="pixel_format" transfer-ownership="none">
+            <type name="Cogl.PixelFormat"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+          <parameter name="row_stride" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_data" c:identifier="st_image_content_set_data" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="cogl_context" transfer-ownership="none">
+            <type name="Cogl.Context"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <array>
+              <type name="guint8"/>
+            </array>
+          </parameter>
+          <parameter name="pixel_format" transfer-ownership="none">
+            <type name="Cogl.PixelFormat"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+          <parameter name="row_stride" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_preferred_height" c:identifier="st_image_content_set_preferred_height">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="height" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_preferred_width" c:identifier="st_image_content_set_preferred_width">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="width" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="preferred-height" writable="1" construct-only="1" getter="get_preferred_height" transfer-ownership="none">
+        <type name="gint32"/>
+      </property>
+      <property name="preferred-width" writable="1" construct-only="1" getter="get_preferred_width" transfer-ownership="none">
+        <type name="gint32"/>
+      </property>
+    </class>
+    <record name="ImageContentClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="Label" parent="Widget" glib:type-struct="LabelClass" glib:type-name="StLabel" glib:get-type="st_label_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <field name="parent_instance">
+        <type name="Widget"/>
+      </field>
+      <field name="priv">
+        <type name="LabelPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="st_label_new">
+        <return-value transfer-ownership="none">
+          <type name="Widget"/>
+        </return-value>
+        <parameters>
+          <parameter name="text" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_clutter_text" c:identifier="st_label_get_clutter_text" glib:get-property="clutter-text">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Text"/>
+        </return-value>
+      </method>
+      <method name="get_text" c:identifier="st_label_get_text" glib:get-property="text">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="set_text" c:identifier="st_label_set_text" glib:set-property="text">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="text" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="clutter-text" getter="get_clutter_text" transfer-ownership="none">
+        <type name="Clutter.Text"/>
+      </property>
+      <property name="text" writable="1" getter="get_text" setter="set_text" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+    </class>
+    <record name="LabelClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="WidgetClass"/>
+      </field>
+    </record>
+    <record name="LabelPrivate"/>
+    <class name="PasswordEntry" parent="Entry" glib:type-struct="PasswordEntryClass" glib:type-name="StPasswordEntry" glib:get-type="st_password_entry_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <constructor name="new" c:identifier="st_password_entry_new">
+        <return-value transfer-ownership="none">
+          <type name="Entry"/>
+        </return-value>
+      </constructor>
+      <method name="get_password_visible" c:identifier="st_password_entry_get_password_visible" glib:get-property="password-visible">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_show_peek_icon" c:identifier="st_password_entry_get_show_peek_icon" glib:get-property="show-peek-icon">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_password_visible" c:identifier="st_password_entry_set_password_visible" glib:set-property="password-visible">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_peek_icon" c:identifier="st_password_entry_set_show_peek_icon" glib:set-property="show-peek-icon">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="password-visible" writable="1" getter="get_password_visible" setter="set_password_visible" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="show-peek-icon" writable="1" getter="get_show_peek_icon" setter="set_show_peek_icon" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+    </class>
+    <record name="PasswordEntryClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="EntryClass"/>
+      </field>
+    </record>
+    <enumeration name="PolicyType" glib:type-name="StPolicyType" glib:get-type="st_policy_type_get_type">
+      <member name="always" value="0">
+        <attribute name="c:identifier" value="ST_POLICY_ALWAYS"/>
+      </member>
+      <member name="automatic" value="1">
+        <attribute name="c:identifier" value="ST_POLICY_AUTOMATIC"/>
+      </member>
+      <member name="never" value="2">
+        <attribute name="c:identifier" value="ST_POLICY_NEVER"/>
+      </member>
+      <member name="external" value="3">
+        <attribute name="c:identifier" value="ST_POLICY_EXTERNAL"/>
+      </member>
+    </enumeration>
+    <class name="ScrollBar" parent="Widget" glib:type-struct="ScrollBarClass" glib:type-name="StScrollBar" glib:get-type="st_scroll_bar_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <field name="parent_instance">
+        <type name="Widget"/>
+      </field>
+      <constructor name="new" c:identifier="st_scroll_bar_new">
+        <return-value transfer-ownership="none">
+          <type name="Widget"/>
+        </return-value>
+        <parameters>
+          <parameter name="adjustment" transfer-ownership="none">
+            <type name="Adjustment"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_adjustment" c:identifier="st_scroll_bar_get_adjustment" glib:get-property="adjustment">
+        <return-value transfer-ownership="none">
+          <type name="Adjustment"/>
+        </return-value>
+      </method>
+      <method name="get_orientation" c:identifier="st_scroll_bar_get_orientation" glib:get-property="orientation">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Orientation"/>
+        </return-value>
+      </method>
+      <method name="set_adjustment" c:identifier="st_scroll_bar_set_adjustment" glib:set-property="adjustment">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="adjustment" transfer-ownership="none">
+            <type name="Adjustment"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_orientation" c:identifier="st_scroll_bar_set_orientation" glib:set-property="orientation">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="orientation" transfer-ownership="none">
+            <type name="Clutter.Orientation"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="adjustment" writable="1" getter="get_adjustment" setter="set_adjustment" transfer-ownership="none">
+        <type name="Adjustment"/>
+      </property>
+      <property name="orientation" writable="1" getter="get_orientation" setter="set_orientation" transfer-ownership="none">
+        <type name="Clutter.Orientation"/>
+      </property>
+      <glib:signal name="scroll-start" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="scroll-stop" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <virtual-method name="scroll_start" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="scroll_stop" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+    </class>
+    <record name="ScrollBarClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="WidgetClass"/>
+      </field>
+      <field name="scroll_start">
+        <callback name="scroll_start">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="bar" transfer-ownership="none">
+              <type name="ScrollBar"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="scroll_stop">
+        <callback name="scroll_stop">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="bar" transfer-ownership="none">
+              <type name="ScrollBar"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="ScrollView" parent="Widget" glib:type-struct="ScrollViewClass" glib:type-name="StScrollView" glib:get-type="st_scroll_view_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <field name="parent_instance">
+        <type name="Widget"/>
+      </field>
+      <constructor name="new" c:identifier="st_scroll_view_new">
+        <return-value transfer-ownership="full">
+          <type name="Widget"/>
+        </return-value>
+      </constructor>
+      <method name="get_child" c:identifier="st_scroll_view_get_child" glib:get-property="child">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Scrollable"/>
+        </return-value>
+      </method>
+      <method name="get_column_size" c:identifier="st_scroll_view_get_column_size">
+        <return-value transfer-ownership="none">
+          <type name="gfloat"/>
+        </return-value>
+      </method>
+      <method name="get_hadjustment" c:identifier="st_scroll_view_get_hadjustment" glib:get-property="hadjustment">
+        <return-value transfer-ownership="none">
+          <type name="Adjustment"/>
+        </return-value>
+      </method>
+      <method name="get_hscrollbar_visible" c:identifier="st_scroll_view_get_hscrollbar_visible" glib:get-property="hscrollbar-visible">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_mouse_scrolling" c:identifier="st_scroll_view_get_mouse_scrolling" glib:get-property="enable-mouse-scrolling">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_overlay_scrollbars" c:identifier="st_scroll_view_get_overlay_scrollbars" glib:get-property="overlay-scrollbars">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_row_size" c:identifier="st_scroll_view_get_row_size">
+        <return-value transfer-ownership="none">
+          <type name="gfloat"/>
+        </return-value>
+      </method>
+      <method name="get_vadjustment" c:identifier="st_scroll_view_get_vadjustment" glib:get-property="vadjustment">
+        <return-value transfer-ownership="none">
+          <type name="Adjustment"/>
+        </return-value>
+      </method>
+      <method name="get_vscrollbar_visible" c:identifier="st_scroll_view_get_vscrollbar_visible" glib:get-property="vscrollbar-visible">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_child" c:identifier="st_scroll_view_set_child" glib:set-property="child">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="child" transfer-ownership="none" allow-none="1">
+            <type name="Scrollable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_column_size" c:identifier="st_scroll_view_set_column_size">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="column_size" transfer-ownership="none">
+            <type name="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_mouse_scrolling" c:identifier="st_scroll_view_set_mouse_scrolling" glib:set-property="enable-mouse-scrolling">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="enabled" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_overlay_scrollbars" c:identifier="st_scroll_view_set_overlay_scrollbars" glib:set-property="overlay-scrollbars">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="enabled" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_policy" c:identifier="st_scroll_view_set_policy">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="hscroll" transfer-ownership="none">
+            <type name="PolicyType"/>
+          </parameter>
+          <parameter name="vscroll" transfer-ownership="none">
+            <type name="PolicyType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_row_size" c:identifier="st_scroll_view_set_row_size">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="row_size" transfer-ownership="none">
+            <type name="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_fade_effect" c:identifier="st_scroll_view_update_fade_effect">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="fade_margins" transfer-ownership="none">
+            <type name="Clutter.Margin"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="child" writable="1" getter="get_child" setter="set_child" transfer-ownership="none">
+        <type name="Scrollable"/>
+      </property>
+      <property name="enable-mouse-scrolling" writable="1" getter="get_mouse_scrolling" setter="set_mouse_scrolling" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="hadjustment" getter="get_hadjustment" transfer-ownership="none">
+        <type name="Adjustment"/>
+      </property>
+      <property name="hscrollbar-policy" writable="1" transfer-ownership="none">
+        <type name="PolicyType"/>
+      </property>
+      <property name="hscrollbar-visible" getter="get_hscrollbar_visible" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="overlay-scrollbars" writable="1" getter="get_overlay_scrollbars" setter="set_overlay_scrollbars" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="vadjustment" getter="get_vadjustment" transfer-ownership="none">
+        <type name="Adjustment"/>
+      </property>
+      <property name="vscrollbar-policy" writable="1" transfer-ownership="none">
+        <type name="PolicyType"/>
+      </property>
+      <property name="vscrollbar-visible" getter="get_vscrollbar_visible" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+    </class>
+    <record name="ScrollViewClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="WidgetClass"/>
+      </field>
+    </record>
+    <class name="ScrollViewFade" parent="Clutter.ShaderEffect" glib:type-struct="ScrollViewFadeClass" glib:type-name="StScrollViewFade" glib:get-type="st_scroll_view_fade_get_type">
+      <constructor name="new" c:identifier="st_scroll_view_fade_new">
+        <return-value transfer-ownership="full">
+          <type name="Clutter.Effect"/>
+        </return-value>
+      </constructor>
+      <method name="get_extend_fade_area" c:identifier="st_scroll_view_fade_get_extend_fade_area" glib:get-property="extend-fade-area">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_fade_edges" c:identifier="st_scroll_view_fade_get_fade_edges" glib:get-property="fade-edges">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_fade_margins" c:identifier="st_scroll_view_fade_get_fade_margins" glib:get-property="fade-margins">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Margin"/>
+        </return-value>
+      </method>
+      <method name="set_extend_fade_area" c:identifier="st_scroll_view_fade_set_extend_fade_area" glib:set-property="extend-fade-area">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="extend_fade_area" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_fade_edges" c:identifier="st_scroll_view_fade_set_fade_edges" glib:set-property="fade-edges">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="fade_edges" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_fade_margins" c:identifier="st_scroll_view_fade_set_fade_margins" glib:set-property="fade-margins">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="margins" transfer-ownership="none">
+            <type name="Clutter.Margin"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="extend-fade-area" writable="1" getter="get_extend_fade_area" setter="set_extend_fade_area" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="fade-edges" writable="1" getter="get_fade_edges" setter="set_fade_edges" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="fade-margins" writable="1" getter="get_fade_margins" setter="set_fade_margins" transfer-ownership="none">
+        <type name="Clutter.Margin"/>
+      </property>
+    </class>
+    <record name="ScrollViewFadeClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Clutter.ShaderEffectClass"/>
+      </field>
+    </record>
+    <interface name="Scrollable" glib:type-name="StScrollable" glib:get-type="st_scrollable_get_type" glib:type-struct="ScrollableInterface">
+      <method name="get_adjustments" c:identifier="st_scrollable_get_adjustments">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="hadjustment" transfer-ownership="none">
+            <type name="Adjustment"/>
+          </parameter>
+          <parameter name="vadjustment" transfer-ownership="none">
+            <type name="Adjustment"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_adjustments" c:identifier="st_scrollable_set_adjustments">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="hadjustment" transfer-ownership="none">
+            <type name="Adjustment"/>
+          </parameter>
+          <parameter name="vadjustment" transfer-ownership="none">
+            <type name="Adjustment"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="hadjustment" writable="1" transfer-ownership="none">
+        <type name="Adjustment"/>
+      </property>
+      <property name="vadjustment" writable="1" transfer-ownership="none">
+        <type name="Adjustment"/>
+      </property>
+      <virtual-method name="get_adjustments" offset="65535" invoker="get_adjustments">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="hadjustment" transfer-ownership="none">
+            <type name="Adjustment"/>
+          </parameter>
+          <parameter name="vadjustment" transfer-ownership="none">
+            <type name="Adjustment"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_adjustments" offset="65535" invoker="set_adjustments">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="hadjustment" transfer-ownership="none">
+            <type name="Adjustment"/>
+          </parameter>
+          <parameter name="vadjustment" transfer-ownership="none">
+            <type name="Adjustment"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+    </interface>
+    <record name="ScrollableInterface" glib:is-gtype-struct="1">
+      <field name="parent">
+        <type name="GObject.TypeInterface"/>
+      </field>
+      <field name="set_adjustments">
+        <callback name="set_adjustments">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="scrollable" transfer-ownership="none">
+              <type name="Scrollable"/>
+            </parameter>
+            <parameter name="hadjustment" transfer-ownership="none">
+              <type name="Adjustment"/>
+            </parameter>
+            <parameter name="vadjustment" transfer-ownership="none">
+              <type name="Adjustment"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_adjustments">
+        <callback name="get_adjustments">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="scrollable" transfer-ownership="none">
+              <type name="Scrollable"/>
+            </parameter>
+            <parameter name="hadjustment" transfer-ownership="none">
+              <type name="Adjustment"/>
+            </parameter>
+            <parameter name="vadjustment" transfer-ownership="none">
+              <type name="Adjustment"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="Settings" parent="GObject.Object" glib:type-struct="SettingsClass" glib:type-name="StSettings" glib:get-type="st_settings_get_type">
+      <function name="get" c:identifier="st_settings_get">
+        <return-value transfer-ownership="none">
+          <type name="Settings"/>
+        </return-value>
+      </function>
+      <method name="get_accent_color" c:identifier="st_settings_get_accent_color" glib:get-property="accent-color">
+        <return-value transfer-ownership="none">
+          <type name="SystemAccentColor"/>
+        </return-value>
+      </method>
+      <method name="get_color_scheme" c:identifier="st_settings_get_color_scheme" glib:get-property="color-scheme">
+        <return-value transfer-ownership="none">
+          <type name="SystemColorScheme"/>
+        </return-value>
+      </method>
+      <method name="get_disable_show_password" c:identifier="st_settings_get_disable_show_password" glib:get-property="disable-show-password">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_drag_threshold" c:identifier="st_settings_get_drag_threshold" glib:get-property="drag-threshold">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_enable_animations" c:identifier="st_settings_get_enable_animations" glib:get-property="enable-animations">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_font_name" c:identifier="st_settings_get_font_name" glib:get-property="font-name">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_gtk_icon_theme" c:identifier="st_settings_get_gtk_icon_theme" glib:get-property="gtk-icon-theme">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_high_contrast" c:identifier="st_settings_get_high_contrast" glib:get-property="high-contrast">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_magnifier_active" c:identifier="st_settings_get_magnifier_active" glib:get-property="magnifier-active">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_primary_paste" c:identifier="st_settings_get_primary_paste" glib:get-property="primary-paste">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_slow_down_factor" c:identifier="st_settings_get_slow_down_factor" glib:get-property="slow-down-factor">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </method>
+      <method name="inhibit_animations" c:identifier="st_settings_inhibit_animations">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="set_slow_down_factor" c:identifier="st_settings_set_slow_down_factor" glib:set-property="slow-down-factor">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="factor" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="uninhibit_animations" c:identifier="st_settings_uninhibit_animations">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <property name="accent-color" getter="get_accent_color" transfer-ownership="none">
+        <type name="SystemAccentColor"/>
+      </property>
+      <property name="color-scheme" getter="get_color_scheme" transfer-ownership="none">
+        <type name="SystemColorScheme"/>
+      </property>
+      <property name="disable-show-password" getter="get_disable_show_password" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="drag-threshold" getter="get_drag_threshold" transfer-ownership="none">
+        <type name="gint32"/>
+      </property>
+      <property name="enable-animations" getter="get_enable_animations" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="font-name" getter="get_font_name" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="gtk-icon-theme" getter="get_gtk_icon_theme" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="high-contrast" getter="get_high_contrast" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="magnifier-active" getter="get_magnifier_active" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="primary-paste" getter="get_primary_paste" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="slow-down-factor" writable="1" getter="get_slow_down_factor" setter="set_slow_down_factor" transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+    </class>
+    <record name="SettingsClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <record name="Shadow" glib:type-name="StShadow" glib:get-type="st_shadow_get_type">
+      <field name="color" writable="1">
+        <type name="Cogl.Color"/>
+      </field>
+      <field name="xoffset" writable="1">
+        <type name="gdouble"/>
+      </field>
+      <field name="yoffset" writable="1">
+        <type name="gdouble"/>
+      </field>
+      <field name="blur" writable="1">
+        <type name="gdouble"/>
+      </field>
+      <field name="spread" writable="1">
+        <type name="gdouble"/>
+      </field>
+      <field name="inset" writable="1">
+        <type name="gboolean"/>
+      </field>
+      <constructor name="new" c:identifier="st_shadow_new">
+        <return-value transfer-ownership="full">
+          <type name="Shadow"/>
+        </return-value>
+        <parameters>
+          <parameter name="color" transfer-ownership="none">
+            <type name="Cogl.Color"/>
+          </parameter>
+          <parameter name="xoffset" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="yoffset" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="blur" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="spread" transfer-ownership="none">
+            <type name="gdouble"/>
+          </parameter>
+          <parameter name="inset" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="equal" c:identifier="st_shadow_equal">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="other" transfer-ownership="none">
+            <type name="Shadow"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_box" c:identifier="st_shadow_get_box">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="actor_box" transfer-ownership="none">
+            <type name="Clutter.ActorBox"/>
+          </parameter>
+          <parameter name="shadow_box" transfer-ownership="none">
+            <type name="Clutter.ActorBox"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="st_shadow_ref">
+        <return-value transfer-ownership="full">
+          <type name="Shadow"/>
+        </return-value>
+      </method>
+      <method name="unref" c:identifier="st_shadow_unref">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+    </record>
+    <record name="ShadowHelper" glib:type-name="StShadowHelper" glib:get-type="st_shadow_helper_get_type">
+      <constructor name="new" c:identifier="st_shadow_helper_new">
+        <return-value transfer-ownership="full">
+          <type name="ShadowHelper"/>
+        </return-value>
+        <parameters>
+          <parameter name="shadow" transfer-ownership="none">
+            <type name="Shadow"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="copy" c:identifier="st_shadow_helper_copy">
+        <return-value transfer-ownership="full">
+          <type name="ShadowHelper"/>
+        </return-value>
+      </method>
+      <method name="free" c:identifier="st_shadow_helper_free">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="paint" c:identifier="st_shadow_helper_paint">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="node" transfer-ownership="none">
+            <type name="Clutter.PaintNode"/>
+          </parameter>
+          <parameter name="actor_box" transfer-ownership="none">
+            <type name="Clutter.ActorBox"/>
+          </parameter>
+          <parameter name="paint_opacity" transfer-ownership="none">
+            <type name="guint8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update" c:identifier="st_shadow_helper_update">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="source" transfer-ownership="none">
+            <type name="Clutter.Actor"/>
+          </parameter>
+          <parameter name="paint_context" transfer-ownership="none">
+            <type name="Clutter.PaintContext"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="Side" glib:type-name="StSide" glib:get-type="st_side_get_type">
+      <member name="top" value="0">
+        <attribute name="c:identifier" value="ST_SIDE_TOP"/>
+      </member>
+      <member name="right" value="1">
+        <attribute name="c:identifier" value="ST_SIDE_RIGHT"/>
+      </member>
+      <member name="bottom" value="2">
+        <attribute name="c:identifier" value="ST_SIDE_BOTTOM"/>
+      </member>
+      <member name="left" value="3">
+        <attribute name="c:identifier" value="ST_SIDE_LEFT"/>
+      </member>
+    </enumeration>
+    <class name="SpinnerContent" parent="GObject.Object" glib:type-struct="SpinnerContentClass" final="1" glib:type-name="StSpinnerContent" glib:get-type="st_spinner_content_get_type">
+      <implements name="Clutter.Content"/>
+      <function name="new" c:identifier="st_spinner_content_new">
+        <return-value transfer-ownership="full">
+          <type name="Clutter.Content"/>
+        </return-value>
+      </function>
+    </class>
+    <record name="SpinnerContentClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="SystemAccentColor" glib:type-name="StSystemAccentColor" glib:get-type="st_system_accent_color_get_type">
+      <member name="blue" value="0">
+        <attribute name="c:identifier" value="ST_SYSTEM_ACCENT_COLOR_BLUE"/>
+      </member>
+      <member name="teal" value="1">
+        <attribute name="c:identifier" value="ST_SYSTEM_ACCENT_COLOR_TEAL"/>
+      </member>
+      <member name="green" value="2">
+        <attribute name="c:identifier" value="ST_SYSTEM_ACCENT_COLOR_GREEN"/>
+      </member>
+      <member name="yellow" value="3">
+        <attribute name="c:identifier" value="ST_SYSTEM_ACCENT_COLOR_YELLOW"/>
+      </member>
+      <member name="orange" value="4">
+        <attribute name="c:identifier" value="ST_SYSTEM_ACCENT_COLOR_ORANGE"/>
+      </member>
+      <member name="red" value="5">
+        <attribute name="c:identifier" value="ST_SYSTEM_ACCENT_COLOR_RED"/>
+      </member>
+      <member name="pink" value="6">
+        <attribute name="c:identifier" value="ST_SYSTEM_ACCENT_COLOR_PINK"/>
+      </member>
+      <member name="purple" value="7">
+        <attribute name="c:identifier" value="ST_SYSTEM_ACCENT_COLOR_PURPLE"/>
+      </member>
+      <member name="slate" value="8">
+        <attribute name="c:identifier" value="ST_SYSTEM_ACCENT_COLOR_SLATE"/>
+      </member>
+    </enumeration>
+    <enumeration name="SystemColorScheme" glib:type-name="StSystemColorScheme" glib:get-type="st_system_color_scheme_get_type">
+      <member name="default" value="0">
+        <attribute name="c:identifier" value="ST_SYSTEM_COLOR_SCHEME_DEFAULT"/>
+      </member>
+      <member name="prefer_dark" value="1">
+        <attribute name="c:identifier" value="ST_SYSTEM_COLOR_SCHEME_PREFER_DARK"/>
+      </member>
+      <member name="prefer_light" value="2">
+        <attribute name="c:identifier" value="ST_SYSTEM_COLOR_SCHEME_PREFER_LIGHT"/>
+      </member>
+    </enumeration>
+    <enumeration name="TextAlign" glib:type-name="StTextAlign" glib:get-type="st_text_align_get_type">
+      <member name="left" value="0">
+        <attribute name="c:identifier" value="ST_TEXT_ALIGN_LEFT"/>
+      </member>
+      <member name="center" value="1">
+        <attribute name="c:identifier" value="ST_TEXT_ALIGN_CENTER"/>
+      </member>
+      <member name="right" value="2">
+        <attribute name="c:identifier" value="ST_TEXT_ALIGN_RIGHT"/>
+      </member>
+      <member name="justify" value="3">
+        <attribute name="c:identifier" value="ST_TEXT_ALIGN_JUSTIFY"/>
+      </member>
+    </enumeration>
+    <bitfield name="TextDecoration" glib:type-name="StTextDecoration" glib:get-type="st_text_decoration_get_type">
+      <member name="underline" value="1">
+        <attribute name="c:identifier" value="ST_TEXT_DECORATION_UNDERLINE"/>
+      </member>
+      <member name="overline" value="2">
+        <attribute name="c:identifier" value="ST_TEXT_DECORATION_OVERLINE"/>
+      </member>
+      <member name="line_through" value="4">
+        <attribute name="c:identifier" value="ST_TEXT_DECORATION_LINE_THROUGH"/>
+      </member>
+      <member name="blink" value="8">
+        <attribute name="c:identifier" value="ST_TEXT_DECORATION_BLINK"/>
+      </member>
+    </bitfield>
+    <class name="TextureCache" parent="GObject.Object" glib:type-struct="TextureCacheClass" final="1" glib:type-name="StTextureCache" glib:get-type="st_texture_cache_get_type">
+      <function name="get_default" c:identifier="st_texture_cache_get_default">
+        <return-value transfer-ownership="none">
+          <type name="TextureCache"/>
+        </return-value>
+      </function>
+      <method name="load_file_async" c:identifier="st_texture_cache_load_file_async">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Actor"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File"/>
+          </parameter>
+          <parameter name="available_width" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="available_height" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="paint_scale" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="resource_scale" transfer-ownership="none">
+            <type name="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_file_to_cairo_surface" c:identifier="st_texture_cache_load_file_to_cairo_surface">
+        <return-value transfer-ownership="full">
+          <type name="cairo.Surface"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File"/>
+          </parameter>
+          <parameter name="paint_scale" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="resource_scale" transfer-ownership="none">
+            <type name="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_gicon" c:identifier="st_texture_cache_load_gicon">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Clutter.Actor"/>
+        </return-value>
+        <parameters>
+          <parameter name="theme_node" transfer-ownership="none" allow-none="1">
+            <type name="ThemeNode"/>
+          </parameter>
+          <parameter name="icon" transfer-ownership="none">
+            <type name="Gio.Icon"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="paint_scale" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="resource_scale" transfer-ownership="none">
+            <type name="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="rescan_icon_theme" c:identifier="st_texture_cache_rescan_icon_theme">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <glib:signal name="icon-theme-changed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="texture-file-changed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="TextureCacheClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="TextureCachePolicy" glib:type-name="StTextureCachePolicy" glib:get-type="st_texture_cache_policy_get_type">
+      <member name="none" value="0">
+        <attribute name="c:identifier" value="ST_TEXTURE_CACHE_POLICY_NONE"/>
+      </member>
+      <member name="forever" value="1">
+        <attribute name="c:identifier" value="ST_TEXTURE_CACHE_POLICY_FOREVER"/>
+      </member>
+    </enumeration>
+    <class name="Theme" parent="GObject.Object" glib:type-struct="ThemeClass" glib:type-name="StTheme" glib:get-type="st_theme_get_type">
+      <constructor name="new" c:identifier="st_theme_new">
+        <return-value transfer-ownership="full">
+          <type name="Theme"/>
+        </return-value>
+        <parameters>
+          <parameter name="application_stylesheet" transfer-ownership="none">
+            <type name="Gio.File"/>
+          </parameter>
+          <parameter name="theme_stylesheet" transfer-ownership="none">
+            <type name="Gio.File"/>
+          </parameter>
+          <parameter name="default_stylesheet" transfer-ownership="none">
+            <type name="Gio.File"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_application_stylesheet" c:identifier="st_theme_get_application_stylesheet" glib:get-property="application-stylesheet">
+        <return-value transfer-ownership="none">
+          <type name="Gio.File"/>
+        </return-value>
+      </method>
+      <method name="get_custom_stylesheets" c:identifier="st_theme_get_custom_stylesheets">
+        <return-value transfer-ownership="full">
+          <type name="GLib.SList">
+            <type name="Gio.File"/>
+          </type>
+        </return-value>
+      </method>
+      <method name="get_default_stylesheet" c:identifier="st_theme_get_default_stylesheet" glib:get-property="default-stylesheet">
+        <return-value transfer-ownership="none">
+          <type name="Gio.File"/>
+        </return-value>
+      </method>
+      <method name="get_theme_stylesheet" c:identifier="st_theme_get_theme_stylesheet" glib:get-property="theme-stylesheet">
+        <return-value transfer-ownership="none">
+          <type name="Gio.File"/>
+        </return-value>
+      </method>
+      <method name="load_stylesheet" c:identifier="st_theme_load_stylesheet" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unload_stylesheet" c:identifier="st_theme_unload_stylesheet">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="application-stylesheet" writable="1" construct-only="1" getter="get_application_stylesheet" transfer-ownership="none">
+        <type name="Gio.File"/>
+      </property>
+      <property name="default-stylesheet" writable="1" construct-only="1" getter="get_default_stylesheet" transfer-ownership="none">
+        <type name="Gio.File"/>
+      </property>
+      <property name="theme-stylesheet" writable="1" construct-only="1" getter="get_theme_stylesheet" transfer-ownership="none">
+        <type name="Gio.File"/>
+      </property>
+      <glib:signal name="custom-stylesheets-changed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="ThemeClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="ThemeContext" parent="GObject.Object" glib:type-struct="ThemeContextClass" glib:type-name="StThemeContext" glib:get-type="st_theme_context_get_type">
+      <function name="get_for_stage" c:identifier="st_theme_context_get_for_stage">
+        <return-value transfer-ownership="none">
+          <type name="ThemeContext"/>
+        </return-value>
+        <parameters>
+          <parameter name="stage" transfer-ownership="none">
+            <type name="Clutter.Stage"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="get_accent_color" c:identifier="st_theme_context_get_accent_color">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="color" transfer-ownership="none" direction="out" caller-allocates="1" allow-none="1">
+            <type name="Cogl.Color"/>
+          </parameter>
+          <parameter name="fg_color" transfer-ownership="none" direction="out" caller-allocates="1" allow-none="1">
+            <type name="Cogl.Color"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_font" c:identifier="st_theme_context_get_font">
+        <return-value transfer-ownership="none">
+          <type name="Pango.FontDescription"/>
+        </return-value>
+      </method>
+      <method name="get_resolution" c:identifier="st_theme_context_get_resolution">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </method>
+      <method name="get_root_node" c:identifier="st_theme_context_get_root_node">
+        <return-value transfer-ownership="none">
+          <type name="ThemeNode"/>
+        </return-value>
+      </method>
+      <method name="get_scale_factor" c:identifier="st_theme_context_get_scale_factor" glib:get-property="scale-factor">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_theme" c:identifier="st_theme_context_get_theme">
+        <return-value transfer-ownership="none">
+          <type name="Theme"/>
+        </return-value>
+      </method>
+      <method name="intern_node" c:identifier="st_theme_context_intern_node">
+        <return-value transfer-ownership="none">
+          <type name="ThemeNode"/>
+        </return-value>
+        <parameters>
+          <parameter name="node" transfer-ownership="none">
+            <type name="ThemeNode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_font" c:identifier="st_theme_context_set_font">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="font" transfer-ownership="none">
+            <type name="Pango.FontDescription"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_scale_factor" c:identifier="st_theme_context_set_scale_factor" glib:set-property="scale-factor">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="factor" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_theme" c:identifier="st_theme_context_set_theme">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="theme" transfer-ownership="none">
+            <type name="Theme"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="scale-factor" writable="1" getter="get_scale_factor" setter="set_scale_factor" transfer-ownership="none">
+        <type name="gint32"/>
+      </property>
+      <glib:signal name="changed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="ThemeContextClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="ThemeNode" parent="GObject.Object" glib:type-struct="ThemeNodeClass" glib:type-name="StThemeNode" glib:get-type="st_theme_node_get_type">
+      <constructor name="new" c:identifier="st_theme_node_new">
+        <return-value transfer-ownership="full">
+          <type name="ThemeNode"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <type name="ThemeContext"/>
+          </parameter>
+          <parameter name="parent_node" transfer-ownership="none" allow-none="1">
+            <type name="ThemeNode"/>
+          </parameter>
+          <parameter name="theme" transfer-ownership="none" allow-none="1">
+            <type name="Theme"/>
+          </parameter>
+          <parameter name="element_type" transfer-ownership="none">
+            <type name="GType"/>
+          </parameter>
+          <parameter name="element_id" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="element_class" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="pseudo_class" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="inline_style" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="adjust_for_height" c:identifier="st_theme_node_adjust_for_height">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="for_height" transfer-ownership="full" direction="inout">
+            <type name="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="adjust_for_width" c:identifier="st_theme_node_adjust_for_width">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="for_width" transfer-ownership="full" direction="inout">
+            <type name="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="adjust_preferred_height" c:identifier="st_theme_node_adjust_preferred_height">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="min_height_p" transfer-ownership="full" direction="inout" allow-none="1" optional="1">
+            <type name="gfloat"/>
+          </parameter>
+          <parameter name="natural_height_p" transfer-ownership="full" direction="inout">
+            <type name="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="adjust_preferred_width" c:identifier="st_theme_node_adjust_preferred_width">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="min_width_p" transfer-ownership="full" direction="inout" allow-none="1" optional="1">
+            <type name="gfloat"/>
+          </parameter>
+          <parameter name="natural_width_p" transfer-ownership="full" direction="inout">
+            <type name="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="equal" c:identifier="st_theme_node_equal">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="node_b" transfer-ownership="none">
+            <type name="ThemeNode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="geometry_equal" c:identifier="st_theme_node_geometry_equal">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="other" transfer-ownership="none">
+            <type name="ThemeNode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_background_color" c:identifier="st_theme_node_get_background_color">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="color" transfer-ownership="none" direction="out" caller-allocates="1">
+            <type name="Cogl.Color"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_background_gradient" c:identifier="st_theme_node_get_background_gradient">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="full" direction="out" caller-allocates="0">
+            <type name="GradientType"/>
+          </parameter>
+          <parameter name="start" transfer-ownership="none" direction="out" caller-allocates="1">
+            <type name="Cogl.Color"/>
+          </parameter>
+          <parameter name="end" transfer-ownership="none" direction="out" caller-allocates="1">
+            <type name="Cogl.Color"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_background_image" c:identifier="st_theme_node_get_background_image">
+        <return-value transfer-ownership="none">
+          <type name="Gio.File"/>
+        </return-value>
+      </method>
+      <method name="get_background_image_shadow" c:identifier="st_theme_node_get_background_image_shadow">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Shadow"/>
+        </return-value>
+      </method>
+      <method name="get_background_paint_box" c:identifier="st_theme_node_get_background_paint_box">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="allocation" transfer-ownership="none">
+            <type name="Clutter.ActorBox"/>
+          </parameter>
+          <parameter name="paint_box" transfer-ownership="none" direction="out" caller-allocates="1">
+            <type name="Clutter.ActorBox"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_border_color" c:identifier="st_theme_node_get_border_color">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="side" transfer-ownership="none">
+            <type name="Side"/>
+          </parameter>
+          <parameter name="color" transfer-ownership="none" direction="out" caller-allocates="1">
+            <type name="Cogl.Color"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_border_image" c:identifier="st_theme_node_get_border_image">
+        <return-value transfer-ownership="none">
+          <type name="BorderImage"/>
+        </return-value>
+      </method>
+      <method name="get_border_radius" c:identifier="st_theme_node_get_border_radius">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+        <parameters>
+          <parameter name="corner" transfer-ownership="none">
+            <type name="Corner"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_border_width" c:identifier="st_theme_node_get_border_width">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+        <parameters>
+          <parameter name="side" transfer-ownership="none">
+            <type name="Side"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_box_shadow" c:identifier="st_theme_node_get_box_shadow">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Shadow"/>
+        </return-value>
+      </method>
+      <method name="get_color" c:identifier="st_theme_node_get_color">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="color" transfer-ownership="none" direction="out" caller-allocates="1">
+            <type name="Cogl.Color"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_content_box" c:identifier="st_theme_node_get_content_box">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="allocation" transfer-ownership="none">
+            <type name="Clutter.ActorBox"/>
+          </parameter>
+          <parameter name="content_box" transfer-ownership="none" direction="out" caller-allocates="1">
+            <type name="Clutter.ActorBox"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_double" c:identifier="st_theme_node_get_double">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_element_classes" c:identifier="st_theme_node_get_element_classes">
+        <return-value transfer-ownership="none">
+          <array zero-terminated="1">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+      </method>
+      <method name="get_element_id" c:identifier="st_theme_node_get_element_id">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_element_type" c:identifier="st_theme_node_get_element_type">
+        <return-value transfer-ownership="none">
+          <type name="GType"/>
+        </return-value>
+      </method>
+      <method name="get_font" c:identifier="st_theme_node_get_font">
+        <return-value transfer-ownership="none">
+          <type name="Pango.FontDescription"/>
+        </return-value>
+      </method>
+      <method name="get_font_features" c:identifier="st_theme_node_get_font_features">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_foreground_color" c:identifier="st_theme_node_get_foreground_color">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="color" transfer-ownership="none" direction="out" caller-allocates="1">
+            <type name="Cogl.Color"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_height" c:identifier="st_theme_node_get_height">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_horizontal_padding" c:identifier="st_theme_node_get_horizontal_padding">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </method>
+      <method name="get_icon_colors" c:identifier="st_theme_node_get_icon_colors">
+        <return-value transfer-ownership="none">
+          <type name="IconColors"/>
+        </return-value>
+      </method>
+      <method name="get_icon_style" c:identifier="st_theme_node_get_icon_style">
+        <return-value transfer-ownership="none">
+          <type name="IconStyle"/>
+        </return-value>
+      </method>
+      <method name="get_length" c:identifier="st_theme_node_get_length">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_letter_spacing" c:identifier="st_theme_node_get_letter_spacing">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </method>
+      <method name="get_margin" c:identifier="st_theme_node_get_margin">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+        <parameters>
+          <parameter name="side" transfer-ownership="none">
+            <type name="Side"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_max_height" c:identifier="st_theme_node_get_max_height">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_max_width" c:identifier="st_theme_node_get_max_width">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_min_height" c:identifier="st_theme_node_get_min_height">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_min_width" c:identifier="st_theme_node_get_min_width">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_outline_color" c:identifier="st_theme_node_get_outline_color">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="color" transfer-ownership="none" direction="out" caller-allocates="1">
+            <type name="Cogl.Color"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_outline_width" c:identifier="st_theme_node_get_outline_width">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_padding" c:identifier="st_theme_node_get_padding">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+        <parameters>
+          <parameter name="side" transfer-ownership="none">
+            <type name="Side"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_paint_box" c:identifier="st_theme_node_get_paint_box">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="allocation" transfer-ownership="none">
+            <type name="Clutter.ActorBox"/>
+          </parameter>
+          <parameter name="paint_box" transfer-ownership="none" direction="out" caller-allocates="1">
+            <type name="Clutter.ActorBox"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_parent" c:identifier="st_theme_node_get_parent">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="ThemeNode"/>
+        </return-value>
+      </method>
+      <method name="get_pseudo_classes" c:identifier="st_theme_node_get_pseudo_classes">
+        <return-value transfer-ownership="none">
+          <array zero-terminated="1">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+      </method>
+      <method name="get_shadow" c:identifier="st_theme_node_get_shadow">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="Shadow"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_text_align" c:identifier="st_theme_node_get_text_align">
+        <return-value transfer-ownership="none">
+          <type name="TextAlign"/>
+        </return-value>
+      </method>
+      <method name="get_text_decoration" c:identifier="st_theme_node_get_text_decoration">
+        <return-value transfer-ownership="none">
+          <type name="TextDecoration"/>
+        </return-value>
+      </method>
+      <method name="get_text_shadow" c:identifier="st_theme_node_get_text_shadow">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="Shadow"/>
+        </return-value>
+      </method>
+      <method name="get_theme" c:identifier="st_theme_node_get_theme">
+        <return-value transfer-ownership="none">
+          <type name="Theme"/>
+        </return-value>
+      </method>
+      <method name="get_transition_duration" c:identifier="st_theme_node_get_transition_duration">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_url" c:identifier="st_theme_node_get_url">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="Gio.File"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_vertical_padding" c:identifier="st_theme_node_get_vertical_padding">
+        <return-value transfer-ownership="none">
+          <type name="gdouble"/>
+        </return-value>
+      </method>
+      <method name="get_width" c:identifier="st_theme_node_get_width">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="hash" c:identifier="st_theme_node_hash">
+        <return-value transfer-ownership="none">
+          <type name="guint32"/>
+        </return-value>
+      </method>
+      <method name="invalidate_background_image" c:identifier="st_theme_node_invalidate_background_image">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="invalidate_border_image" c:identifier="st_theme_node_invalidate_border_image">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="lookup_color" c:identifier="st_theme_node_lookup_color">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="inherit" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+          <parameter name="color" transfer-ownership="none" direction="out" caller-allocates="1">
+            <type name="Cogl.Color"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_double" c:identifier="st_theme_node_lookup_double">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="inherit" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="full" direction="out" caller-allocates="0">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_length" c:identifier="st_theme_node_lookup_length">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="inherit" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+          <parameter name="length" transfer-ownership="full" direction="out" caller-allocates="0">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_shadow" c:identifier="st_theme_node_lookup_shadow">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="inherit" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+          <parameter name="shadow" transfer-ownership="full" direction="out" caller-allocates="0">
+            <type name="Shadow"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_time" c:identifier="st_theme_node_lookup_time">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="inherit" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="full" direction="out" caller-allocates="0">
+            <type name="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_url" c:identifier="st_theme_node_lookup_url">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="property_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="inherit" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+          <parameter name="file" transfer-ownership="full" direction="out" caller-allocates="0">
+            <type name="Gio.File"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="paint_equal" c:identifier="st_theme_node_paint_equal">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="other" transfer-ownership="none" allow-none="1">
+            <type name="ThemeNode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="to_string" c:identifier="st_theme_node_to_string">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+    </class>
+    <record name="ThemeNodeClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <record name="ThemeNodePaintState">
+      <field name="node" writable="1">
+        <type name="ThemeNode"/>
+      </field>
+      <field name="alloc_width" writable="1">
+        <type name="gfloat"/>
+      </field>
+      <field name="alloc_height" writable="1">
+        <type name="gfloat"/>
+      </field>
+      <field name="box_shadow_width" writable="1">
+        <type name="gfloat"/>
+      </field>
+      <field name="box_shadow_height" writable="1">
+        <type name="gfloat"/>
+      </field>
+      <field name="resource_scale" writable="1">
+        <type name="gfloat"/>
+      </field>
+      <field name="box_shadow_pipeline" writable="1">
+        <type name="Cogl.Pipeline"/>
+      </field>
+      <field name="prerendered_texture" writable="1">
+        <type name="Cogl.Texture"/>
+      </field>
+      <field name="prerendered_pipeline" writable="1">
+        <type name="Cogl.Pipeline"/>
+      </field>
+      <field name="corner_pipeline" writable="1">
+        <array fixed-size="4">
+          <type name="Cogl.Pipeline"/>
+        </array>
+      </field>
+      <method name="copy" c:identifier="st_theme_node_paint_state_copy">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="other" transfer-ownership="none">
+            <type name="ThemeNodePaintState"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="st_theme_node_paint_state_free">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="init" c:identifier="st_theme_node_paint_state_init">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="invalidate" c:identifier="st_theme_node_paint_state_invalidate">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="invalidate_for_file" c:identifier="st_theme_node_paint_state_invalidate_for_file">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_node" c:identifier="st_theme_node_paint_state_set_node">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="node" transfer-ownership="none">
+            <type name="ThemeNode"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <class name="Viewport" parent="Widget" glib:type-struct="ViewportClass" glib:type-name="StViewport" glib:get-type="st_viewport_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <implements name="Scrollable"/>
+      <field name="parent_instance">
+        <type name="Widget"/>
+      </field>
+      <method name="get_clip_to_view" c:identifier="st_viewport_get_clip_to_view" glib:get-property="clip-to-view">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_clip_to_view" c:identifier="st_viewport_set_clip_to_view" glib:set-property="clip-to-view">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="clip_to_view" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="clip-to-view" writable="1" getter="get_clip_to_view" setter="set_clip_to_view" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+    </class>
+    <record name="ViewportClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="WidgetClass"/>
+      </field>
+    </record>
+    <class name="Widget" parent="Clutter.Actor" glib:type-struct="WidgetClass" glib:type-name="StWidget" glib:get-type="st_widget_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Clutter.Animatable"/>
+      <field name="parent_instance">
+        <type name="Clutter.Actor"/>
+      </field>
+      <method name="add_style_class_name" c:identifier="st_widget_add_style_class_name">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="style_class" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_style_pseudo_class" c:identifier="st_widget_add_style_pseudo_class">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="pseudo_class" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ensure_style" c:identifier="st_widget_ensure_style">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="get_can_focus" c:identifier="st_widget_get_can_focus" glib:get-property="can-focus">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_focus_chain" c:identifier="st_widget_get_focus_chain">
+        <return-value transfer-ownership="container">
+          <type name="GLib.List">
+            <type name="Clutter.Actor"/>
+          </type>
+        </return-value>
+      </method>
+      <method name="get_hover" c:identifier="st_widget_get_hover" glib:get-property="hover">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_label_actor" c:identifier="st_widget_get_label_actor" glib:get-property="label-actor">
+        <return-value transfer-ownership="none">
+          <type name="Clutter.Actor"/>
+        </return-value>
+      </method>
+      <method name="get_style" c:identifier="st_widget_get_style" glib:get-property="style">
+        <return-value transfer-ownership="none" allow-none="1">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_style_class_name" c:identifier="st_widget_get_style_class_name" glib:get-property="style-class">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_style_pseudo_class" c:identifier="st_widget_get_style_pseudo_class" glib:get-property="pseudo-class">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_theme_node" c:identifier="st_widget_get_theme_node">
+        <return-value transfer-ownership="none">
+          <type name="ThemeNode"/>
+        </return-value>
+      </method>
+      <method name="get_track_hover" c:identifier="st_widget_get_track_hover" glib:get-property="track-hover">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="has_style_class_name" c:identifier="st_widget_has_style_class_name">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="style_class" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_style_pseudo_class" c:identifier="st_widget_has_style_pseudo_class">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="pseudo_class" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="navigate_focus" c:identifier="st_widget_navigate_focus">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="from" transfer-ownership="none" allow-none="1">
+            <type name="Clutter.Actor"/>
+          </parameter>
+          <parameter name="direction" transfer-ownership="none">
+            <type name="DirectionType"/>
+          </parameter>
+          <parameter name="wrap_around" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="paint_background" c:identifier="st_widget_paint_background">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="node" transfer-ownership="none">
+            <type name="Clutter.PaintNode"/>
+          </parameter>
+          <parameter name="paint_context" transfer-ownership="none">
+            <type name="Clutter.PaintContext"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_theme_node" c:identifier="st_widget_peek_theme_node">
+        <return-value transfer-ownership="none">
+          <type name="ThemeNode"/>
+        </return-value>
+      </method>
+      <method name="popup_menu" c:identifier="st_widget_popup_menu">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="remove_style_class_name" c:identifier="st_widget_remove_style_class_name">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="style_class" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_style_pseudo_class" c:identifier="st_widget_remove_style_pseudo_class">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="pseudo_class" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_can_focus" c:identifier="st_widget_set_can_focus" glib:set-property="can-focus">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="can_focus" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_hover" c:identifier="st_widget_set_hover" glib:set-property="hover">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="hover" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_label_actor" c:identifier="st_widget_set_label_actor" glib:set-property="label-actor">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="label" transfer-ownership="none">
+            <type name="Clutter.Actor"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_style" c:identifier="st_widget_set_style" glib:set-property="style">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="style" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_style_class_name" c:identifier="st_widget_set_style_class_name" glib:set-property="style-class">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="style_class_list" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_style_pseudo_class" c:identifier="st_widget_set_style_pseudo_class" glib:set-property="pseudo-class">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="pseudo_class_list" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_track_hover" c:identifier="st_widget_set_track_hover" glib:set-property="track-hover">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="track_hover" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="style_changed" c:identifier="st_widget_style_changed">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="sync_hover" c:identifier="st_widget_sync_hover">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <property name="can-focus" writable="1" getter="get_can_focus" setter="set_can_focus" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="hover" writable="1" getter="get_hover" setter="set_hover" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="label-actor" writable="1" getter="get_label_actor" setter="set_label_actor" transfer-ownership="none">
+        <type name="Clutter.Actor"/>
+      </property>
+      <property name="pseudo-class" writable="1" getter="get_style_pseudo_class" setter="set_style_pseudo_class" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="style" writable="1" getter="get_style" setter="set_style" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="style-class" writable="1" getter="get_style_class_name" setter="set_style_class_name" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="track-hover" writable="1" getter="get_track_hover" setter="set_track_hover" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <glib:signal name="popup-menu" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="style-changed" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <virtual-method name="get_focus_chain" offset="65535" invoker="get_focus_chain">
+        <return-value transfer-ownership="container">
+          <type name="GLib.List">
+            <type name="Clutter.Actor"/>
+          </type>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="navigate_focus" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="from" transfer-ownership="none" allow-none="1">
+            <type name="Clutter.Actor"/>
+          </parameter>
+          <parameter name="direction" transfer-ownership="none">
+            <type name="DirectionType"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="popup_menu" offset="65535" invoker="popup_menu">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="style_changed" offset="65535" invoker="style_changed">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+    </class>
+    <class name="WidgetAccessible" parent="Clutter.ActorAccessible" glib:type-struct="WidgetAccessibleClass" glib:type-name="StWidgetAccessible" glib:get-type="st_widget_accessible_get_type">
+      <implements name="Atk.Component"/>
+      <field name="parent_instance">
+        <type name="Clutter.ActorAccessible"/>
+      </field>
+    </class>
+    <record name="WidgetAccessibleClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Clutter.ActorAccessibleClass"/>
+      </field>
+    </record>
+    <record name="WidgetClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Clutter.ActorClass"/>
+      </field>
+      <field name="style_changed">
+        <callback name="style_changed">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Widget"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="popup_menu">
+        <callback name="popup_menu">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Widget"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="navigate_focus">
+        <callback name="navigate_focus">
+          <return-value transfer-ownership="none">
+            <type name="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Widget"/>
+            </parameter>
+            <parameter name="from" transfer-ownership="none" allow-none="1">
+              <type name="Clutter.Actor"/>
+            </parameter>
+            <parameter name="direction" transfer-ownership="none">
+              <type name="DirectionType"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_focus_chain">
+        <callback name="get_focus_chain">
+          <return-value transfer-ownership="container">
+            <type name="GLib.List">
+              <type name="Clutter.Actor"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="widget" transfer-ownership="none">
+              <type name="Widget"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function name="describe_actor" c:identifier="st_describe_actor">
+      <return-value transfer-ownership="full">
+        <type name="utf8"/>
+      </return-value>
+      <parameters>
+        <parameter name="actor" transfer-ownership="none">
+          <type name="Clutter.Actor"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="icon_theme_error_quark" c:identifier="st_icon_theme_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="guint32"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

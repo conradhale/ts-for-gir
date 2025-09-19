@@ -4518,7 +4518,7 @@ for the child with g_child_watch_add(). (Since: 1.1)</doc>
       <source-position filename="common/flatpak-version-macros.h" line="34"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="FLATPAK_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="FLATPAK_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="common/flatpak-version-macros.h"
            line="43">The micro version.</doc>

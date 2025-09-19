@@ -1,0 +1,1624 @@
+<?xml version="1.0"?>
+<repository version="1.0"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Soup" version="3.0"/>
+  <include name="Json" version="1.0"/>
+  <include name="Goa" version="1.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <namespace name="Msg" version="1" shared-library="libmsgraph-1.so.1" c:prefix="Msg">
+    <constant name="API_ENDPOINT" value="https://graph.microsoft.com/v1.0">
+      <type name="utf8"/>
+    </constant>
+    <interface name="Authorizer" glib:type-name="MsgAuthorizer" glib:get-type="msg_authorizer_get_type" glib:type-struct="AuthorizerInterface">
+      <method name="process_request" c:identifier="msg_authorizer_process_request">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <type name="Soup.Message"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="refresh_authorization" c:identifier="msg_authorizer_refresh_authorization" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <virtual-method name="process_request" offset="65535" invoker="process_request">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <type name="Soup.Message"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="refresh_authorization" offset="65535" invoker="refresh_authorization" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+    </interface>
+    <record name="AuthorizerInterface" glib:is-gtype-struct="1">
+      <field name="parent_iface">
+        <type name="GObject.TypeInterface"/>
+      </field>
+      <field name="process_request">
+        <callback name="process_request">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="iface" transfer-ownership="none">
+              <type name="Authorizer"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <type name="Soup.Message"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="refresh_authorization">
+        <callback name="refresh_authorization" throws="1">
+          <return-value transfer-ownership="none">
+            <type name="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="iface" transfer-ownership="none">
+              <type name="Authorizer"/>
+            </parameter>
+            <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+              <type name="Gio.Cancellable"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <constant name="BETA_API_ENDPOINT" value="https://graph.microsoft.com/beta">
+      <type name="utf8"/>
+    </constant>
+    <class name="Drive" parent="GObject.Object" glib:type-struct="DriveClass" glib:type-name="MsgDrive" glib:get-type="msg_drive_get_type">
+      <constructor name="new" c:identifier="msg_drive_new">
+        <return-value transfer-ownership="full">
+          <type name="Drive"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json" c:identifier="msg_drive_new_from_json" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="Drive"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Json.Object"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_created" c:identifier="msg_drive_get_created">
+        <return-value transfer-ownership="none">
+          <type name="GLib.DateTime"/>
+        </return-value>
+      </method>
+      <method name="get_drive_type" c:identifier="msg_drive_get_drive_type">
+        <return-value transfer-ownership="none">
+          <type name="DriveType"/>
+        </return-value>
+      </method>
+      <method name="get_id" c:identifier="msg_drive_get_id">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_modified" c:identifier="msg_drive_get_modified">
+        <return-value transfer-ownership="none">
+          <type name="GLib.DateTime"/>
+        </return-value>
+      </method>
+      <method name="get_name" c:identifier="msg_drive_get_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_remaining" c:identifier="msg_drive_get_remaining">
+        <return-value transfer-ownership="none">
+          <type name="guint64"/>
+        </return-value>
+      </method>
+      <method name="get_total" c:identifier="msg_drive_get_total">
+        <return-value transfer-ownership="none">
+          <type name="guint64"/>
+        </return-value>
+      </method>
+      <method name="get_used" c:identifier="msg_drive_get_used">
+        <return-value transfer-ownership="none">
+          <type name="guint64"/>
+        </return-value>
+      </method>
+    </class>
+    <record name="DriveClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="DriveItem" parent="GObject.Object" glib:type-struct="DriveItemClass" glib:type-name="MsgDriveItem" glib:get-type="msg_drive_item_get_type">
+      <field name="parent_instance">
+        <type name="GObject.Object"/>
+      </field>
+      <constructor name="new_from_json" c:identifier="msg_drive_item_new_from_json" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="DriveItem"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Json.Object"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_created" c:identifier="msg_drive_item_get_created">
+        <return-value transfer-ownership="none">
+          <type name="gint64"/>
+        </return-value>
+      </method>
+      <method name="get_drive_id" c:identifier="msg_drive_item_get_drive_id">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_etag" c:identifier="msg_drive_item_get_etag">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_id" c:identifier="msg_drive_item_get_id">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_modified" c:identifier="msg_drive_item_get_modified">
+        <return-value transfer-ownership="none">
+          <type name="gint64"/>
+        </return-value>
+      </method>
+      <method name="get_name" c:identifier="msg_drive_item_get_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_parent_id" c:identifier="msg_drive_item_get_parent_id">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_remote_drive_id" c:identifier="msg_drive_item_get_remote_drive_id">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_remote_id" c:identifier="msg_drive_item_get_remote_id">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_size" c:identifier="msg_drive_item_get_size">
+        <return-value transfer-ownership="none">
+          <type name="guint64"/>
+        </return-value>
+      </method>
+      <method name="get_user" c:identifier="msg_drive_item_get_user">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="is_shared" c:identifier="msg_drive_item_is_shared">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_id" c:identifier="msg_drive_item_set_id">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_name" c:identifier="msg_drive_item_set_name">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_parent_id" c:identifier="msg_drive_item_set_parent_id">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="parent_id" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="DriveItemClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+      <field name="padding">
+        <array fixed-size="4">
+          <type name="any"/>
+        </array>
+      </field>
+    </record>
+    <class name="DriveItemFile" parent="DriveItem" glib:type-struct="DriveItemFileClass" glib:type-name="MsgDriveItemFile" glib:get-type="msg_drive_item_file_get_type">
+      <constructor name="new" c:identifier="msg_drive_item_file_new">
+        <return-value transfer-ownership="full">
+          <type name="DriveItemFile"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json" c:identifier="msg_drive_item_file_new_from_json">
+        <return-value transfer-ownership="full">
+          <type name="DriveItemFile"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Json.Object"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_mime_type" c:identifier="msg_drive_item_file_get_mime_type">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_thumbnail_uri" c:identifier="msg_drive_item_file_get_thumbnail_uri">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+    </class>
+    <record name="DriveItemFileClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="DriveItemClass"/>
+      </field>
+    </record>
+    <class name="DriveItemFolder" parent="DriveItem" glib:type-struct="DriveItemFolderClass" glib:type-name="MsgDriveItemFolder" glib:get-type="msg_drive_item_folder_get_type">
+      <constructor name="new" c:identifier="msg_drive_item_folder_new">
+        <return-value transfer-ownership="full">
+          <type name="DriveItemFolder"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json" c:identifier="msg_drive_item_folder_new_from_json" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="DriveItemFolder"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Json.Object"/>
+          </parameter>
+        </parameters>
+      </constructor>
+    </class>
+    <record name="DriveItemFolderClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="DriveItemClass"/>
+      </field>
+    </record>
+    <class name="DriveService" parent="Service" glib:type-struct="DriveServiceClass" glib:type-name="MsgDriveService" glib:get-type="msg_drive_service_get_type">
+      <constructor name="new" c:identifier="msg_drive_service_new">
+        <return-value transfer-ownership="full">
+          <type name="DriveService"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <type name="Authorizer"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_item_to_folder" c:identifier="msg_drive_service_add_item_to_folder" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="DriveItem"/>
+        </return-value>
+        <parameters>
+          <parameter name="parent" transfer-ownership="none">
+            <type name="DriveItem"/>
+          </parameter>
+          <parameter name="item" transfer-ownership="none">
+            <type name="DriveItem"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="copy_file" c:identifier="msg_drive_service_copy_file" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="DriveItem"/>
+          </parameter>
+          <parameter name="destination" transfer-ownership="none">
+            <type name="DriveItem"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_folder" c:identifier="msg_drive_service_create_folder" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="DriveItem"/>
+        </return-value>
+        <parameters>
+          <parameter name="parent" transfer-ownership="none">
+            <type name="DriveItem"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="delete" c:identifier="msg_drive_service_delete" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="item" transfer-ownership="none">
+            <type name="DriveItem"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="download_item" c:identifier="msg_drive_service_download_item" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="Gio.InputStream"/>
+        </return-value>
+        <parameters>
+          <parameter name="item" transfer-ownership="none">
+            <type name="DriveItem"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="download_url" c:identifier="msg_drive_service_download_url" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="Gio.InputStream"/>
+        </return-value>
+        <parameters>
+          <parameter name="url" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_drives" c:identifier="msg_drive_service_get_drives" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GLib.List">
+            <type name="Drive"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_root" c:identifier="msg_drive_service_get_root" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="DriveItem"/>
+        </return-value>
+        <parameters>
+          <parameter name="drive" transfer-ownership="none">
+            <type name="Drive"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_shared_with_me" c:identifier="msg_drive_service_get_shared_with_me" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GLib.List">
+            <type name="DriveItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_children" c:identifier="msg_drive_service_list_children" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GLib.List">
+            <type name="DriveItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="item" transfer-ownership="none">
+            <type name="DriveItem"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="move_file" c:identifier="msg_drive_service_move_file" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="DriveItem"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="DriveItem"/>
+          </parameter>
+          <parameter name="destination" transfer-ownership="none">
+            <type name="DriveItem"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="rename" c:identifier="msg_drive_service_rename" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="DriveItem"/>
+        </return-value>
+        <parameters>
+          <parameter name="item" transfer-ownership="none">
+            <type name="DriveItem"/>
+          </parameter>
+          <parameter name="new_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update" c:identifier="msg_drive_service_update" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="Gio.OutputStream"/>
+        </return-value>
+        <parameters>
+          <parameter name="item" transfer-ownership="none">
+            <type name="DriveItem"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_finish" c:identifier="msg_drive_service_update_finish" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="DriveItem"/>
+        </return-value>
+        <parameters>
+          <parameter name="item" transfer-ownership="none">
+            <type name="DriveItem"/>
+          </parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <type name="Gio.OutputStream"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="DriveServiceClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="ServiceClass"/>
+      </field>
+    </record>
+    <enumeration name="DriveType">
+      <member name="personal" value="0">
+        <attribute name="c:identifier" value="MSG_DRIVE_TYPE_PERSONAL"/>
+      </member>
+      <member name="business" value="1">
+        <attribute name="c:identifier" value="MSG_DRIVE_TYPE_BUSINESS"/>
+      </member>
+      <member name="document_library" value="2">
+        <attribute name="c:identifier" value="MSG_DRIVE_TYPE_DOCUMENT_LIBRARY"/>
+      </member>
+    </enumeration>
+    <enumeration name="Error" glib:error-domain="msg-error-quark">
+      <member name="failed" value="0">
+        <attribute name="c:identifier" value="MSG_ERROR_FAILED"/>
+      </member>
+      <member name="protocol_error" value="1">
+        <attribute name="c:identifier" value="MSG_ERROR_PROTOCOL_ERROR"/>
+      </member>
+    </enumeration>
+    <class name="GoaAuthorizer" parent="GObject.Object" glib:type-struct="GoaAuthorizerClass" glib:type-name="MsgGoaAuthorizer" glib:get-type="msg_goa_authorizer_get_type">
+      <implements name="Authorizer"/>
+      <field name="parent_instance">
+        <type name="GObject.Object"/>
+      </field>
+      <field name="priv">
+        <type name="GoaAuthorizerPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="msg_goa_authorizer_new">
+        <return-value transfer-ownership="full">
+          <type name="GoaAuthorizer"/>
+        </return-value>
+        <parameters>
+          <parameter name="goa_object" transfer-ownership="none">
+            <type name="Goa.Object"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_goa_object" c:identifier="msg_goa_authorizer_get_goa_object" glib:get-property="goa-object">
+        <return-value transfer-ownership="none">
+          <type name="Goa.Object"/>
+        </return-value>
+      </method>
+      <property name="goa-object" writable="1" construct-only="1" getter="get_goa_object" transfer-ownership="none">
+        <type name="Goa.Object"/>
+      </property>
+    </class>
+    <record name="GoaAuthorizerClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <record name="GoaAuthorizerPrivate"/>
+    <class name="InputStream" parent="Gio.InputStream" glib:type-struct="InputStreamClass" glib:type-name="MsgInputStream" glib:get-type="msg_input_stream_get_type">
+      <implements name="Gio.Seekable"/>
+      <field name="parent">
+        <type name="Gio.InputStream"/>
+      </field>
+      <field name="priv">
+        <type name="InputStreamPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="msg_input_stream_new">
+        <return-value transfer-ownership="full">
+          <type name="Gio.InputStream"/>
+        </return-value>
+        <parameters>
+          <parameter name="service" transfer-ownership="none">
+            <type name="Service"/>
+          </parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="get_message" c:identifier="msg_input_stream_get_message">
+        <return-value transfer-ownership="full">
+          <type name="Soup.Message"/>
+        </return-value>
+        <parameters>
+          <parameter name="stream" transfer-ownership="none">
+            <type name="Gio.InputStream"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="send_async" c:identifier="msg_input_stream_send_async">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="stream" transfer-ownership="none">
+            <type name="Gio.InputStream"/>
+          </parameter>
+          <parameter name="io_priority" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" allow-none="1" scope="async" closure="4">
+            <type name="Gio.AsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="send_finish" c:identifier="msg_input_stream_send_finish" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="stream" transfer-ownership="none">
+            <type name="Gio.InputStream"/>
+          </parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult"/>
+          </parameter>
+        </parameters>
+      </function>
+    </class>
+    <record name="InputStreamClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Gio.InputStreamClass"/>
+      </field>
+      <field name="_g_reserved1">
+        <type name="any"/>
+      </field>
+      <field name="_g_reserved2">
+        <type name="any"/>
+      </field>
+      <field name="_g_reserved3">
+        <type name="any"/>
+      </field>
+      <field name="_g_reserved4">
+        <type name="any"/>
+      </field>
+      <field name="_g_reserved5">
+        <type name="any"/>
+      </field>
+    </record>
+    <record name="InputStreamPrivate"/>
+    <class name="MailFolder" parent="GObject.Object" glib:type-struct="MailFolderClass" glib:type-name="MsgMailFolder" glib:get-type="msg_mail_folder_get_type">
+      <constructor name="new" c:identifier="msg_mail_folder_new">
+        <return-value transfer-ownership="full">
+          <type name="MailFolder"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json" c:identifier="msg_mail_folder_new_from_json" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="MailFolder"/>
+        </return-value>
+        <parameters>
+          <parameter name="json_object" transfer-ownership="none">
+            <type name="Json.Object"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_child_folder_count" c:identifier="msg_mail_folder_get_child_folder_count">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_delta_link" c:identifier="msg_mail_folder_get_delta_link">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_display_name" c:identifier="msg_mail_folder_get_display_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_folder_type" c:identifier="msg_mail_folder_get_folder_type">
+        <return-value transfer-ownership="none">
+          <type name="MailFolderType"/>
+        </return-value>
+      </method>
+      <method name="get_id" c:identifier="msg_mail_folder_get_id">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_parent_id" c:identifier="msg_mail_folder_get_parent_id">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_total_item_count" c:identifier="msg_mail_folder_get_total_item_count">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_unread_item_count" c:identifier="msg_mail_folder_get_unread_item_count">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="set_child_folder_count" c:identifier="msg_mail_folder_set_child_folder_count">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="count" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_delta_link" c:identifier="msg_mail_folder_set_delta_link">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="delta_link" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_display_name" c:identifier="msg_mail_folder_set_display_name">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="display_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_folder_type" c:identifier="msg_mail_folder_set_folder_type">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="MailFolderType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_id" c:identifier="msg_mail_folder_set_id">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_parent_id" c:identifier="msg_mail_folder_set_parent_id">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_total_item_count" c:identifier="msg_mail_folder_set_total_item_count">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="count" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_unread_item_count" c:identifier="msg_mail_folder_set_unread_item_count">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="count" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="MailFolderClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="MailFolderType">
+      <member name="0" value="0">
+        <attribute name="c:identifier" value="MSG_MAIL_FOLDER_TYPE_0"/>
+      </member>
+      <member name="inbox" value="1">
+        <attribute name="c:identifier" value="MSG_MAIL_FOLDER_TYPE_INBOX"/>
+      </member>
+      <member name="drafts" value="2">
+        <attribute name="c:identifier" value="MSG_MAIL_FOLDER_TYPE_DRAFTS"/>
+      </member>
+      <member name="sent_items" value="3">
+        <attribute name="c:identifier" value="MSG_MAIL_FOLDER_TYPE_SENT_ITEMS"/>
+      </member>
+      <member name="junk_email" value="4">
+        <attribute name="c:identifier" value="MSG_MAIL_FOLDER_TYPE_JUNK_EMAIL"/>
+      </member>
+      <member name="deleted_items" value="5">
+        <attribute name="c:identifier" value="MSG_MAIL_FOLDER_TYPE_DELETED_ITEMS"/>
+      </member>
+      <member name="outbox" value="6">
+        <attribute name="c:identifier" value="MSG_MAIL_FOLDER_TYPE_OUTBOX"/>
+      </member>
+      <member name="archive" value="7">
+        <attribute name="c:identifier" value="MSG_MAIL_FOLDER_TYPE_ARCHIVE"/>
+      </member>
+      <member name="other" value="8">
+        <attribute name="c:identifier" value="MSG_MAIL_FOLDER_TYPE_OTHER"/>
+      </member>
+      <member name="max" value="9">
+        <attribute name="c:identifier" value="MSG_MAIL_FOLDER_TYPE_MAX"/>
+      </member>
+    </enumeration>
+    <class name="MailMessage" parent="GObject.Object" glib:type-struct="MailMessageClass" glib:type-name="MsgMailMessage" glib:get-type="msg_mail_message_get_type">
+      <constructor name="new" c:identifier="msg_mail_message_new">
+        <return-value transfer-ownership="full">
+          <type name="MailMessage"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json" c:identifier="msg_mail_message_new_from_json" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="MailMessage"/>
+        </return-value>
+        <parameters>
+          <parameter name="json_object" transfer-ownership="none">
+            <type name="Json.Object"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_body" c:identifier="msg_mail_message_get_body">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+        <parameters>
+          <parameter name="is_html" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_body_preview" c:identifier="msg_mail_message_get_body_preview">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_cc" c:identifier="msg_mail_message_get_cc">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_has_attachment" c:identifier="msg_mail_message_get_has_attachment">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_id" c:identifier="msg_mail_message_get_id">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_received_date" c:identifier="msg_mail_message_get_received_date">
+        <return-value transfer-ownership="none">
+          <type name="GLib.DateTime"/>
+        </return-value>
+      </method>
+      <method name="get_receiver" c:identifier="msg_mail_message_get_receiver">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_sender" c:identifier="msg_mail_message_get_sender">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_subject" c:identifier="msg_mail_message_get_subject">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_unread" c:identifier="msg_mail_message_get_unread">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="set_body" c:identifier="msg_mail_message_set_body">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="body" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_body_preview" c:identifier="msg_mail_message_set_body_preview">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="preview" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_cc" c:identifier="msg_mail_message_set_cc">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="cc" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_has_attachment" c:identifier="msg_mail_message_set_has_attachment">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="has_attachment" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_id" c:identifier="msg_mail_message_set_id">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_received_date" c:identifier="msg_mail_message_set_received_date">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="timestamp" transfer-ownership="none">
+            <type name="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_receiver" c:identifier="msg_mail_message_set_receiver">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="receiver" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_sender" c:identifier="msg_mail_message_set_sender">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="sender" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_subject" c:identifier="msg_mail_message_set_subject">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="subject" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_unread" c:identifier="msg_mail_message_set_unread">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="unread" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="MailMessageClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="MailService" parent="Service" glib:type-struct="MailServiceClass" glib:type-name="MsgMailService" glib:get-type="msg_mail_service_get_type">
+      <constructor name="new" c:identifier="msg_mail_service_new">
+        <return-value transfer-ownership="full">
+          <type name="MailService"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <type name="Authorizer"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="create_draft_message" c:identifier="msg_mail_service_create_draft_message" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="MailMessage"/>
+        </return-value>
+        <parameters>
+          <parameter name="mail" transfer-ownership="none">
+            <type name="MailMessage"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="delete_message" c:identifier="msg_mail_service_delete_message" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="mail" transfer-ownership="none">
+            <type name="MailMessage"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_folder_id" c:identifier="msg_mail_service_get_folder_id" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="MailFolderType"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_mail_folder" c:identifier="msg_mail_service_get_mail_folder" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="MailFolder"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="MailFolderType"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_mail_folders" c:identifier="msg_mail_service_get_mail_folders" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GLib.List">
+            <type name="MailFolder"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="delta_url" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="delta_url_out" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_messages" c:identifier="msg_mail_service_get_messages" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GLib.List">
+            <type name="MailMessage"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="folder" transfer-ownership="none">
+            <type name="MailFolder"/>
+          </parameter>
+          <parameter name="next_link" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="out_next_link" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="delta_link" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="out_delta_link" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="max_page_size" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_mime_message" c:identifier="msg_mail_service_get_mime_message" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GLib.Bytes"/>
+        </return-value>
+        <parameters>
+          <parameter name="mail" transfer-ownership="none">
+            <type name="MailMessage"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="MailServiceClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="ServiceClass"/>
+      </field>
+    </record>
+    <class name="OAuth2Authorizer" parent="GObject.Object" glib:type-struct="OAuth2AuthorizerClass" glib:type-name="MsgOAuth2Authorizer" glib:get-type="msg_oauth2_authorizer_get_type">
+      <implements name="Authorizer"/>
+      <field name="parent_instance">
+        <type name="GObject.Object"/>
+      </field>
+      <field name="priv">
+        <type name="OAuth2AuthorizerPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="msg_oauth2_authorizer_new">
+        <return-value transfer-ownership="full">
+          <type name="OAuth2Authorizer"/>
+        </return-value>
+        <parameters>
+          <parameter name="client_id" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="redirect_uri" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="test_load_credentials" c:identifier="msg_oauth2_authorizer_test_load_credentials">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="self" transfer-ownership="none">
+            <type name="Authorizer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="test_save_credentials" c:identifier="msg_oauth2_authorizer_test_save_credentials">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="self" transfer-ownership="none">
+            <type name="Authorizer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="build_authentication_uri" c:identifier="msg_oauth2_authorizer_build_authentication_uri">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="request_authorization" c:identifier="msg_oauth2_authorizer_request_authorization" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorization_code" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="client-id" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="redirect-uri" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="refresh-token" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+    </class>
+    <record name="OAuth2AuthorizerClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <record name="OAuth2AuthorizerPrivate"/>
+    <class name="Service" parent="GObject.Object" glib:type-struct="ServiceClass" glib:type-name="MsgService" glib:get-type="msg_service_get_type">
+      <field name="parent_instance">
+        <type name="GObject.Object"/>
+      </field>
+      <function name="accept_certificate_cb" c:identifier="msg_service_accept_certificate_cb">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="msg" transfer-ownership="none">
+            <type name="Soup.Message"/>
+          </parameter>
+          <parameter name="tls_cert" transfer-ownership="none">
+            <type name="Gio.TlsCertificate"/>
+          </parameter>
+          <parameter name="tls_errors" transfer-ownership="none">
+            <type name="Gio.TlsCertificateFlags"/>
+          </parameter>
+          <parameter name="session" transfer-ownership="none" allow-none="1">
+            <type name="any"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_https_port" c:identifier="msg_service_get_https_port">
+        <return-value transfer-ownership="none">
+          <type name="guint32"/>
+        </return-value>
+      </function>
+      <function name="get_next_link" c:identifier="msg_service_get_next_link">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Json.Object"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="handle_rate_limiting" c:identifier="msg_service_handle_rate_limiting">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="msg" transfer-ownership="none">
+            <type name="Soup.Message"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="parse_response" c:identifier="msg_service_parse_response" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="Json.Parser"/>
+        </return-value>
+        <parameters>
+          <parameter name="bytes" transfer-ownership="none">
+            <type name="GLib.Bytes"/>
+          </parameter>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Json.Object"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="build_message" c:identifier="msg_service_build_message">
+        <return-value transfer-ownership="full">
+          <type name="Soup.Message"/>
+        </return-value>
+        <parameters>
+          <parameter name="method" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="etag" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="etag_if_match" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_authorizer" c:identifier="msg_service_get_authorizer">
+        <return-value transfer-ownership="none">
+          <type name="Authorizer"/>
+        </return-value>
+      </method>
+      <method name="get_session" c:identifier="msg_service_get_session">
+        <return-value transfer-ownership="none">
+          <type name="Soup.Session"/>
+        </return-value>
+      </method>
+      <method name="refresh_authorization" c:identifier="msg_service_refresh_authorization" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send" c:identifier="msg_service_send" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="Gio.InputStream"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <type name="Soup.Message"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send_and_parse_response" c:identifier="msg_service_send_and_parse_response" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="Json.Parser"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <type name="Soup.Message"/>
+          </parameter>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Json.Object"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send_and_read" c:identifier="msg_service_send_and_read" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GLib.Bytes"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <type name="Soup.Message"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="authorizer" readable="0" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="Authorizer"/>
+      </property>
+    </class>
+    <record name="ServiceClass" glib:is-gtype-struct="1">
+      <field name="parent">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="User" parent="GObject.Object" glib:type-struct="UserClass" glib:type-name="MsgUser" glib:get-type="msg_user_get_type">
+      <constructor name="new" c:identifier="msg_user_new">
+        <return-value transfer-ownership="full">
+          <type name="User"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json" c:identifier="msg_user_new_from_json" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="User"/>
+        </return-value>
+        <parameters>
+          <parameter name="json_object" transfer-ownership="none">
+            <type name="Json.Object"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_company_name" c:identifier="msg_user_get_company_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_department" c:identifier="msg_user_get_department">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_display_name" c:identifier="msg_user_get_display_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_given_name" c:identifier="msg_user_get_given_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_mail" c:identifier="msg_user_get_mail">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_mail_name" c:identifier="msg_user_get_mail_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_mobile_phone" c:identifier="msg_user_get_mobile_phone">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_office_location" c:identifier="msg_user_get_office_location">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_surname" c:identifier="msg_user_get_surname">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+    </class>
+    <record name="UserClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="UserContactFolder" parent="GObject.Object" glib:type-struct="UserContactFolderClass" glib:type-name="MsgUserContactFolder" glib:get-type="msg_user_contact_folder_get_type">
+      <constructor name="new" c:identifier="msg_user_contact_folder_new">
+        <return-value transfer-ownership="full">
+          <type name="UserContactFolder"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_json" c:identifier="msg_user_contact_folder_new_from_json" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="UserContactFolder"/>
+        </return-value>
+        <parameters>
+          <parameter name="json_object" transfer-ownership="none">
+            <type name="Json.Object"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_display_name" c:identifier="msg_user_contact_folder_get_display_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_id" c:identifier="msg_user_contact_folder_get_id">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+    </class>
+    <record name="UserContactFolderClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="UserService" parent="Service" glib:type-struct="UserServiceClass" glib:type-name="MsgUserService" glib:get-type="msg_user_service_get_type">
+      <constructor name="new" c:identifier="msg_user_service_new">
+        <return-value transfer-ownership="full">
+          <type name="UserService"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <type name="Authorizer"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="find_users" c:identifier="msg_user_service_find_users" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GLib.List">
+            <type name="User"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_contact_folders" c:identifier="msg_user_service_get_contact_folders" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GLib.List">
+            <type name="UserContactFolder"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_contacts" c:identifier="msg_user_service_get_contacts" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GLib.List">
+            <type name="UserContactFolder"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_photo" c:identifier="msg_user_service_get_photo" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="GLib.Bytes"/>
+        </return-value>
+        <parameters>
+          <parameter name="mail" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_user" c:identifier="msg_user_service_get_user" throws="1">
+        <return-value transfer-ownership="full">
+          <type name="User"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" allow-none="1">
+            <type name="Gio.Cancellable"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="UserServiceClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="ServiceClass"/>
+      </field>
+    </record>
+    <record name="_DriveItemFileClass">
+      <field name="parent_class" writable="1">
+        <type name="DriveItemClass"/>
+      </field>
+      <field name="padding" writable="1">
+        <array fixed-size="4">
+          <type name="any"/>
+        </array>
+      </field>
+    </record>
+    <record name="_DriveItemFolderClass">
+      <field name="parent_class" writable="1">
+        <type name="DriveItemClass"/>
+      </field>
+      <field name="padding" writable="1">
+        <array fixed-size="4">
+          <type name="any"/>
+        </array>
+      </field>
+    </record>
+    <function name="error_quark" c:identifier="msg_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="guint32"/>
+      </return-value>
+    </function>
+    <function name="json_object_get_boolean" c:identifier="msg_json_object_get_boolean">
+      <return-value transfer-ownership="none">
+        <type name="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="object" transfer-ownership="none">
+          <type name="Json.Object"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="json_object_get_string" c:identifier="msg_json_object_get_string">
+      <return-value transfer-ownership="none">
+        <type name="utf8"/>
+      </return-value>
+      <parameters>
+        <parameter name="object" transfer-ownership="none">
+          <type name="Json.Object"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

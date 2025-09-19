@@ -11,7 +11,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Gtk" version="4.0"/>
   <package name="libpanel-1"/>
   <c:include name="libpanel.h"/>
-  <doc:format name="unknown"/>
+  <doc:format name="gi-docgen"/>
   <namespace name="Panel"
              version="1"
              shared-library="libpanel-1.so.1"
@@ -4089,7 +4089,7 @@ It is a programming error to call this with a key that does not exist.</doc>
       <source-position filename="src/panel-version.h" line="41"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="1" c:type="PANEL_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="PANEL_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/panel-version.h"
            line="50">libpanel micro version component (e.g. 3 if %PANEL_VERSION is 1.2.3)</doc>
@@ -7717,25 +7717,25 @@ It will automatically reveal or hide the specified area from
       <constructor name="new" c:identifier="panel_toggle_button_new">
         <doc xml:space="preserve"
              filename="src/panel-toggle-button.c"
-             line="72">Creates a new [class@Panel.ToggleButton] to hide the @dock in the @area.</doc>
+             line="74">Creates a new [class@Panel.ToggleButton] to hide the @dock in the @area.</doc>
         <source-position filename="src/panel-toggle-button.h" line="35"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-toggle-button.c"
-               line="80">a newly created [class@Panel.ToggleButton]</doc>
+               line="82">a newly created [class@Panel.ToggleButton]</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="dock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-toggle-button.c"
-                 line="74">[class@Panel.Dock] the panel to control</doc>
+                 line="76">[class@Panel.Dock] the panel to control</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </parameter>
           <parameter name="area" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-toggle-button.c"
-                 line="75">[enum@Panel.Area] the panel area. A value of
+                 line="77">[enum@Panel.Area] the panel area. A value of
   [enum@Panel.Area.CENTER] is invalid.</doc>
             <type name="Area" c:type="PanelArea"/>
           </parameter>
@@ -7748,13 +7748,13 @@ It will automatically reveal or hide the specified area from
                 default-value="PANEL_AREA_START">
         <doc xml:space="preserve"
              filename="src/panel-toggle-button.c"
-             line="417">The area this button will reveal.</doc>
+             line="459">The area this button will reveal.</doc>
         <type name="Area"/>
       </property>
       <property name="dock" writable="1" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/panel-toggle-button.c"
-             line="408">The associated [class@Panel.Dock]</doc>
+             line="450">The associated [class@Panel.Dock]</doc>
         <type name="Dock"/>
       </property>
     </class>
@@ -7777,7 +7777,7 @@ It will automatically reveal or hide the specified area from
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="1.10.1" c:type="PANEL_VERSION_S">
+    <constant name="VERSION_S" value="1.10.2" c:type="PANEL_VERSION_S">
       <doc xml:space="preserve"
            filename="src/panel-version.h"
            line="64">libpanel version, encoded as a string, useful for printing and

@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gtk" version="4.0"/>
+  <c:include name="cmb_catalog_utils.h"/>
+  <doc:format name="unknown"/>
+  <namespace name="CmbCatalogUtils"
+             version="4.0"
+             shared-library="libcmbcatalogutils-4.so"
+             c:identifier-prefixes="CmbCatalogUtils"
+             c:symbol-prefixes="cmb_catalog_utils">
+    <function name="buildable_get_internal_child"
+              c:identifier="cmb_catalog_utils_buildable_get_internal_child">
+      <doc xml:space="preserve"
+           filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
+           line="104">Return internal child</doc>
+      <source-position filename="tools/cmb_catalog_gen/cmb_catalog_utils.h"
+                       line="34"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
+             line="111">the internal child of the buildable object</doc>
+        <type name="GObject.Object" c:type="GObject*"/>
+      </return-value>
+      <parameters>
+        <parameter name="buildable" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
+               line="106">Object to check</doc>
+          <type name="Gtk.Buildable" c:type="GtkBuildable*"/>
+        </parameter>
+        <parameter name="childname" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
+               line="107">internal child</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_class_properties"
+              c:identifier="cmb_catalog_utils_get_class_properties">
+      <doc xml:space="preserve"
+           filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
+           line="34">Return the list of properties declared in @name</doc>
+      <source-position filename="tools/cmb_catalog_gen/cmb_catalog_utils.h"
+                       line="29"/>
+      <return-value transfer-ownership="container">
+        <doc xml:space="preserve"
+             filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
+             line="40">class properties</doc>
+        <array c:type="GParamSpec**">
+          <type name="GObject.ParamSpec"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
+               line="36">Class name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_iface_properties"
+              c:identifier="cmb_catalog_utils_get_iface_properties">
+      <doc xml:space="preserve"
+           filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
+           line="54">Return the list of properties declared in @name iface</doc>
+      <source-position filename="tools/cmb_catalog_gen/cmb_catalog_utils.h"
+                       line="30"/>
+      <return-value transfer-ownership="container">
+        <doc xml:space="preserve"
+             filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
+             line="60">iface properties</doc>
+        <array c:type="GParamSpec**">
+          <type name="GObject.ParamSpec"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
+               line="56">Interface type name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="implements_buildable_add_child"
+              c:identifier="cmb_catalog_utils_implements_buildable_add_child">
+      <doc xml:space="preserve"
+           filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
+           line="77">Return whether buildable implements add_child() or not</doc>
+      <source-position filename="tools/cmb_catalog_gen/cmb_catalog_utils.h"
+                       line="32"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="buildable" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="tools/cmb_catalog_gen/cmb_catalog_utils.c"
+               line="79">Object to check</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="pspec_enum_get_default_nick"
+              c:identifier="cmb_catalog_utils_pspec_enum_get_default_nick">
+      <source-position filename="tools/cmb_catalog_gen/cmb_catalog_utils.h"
+                       line="36"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="gtype" transfer-ownership="none">
+          <type name="GType" c:type="GType"/>
+        </parameter>
+        <parameter name="default_value" transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="pspec_flags_get_default_nick"
+              c:identifier="cmb_catalog_utils_pspec_flags_get_default_nick">
+      <source-position filename="tools/cmb_catalog_gen/cmb_catalog_utils.h"
+                       line="38"/>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="gtype" transfer-ownership="none">
+          <type name="GType" c:type="GType"/>
+        </parameter>
+        <parameter name="default_value" transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

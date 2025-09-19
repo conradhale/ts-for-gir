@@ -274,13 +274,11 @@ export class ReporterService {
 
 		// Generate summary
 		const errorCount = statistics.bySeverity[ProblemSeverity.ERROR] || 0;
-		const criticalCount = statistics.bySeverity[ProblemSeverity.CRITICAL] || 0;
+		const _criticalCount = statistics.bySeverity[ProblemSeverity.CRITICAL] || 0;
 		const warningCount = statistics.bySeverity[ProblemSeverity.WARNING] || 0;
 
-		let status: "success" | "partial" | "failed" = "success";
-		if (criticalCount > 0 || errorCount > 10) {
-			status = "failed";
-		} else if (errorCount > 0 || warningCount > 20) {
+		let status: "success" | "partial" = "success";
+		if (errorCount > 0 || warningCount > 20) {
 			status = "partial";
 		}
 
@@ -369,7 +367,7 @@ export class ReporterService {
 		console.log("=".repeat(60));
 
 		// Overall status
-		const statusColor = summary.status === "success" ? green : summary.status === "partial" ? yellow : red;
+		const statusColor = summary.status === "success" ? green : yellow;
 		console.log(`\n🎯 Overall Status: ${statusColor(summary.status.toUpperCase())}`);
 
 		// Total statistics
