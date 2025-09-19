@@ -24,10 +24,10 @@
 	"author": "",
 	"license": "Apache-2.0",
 	"devDependencies": {
-		"@parcel/config-default": "^2.15.4",
-		"@parcel/plugin": "^2.15.4",
-		"@parcel/resolver-default": "^2.15.4",
-		"parcel": "^2.15.4",
+		"@parcel/config-default": "^2.16.0",
+		"@parcel/plugin": "^2.16.0",
+		"@parcel/resolver-default": "^2.16.0",
+		"parcel": "^2.16.0",
 		"parcel-plugin-externals": "^0.5.2",
 		"typescript": "^5.9.2"
 	},
