@@ -1,0 +1,661 @@
+<?xml version="1.0"?>
+<repository version="1.0"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <namespace name="GjsPrivate" version="1.0" shared-library="libgjs.so.0" c:prefix="Gjs">
+    <callback name="BindingTransformFunc">
+      <return-value transfer-ownership="none">
+        <type name="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="binding" transfer-ownership="none">
+          <type name="GObject.Binding"/>
+        </parameter>
+        <parameter name="from_value" transfer-ownership="none">
+          <type name="GObject.Value"/>
+        </parameter>
+        <parameter name="to_value" transfer-ownership="none" direction="out" caller-allocates="1">
+          <type name="GObject.Value"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1" closure="3">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="CompareDataFunc">
+      <return-value transfer-ownership="none">
+        <type name="gint32"/>
+      </return-value>
+      <parameters>
+        <parameter name="a" transfer-ownership="none">
+          <type name="GObject.Object"/>
+        </parameter>
+        <parameter name="b" transfer-ownership="none">
+          <type name="GObject.Object"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1" closure="2">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="DBusImplementation" parent="Gio.DBusInterfaceSkeleton" glib:type-struct="DBusImplementationClass" glib:type-name="GjsDBusImplementation" glib:get-type="gjs_dbus_implementation_get_type">
+      <implements name="Gio.DBusInterface"/>
+      <field name="parent">
+        <type name="Gio.DBusInterfaceSkeleton"/>
+      </field>
+      <field name="priv">
+        <type name="DBusImplementationPrivate"/>
+      </field>
+      <method name="emit_property_changed" c:identifier="gjs_dbus_implementation_emit_property_changed">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="property" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="newvalue" transfer-ownership="none" allow-none="1">
+            <type name="GLib.Variant"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="emit_signal" c:identifier="gjs_dbus_implementation_emit_signal">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="signal_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="parameters" transfer-ownership="none" allow-none="1">
+            <type name="GLib.Variant"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unexport" c:identifier="gjs_dbus_implementation_unexport">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="unexport_from_connection" c:identifier="gjs_dbus_implementation_unexport_from_connection">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="connection" transfer-ownership="none">
+            <type name="Gio.DBusConnection"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="g-interface-info" readable="0" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="Gio.DBusInterfaceInfo"/>
+      </property>
+      <glib:signal name="handle-method-call" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="GLib.Variant"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="Gio.DBusMethodInvocation"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="handle-property-get" when="LAST">
+        <return-value transfer-ownership="full">
+          <type name="GLib.Variant"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="handle-property-set" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="GLib.Variant"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="DBusImplementationClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Gio.DBusInterfaceSkeletonClass"/>
+      </field>
+    </record>
+    <record name="DBusImplementationPrivate"/>
+    <callback name="GLogWriterFunc">
+      <return-value transfer-ownership="none">
+        <type name="GLib.LogWriterOutput"/>
+      </return-value>
+      <parameters>
+        <parameter name="level" transfer-ownership="none">
+          <type name="GLib.LogLevelFlags"/>
+        </parameter>
+        <parameter name="fields" transfer-ownership="none">
+          <type name="GLib.Variant"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1" closure="2">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <enumeration name="LocaleCategory" glib:type-name="GjsLocaleCategory" glib:get-type="gjs_locale_category_get_type">
+      <member name="all" value="6">
+        <attribute name="c:identifier" value="GJS_LOCALE_CATEGORY_ALL"/>
+      </member>
+      <member name="collate" value="3">
+        <attribute name="c:identifier" value="GJS_LOCALE_CATEGORY_COLLATE"/>
+      </member>
+      <member name="ctype" value="0">
+        <attribute name="c:identifier" value="GJS_LOCALE_CATEGORY_CTYPE"/>
+      </member>
+      <member name="messages" value="5">
+        <attribute name="c:identifier" value="GJS_LOCALE_CATEGORY_MESSAGES"/>
+      </member>
+      <member name="monetary" value="4">
+        <attribute name="c:identifier" value="GJS_LOCALE_CATEGORY_MONETARY"/>
+      </member>
+      <member name="numeric" value="1">
+        <attribute name="c:identifier" value="GJS_LOCALE_CATEGORY_NUMERIC"/>
+      </member>
+      <member name="time" value="2">
+        <attribute name="c:identifier" value="GJS_LOCALE_CATEGORY_TIME"/>
+      </member>
+    </enumeration>
+    <record name="MatchInfo" glib:type-name="GjsMatchInfo" glib:get-type="gjs_match_info_get_type">
+      <method name="expand_references" c:identifier="gjs_match_info_expand_references" throws="1">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="utf8"/>
+        </return-value>
+        <parameters>
+          <parameter name="string_to_expand" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="fetch" c:identifier="gjs_match_info_fetch">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="utf8"/>
+        </return-value>
+        <parameters>
+          <parameter name="match_num" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="fetch_all" c:identifier="gjs_match_info_fetch_all">
+        <return-value transfer-ownership="full">
+          <array zero-terminated="1">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+      </method>
+      <method name="fetch_named" c:identifier="gjs_match_info_fetch_named">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="utf8"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="fetch_named_pos" c:identifier="gjs_match_info_fetch_named_pos">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="start_pos" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="end_pos" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="fetch_pos" c:identifier="gjs_match_info_fetch_pos">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="match_num" transfer-ownership="none">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="start_pos" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gint32"/>
+          </parameter>
+          <parameter name="end_pos" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+            <type name="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="gjs_match_info_free">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="get_match_count" c:identifier="gjs_match_info_get_match_count">
+        <return-value transfer-ownership="none">
+          <type name="gint32"/>
+        </return-value>
+      </method>
+      <method name="get_regex" c:identifier="gjs_match_info_get_regex">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Regex"/>
+        </return-value>
+      </method>
+      <method name="get_string" c:identifier="gjs_match_info_get_string">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="is_partial_match" c:identifier="gjs_match_info_is_partial_match">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="matches" c:identifier="gjs_match_info_matches">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="next" c:identifier="gjs_match_info_next" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="ref" c:identifier="gjs_match_info_ref">
+        <return-value transfer-ownership="full">
+          <type name="MatchInfo"/>
+        </return-value>
+      </method>
+      <method name="unref" c:identifier="gjs_match_info_unref">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+    </record>
+    <function name="bindtextdomain" c:identifier="gjs_bindtextdomain">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="domain" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="location" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="clear_terminal" c:identifier="gjs_clear_terminal">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+    </function>
+    <function name="format_int_alternative_output" c:identifier="gjs_format_int_alternative_output">
+      <return-value transfer-ownership="full">
+        <type name="utf8"/>
+      </return-value>
+      <parameters>
+        <parameter name="n" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="g_binding_group_bind_full" c:identifier="gjs_g_binding_group_bind_full">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="source" transfer-ownership="none">
+          <type name="GObject.BindingGroup"/>
+        </parameter>
+        <parameter name="source_property" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="target" transfer-ownership="none">
+          <type name="GObject.Object"/>
+        </parameter>
+        <parameter name="target_property" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <type name="GObject.BindingFlags"/>
+        </parameter>
+        <parameter name="to_callback" transfer-ownership="none" allow-none="1" scope="notified" closure="6" destroy="7">
+          <type name="BindingTransformFunc"/>
+        </parameter>
+        <parameter name="to_data" transfer-ownership="none" allow-none="1" scope="notified">
+          <type name="any"/>
+        </parameter>
+        <parameter name="to_notify" transfer-ownership="none" scope="async" destroy="6">
+          <type name="GLib.DestroyNotify"/>
+        </parameter>
+        <parameter name="from_callback" transfer-ownership="none" allow-none="1" scope="notified" closure="9" destroy="10">
+          <type name="BindingTransformFunc"/>
+        </parameter>
+        <parameter name="from_data" transfer-ownership="none" allow-none="1" scope="notified">
+          <type name="any"/>
+        </parameter>
+        <parameter name="from_notify" transfer-ownership="none" scope="async" destroy="9">
+          <type name="GLib.DestroyNotify"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="g_object_bind_property_full" c:identifier="gjs_g_object_bind_property_full">
+      <return-value transfer-ownership="none">
+        <type name="GObject.Binding"/>
+      </return-value>
+      <parameters>
+        <parameter name="source" transfer-ownership="none">
+          <type name="GObject.Object"/>
+        </parameter>
+        <parameter name="source_property" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="target" transfer-ownership="none">
+          <type name="GObject.Object"/>
+        </parameter>
+        <parameter name="target_property" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <type name="GObject.BindingFlags"/>
+        </parameter>
+        <parameter name="to_callback" transfer-ownership="none" allow-none="1" scope="notified" closure="6" destroy="7">
+          <type name="BindingTransformFunc"/>
+        </parameter>
+        <parameter name="to_data" transfer-ownership="none" allow-none="1" scope="notified">
+          <type name="any"/>
+        </parameter>
+        <parameter name="to_notify" transfer-ownership="none" scope="async" destroy="6">
+          <type name="GLib.DestroyNotify"/>
+        </parameter>
+        <parameter name="from_callback" transfer-ownership="none" allow-none="1" scope="notified" closure="9" destroy="10">
+          <type name="BindingTransformFunc"/>
+        </parameter>
+        <parameter name="from_data" transfer-ownership="none" allow-none="1" scope="notified">
+          <type name="any"/>
+        </parameter>
+        <parameter name="from_notify" transfer-ownership="none" scope="async" destroy="9">
+          <type name="GLib.DestroyNotify"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_container_child_set_property" c:identifier="gjs_gtk_container_child_set_property">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="container" transfer-ownership="none">
+          <type name="GObject.Object"/>
+        </parameter>
+        <parameter name="child" transfer-ownership="none">
+          <type name="GObject.Object"/>
+        </parameter>
+        <parameter name="property" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="value" transfer-ownership="none">
+          <type name="GObject.Value"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_custom_sorter_new" c:identifier="gjs_gtk_custom_sorter_new">
+      <return-value transfer-ownership="full">
+        <type name="GObject.Object"/>
+      </return-value>
+      <parameters>
+        <parameter name="sort_func" transfer-ownership="none" allow-none="1" scope="notified" closure="1" destroy="2">
+          <type name="CompareDataFunc"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1">
+          <type name="any"/>
+        </parameter>
+        <parameter name="destroy" transfer-ownership="none" scope="async">
+          <type name="GLib.DestroyNotify"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_custom_sorter_set_sort_func" c:identifier="gjs_gtk_custom_sorter_set_sort_func">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="sorter" transfer-ownership="none">
+          <type name="GObject.Object"/>
+        </parameter>
+        <parameter name="sort_func" transfer-ownership="none" allow-none="1" scope="notified" closure="2" destroy="3">
+          <type name="CompareDataFunc"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1">
+          <type name="any"/>
+        </parameter>
+        <parameter name="destroy" transfer-ownership="none" scope="async">
+          <type name="GLib.DestroyNotify"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="list_store_insert_sorted" c:identifier="gjs_list_store_insert_sorted">
+      <return-value transfer-ownership="none">
+        <type name="guint32"/>
+      </return-value>
+      <parameters>
+        <parameter name="store" transfer-ownership="none">
+          <type name="Gio.ListStore"/>
+        </parameter>
+        <parameter name="item" transfer-ownership="none">
+          <type name="GObject.Object"/>
+        </parameter>
+        <parameter name="compare_func" transfer-ownership="none" scope="call" closure="3">
+          <type name="CompareDataFunc"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="list_store_sort" c:identifier="gjs_list_store_sort">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="store" transfer-ownership="none">
+          <type name="Gio.ListStore"/>
+        </parameter>
+        <parameter name="compare_func" transfer-ownership="none" scope="call" closure="2">
+          <type name="CompareDataFunc"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1">
+          <type name="any"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="log_set_writer_default" c:identifier="gjs_log_set_writer_default">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+    </function>
+    <function name="log_set_writer_func" c:identifier="gjs_log_set_writer_func">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="func" transfer-ownership="none" scope="notified" closure="1" destroy="2">
+          <type name="GLogWriterFunc"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" allow-none="1">
+          <type name="any"/>
+        </parameter>
+        <parameter name="user_data_free" transfer-ownership="none" scope="async" destroy="2">
+          <type name="GLib.DestroyNotify"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="param_spec_get_flags" c:identifier="gjs_param_spec_get_flags">
+      <return-value transfer-ownership="none">
+        <type name="GObject.ParamFlags"/>
+      </return-value>
+      <parameters>
+        <parameter name="pspec" transfer-ownership="none">
+          <type name="GObject.ParamSpec"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="param_spec_get_owner_type" c:identifier="gjs_param_spec_get_owner_type">
+      <return-value transfer-ownership="none">
+        <type name="GType"/>
+      </return-value>
+      <parameters>
+        <parameter name="pspec" transfer-ownership="none">
+          <type name="GObject.ParamSpec"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="param_spec_get_value_type" c:identifier="gjs_param_spec_get_value_type">
+      <return-value transfer-ownership="none">
+        <type name="GType"/>
+      </return-value>
+      <parameters>
+        <parameter name="pspec" transfer-ownership="none">
+          <type name="GObject.ParamSpec"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="regex_match" c:identifier="gjs_regex_match">
+      <return-value transfer-ownership="none">
+        <type name="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="regex" transfer-ownership="none">
+          <type name="GLib.Regex"/>
+        </parameter>
+        <parameter name="s" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="match_options" transfer-ownership="none">
+          <type name="GLib.RegexMatchFlags"/>
+        </parameter>
+        <parameter name="match_info" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+          <type name="MatchInfo"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="regex_match_all" c:identifier="gjs_regex_match_all">
+      <return-value transfer-ownership="none">
+        <type name="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="regex" transfer-ownership="none">
+          <type name="GLib.Regex"/>
+        </parameter>
+        <parameter name="s" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+        <parameter name="match_options" transfer-ownership="none">
+          <type name="GLib.RegexMatchFlags"/>
+        </parameter>
+        <parameter name="match_info" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+          <type name="MatchInfo"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="regex_match_all_full" c:identifier="gjs_regex_match_all_full" throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="regex" transfer-ownership="none">
+          <type name="GLib.Regex"/>
+        </parameter>
+        <parameter name="bytes" transfer-ownership="none">
+          <array length="2">
+            <type name="guint8"/>
+          </array>
+        </parameter>
+        <parameter name="len" transfer-ownership="none">
+          <type name="gint64"/>
+        </parameter>
+        <parameter name="start_position" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="match_options" transfer-ownership="none">
+          <type name="GLib.RegexMatchFlags"/>
+        </parameter>
+        <parameter name="match_info" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+          <type name="MatchInfo"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="regex_match_full" c:identifier="gjs_regex_match_full" throws="1">
+      <return-value transfer-ownership="none">
+        <type name="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="regex" transfer-ownership="none">
+          <type name="GLib.Regex"/>
+        </parameter>
+        <parameter name="bytes" transfer-ownership="none">
+          <array length="2">
+            <type name="guint8"/>
+          </array>
+        </parameter>
+        <parameter name="len" transfer-ownership="none">
+          <type name="gint64"/>
+        </parameter>
+        <parameter name="start_position" transfer-ownership="none">
+          <type name="gint32"/>
+        </parameter>
+        <parameter name="match_options" transfer-ownership="none">
+          <type name="GLib.RegexMatchFlags"/>
+        </parameter>
+        <parameter name="match_info" transfer-ownership="full" direction="out" caller-allocates="0" optional="1">
+          <type name="MatchInfo"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="setlocale" c:identifier="gjs_setlocale">
+      <return-value transfer-ownership="none">
+        <type name="utf8"/>
+      </return-value>
+      <parameters>
+        <parameter name="category" transfer-ownership="none">
+          <type name="LocaleCategory"/>
+        </parameter>
+        <parameter name="locale" transfer-ownership="none" allow-none="1">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="textdomain" c:identifier="gjs_textdomain">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="domain" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

@@ -1,0 +1,1227 @@
+<?xml version="1.0"?>
+<repository version="1.0"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <namespace name="Nautilus" version="4.1" shared-library="libnautilus-extension.so.4" c:prefix="Nautilus">
+    <class name="Column" parent="GObject.Object" glib:type-struct="ColumnClass" glib:type-name="NautilusColumn" glib:get-type="nautilus_column_get_type">
+      <constructor name="new" c:identifier="nautilus_column_new">
+        <return-value transfer-ownership="full">
+          <type name="Column"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="attribute" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="label" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="description" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="attribute" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="attribute-q" transfer-ownership="none">
+        <type name="guint32"/>
+      </property>
+      <property name="default-sort-order" writable="1" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="description" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="label" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="name" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="visible" writable="1" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="xalign" writable="1" transfer-ownership="none">
+        <type name="gfloat"/>
+      </property>
+    </class>
+    <record name="ColumnClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <interface name="ColumnProvider" glib:type-name="NautilusColumnProvider" glib:get-type="nautilus_column_provider_get_type" glib:type-struct="ColumnProviderInterface">
+      <method name="get_columns" c:identifier="nautilus_column_provider_get_columns">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="GLib.List">
+            <type name="Column"/>
+          </type>
+        </return-value>
+      </method>
+      <virtual-method name="get_columns" offset="65535" invoker="get_columns">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="GLib.List">
+            <type name="Column"/>
+          </type>
+        </return-value>
+      </virtual-method>
+    </interface>
+    <record name="ColumnProviderInterface" glib:is-gtype-struct="1">
+      <field name="g_iface">
+        <type name="GObject.TypeInterface"/>
+      </field>
+      <field name="get_columns">
+        <callback name="get_columns">
+          <return-value transfer-ownership="full" allow-none="1">
+            <type name="GLib.List">
+              <type name="Column"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="ColumnProvider"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <interface name="FileInfo" glib:type-name="NautilusFileInfo" glib:get-type="nautilus_file_info_get_type" glib:type-struct="FileInfoInterface">
+      <function name="create" c:identifier="nautilus_file_info_create">
+        <return-value transfer-ownership="full">
+          <type name="FileInfo"/>
+        </return-value>
+        <parameters>
+          <parameter name="location" transfer-ownership="none">
+            <type name="Gio.File"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="create_for_uri" c:identifier="nautilus_file_info_create_for_uri">
+        <return-value transfer-ownership="full">
+          <type name="FileInfo"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="list_copy" c:identifier="nautilus_file_info_list_copy">
+        <return-value transfer-ownership="full">
+          <type name="GLib.List">
+            <type name="FileInfo"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="files" transfer-ownership="none">
+            <type name="GLib.List">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="list_free" c:identifier="nautilus_file_info_list_free">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="files" transfer-ownership="none">
+            <type name="GLib.List">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="lookup" c:identifier="nautilus_file_info_lookup">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="FileInfo"/>
+        </return-value>
+        <parameters>
+          <parameter name="location" transfer-ownership="none">
+            <type name="Gio.File"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="lookup_for_uri" c:identifier="nautilus_file_info_lookup_for_uri">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="FileInfo"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="add_emblem" c:identifier="nautilus_file_info_add_emblem">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="emblem_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_string_attribute" c:identifier="nautilus_file_info_add_string_attribute">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_write" c:identifier="nautilus_file_info_can_write">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_activation_uri" c:identifier="nautilus_file_info_get_activation_uri">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_file_type" c:identifier="nautilus_file_info_get_file_type">
+        <return-value transfer-ownership="none">
+          <type name="Gio.FileType"/>
+        </return-value>
+      </method>
+      <method name="get_location" c:identifier="nautilus_file_info_get_location">
+        <return-value transfer-ownership="full">
+          <type name="Gio.File"/>
+        </return-value>
+      </method>
+      <method name="get_mime_type" c:identifier="nautilus_file_info_get_mime_type">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_mount" c:identifier="nautilus_file_info_get_mount">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="Gio.Mount"/>
+        </return-value>
+      </method>
+      <method name="get_name" c:identifier="nautilus_file_info_get_name">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_parent_info" c:identifier="nautilus_file_info_get_parent_info">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="FileInfo"/>
+        </return-value>
+      </method>
+      <method name="get_parent_location" c:identifier="nautilus_file_info_get_parent_location">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="Gio.File"/>
+        </return-value>
+      </method>
+      <method name="get_parent_uri" c:identifier="nautilus_file_info_get_parent_uri">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_string_attribute" c:identifier="nautilus_file_info_get_string_attribute">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="utf8"/>
+        </return-value>
+        <parameters>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uri" c:identifier="nautilus_file_info_get_uri">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_uri_scheme" c:identifier="nautilus_file_info_get_uri_scheme">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="invalidate_extension_info" c:identifier="nautilus_file_info_invalidate_extension_info">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="is_directory" c:identifier="nautilus_file_info_is_directory">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="is_gone" c:identifier="nautilus_file_info_is_gone">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="is_mime_type" c:identifier="nautilus_file_info_is_mime_type">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="mime_type" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <virtual-method name="add_emblem" offset="65535" invoker="add_emblem">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="emblem_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="add_string_attribute" offset="65535" invoker="add_string_attribute">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="can_write" offset="65535" invoker="can_write">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_activation_uri" offset="65535" invoker="get_activation_uri">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_file_type" offset="65535" invoker="get_file_type">
+        <return-value transfer-ownership="none">
+          <type name="Gio.FileType"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_location" offset="65535" invoker="get_location">
+        <return-value transfer-ownership="full">
+          <type name="Gio.File"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_mime_type" offset="65535" invoker="get_mime_type">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_mount" offset="65535" invoker="get_mount">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="Gio.Mount"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_name" offset="65535" invoker="get_name">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_parent_info" offset="65535" invoker="get_parent_info">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="FileInfo"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_parent_location" offset="65535" invoker="get_parent_location">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="Gio.File"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_parent_uri" offset="65535" invoker="get_parent_uri">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_string_attribute" offset="65535" invoker="get_string_attribute">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="utf8"/>
+        </return-value>
+        <parameters>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_uri" offset="65535" invoker="get_uri">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_uri_scheme" offset="65535" invoker="get_uri_scheme">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="invalidate_extension_info" offset="65535" invoker="invalidate_extension_info">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="is_directory" offset="65535" invoker="is_directory">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="is_gone" offset="65535" invoker="is_gone">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="is_mime_type" offset="65535" invoker="is_mime_type">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="mime_type" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+    </interface>
+    <record name="FileInfoInterface" glib:is-gtype-struct="1">
+      <field name="g_iface">
+        <type name="GObject.TypeInterface"/>
+      </field>
+      <field name="is_gone">
+        <callback name="is_gone">
+          <return-value transfer-ownership="none">
+            <type name="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_name">
+        <callback name="get_name">
+          <return-value transfer-ownership="full">
+            <type name="utf8"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_uri">
+        <callback name="get_uri">
+          <return-value transfer-ownership="full">
+            <type name="utf8"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_parent_uri">
+        <callback name="get_parent_uri">
+          <return-value transfer-ownership="full">
+            <type name="utf8"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_uri_scheme">
+        <callback name="get_uri_scheme">
+          <return-value transfer-ownership="full">
+            <type name="utf8"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_mime_type">
+        <callback name="get_mime_type">
+          <return-value transfer-ownership="full">
+            <type name="utf8"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="is_mime_type">
+        <callback name="is_mime_type">
+          <return-value transfer-ownership="none">
+            <type name="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+            <parameter name="mime_type" transfer-ownership="none">
+              <type name="utf8"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="is_directory">
+        <callback name="is_directory">
+          <return-value transfer-ownership="none">
+            <type name="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_emblem">
+        <callback name="add_emblem">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+            <parameter name="emblem_name" transfer-ownership="none">
+              <type name="utf8"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_string_attribute">
+        <callback name="get_string_attribute">
+          <return-value transfer-ownership="full" allow-none="1">
+            <type name="utf8"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+            <parameter name="attribute_name" transfer-ownership="none">
+              <type name="utf8"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_string_attribute">
+        <callback name="add_string_attribute">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+            <parameter name="attribute_name" transfer-ownership="none">
+              <type name="utf8"/>
+            </parameter>
+            <parameter name="value" transfer-ownership="none">
+              <type name="utf8"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="invalidate_extension_info">
+        <callback name="invalidate_extension_info">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_activation_uri">
+        <callback name="get_activation_uri">
+          <return-value transfer-ownership="full">
+            <type name="utf8"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_file_type">
+        <callback name="get_file_type">
+          <return-value transfer-ownership="none">
+            <type name="Gio.FileType"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_location">
+        <callback name="get_location">
+          <return-value transfer-ownership="full">
+            <type name="Gio.File"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_parent_location">
+        <callback name="get_parent_location">
+          <return-value transfer-ownership="full" allow-none="1">
+            <type name="Gio.File"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_parent_info">
+        <callback name="get_parent_info">
+          <return-value transfer-ownership="full" allow-none="1">
+            <type name="FileInfo"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_mount">
+        <callback name="get_mount">
+          <return-value transfer-ownership="full" allow-none="1">
+            <type name="Gio.Mount"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="can_write">
+        <callback name="can_write">
+          <return-value transfer-ownership="none">
+            <type name="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <interface name="InfoProvider" glib:type-name="NautilusInfoProvider" glib:get-type="nautilus_info_provider_get_type" glib:type-struct="InfoProviderInterface">
+      <function name="update_complete_invoke" c:identifier="nautilus_info_provider_update_complete_invoke">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="update_complete" transfer-ownership="none">
+            <type name="GObject.Closure"/>
+          </parameter>
+          <parameter name="provider" transfer-ownership="none">
+            <type name="InfoProvider"/>
+          </parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="OperationHandle"/>
+          </parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="OperationResult"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="cancel_update" c:identifier="nautilus_info_provider_cancel_update">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="OperationHandle"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_file_info" c:identifier="nautilus_info_provider_update_file_info">
+        <return-value transfer-ownership="none">
+          <type name="OperationResult"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="FileInfo"/>
+          </parameter>
+          <parameter name="update_complete" transfer-ownership="none">
+            <type name="GObject.Closure"/>
+          </parameter>
+          <parameter name="handle" transfer-ownership="none" direction="out" caller-allocates="0" allow-none="1">
+            <type name="OperationHandle"/>
+          </parameter>
+        </parameters>
+      </method>
+      <virtual-method name="cancel_update" offset="65535" invoker="cancel_update">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="OperationHandle"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="update_file_info" offset="65535" invoker="update_file_info">
+        <return-value transfer-ownership="none">
+          <type name="OperationResult"/>
+        </return-value>
+        <parameters>
+          <parameter name="file" transfer-ownership="none">
+            <type name="FileInfo"/>
+          </parameter>
+          <parameter name="update_complete" transfer-ownership="none">
+            <type name="GObject.Closure"/>
+          </parameter>
+          <parameter name="handle" transfer-ownership="none" direction="out" caller-allocates="0" allow-none="1">
+            <type name="OperationHandle"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+    </interface>
+    <record name="InfoProviderInterface" glib:is-gtype-struct="1">
+      <field name="g_iface">
+        <type name="GObject.TypeInterface"/>
+      </field>
+      <field name="update_file_info">
+        <callback name="update_file_info">
+          <return-value transfer-ownership="none">
+            <type name="OperationResult"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="InfoProvider"/>
+            </parameter>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+            <parameter name="update_complete" transfer-ownership="none">
+              <type name="GObject.Closure"/>
+            </parameter>
+            <parameter name="handle" transfer-ownership="none" direction="out" caller-allocates="0" allow-none="1">
+              <type name="OperationHandle"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="cancel_update">
+        <callback name="cancel_update">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="InfoProvider"/>
+            </parameter>
+            <parameter name="handle" transfer-ownership="none">
+              <type name="OperationHandle"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="Menu" parent="GObject.Object" glib:type-struct="MenuClass" glib:type-name="NautilusMenu" glib:get-type="nautilus_menu_get_type">
+      <constructor name="new" c:identifier="nautilus_menu_new">
+        <return-value transfer-ownership="full">
+          <type name="Menu"/>
+        </return-value>
+      </constructor>
+      <method name="append_item" c:identifier="nautilus_menu_append_item">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="item" transfer-ownership="none">
+            <type name="MenuItem"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_items" c:identifier="nautilus_menu_get_items">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="GLib.List">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+      </method>
+    </class>
+    <record name="MenuClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="MenuItem" parent="GObject.Object" glib:type-struct="MenuItemClass" glib:type-name="NautilusMenuItem" glib:get-type="nautilus_menu_item_get_type">
+      <field name="parent_instance">
+        <type name="GObject.Object"/>
+      </field>
+      <constructor name="new" c:identifier="nautilus_menu_item_new">
+        <return-value transfer-ownership="full">
+          <type name="MenuItem"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="label" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="tip" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="icon" transfer-ownership="none" allow-none="1">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="list_free" c:identifier="nautilus_menu_item_list_free">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="item_list" transfer-ownership="none">
+            <type name="GLib.List">
+              <type name="MenuItem"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="activate" c:identifier="nautilus_menu_item_activate">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="set_submenu" c:identifier="nautilus_menu_item_set_submenu">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="menu" transfer-ownership="full">
+            <type name="Menu"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="icon" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="label" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="menu" writable="1" transfer-ownership="none">
+        <type name="Menu"/>
+      </property>
+      <property name="name" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="priority" writable="1" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="sensitive" writable="1" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="tip" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <glib:signal name="activate" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <virtual-method name="activate" offset="65535" invoker="activate">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+    </class>
+    <record name="MenuItemClass" glib:is-gtype-struct="1">
+      <field name="parent">
+        <type name="GObject.ObjectClass"/>
+      </field>
+      <field name="activate">
+        <callback name="activate">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="item" transfer-ownership="none">
+              <type name="MenuItem"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <interface name="MenuProvider" glib:type-name="NautilusMenuProvider" glib:get-type="nautilus_menu_provider_get_type" glib:type-struct="MenuProviderInterface">
+      <method name="emit_items_updated_signal" c:identifier="nautilus_menu_provider_emit_items_updated_signal">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="get_background_items" c:identifier="nautilus_menu_provider_get_background_items">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="GLib.List">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="current_folder" transfer-ownership="none">
+            <type name="FileInfo"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_file_items" c:identifier="nautilus_menu_provider_get_file_items">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="GLib.List">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="files" transfer-ownership="none">
+            <type name="GLib.List">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="items-updated" when="LAST">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <virtual-method name="get_background_items" offset="65535" invoker="get_background_items">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="GLib.List">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="current_folder" transfer-ownership="none">
+            <type name="FileInfo"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_file_items" offset="65535" invoker="get_file_items">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="GLib.List">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="files" transfer-ownership="none">
+            <type name="GLib.List">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+    </interface>
+    <record name="MenuProviderInterface" glib:is-gtype-struct="1">
+      <field name="g_iface">
+        <type name="GObject.TypeInterface"/>
+      </field>
+      <field name="get_file_items">
+        <callback name="get_file_items">
+          <return-value transfer-ownership="full" allow-none="1">
+            <type name="GLib.List">
+              <type name="MenuItem"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="MenuProvider"/>
+            </parameter>
+            <parameter name="files" transfer-ownership="none">
+              <type name="GLib.List">
+                <type name="FileInfo"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_background_items">
+        <callback name="get_background_items">
+          <return-value transfer-ownership="full" allow-none="1">
+            <type name="GLib.List">
+              <type name="MenuItem"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="MenuProvider"/>
+            </parameter>
+            <parameter name="current_folder" transfer-ownership="none">
+              <type name="FileInfo"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="OperationHandle"/>
+    <enumeration name="OperationResult" glib:type-name="NautilusOperationResult" glib:get-type="nautilus_operation_result_get_type">
+      <member name="complete" value="0">
+        <attribute name="c:identifier" value="NAUTILUS_OPERATION_COMPLETE"/>
+      </member>
+      <member name="failed" value="1">
+        <attribute name="c:identifier" value="NAUTILUS_OPERATION_FAILED"/>
+      </member>
+      <member name="in_progress" value="2">
+        <attribute name="c:identifier" value="NAUTILUS_OPERATION_IN_PROGRESS"/>
+      </member>
+    </enumeration>
+    <class name="PropertiesItem" parent="GObject.Object" glib:type-struct="PropertiesItemClass" glib:type-name="NautilusPropertiesItem" glib:get-type="nautilus_properties_item_get_type">
+      <constructor name="new" c:identifier="nautilus_properties_item_new">
+        <return-value transfer-ownership="full">
+          <type name="PropertiesItem"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_name" c:identifier="nautilus_properties_item_get_name" glib:get-property="name">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_value" c:identifier="nautilus_properties_item_get_value" glib:get-property="value">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <property name="name" writable="1" construct-only="1" getter="get_name" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="value" writable="1" construct-only="1" getter="get_value" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+    </class>
+    <record name="PropertiesItemClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <class name="PropertiesModel" parent="GObject.Object" glib:type-struct="PropertiesModelClass" glib:type-name="NautilusPropertiesModel" glib:get-type="nautilus_properties_model_get_type">
+      <constructor name="new" c:identifier="nautilus_properties_model_new">
+        <return-value transfer-ownership="full">
+          <type name="PropertiesModel"/>
+        </return-value>
+        <parameters>
+          <parameter name="title" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="model" transfer-ownership="none">
+            <type name="Gio.ListModel"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_model" c:identifier="nautilus_properties_model_get_model" glib:get-property="model">
+        <return-value transfer-ownership="none">
+          <type name="Gio.ListModel"/>
+        </return-value>
+      </method>
+      <method name="get_title" c:identifier="nautilus_properties_model_get_title" glib:get-property="title">
+        <return-value transfer-ownership="none">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="set_title" c:identifier="nautilus_properties_model_set_title" glib:set-property="title">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="title" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="model" writable="1" construct-only="1" getter="get_model" transfer-ownership="none">
+        <type name="Gio.ListModel"/>
+      </property>
+      <property name="title" writable="1" getter="get_title" setter="set_title" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+    </class>
+    <record name="PropertiesModelClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass"/>
+      </field>
+    </record>
+    <interface name="PropertiesModelProvider" glib:type-name="NautilusPropertiesModelProvider" glib:get-type="nautilus_properties_model_provider_get_type" glib:type-struct="PropertiesModelProviderInterface">
+      <method name="get_models" c:identifier="nautilus_properties_model_provider_get_models">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="GLib.List">
+            <type name="PropertiesModel"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="files" transfer-ownership="none">
+            <type name="GLib.List">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <virtual-method name="get_models" offset="65535" invoker="get_models">
+        <return-value transfer-ownership="full" allow-none="1">
+          <type name="GLib.List">
+            <type name="PropertiesModel"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="files" transfer-ownership="none">
+            <type name="GLib.List">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+    </interface>
+    <record name="PropertiesModelProviderInterface" glib:is-gtype-struct="1">
+      <field name="g_iface">
+        <type name="GObject.TypeInterface"/>
+      </field>
+      <field name="get_models">
+        <callback name="get_models">
+          <return-value transfer-ownership="full" allow-none="1">
+            <type name="GLib.List">
+              <type name="PropertiesModel"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PropertiesModelProvider"/>
+            </parameter>
+            <parameter name="files" transfer-ownership="none">
+              <type name="GLib.List">
+                <type name="FileInfo"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function name="file_info_create" c:identifier="nautilus_file_info_create">
+      <return-value transfer-ownership="full">
+        <type name="FileInfo"/>
+      </return-value>
+      <parameters>
+        <parameter name="location" transfer-ownership="none">
+          <type name="Gio.File"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_create_for_uri" c:identifier="nautilus_file_info_create_for_uri">
+      <return-value transfer-ownership="full">
+        <type name="FileInfo"/>
+      </return-value>
+      <parameters>
+        <parameter name="uri" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_list_copy" c:identifier="nautilus_file_info_list_copy">
+      <return-value transfer-ownership="full">
+        <type name="GLib.List">
+          <type name="FileInfo"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="files" transfer-ownership="none">
+          <type name="GLib.List">
+            <type name="FileInfo"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_list_free" c:identifier="nautilus_file_info_list_free">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="files" transfer-ownership="none">
+          <type name="GLib.List">
+            <type name="FileInfo"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_lookup" c:identifier="nautilus_file_info_lookup">
+      <return-value transfer-ownership="full" allow-none="1">
+        <type name="FileInfo"/>
+      </return-value>
+      <parameters>
+        <parameter name="location" transfer-ownership="none">
+          <type name="Gio.File"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_lookup_for_uri" c:identifier="nautilus_file_info_lookup_for_uri">
+      <return-value transfer-ownership="full" allow-none="1">
+        <type name="FileInfo"/>
+      </return-value>
+      <parameters>
+        <parameter name="uri" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="info_provider_update_complete_invoke" c:identifier="nautilus_info_provider_update_complete_invoke">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="update_complete" transfer-ownership="none">
+          <type name="GObject.Closure"/>
+        </parameter>
+        <parameter name="provider" transfer-ownership="none">
+          <type name="InfoProvider"/>
+        </parameter>
+        <parameter name="handle" transfer-ownership="none">
+          <type name="OperationHandle"/>
+        </parameter>
+        <parameter name="result" transfer-ownership="none">
+          <type name="OperationResult"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

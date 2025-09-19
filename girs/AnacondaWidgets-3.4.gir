@@ -1,0 +1,614 @@
+<?xml version="1.0"?>
+<repository version="1.0"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Xkl" version="1.0"/>
+  <include name="Gtk" version="3.0"/>
+  <namespace name="AnacondaWidgets" version="3.4" shared-library="libAnacondaWidgets.so.4" c:prefix="Anaconda">
+    <class name="BaseStandalone" parent="BaseWindow" glib:type-struct="BaseStandaloneClass" abstract="1" glib:type-name="AnacondaBaseStandalone" glib:get-type="anaconda_base_standalone_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <field name="parent">
+        <type name="BaseWindow"/>
+      </field>
+      <field name="priv">
+        <type name="BaseStandalonePrivate"/>
+      </field>
+      <method name="get_continue_button" c:identifier="anaconda_base_standalone_get_continue_button" glib:get-property="continue-button">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Button"/>
+        </return-value>
+      </method>
+      <method name="get_may_continue" c:identifier="anaconda_base_standalone_get_may_continue">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_quit_button" c:identifier="anaconda_base_standalone_get_quit_button" glib:get-property="quit-button">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Button"/>
+        </return-value>
+      </method>
+      <method name="set_may_continue" c:identifier="anaconda_base_standalone_set_may_continue">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="may_continue" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="continue-button" writable="1" construct="1" getter="get_continue_button" transfer-ownership="none">
+        <type name="Gtk.Button"/>
+      </property>
+      <property name="quit-button" writable="1" construct="1" getter="get_quit_button" transfer-ownership="none">
+        <type name="Gtk.Button"/>
+      </property>
+      <glib:signal name="continue-clicked" when="FIRST" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="quit-clicked" when="FIRST" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <virtual-method name="continue_clicked" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="quit_clicked" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+    </class>
+    <record name="BaseStandaloneClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="BaseWindowClass"/>
+      </field>
+      <field name="quit_clicked">
+        <callback name="quit_clicked">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="window" transfer-ownership="none">
+              <type name="BaseStandalone"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="continue_clicked">
+        <callback name="continue_clicked">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="window" transfer-ownership="none">
+              <type name="BaseStandalone"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="BaseStandalonePrivate"/>
+    <class name="BaseWindow" parent="Gtk.Bin" glib:type-struct="BaseWindowClass" glib:type-name="AnacondaBaseWindow" glib:get-type="anaconda_base_window_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <field name="parent">
+        <type name="Gtk.Bin"/>
+      </field>
+      <field name="priv">
+        <type name="BaseWindowPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="anaconda_base_window_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </constructor>
+      <method name="clear_info" c:identifier="anaconda_base_window_clear_info">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="get_action_area" c:identifier="anaconda_base_window_get_action_area">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </method>
+      <method name="get_alignment" c:identifier="anaconda_base_window_get_alignment">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </method>
+      <method name="get_beta" c:identifier="anaconda_base_window_get_beta">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_help_button" c:identifier="anaconda_base_window_get_help_button">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </method>
+      <method name="get_layout_indicator_box" c:identifier="anaconda_base_window_get_layout_indicator_box">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </method>
+      <method name="get_main_box" c:identifier="anaconda_base_window_get_main_box">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </method>
+      <method name="get_nav_area" c:identifier="anaconda_base_window_get_nav_area">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </method>
+      <method name="get_nav_area_background_window" c:identifier="anaconda_base_window_get_nav_area_background_window">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </method>
+      <method name="retranslate" c:identifier="anaconda_base_window_retranslate">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="set_beta" c:identifier="anaconda_base_window_set_beta">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="is_beta" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_error" c:identifier="anaconda_base_window_set_error">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="msg" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_info" c:identifier="anaconda_base_window_set_info">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="msg" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_warning" c:identifier="anaconda_base_window_set_warning">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="msg" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="distribution" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="window-name" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <glib:signal name="help-button-clicked" when="FIRST" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="info-bar-clicked" when="FIRST" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <virtual-method name="help_button_clicked" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="info_bar_clicked" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+    </class>
+    <record name="BaseWindowClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Gtk.BinClass"/>
+      </field>
+      <field name="info_bar_clicked">
+        <callback name="info_bar_clicked">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="window" transfer-ownership="none">
+              <type name="BaseWindow"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="help_button_clicked">
+        <callback name="help_button_clicked">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="window" transfer-ownership="none">
+              <type name="BaseWindow"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="BaseWindowPrivate"/>
+    <class name="DiskOverview" parent="Gtk.EventBox" glib:type-struct="DiskOverviewClass" glib:type-name="AnacondaDiskOverview" glib:get-type="anaconda_disk_overview_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <field name="parent">
+        <type name="Gtk.EventBox"/>
+      </field>
+      <field name="priv">
+        <type name="DiskOverviewPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="anaconda_disk_overview_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </constructor>
+      <method name="get_chosen" c:identifier="anaconda_disk_overview_get_chosen">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_chosen" c:identifier="anaconda_disk_overview_set_chosen">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="is_chosen" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="capacity" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="description" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="free" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="kind" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="name" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="popup-info" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+    </class>
+    <record name="DiskOverviewClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Gtk.EventBoxClass"/>
+      </field>
+    </record>
+    <record name="DiskOverviewPrivate"/>
+    <class name="HubWindow" parent="BaseStandalone" glib:type-struct="HubWindowClass" glib:type-name="AnacondaHubWindow" glib:get-type="anaconda_hub_window_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <field name="parent">
+        <type name="BaseStandalone"/>
+      </field>
+      <field name="priv">
+        <type name="HubWindowPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="anaconda_hub_window_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </constructor>
+      <method name="get_spoke_area" c:identifier="anaconda_hub_window_get_spoke_area">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </method>
+    </class>
+    <record name="HubWindowClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="BaseStandaloneClass"/>
+      </field>
+    </record>
+    <record name="HubWindowPrivate"/>
+    <class name="LayoutIndicator" parent="Gtk.EventBox" glib:type-struct="LayoutIndicatorClass" glib:type-name="AnacondaLayoutIndicator" glib:get-type="anaconda_layout_indicator_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <field name="parent">
+        <type name="Gtk.EventBox"/>
+      </field>
+      <field name="priv">
+        <type name="LayoutIndicatorPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="anaconda_layout_indicator_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </constructor>
+      <method name="get_current_layout" c:identifier="anaconda_layout_indicator_get_current_layout">
+        <return-value transfer-ownership="full">
+          <type name="utf8"/>
+        </return-value>
+      </method>
+      <method name="get_label_width" c:identifier="anaconda_layout_indicator_get_label_width" glib:get-property="label-width">
+        <return-value transfer-ownership="none">
+          <type name="guint32"/>
+        </return-value>
+      </method>
+      <method name="retranslate" c:identifier="anaconda_layout_indicator_retranslate">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <method name="set_label_width" c:identifier="anaconda_layout_indicator_set_label_width" glib:set-property="label-width">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="new_width" transfer-ownership="none">
+            <type name="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="label-width" writable="1" getter="get_label_width" setter="set_label_width" transfer-ownership="none">
+        <type name="guint32"/>
+      </property>
+      <property name="layout" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+    </class>
+    <record name="LayoutIndicatorClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Gtk.EventBoxClass"/>
+      </field>
+      <field name="engine">
+        <type name="Xkl.Engine"/>
+      </field>
+    </record>
+    <record name="LayoutIndicatorPrivate"/>
+    <class name="MountpointSelector" parent="Gtk.EventBox" glib:type-struct="MountpointSelectorClass" glib:type-name="AnacondaMountpointSelector" glib:get-type="anaconda_mountpoint_selector_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <field name="parent">
+        <type name="Gtk.EventBox"/>
+      </field>
+      <field name="priv">
+        <type name="MountpointSelectorPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="anaconda_mountpoint_selector_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </constructor>
+      <method name="get_chosen" c:identifier="anaconda_mountpoint_selector_get_chosen">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_page" c:identifier="anaconda_mountpoint_selector_get_page">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </method>
+      <method name="set_chosen" c:identifier="anaconda_mountpoint_selector_set_chosen">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="is_chosen" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_page" c:identifier="anaconda_mountpoint_selector_set_page">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="parent_page" transfer-ownership="none">
+            <type name="Gtk.Widget"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="mountpoint" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="name" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="show-arrow" writable="1" transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="size" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <glib:signal name="chosen-changed" when="LAST" no-recurse="1" no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="MountpointSelectorClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Gtk.EventBoxClass"/>
+      </field>
+    </record>
+    <record name="MountpointSelectorPrivate"/>
+    <constant name="RESOURCE_PATH" value="/org/fedoraproject/anaconda/widgets/">
+      <type name="utf8"/>
+    </constant>
+    <class name="SpokeSelector" parent="Gtk.EventBox" glib:type-struct="SpokeSelectorClass" glib:type-name="AnacondaSpokeSelector" glib:get-type="anaconda_spoke_selector_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <field name="parent">
+        <type name="Gtk.EventBox"/>
+      </field>
+      <field name="priv">
+        <type name="SpokeSelectorPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="anaconda_spoke_selector_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </constructor>
+      <method name="get_incomplete" c:identifier="anaconda_spoke_selector_get_incomplete">
+        <return-value transfer-ownership="none">
+          <type name="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_incomplete" c:identifier="anaconda_spoke_selector_set_incomplete">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="is_incomplete" transfer-ownership="none">
+            <type name="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="icon" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="status" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="title" writable="1" transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+    </class>
+    <record name="SpokeSelectorClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="Gtk.EventBoxClass"/>
+      </field>
+    </record>
+    <record name="SpokeSelectorPrivate"/>
+    <class name="SpokeWindow" parent="BaseWindow" glib:type-struct="SpokeWindowClass" glib:type-name="AnacondaSpokeWindow" glib:get-type="anaconda_spoke_window_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <field name="parent">
+        <type name="BaseWindow"/>
+      </field>
+      <field name="priv">
+        <type name="SpokeWindowPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="anaconda_spoke_window_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </constructor>
+      <glib:signal name="button-clicked" when="FIRST" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </glib:signal>
+      <virtual-method name="button_clicked" offset="65535">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </virtual-method>
+    </class>
+    <record name="SpokeWindowClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="BaseWindowClass"/>
+      </field>
+      <field name="button_clicked">
+        <callback name="button_clicked">
+          <return-value transfer-ownership="none">
+            <type name="none"/>
+          </return-value>
+          <parameters>
+            <parameter name="window" transfer-ownership="none">
+              <type name="SpokeWindow"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="SpokeWindowPrivate"/>
+    <class name="StandaloneWindow" parent="BaseStandalone" glib:type-struct="StandaloneWindowClass" glib:type-name="AnacondaStandaloneWindow" glib:get-type="anaconda_standalone_window_get_type">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <field name="parent">
+        <type name="BaseStandalone"/>
+      </field>
+      <field name="priv">
+        <type name="StandaloneWindowPrivate"/>
+      </field>
+      <constructor name="new" c:identifier="anaconda_standalone_window_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </return-value>
+      </constructor>
+      <method name="retranslate" c:identifier="anaconda_standalone_window_retranslate">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+      </method>
+      <property name="continue-button" transfer-ownership="none">
+        <type name="Gtk.Button"/>
+      </property>
+      <property name="quit-button" transfer-ownership="none">
+        <type name="Gtk.Button"/>
+      </property>
+    </class>
+    <record name="StandaloneWindowClass" glib:is-gtype-struct="1">
+      <field name="parent_class">
+        <type name="BaseStandaloneClass"/>
+      </field>
+    </record>
+    <record name="StandaloneWindowPrivate"/>
+    <function name="apply_language" c:identifier="anaconda_apply_language">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="label" transfer-ownership="none">
+          <type name="Gtk.Label"/>
+        </parameter>
+        <parameter name="language" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="widget_apply_stylesheet" c:identifier="anaconda_widget_apply_stylesheet">
+      <return-value transfer-ownership="none">
+        <type name="none"/>
+      </return-value>
+      <parameters>
+        <parameter name="widget" transfer-ownership="none">
+          <type name="Gtk.Widget"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>
