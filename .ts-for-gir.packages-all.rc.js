@@ -1,5 +1,4 @@
 export default {
-    outdir: './types',
     modules: ['*'],
     girDirectories: [
         // General gir files in this repository

@@ -3,9 +3,13 @@
 	url = https://github.com/nemequ/vala-girs.git
 	branch = master
 [submodule "types"]
-	path = types
+	path = types-release
 	url = https://github.com/gjsify/types
 	branch = main
 [submodule "gjs"]
 	path = gjs
 	url = https://gitlab.gnome.org/GNOME/gjs.git
+[submodule "types-dev"]
+	path = types-dev
+	url = git@github.com:gjsify/types.git
+	branch = dev

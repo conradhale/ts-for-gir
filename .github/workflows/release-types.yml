@@ -35,9 +35,9 @@ jobs:
     - name: Install yarn dependencies
       run: yarn install
       
-    - name: Prepare types submodule
+    - name: Prepare types-release submodule
       run: |
-        cd types
+        cd types-release
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         # Configure remote URL with token for authentication
@@ -50,22 +50,22 @@ jobs:
     - name: Generate release types
       run: yarn build:types:release
         
-    - name: Check for changes in types submodule
+    - name: Check for changes in types-release submodule
       id: check-changes
       run: |
-        cd types
+        cd types-release
         if [ -n "$(git status --porcelain)" ]; then
           echo "changes=true" >> $GITHUB_OUTPUT
-          echo "Changes detected in types submodule"
+          echo "Changes detected in types-release submodule"
         else
           echo "changes=false" >> $GITHUB_OUTPUT
-          echo "No changes detected in types submodule"
+          echo "No changes detected in types-release submodule"
         fi
         
     - name: Commit and push types changes
       if: steps.check-changes.outputs.changes == 'true'
       run: |
-        cd types
+        cd types-release
         git add .
         
         # Get release tag from event or workflow dispatch input

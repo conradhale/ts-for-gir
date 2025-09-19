@@ -31,6 +31,8 @@
 			"!**/@types",
 			"!**/gjs",
 			"!**/types",
+			"!**/types-dev",
+			"!**/types-release",
 			"!**/vala-girs",
 			"!**/*.js",
 			"!**/*.mjs",

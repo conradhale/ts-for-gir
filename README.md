@@ -97,6 +97,20 @@ ts-for-gir consists of several packages:
 - [`@ts-for-gir/generator-typescript`](/packages/generator-typescript) - TypeScript definition generator
 - [`@ts-for-gir/generator-html-doc`](/packages/generator-html-doc) - HTML documentation generator (experimental)
 
+### Types submodules
+
+This repo contains two Git submodules for pre-generated types:
+
+- `types-dev` (branch `dev`): used during local development. Scripts write generated packages here.
+- `types-release` (branch `main`): updated by the release workflow on tags.
+
+Useful scripts:
+
+```bash
+yarn build:types          # generates into ./types-dev
+yarn build:types:release  # generates into ./types-release
+```
+
 ## Further Information
 
 - [Examples](/examples/README.md) - Detailed examples showing TypeScript with different bundlers
