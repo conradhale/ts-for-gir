@@ -43,6 +43,16 @@ npx @ts-for-gir/cli generate Gtk-4.0 --reporter
 npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json
 ```
 
+## Showcase
+
+* [Audio Player](https://flathub.org/apps/org.gnome.Decibels) - Play audio files
+* [Counters](https://flathub.org/apps/io.gitlab.guillermop.Counters) - Keep track of anything
+* [Ignition](https://flathub.org/apps/io.github.flattool.Ignition) - Manage startup apps and scripts
+* [Learn 6502](https://flathub.org/apps/eu.jumplink.Learn6502) - Learn program vintage Game Consoles
+* [Sound Recorder](https://flathub.org/apps/org.gnome.SoundRecorder) - A simple, modern sound recorder
+* [Sticky Notes](https://flathub.org/apps/com.vixalien.sticky) - Pin notes to your desktop
+* [Weather](https://flathub.org/apps/org.gnome.Weather) - Show weather conditions and forecast
+
 ## Example Projects
 
 The repository includes numerous example projects that demonstrate how to use the generated TypeScript definitions with various bundlers and libraries. These examples serve as great starting points for your own GJS applications.
