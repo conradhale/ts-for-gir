@@ -1,1 +1,1 @@
-export type LocalNameType = 'method' | 'property' | 'field'
+export type LocalNameType = "method" | "property" | "field";

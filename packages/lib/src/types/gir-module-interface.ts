@@ -7,16 +7,16 @@ import type { Dependency } from "./dependency.ts";
 export interface IGirModule {
 	/** Package name like 'Gtk-4.0' */
 	readonly packageName: string;
-	
+
 	/** Direct dependencies of this module */
 	readonly dependencies: Dependency[];
-	
+
 	/** All transitive dependencies of this module */
 	readonly transitiveDependencies: Dependency[];
-	
+
 	/** Initialize transitive dependencies */
 	initTransitiveDependencies(dependencies: Dependency[]): Promise<void>;
-	
+
 	/** Parse the module contents */
 	parse(): void;
-} 
+}

@@ -1,4 +1,4 @@
 export enum ResolveType {
-    DEPENDENCE,
-    BY_HAND,
+	DEPENDENCE,
+	BY_HAND,
 }

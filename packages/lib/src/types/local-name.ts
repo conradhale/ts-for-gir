@@ -1,8 +1,8 @@
-import type { LocalNameType, GirMethodElement, GirPropertyElement, GirFieldElement } from './index.ts'
+import type { GirFieldElement, GirMethodElement, GirPropertyElement, LocalNameType } from "./index.ts";
 
 export interface LocalName {
-    type: LocalNameType
-    method?: GirMethodElement
-    property?: GirPropertyElement
-    field?: GirFieldElement
+	type: LocalNameType;
+	method?: GirMethodElement;
+	property?: GirPropertyElement;
+	field?: GirFieldElement;
 }

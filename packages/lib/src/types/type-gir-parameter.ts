@@ -1,1 +1,1 @@
-export type TypeGirParameter = 'callable-param'
+export type TypeGirParameter = "callable-param";

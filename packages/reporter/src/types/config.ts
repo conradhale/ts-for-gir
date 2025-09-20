@@ -10,4 +10,4 @@ export interface ReporterConfig {
 	moduleName: string;
 	/** Output file path for the report */
 	outputPath?: string;
-} 
+}

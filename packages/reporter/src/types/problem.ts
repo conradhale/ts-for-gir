@@ -73,4 +73,4 @@ export interface TypeConflictProblem extends ProblemEntry {
 	elementName: string;
 	/** What it conflicts with */
 	conflictsWith?: string;
-} 
+}

@@ -29,4 +29,4 @@ export interface GirModulesGrouped {
  */
 export interface GirModulesGroupedMap {
 	[namespace: string]: GirModulesGrouped;
-} 
+}

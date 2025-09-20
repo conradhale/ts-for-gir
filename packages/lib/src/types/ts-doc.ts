@@ -1,4 +1,4 @@
-import type { TsDocTag } from './ts-doc-tag.ts'
+import type { TsDocTag } from "./ts-doc-tag.ts";
 
 /**
  * A model that represents a comment.
@@ -6,13 +6,13 @@ import type { TsDocTag } from './ts-doc-tag.ts'
  * Inspirited from https://github.com/TypeStrong/typedoc/blob/master/src/lib/models/comments/comment.ts
  */
 export interface TsDoc {
-    /**
-     * The full body text of the comment..
-     */
-    text: string
+	/**
+	 * The full body text of the comment..
+	 */
+	text: string;
 
-    /**
-     * All associated tags.
-     */
-    tags: TsDocTag[]
+	/**
+	 * All associated tags.
+	 */
+	tags: TsDocTag[];
 }

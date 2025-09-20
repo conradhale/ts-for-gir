@@ -1,3 +1,3 @@
 export interface InheritanceTable {
-    [name: string]: string[]
+	[name: string]: string[];
 }

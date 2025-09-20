@@ -1,9 +1,9 @@
-import type { PackageDataParsed } from './index.ts'
+import type { PackageDataParsed } from "./index.ts";
 
 export interface PackageSectionParsed {
-    $: {
-        name: string
-    }
-    package?: PackageDataParsed[]
-    section?: PackageSectionParsed[]
+	$: {
+		name: string;
+	};
+	package?: PackageDataParsed[];
+	section?: PackageSectionParsed[];
 }

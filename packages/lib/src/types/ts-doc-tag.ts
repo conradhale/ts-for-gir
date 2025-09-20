@@ -6,18 +6,18 @@
  * Inspirited from https://github.com/TypeStrong/typedoc/blob/master/src/lib/models/comments/tag.ts
  */
 export interface TsDocTag {
-    /**
-     * The name of this tag.
-     */
-    tagName: string
+	/**
+	 * The name of this tag.
+	 */
+	tagName: string;
 
-    /**
-     * The name of the related parameter when this is a ```@param``` tag.
-     */
-    paramName: string
+	/**
+	 * The name of the related parameter when this is a ```@param``` tag.
+	 */
+	paramName: string;
 
-    /**
-     * The actual body text of this tag.
-     */
-    text: string
+	/**
+	 * The actual body text of this tag.
+	 */
+	text: string;
 }

@@ -30,4 +30,4 @@ export interface TemplateFileResult {
 	content: string;
 	/** The output file path */
 	outputPath: string;
-} 
+}

@@ -16,4 +16,4 @@ export interface ValidationOptions {
 	 * Path to the directory containing GIR type definitions (@types folder)
 	 */
 	typesPath?: string;
-} 
+}

@@ -20,4 +20,4 @@ export interface HoverOptions {
 	 * Path to the directory containing GIR type definitions (@types folder)
 	 */
 	typesPath?: string;
-} 
+}

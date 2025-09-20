@@ -1,9 +1,9 @@
 export type TransformationCase =
-    | 'original'
-    | 'lowerCamelCase'
-    | 'upperCamelCase'
-    | 'upperCase'
-    | 'lowerCase'
-    | 'underscores'
-    | 'snakeCase'
-    | 'slugCase'
+	| "original"
+	| "lowerCamelCase"
+	| "upperCamelCase"
+	| "upperCase"
+	| "lowerCase"
+	| "underscores"
+	| "snakeCase"
+	| "slugCase";

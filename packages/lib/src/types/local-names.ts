@@ -1,5 +1,5 @@
-import type { LocalName } from './local-name.ts'
+import type { LocalName } from "./local-name.ts";
 
 export interface LocalNames {
-    [key: string]: LocalName
+	[key: string]: LocalName;
 }

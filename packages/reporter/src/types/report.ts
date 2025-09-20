@@ -60,4 +60,4 @@ export interface GenerationReport {
 		/** Recommendations for fixing issues */
 		recommendations: string[];
 	};
-} 
+}

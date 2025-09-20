@@ -13,4 +13,4 @@ export interface TypeExpectationResult {
 	documentation?: string;
 	/** Error message if validation failed */
 	error?: string;
-} 
+}

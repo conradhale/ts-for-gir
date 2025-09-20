@@ -87,4 +87,4 @@ export interface GlibConfig {
 	version: string;
 	/** The modifier function to apply GLib-specific generics */
 	modifier: (namespace: IntrospectedNamespace) => void;
-} 
+}

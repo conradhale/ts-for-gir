@@ -1,1 +1,1 @@
-export type Format = 'dts' | 'json'
+export type Format = "dts" | "json";

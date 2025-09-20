@@ -1,1 +1,1 @@
-export type OutputFormat = 'file' | 'folder'
+export type OutputFormat = "file" | "folder";

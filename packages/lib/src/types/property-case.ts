@@ -1,1 +1,1 @@
-export type PropertyCase = 'both' | 'camel' | 'underscore'
+export type PropertyCase = "both" | "camel" | "underscore";

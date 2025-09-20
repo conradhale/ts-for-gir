@@ -1,1 +1,1 @@
-export type TypeTsProperty = 'static-property' | 'property' | 'constructor-property'
+export type TypeTsProperty = "static-property" | "property" | "constructor-property";

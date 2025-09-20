@@ -31,4 +31,4 @@ export interface ReportData {
 	metadata: ReportMetadata;
 	statistics: ReportStatistics;
 	problems: ProblemEntry[];
-} 
+}

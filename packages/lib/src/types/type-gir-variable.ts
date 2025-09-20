@@ -1,1 +1,1 @@
-export type TypeGirVariable = 'constant'
+export type TypeGirVariable = "constant";
