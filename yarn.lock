@@ -1252,7 +1252,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/cally-10@workspace:types-dev/cally-10":
+"@girs/cally-10@workspace:^, @girs/cally-10@workspace:types-dev/cally-10":
   version: 0.0.0-use.local
   resolution: "@girs/cally-10@workspace:types-dev/cally-10"
   dependencies:
@@ -1401,6 +1401,178 @@ __metadata:
     "@girs/pango-1.0": "workspace:^"
     "@girs/pangocairo-1.0": "workspace:^"
     "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/cally-3@workspace:types-dev/cally-3":
+  version: 0.0.0-use.local
+  resolution: "@girs/cally-3@workspace:types-dev/cally-3"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-3": "workspace:^"
+    "@girs/cogl-3": "workspace:^"
+    "@girs/coglpango-3": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/cally-4@workspace:types-dev/cally-4":
+  version: 0.0.0-use.local
+  resolution: "@girs/cally-4@workspace:types-dev/cally-4"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-4": "workspace:^"
+    "@girs/cogl-4": "workspace:^"
+    "@girs/coglpango-4": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/cally-5@workspace:types-dev/cally-5":
+  version: 0.0.0-use.local
+  resolution: "@girs/cally-5@workspace:types-dev/cally-5"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-5": "workspace:^"
+    "@girs/cogl-5": "workspace:^"
+    "@girs/coglpango-5": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/cally-6@workspace:types-dev/cally-6":
+  version: 0.0.0-use.local
+  resolution: "@girs/cally-6@workspace:types-dev/cally-6"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-6": "workspace:^"
+    "@girs/cogl-6": "workspace:^"
+    "@girs/coglpango-6": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/cally-7@workspace:types-dev/cally-7":
+  version: 0.0.0-use.local
+  resolution: "@girs/cally-7@workspace:types-dev/cally-7"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-7": "workspace:^"
+    "@girs/cogl-7": "workspace:^"
+    "@girs/coglpango-7": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/cally-8@workspace:types-dev/cally-8":
+  version: 0.0.0-use.local
+  resolution: "@girs/cally-8@workspace:types-dev/cally-8"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-8": "workspace:^"
+    "@girs/cogl-8": "workspace:^"
+    "@girs/coglpango-8": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/cally-9@workspace:^, @girs/cally-9@workspace:types-dev/cally-9":
+  version: 0.0.0-use.local
+  resolution: "@girs/cally-9@workspace:types-dev/cally-9"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-9": "workspace:^"
+    "@girs/cogl-9": "workspace:^"
+    "@girs/coglpango-9": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
   linkType: soft
@@ -1866,6 +2038,171 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/clutter-3@workspace:^, @girs/clutter-3@workspace:types-dev/clutter-3":
+  version: 0.0.0-use.local
+  resolution: "@girs/clutter-3@workspace:types-dev/clutter-3"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-3": "workspace:^"
+    "@girs/coglpango-3": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/clutter-4@workspace:^, @girs/clutter-4@workspace:types-dev/clutter-4":
+  version: 0.0.0-use.local
+  resolution: "@girs/clutter-4@workspace:types-dev/clutter-4"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-4": "workspace:^"
+    "@girs/coglpango-4": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/clutter-5@workspace:^, @girs/clutter-5@workspace:types-dev/clutter-5":
+  version: 0.0.0-use.local
+  resolution: "@girs/clutter-5@workspace:types-dev/clutter-5"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-5": "workspace:^"
+    "@girs/coglpango-5": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/clutter-6@workspace:^, @girs/clutter-6@workspace:types-dev/clutter-6":
+  version: 0.0.0-use.local
+  resolution: "@girs/clutter-6@workspace:types-dev/clutter-6"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-6": "workspace:^"
+    "@girs/coglpango-6": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/clutter-7@workspace:^, @girs/clutter-7@workspace:types-dev/clutter-7":
+  version: 0.0.0-use.local
+  resolution: "@girs/clutter-7@workspace:types-dev/clutter-7"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-7": "workspace:^"
+    "@girs/coglpango-7": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/clutter-8@workspace:^, @girs/clutter-8@workspace:types-dev/clutter-8":
+  version: 0.0.0-use.local
+  resolution: "@girs/clutter-8@workspace:types-dev/clutter-8"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-8": "workspace:^"
+    "@girs/coglpango-8": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/clutter-9@workspace:^, @girs/clutter-9@workspace:types-dev/clutter-9":
+  version: 0.0.0-use.local
+  resolution: "@girs/clutter-9@workspace:types-dev/clutter-9"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-9": "workspace:^"
+    "@girs/coglpango-9": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/cluttergdk-1.0@workspace:types-dev/cluttergdk-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/cluttergdk-1.0@workspace:types-dev/cluttergdk-1.0"
@@ -1966,6 +2303,159 @@ __metadata:
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/clutterx11-3@workspace:types-dev/clutterx11-3":
+  version: 0.0.0-use.local
+  resolution: "@girs/clutterx11-3@workspace:types-dev/clutterx11-3"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-3": "workspace:^"
+    "@girs/cogl-3": "workspace:^"
+    "@girs/coglpango-3": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/clutterx11-4@workspace:types-dev/clutterx11-4":
+  version: 0.0.0-use.local
+  resolution: "@girs/clutterx11-4@workspace:types-dev/clutterx11-4"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-4": "workspace:^"
+    "@girs/cogl-4": "workspace:^"
+    "@girs/coglpango-4": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/clutterx11-5@workspace:types-dev/clutterx11-5":
+  version: 0.0.0-use.local
+  resolution: "@girs/clutterx11-5@workspace:types-dev/clutterx11-5"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-5": "workspace:^"
+    "@girs/cogl-5": "workspace:^"
+    "@girs/coglpango-5": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/clutterx11-6@workspace:types-dev/clutterx11-6":
+  version: 0.0.0-use.local
+  resolution: "@girs/clutterx11-6@workspace:types-dev/clutterx11-6"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-6": "workspace:^"
+    "@girs/cogl-6": "workspace:^"
+    "@girs/coglpango-6": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/clutterx11-7@workspace:types-dev/clutterx11-7":
+  version: 0.0.0-use.local
+  resolution: "@girs/clutterx11-7@workspace:types-dev/clutterx11-7"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-7": "workspace:^"
+    "@girs/cogl-7": "workspace:^"
+    "@girs/coglpango-7": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/clutterx11-8@workspace:types-dev/clutterx11-8":
+  version: 0.0.0-use.local
+  resolution: "@girs/clutterx11-8@workspace:types-dev/clutterx11-8"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-8": "workspace:^"
+    "@girs/cogl-8": "workspace:^"
+    "@girs/coglpango-8": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
     "@girs/harfbuzz-0.0": "workspace:^"
     "@girs/json-1.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
@@ -2172,6 +2662,98 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/cogl-3@workspace:^, @girs/cogl-3@workspace:types-dev/cogl-3":
+  version: 0.0.0-use.local
+  resolution: "@girs/cogl-3@workspace:types-dev/cogl-3"
+  dependencies:
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/cogl-4@workspace:^, @girs/cogl-4@workspace:types-dev/cogl-4":
+  version: 0.0.0-use.local
+  resolution: "@girs/cogl-4@workspace:types-dev/cogl-4"
+  dependencies:
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/cogl-5@workspace:^, @girs/cogl-5@workspace:types-dev/cogl-5":
+  version: 0.0.0-use.local
+  resolution: "@girs/cogl-5@workspace:types-dev/cogl-5"
+  dependencies:
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/cogl-6@workspace:^, @girs/cogl-6@workspace:types-dev/cogl-6":
+  version: 0.0.0-use.local
+  resolution: "@girs/cogl-6@workspace:types-dev/cogl-6"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/cogl-7@workspace:^, @girs/cogl-7@workspace:types-dev/cogl-7":
+  version: 0.0.0-use.local
+  resolution: "@girs/cogl-7@workspace:types-dev/cogl-7"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/cogl-8@workspace:^, @girs/cogl-8@workspace:types-dev/cogl-8":
+  version: 0.0.0-use.local
+  resolution: "@girs/cogl-8@workspace:types-dev/cogl-8"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/cogl-9@workspace:^, @girs/cogl-9@workspace:types-dev/cogl-9":
+  version: 0.0.0-use.local
+  resolution: "@girs/cogl-9@workspace:types-dev/cogl-9"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/coglgst-2.0@workspace:types-dev/coglgst-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/coglgst-2.0@workspace:types-dev/coglgst-2.0"
@@ -2351,6 +2933,150 @@ __metadata:
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/coglpango-3@workspace:^, @girs/coglpango-3@workspace:types-dev/coglpango-3":
+  version: 0.0.0-use.local
+  resolution: "@girs/coglpango-3@workspace:types-dev/coglpango-3"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-3": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/coglpango-4@workspace:^, @girs/coglpango-4@workspace:types-dev/coglpango-4":
+  version: 0.0.0-use.local
+  resolution: "@girs/coglpango-4@workspace:types-dev/coglpango-4"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-4": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/coglpango-5@workspace:^, @girs/coglpango-5@workspace:types-dev/coglpango-5":
+  version: 0.0.0-use.local
+  resolution: "@girs/coglpango-5@workspace:types-dev/coglpango-5"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-5": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/coglpango-6@workspace:^, @girs/coglpango-6@workspace:types-dev/coglpango-6":
+  version: 0.0.0-use.local
+  resolution: "@girs/coglpango-6@workspace:types-dev/coglpango-6"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-6": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/coglpango-7@workspace:^, @girs/coglpango-7@workspace:types-dev/coglpango-7":
+  version: 0.0.0-use.local
+  resolution: "@girs/coglpango-7@workspace:types-dev/coglpango-7"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-7": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/coglpango-8@workspace:^, @girs/coglpango-8@workspace:types-dev/coglpango-8":
+  version: 0.0.0-use.local
+  resolution: "@girs/coglpango-8@workspace:types-dev/coglpango-8"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-8": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/coglpango-9@workspace:^, @girs/coglpango-9@workspace:types-dev/coglpango-9":
+  version: 0.0.0-use.local
+  resolution: "@girs/coglpango-9@workspace:types-dev/coglpango-9"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cogl-9": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
     "@girs/harfbuzz-0.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
     "@girs/pangocairo-1.0": "workspace:^"
@@ -3017,7 +3743,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/evinceview-3.0@workspace:^, @girs/evinceview-3.0@workspace:types-dev/evinceview-3.0":
+"@girs/evinceview-3.0@workspace:types-dev/evinceview-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/evinceview-3.0@workspace:types-dev/evinceview-3.0"
   dependencies:
@@ -4026,7 +4752,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/geocodeglib-1.0@workspace:types-dev/geocodeglib-1.0":
+"@girs/geocodeglib-1.0@workspace:^, @girs/geocodeglib-1.0@workspace:types-dev/geocodeglib-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/geocodeglib-1.0@workspace:types-dev/geocodeglib-1.0"
   dependencies:
@@ -4738,22 +5464,26 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@girs/gnomemaps-1.0@workspace:types-dev/gnomemaps-1.0"
   dependencies:
+    "@girs/atk-1.0": "workspace:^"
     "@girs/cairo-1.0": "workspace:^"
+    "@girs/champlain-0.12": "workspace:^"
+    "@girs/clutter-1.0": "workspace:^"
+    "@girs/cogl-1.0": "workspace:^"
+    "@girs/coglpango-1.0": "workspace:^"
     "@girs/freetype2-2.0": "workspace:^"
-    "@girs/gdk-4.0": "workspace:^"
-    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/geocodeglib-1.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
-    "@girs/graphene-1.0": "workspace:^"
-    "@girs/gsk-4.0": "workspace:^"
-    "@girs/gtk-4.0": "workspace:^"
     "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
     "@girs/pangocairo-1.0": "workspace:^"
-    "@girs/shumate-1.0": "workspace:^"
+    "@girs/rest-0.7": "workspace:^"
+    "@girs/soup-2.4": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
   linkType: soft
@@ -5686,7 +6416,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstpbutils-0.10@workspace:types-dev/gstpbutils-0.10":
+"@girs/gstpbutils-0.10@workspace:^, @girs/gstpbutils-0.10@workspace:types-dev/gstpbutils-0.10":
   version: 0.0.0-use.local
   resolution: "@girs/gstpbutils-0.10@workspace:types-dev/gstpbutils-0.10"
   dependencies:
@@ -5826,7 +6556,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gsttag-0.10@workspace:types-dev/gsttag-0.10":
+"@girs/gsttag-0.10@workspace:^, @girs/gsttag-0.10@workspace:types-dev/gsttag-0.10":
   version: 0.0.0-use.local
   resolution: "@girs/gsttag-0.10@workspace:types-dev/gsttag-0.10"
   dependencies:
@@ -6264,6 +6994,28 @@ __metadata:
 "@girs/gtklayershell-0.1@workspace:types-dev/gtklayershell-0.1":
   version: 0.0.0-use.local
   resolution: "@girs/gtklayershell-0.1@workspace:types-dev/gtklayershell-0.1"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/gtkosxapplication-1.0@workspace:types-dev/gtkosxapplication-1.0":
+  version: 0.0.0-use.local
+  resolution: "@girs/gtkosxapplication-1.0@workspace:types-dev/gtkosxapplication-1.0"
   dependencies:
     "@girs/atk-1.0": "workspace:^"
     "@girs/cairo-1.0": "workspace:^"
@@ -7789,7 +8541,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/meta-10@workspace:types-dev/meta-10":
+"@girs/meta-10@workspace:^, @girs/meta-10@workspace:types-dev/meta-10":
   version: 0.0.0-use.local
   resolution: "@girs/meta-10@workspace:types-dev/meta-10"
   dependencies:
@@ -8010,6 +8762,220 @@ __metadata:
     "@girs/harfbuzz-0.0": "workspace:^"
     "@girs/mtk-17": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/meta-3@workspace:types-dev/meta-3":
+  version: 0.0.0-use.local
+  resolution: "@girs/meta-3@workspace:types-dev/meta-3"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-3": "workspace:^"
+    "@girs/cogl-3": "workspace:^"
+    "@girs/coglpango-3": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/meta-4@workspace:types-dev/meta-4":
+  version: 0.0.0-use.local
+  resolution: "@girs/meta-4@workspace:types-dev/meta-4"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-4": "workspace:^"
+    "@girs/cogl-4": "workspace:^"
+    "@girs/coglpango-4": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/meta-5@workspace:types-dev/meta-5":
+  version: 0.0.0-use.local
+  resolution: "@girs/meta-5@workspace:types-dev/meta-5"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-5": "workspace:^"
+    "@girs/cogl-5": "workspace:^"
+    "@girs/coglpango-5": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/meta-6@workspace:types-dev/meta-6":
+  version: 0.0.0-use.local
+  resolution: "@girs/meta-6@workspace:types-dev/meta-6"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-6": "workspace:^"
+    "@girs/cogl-6": "workspace:^"
+    "@girs/coglpango-6": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/meta-7@workspace:types-dev/meta-7":
+  version: 0.0.0-use.local
+  resolution: "@girs/meta-7@workspace:types-dev/meta-7"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-7": "workspace:^"
+    "@girs/cogl-7": "workspace:^"
+    "@girs/coglpango-7": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/meta-8@workspace:types-dev/meta-8":
+  version: 0.0.0-use.local
+  resolution: "@girs/meta-8@workspace:types-dev/meta-8"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-8": "workspace:^"
+    "@girs/cogl-8": "workspace:^"
+    "@girs/coglpango-8": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/meta-9@workspace:^, @girs/meta-9@workspace:types-dev/meta-9":
+  version: 0.0.0-use.local
+  resolution: "@girs/meta-9@workspace:types-dev/meta-9"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-9": "workspace:^"
+    "@girs/cogl-9": "workspace:^"
+    "@girs/coglpango-9": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
     "@girs/xfixes-4.0": "workspace:^"
     "@girs/xlib-2.0": "workspace:^"
     typescript: "npm:*"
@@ -9605,6 +10571,86 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/shell-10@workspace:types-dev/shell-10":
+  version: 0.0.0-use.local
+  resolution: "@girs/shell-10@workspace:types-dev/shell-10"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cally-10": "workspace:^"
+    "@girs/clutter-10": "workspace:^"
+    "@girs/cogl-10": "workspace:^"
+    "@girs/coglpango-10": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gck-1": "workspace:^"
+    "@girs/gcr-3": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/gvc-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/meta-10": "workspace:^"
+    "@girs/nm-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/polkit-1.0": "workspace:^"
+    "@girs/polkitagent-1.0": "workspace:^"
+    "@girs/st-10": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/shell-11@workspace:types-dev/shell-11":
+  version: 0.0.0-use.local
+  resolution: "@girs/shell-11@workspace:types-dev/shell-11"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cally-11": "workspace:^"
+    "@girs/clutter-11": "workspace:^"
+    "@girs/cogl-11": "workspace:^"
+    "@girs/coglpango-11": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gck-2": "workspace:^"
+    "@girs/gcr-4": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/gvc-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/meta-11": "workspace:^"
+    "@girs/nm-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/polkit-1.0": "workspace:^"
+    "@girs/polkitagent-1.0": "workspace:^"
+    "@girs/st-11": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/shell-12@workspace:types-dev/shell-12":
   version: 0.0.0-use.local
   resolution: "@girs/shell-12@workspace:types-dev/shell-12"
@@ -9828,6 +10874,46 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/shell-9@workspace:types-dev/shell-9":
+  version: 0.0.0-use.local
+  resolution: "@girs/shell-9@workspace:types-dev/shell-9"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cally-9": "workspace:^"
+    "@girs/clutter-9": "workspace:^"
+    "@girs/cogl-9": "workspace:^"
+    "@girs/coglpango-9": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gck-1": "workspace:^"
+    "@girs/gcr-3": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/gvc-1.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/meta-9": "workspace:^"
+    "@girs/nm-1.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/polkit-1.0": "workspace:^"
+    "@girs/polkitagent-1.0": "workspace:^"
+    "@girs/st-9": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/shew-0@workspace:types-dev/shew-0":
   version: 0.0.0-use.local
   resolution: "@girs/shew-0@workspace:types-dev/shew-0"
@@ -9851,7 +10937,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/shumate-1.0@workspace:^, @girs/shumate-1.0@workspace:types-dev/shumate-1.0":
+"@girs/shumate-1.0@workspace:types-dev/shumate-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/shumate-1.0@workspace:types-dev/shumate-1.0"
   dependencies:
@@ -10074,6 +11160,72 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/st-10@workspace:^, @girs/st-10@workspace:types-dev/st-10":
+  version: 0.0.0-use.local
+  resolution: "@girs/st-10@workspace:types-dev/st-10"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cally-10": "workspace:^"
+    "@girs/clutter-10": "workspace:^"
+    "@girs/cogl-10": "workspace:^"
+    "@girs/coglpango-10": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/meta-10": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/st-11@workspace:^, @girs/st-11@workspace:types-dev/st-11":
+  version: 0.0.0-use.local
+  resolution: "@girs/st-11@workspace:types-dev/st-11"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cally-11": "workspace:^"
+    "@girs/clutter-11": "workspace:^"
+    "@girs/cogl-11": "workspace:^"
+    "@girs/coglpango-11": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/meta-11": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/st-12@workspace:^, @girs/st-12@workspace:types-dev/st-12":
   version: 0.0.0-use.local
   resolution: "@girs/st-12@workspace:types-dev/st-12"
@@ -10254,6 +11406,39 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/st-9@workspace:^, @girs/st-9@workspace:types-dev/st-9":
+  version: 0.0.0-use.local
+  resolution: "@girs/st-9@workspace:types-dev/st-9"
+  dependencies:
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cally-9": "workspace:^"
+    "@girs/clutter-9": "workspace:^"
+    "@girs/cogl-9": "workspace:^"
+    "@girs/coglpango-9": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/meta-9": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/sugarext-1.0@workspace:types-dev/sugarext-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/sugarext-1.0@workspace:types-dev/sugarext-1.0"
@@ -10305,22 +11490,33 @@ __metadata:
   dependencies:
     "@girs/atk-1.0": "workspace:^"
     "@girs/cairo-1.0": "workspace:^"
+    "@girs/clutter-1.0": "workspace:^"
+    "@girs/cogl-1.0": "workspace:^"
+    "@girs/coglpango-1.0": "workspace:^"
     "@girs/evincedocument-3.0": "workspace:^"
-    "@girs/evinceview-3.0": "workspace:^"
+    "@girs/fontconfig-2.0": "workspace:^"
     "@girs/freetype2-2.0": "workspace:^"
     "@girs/gdk-3.0": "workspace:^"
     "@girs/gdkpixbuf-2.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gmodule-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
-    "@girs/gst-1.0": "workspace:^"
-    "@girs/gstbase-1.0": "workspace:^"
-    "@girs/gsttag-1.0": "workspace:^"
+    "@girs/gst-0.10": "workspace:^"
+    "@girs/gstbase-0.10": "workspace:^"
+    "@girs/gstpbutils-0.10": "workspace:^"
+    "@girs/gsttag-0.10": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
+    "@girs/gtksource-3.0": "workspace:^"
     "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/libxml2-2.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/pangofc-1.0": "workspace:^"
+    "@girs/pangoft2-1.0": "workspace:^"
     "@girs/xlib-2.0": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
