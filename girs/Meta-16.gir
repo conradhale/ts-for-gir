@@ -90,14 +90,14 @@ used (#MetaBackendNative or #MetaBackendX11).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backends/meta-backend.c"
-               line="1734">The #MetaContext</doc>
+               line="1754">The #MetaContext</doc>
           <type name="Context" c:type="MetaContext*"/>
         </return-value>
         <parameters>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-backend.c"
-                 line="1732">the #MetaBackend</doc>
+                 line="1752">the #MetaBackend</doc>
             <type name="Backend" c:type="MetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -108,7 +108,7 @@ used (#MetaBackendNative or #MetaBackendX11).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backends/meta-backend.c"
-               line="1503">the #MetaIdleMonitor that tracks server-global
+               line="1523">the #MetaIdleMonitor that tracks server-global
 idle time for all devices.</doc>
           <type name="IdleMonitor" c:type="MetaIdleMonitor*"/>
         </return-value>
@@ -124,14 +124,14 @@ idle time for all devices.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backends/meta-backend.c"
-               line="1580">The cursor tracker corresponding to @backend</doc>
+               line="1600">The cursor tracker corresponding to @backend</doc>
           <type name="CursorTracker" c:type="MetaCursorTracker*"/>
         </return-value>
         <parameters>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-backend.c"
-                 line="1578">a #MetaBackend</doc>
+                 line="1598">a #MetaBackend</doc>
             <type name="Backend" c:type="MetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -139,19 +139,19 @@ idle time for all devices.</doc>
       <method name="get_dnd" c:identifier="meta_backend_get_dnd">
         <doc xml:space="preserve"
              filename="src/backends/meta-backend.c"
-             line="1894">Gets the global #MetaDnd that's managed by this backend.</doc>
+             line="1914">Gets the global #MetaDnd that's managed by this backend.</doc>
         <source-position filename="src/meta/meta-backend.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backends/meta-backend.c"
-               line="1900">the #MetaDnd</doc>
+               line="1920">the #MetaDnd</doc>
           <type name="Dnd" c:type="MetaDnd*"/>
         </return-value>
         <parameters>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-backend.c"
-                 line="1896">A #MetaDnd</doc>
+                 line="1916">A #MetaDnd</doc>
             <type name="Backend" c:type="MetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -162,7 +162,7 @@ idle time for all devices.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backends/meta-backend.c"
-               line="1525">A #MetaMonitorManager</doc>
+               line="1545">A #MetaMonitorManager</doc>
           <type name="MonitorManager" c:type="MetaMonitorManager*"/>
         </return-value>
         <parameters>
@@ -177,7 +177,7 @@ idle time for all devices.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backends/meta-backend.c"
-               line="1566">A #MetaOrientationManager</doc>
+               line="1586">A #MetaOrientationManager</doc>
           <type name="OrientationManager" c:type="MetaOrientationManager*"/>
         </return-value>
         <parameters>
@@ -192,7 +192,7 @@ idle time for all devices.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backends/meta-backend.c"
-               line="1684">The #MetaRemoteAccessController</doc>
+               line="1704">The #MetaRemoteAccessController</doc>
           <type name="RemoteAccessController"
                 c:type="MetaRemoteAccessController*"/>
         </return-value>
@@ -200,7 +200,7 @@ idle time for all devices.</doc>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-backend.c"
-                 line="1682">A #MetaBackend</doc>
+                 line="1702">A #MetaBackend</doc>
             <type name="Backend" c:type="MetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -221,19 +221,19 @@ idle time for all devices.</doc>
       <method name="get_stage" c:identifier="meta_backend_get_stage">
         <doc xml:space="preserve"
              filename="src/backends/meta-backend.c"
-             line="1799">Gets the global #ClutterStage that's managed by this backend.</doc>
+             line="1819">Gets the global #ClutterStage that's managed by this backend.</doc>
         <source-position filename="src/meta/meta-backend.h" line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backends/meta-backend.c"
-               line="1805">the #ClutterStage</doc>
+               line="1825">the #ClutterStage</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-backend.c"
-                 line="1801">A #MetaBackend</doc>
+                 line="1821">A #MetaBackend</doc>
             <type name="Backend" c:type="MetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -255,7 +255,7 @@ idle time for all devices.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backends/meta-backend.c"
-               line="1711">%TRUE if the rendering is hardware accelerated, otherwise
+               line="1731">%TRUE if the rendering is hardware accelerated, otherwise
 %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -263,7 +263,7 @@ idle time for all devices.</doc>
           <instance-parameter name="backend" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-backend.c"
-                 line="1709">A #MetaBackend</doc>
+                 line="1729">A #MetaBackend</doc>
             <type name="Backend" c:type="MetaBackend*"/>
           </instance-parameter>
         </parameters>
@@ -375,7 +375,7 @@ idle time for all devices.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/backends/meta-backend.c"
-                 line="959">the #MetaGpu</doc>
+                 line="963">the #MetaGpu</doc>
             <type name="gpointer"/>
           </parameter>
         </parameters>
@@ -415,7 +415,17 @@ idle time for all devices.</doc>
           </parameter>
         </parameters>
       </glib:signal>
+      <glib:signal name="pause" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
       <glib:signal name="prepare-shutdown" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="resume" when="last">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1948,14 +1958,14 @@ unredirected windows is undesirable like when recording a video.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/compositor/compositor.c"
-               line="1496">The backend corresponding to @compositor</doc>
+               line="1498">The backend corresponding to @compositor</doc>
           <type name="Backend" c:type="MetaBackend*"/>
         </return-value>
         <parameters>
           <instance-parameter name="compositor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/compositor/compositor.c"
-                 line="1494">a #MetaCompositor</doc>
+                 line="1496">a #MetaCompositor</doc>
             <type name="Compositor" c:type="MetaCompositor*"/>
           </instance-parameter>
         </parameters>
@@ -1983,14 +1993,14 @@ unredirected windows is undesirable like when recording a video.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/compositor/compositor.c"
-               line="1529">a #MetaLaters</doc>
+               line="1531">a #MetaLaters</doc>
           <type name="Laters" c:type="MetaLaters*"/>
         </return-value>
         <parameters>
           <instance-parameter name="compositor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/compositor/compositor.c"
-                 line="1527">a #MetaCompositor</doc>
+                 line="1529">a #MetaCompositor</doc>
             <type name="Compositor" c:type="MetaCompositor*"/>
           </instance-parameter>
         </parameters>
@@ -2000,14 +2010,14 @@ unredirected windows is undesirable like when recording a video.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/compositor/compositor.c"
-               line="1481">The stage corresponding to @compositor</doc>
+               line="1483">The stage corresponding to @compositor</doc>
           <type name="Clutter.Stage" c:type="ClutterStage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="compositor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/compositor/compositor.c"
-                 line="1479">a #MetaCompositor</doc>
+                 line="1481">a #MetaCompositor</doc>
             <type name="Compositor" c:type="MetaCompositor*"/>
           </instance-parameter>
         </parameters>
@@ -2888,7 +2898,7 @@ the cursor image, now more of a "core pointer abstraction"</doc>
       <method name="get_hot" c:identifier="meta_cursor_tracker_get_hot">
         <doc xml:space="preserve"
              filename="src/backends/meta-cursor-tracker.c"
-             line="381">Get the hotspot of the current cursor sprite.</doc>
+             line="412">Get the hotspot of the current cursor sprite.</doc>
         <source-position filename="src/meta/meta-cursor-tracker.h" line="40"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2897,7 +2907,7 @@ the cursor image, now more of a "core pointer abstraction"</doc>
           <instance-parameter name="tracker" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-cursor-tracker.c"
-                 line="383">a #MetaCursorTracker</doc>
+                 line="414">a #MetaCursorTracker</doc>
             <type name="CursorTracker" c:type="MetaCursorTracker*"/>
           </instance-parameter>
           <parameter name="x"
@@ -2906,7 +2916,7 @@ the cursor image, now more of a "core pointer abstraction"</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/backends/meta-cursor-tracker.c"
-                 line="384">the x coordinate of the cursor hotspot</doc>
+                 line="415">the x coordinate of the cursor hotspot</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="y"
@@ -2915,7 +2925,7 @@ the cursor image, now more of a "core pointer abstraction"</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/backends/meta-cursor-tracker.c"
-                 line="385">the y coordinate of the cursor hotspot</doc>
+                 line="416">the y coordinate of the cursor hotspot</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -2924,7 +2934,7 @@ the cursor image, now more of a "core pointer abstraction"</doc>
               c:identifier="meta_cursor_tracker_get_pointer">
         <doc xml:space="preserve"
              filename="src/backends/meta-cursor-tracker.c"
-             line="452">Get the current pointer position and state.</doc>
+             line="483">Get the current pointer position and state.</doc>
         <source-position filename="src/meta/meta-cursor-tracker.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2933,7 +2943,7 @@ the cursor image, now more of a "core pointer abstraction"</doc>
           <instance-parameter name="tracker" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-cursor-tracker.c"
-                 line="454">a #MetaCursorTracker object</doc>
+                 line="485">a #MetaCursorTracker object</doc>
             <type name="CursorTracker" c:type="MetaCursorTracker*"/>
           </instance-parameter>
           <parameter name="coords"
@@ -2944,7 +2954,7 @@ the cursor image, now more of a "core pointer abstraction"</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/backends/meta-cursor-tracker.c"
-                 line="455">the coordinates of the pointer</doc>
+                 line="486">the coordinates of the pointer</doc>
             <type name="Graphene.Point" c:type="graphene_point_t*"/>
           </parameter>
           <parameter name="mods"
@@ -2955,7 +2965,7 @@ the cursor image, now more of a "core pointer abstraction"</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/backends/meta-cursor-tracker.c"
-                 line="456">the current #ClutterModifierType of the pointer</doc>
+                 line="487">the current #ClutterModifierType of the pointer</doc>
             <type name="Clutter.ModifierType" c:type="ClutterModifierType*"/>
           </parameter>
         </parameters>
@@ -2975,19 +2985,19 @@ the cursor image, now more of a "core pointer abstraction"</doc>
       <method name="get_scale" c:identifier="meta_cursor_tracker_get_scale">
         <doc xml:space="preserve"
              filename="src/backends/meta-cursor-tracker.c"
-             line="360">Get the scale factor of the cursor sprite</doc>
+             line="391">Get the scale factor of the cursor sprite</doc>
         <source-position filename="src/meta/meta-cursor-tracker.h" line="48"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backends/meta-cursor-tracker.c"
-               line="366">The scale factor of the cursor sprite</doc>
+               line="397">The scale factor of the cursor sprite</doc>
           <type name="gfloat" c:type="float"/>
         </return-value>
         <parameters>
           <instance-parameter name="tracker" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-cursor-tracker.c"
-                 line="362">a #MetaCursorTracker</doc>
+                 line="393">a #MetaCursorTracker</doc>
             <type name="CursorTracker" c:type="MetaCursorTracker*"/>
           </instance-parameter>
         </parameters>
@@ -2995,19 +3005,19 @@ the cursor image, now more of a "core pointer abstraction"</doc>
       <method name="get_sprite" c:identifier="meta_cursor_tracker_get_sprite">
         <doc xml:space="preserve"
              filename="src/backends/meta-cursor-tracker.c"
-             line="338">Get the #CoglTexture of the cursor sprite</doc>
+             line="369">Get the #CoglTexture of the cursor sprite</doc>
         <source-position filename="src/meta/meta-cursor-tracker.h" line="45"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/backends/meta-cursor-tracker.c"
-               line="344">the #CoglTexture of the cursor sprite</doc>
+               line="375">the #CoglTexture of the cursor sprite</doc>
           <type name="Cogl.Texture" c:type="CoglTexture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tracker" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-cursor-tracker.c"
-                 line="340">a #MetaCursorTracker</doc>
+                 line="371">a #MetaCursorTracker</doc>
             <type name="CursorTracker" c:type="MetaCursorTracker*"/>
           </instance-parameter>
         </parameters>
@@ -3037,6 +3047,11 @@ the cursor image, now more of a "core pointer abstraction"</doc>
         <type name="GObject.Object" c:type="GObject"/>
       </field>
       <glib:signal name="cursor-changed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="cursor-prefs-changed" when="last">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3616,7 +3631,7 @@ Use meta_display_remove_keybinding() to remove the binding.</doc>
               c:identifier="meta_display_clear_mouse_mode">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="2600">Sets the mouse-mode flag to %FALSE, which means that motion events are
+             line="2538">Sets the mouse-mode flag to %FALSE, which means that motion events are
 no longer ignored in mouse or sloppy focus.
 This is an internal function. It should be used only for reimplementing
 keybindings, and only in a manner compatible with core code.</doc>
@@ -3628,7 +3643,7 @@ keybindings, and only in a manner compatible with core code.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2602">a #MetaDisplay</doc>
+                 line="2540">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -3667,14 +3682,14 @@ keybindings, and only in a manner compatible with core code.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="2547">the #MetaCompositor</doc>
+               line="2485">the #MetaCompositor</doc>
           <type name="Compositor" c:type="MetaCompositor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2545">a #MetaDisplay</doc>
+                 line="2483">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -3697,14 +3712,14 @@ keybindings, and only in a manner compatible with core code.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="2533">the #MetaContext</doc>
+               line="2471">the #MetaContext</doc>
           <type name="Context" c:type="MetaContext*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2531">a #MetaDisplay</doc>
+                 line="2469">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -3713,19 +3728,19 @@ keybindings, and only in a manner compatible with core code.</doc>
               c:identifier="meta_display_get_current_monitor">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="3281">Gets the index of the monitor that currently has the mouse pointer.</doc>
+             line="3219">Gets the index of the monitor that currently has the mouse pointer.</doc>
         <source-position filename="src/meta/display.h" line="222"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="3287">a monitor index</doc>
+               line="3225">a monitor index</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="3283">a #MetaDisplay</doc>
+                 line="3221">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -3759,21 +3774,21 @@ keybindings, and only in a manner compatible with core code.</doc>
               glib:get-property="focus-window">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="2584">Get our best guess as to the "currently" focused window (that is,
+             line="2522">Get our best guess as to the "currently" focused window (that is,
 the window that we expect will be focused at the point when the X
 server processes our next request).</doc>
         <source-position filename="src/meta/display.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="2592">The current focus window</doc>
+               line="2530">The current focus window</doc>
           <type name="Window" c:type="MetaWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2586">a #MetaDisplay</doc>
+                 line="2524">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -3837,7 +3852,7 @@ meta_display_add_keybinding() returns on registration.</doc>
               c:identifier="meta_display_get_monitor_geometry">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="3350">Stores the location and size of the indicated @monitor in @geometry.</doc>
+             line="3288">Stores the location and size of the indicated @monitor in @geometry.</doc>
         <source-position filename="src/meta/display.h" line="225"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3846,13 +3861,13 @@ meta_display_add_keybinding() returns on registration.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="3352">a #MetaDisplay</doc>
+                 line="3290">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
           <parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="3353">the monitor number</doc>
+                 line="3291">the monitor number</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="geometry"
@@ -3861,7 +3876,7 @@ meta_display_add_keybinding() returns on registration.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="3354">location to store the monitor geometry</doc>
+                 line="3292">location to store the monitor geometry</doc>
             <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
           </parameter>
         </parameters>
@@ -3870,7 +3885,7 @@ meta_display_add_keybinding() returns on registration.</doc>
               c:identifier="meta_display_get_monitor_in_fullscreen">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="3413">Determines whether there is a fullscreen window obscuring the specified
+             line="3351">Determines whether there is a fullscreen window obscuring the specified
 monitor. If there is a fullscreen window, the desktop environment will
 typically hide any controls that might obscure the fullscreen window.
 
@@ -3880,20 +3895,20 @@ MetaDisplay::in-fullscreen-changed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="3425">%TRUE if there is a fullscreen window covering the specified monitor.</doc>
+               line="3363">%TRUE if there is a fullscreen window covering the specified monitor.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="3415">a #MetaDisplay</doc>
+                 line="3353">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
           <parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="3416">the monitor number</doc>
+                 line="3354">the monitor number</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -3935,25 +3950,25 @@ MetaDisplay::in-fullscreen-changed.</doc>
               c:identifier="meta_display_get_monitor_scale">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="3382">Gets the monitor scaling value for the given @monitor.</doc>
+             line="3320">Gets the monitor scaling value for the given @monitor.</doc>
         <source-position filename="src/meta/display.h" line="230"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="3389">the monitor scaling value</doc>
+               line="3327">the monitor scaling value</doc>
           <type name="gfloat" c:type="float"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="3384">a #MetaDisplay</doc>
+                 line="3322">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
           <parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="3385">the monitor number</doc>
+                 line="3323">the monitor number</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -3961,19 +3976,19 @@ MetaDisplay::in-fullscreen-changed.</doc>
       <method name="get_n_monitors" c:identifier="meta_display_get_n_monitors">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="3304">Gets the number of monitors that are joined together to form @display.</doc>
+             line="3242">Gets the number of monitors that are joined together to form @display.</doc>
         <source-position filename="src/meta/display.h" line="216"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="3310">the number of monitors</doc>
+               line="3248">the number of monitors</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="3306">a #MetaDisplay</doc>
+                 line="3244">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -4024,19 +4039,19 @@ MetaDisplay::in-fullscreen-changed.</doc>
               c:identifier="meta_display_get_primary_monitor">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="3324">Gets the index of the primary monitor on this @display.</doc>
+             line="3262">Gets the index of the primary monitor on this @display.</doc>
         <source-position filename="src/meta/display.h" line="219"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="3330">a monitor index</doc>
+               line="3268">a monitor index</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="3326">a #MetaDisplay</doc>
+                 line="3264">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -4046,14 +4061,14 @@ MetaDisplay::in-fullscreen-changed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="3529">The selection manager of the display</doc>
+               line="3467">The selection manager of the display</doc>
           <type name="Selection" c:type="MetaSelection*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="3527">a #MetaDisplay</doc>
+                 line="3465">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -4061,7 +4076,7 @@ MetaDisplay::in-fullscreen-changed.</doc>
       <method name="get_size" c:identifier="meta_display_get_size">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="2555">Retrieve the size of the display.</doc>
+             line="2493">Retrieve the size of the display.</doc>
         <source-position filename="src/meta/display.h" line="192"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4070,7 +4085,7 @@ MetaDisplay::in-fullscreen-changed.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2557">A #MetaDisplay</doc>
+                 line="2495">A #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
           <parameter name="width"
@@ -4079,7 +4094,7 @@ MetaDisplay::in-fullscreen-changed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2558">The width of the screen</doc>
+                 line="2496">The width of the screen</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="height"
@@ -4088,7 +4103,7 @@ MetaDisplay::in-fullscreen-changed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2559">The height of the screen</doc>
+                 line="2497">The height of the screen</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -4099,14 +4114,14 @@ MetaDisplay::in-fullscreen-changed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="3517">The sound player of the display</doc>
+               line="3455">The sound player of the display</doc>
           <type name="SoundPlayer" c:type="MetaSoundPlayer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="3515">a #MetaDisplay</doc>
+                 line="3453">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -4128,31 +4143,31 @@ MetaDisplay::in-fullscreen-changed.</doc>
               c:identifier="meta_display_get_tab_current">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="2247">Determine the active window that should be displayed for Alt-TAB.</doc>
+             line="2185">Determine the active window that should be displayed for Alt-TAB.</doc>
         <source-position filename="src/meta/display.h" line="126"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="2255">Current window</doc>
+               line="2193">Current window</doc>
           <type name="Window" c:type="MetaWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2249">a #MetaDisplay</doc>
+                 line="2187">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2250">type of tab list</doc>
+                 line="2188">type of tab list</doc>
             <type name="TabList" c:type="MetaTabList"/>
           </parameter>
           <parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2251">origin workspace</doc>
+                 line="2189">origin workspace</doc>
             <type name="Workspace" c:type="MetaWorkspace*"/>
           </parameter>
         </parameters>
@@ -4160,7 +4175,7 @@ MetaDisplay::in-fullscreen-changed.</doc>
       <method name="get_tab_list" c:identifier="meta_display_get_tab_list">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="2119">Determine the list of windows that should be displayed for Alt-TAB
+             line="2057">Determine the list of windows that should be displayed for Alt-TAB
 functionality.  The windows are returned in most recently used order.
 If @workspace is not %NULL, the list only contains windows that are on
 @workspace or have the demands-attention hint set; otherwise it contains
@@ -4169,7 +4184,7 @@ all windows.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="2131">List of windows</doc>
+               line="2069">List of windows</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Window"/>
           </type>
@@ -4178,13 +4193,13 @@ all windows.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2121">a #MetaDisplay</doc>
+                 line="2059">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2122">type of tab list</doc>
+                 line="2060">type of tab list</doc>
             <type name="TabList" c:type="MetaTabList"/>
           </parameter>
           <parameter name="workspace"
@@ -4193,7 +4208,7 @@ all windows.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2123">origin workspace</doc>
+                 line="2061">origin workspace</doc>
             <type name="Workspace" c:type="MetaWorkspace*"/>
           </parameter>
         </parameters>
@@ -4201,32 +4216,32 @@ all windows.</doc>
       <method name="get_tab_next" c:identifier="meta_display_get_tab_next">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="2195">Determine the next window that should be displayed for Alt-TAB
+             line="2133">Determine the next window that should be displayed for Alt-TAB
 functionality.</doc>
         <source-position filename="src/meta/display.h" line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="2206">Next window</doc>
+               line="2144">Next window</doc>
           <type name="Window" c:type="MetaWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2197">a #MetaDisplay</doc>
+                 line="2135">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2198">type of tab list</doc>
+                 line="2136">type of tab list</doc>
             <type name="TabList" c:type="MetaTabList"/>
           </parameter>
           <parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2199">origin workspace</doc>
+                 line="2137">origin workspace</doc>
             <type name="Workspace" c:type="MetaWorkspace*"/>
           </parameter>
           <parameter name="window"
@@ -4235,13 +4250,13 @@ functionality.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2200">starting window</doc>
+                 line="2138">starting window</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </parameter>
           <parameter name="backward" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2201">If %TRUE, look for the previous window.</doc>
+                 line="2139">If %TRUE, look for the previous window.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -4252,14 +4267,14 @@ functionality.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="3467">The workspace manager of the display</doc>
+               line="3405">The workspace manager of the display</doc>
           <type name="WorkspaceManager" c:type="MetaWorkspaceManager*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="3465">a #MetaDisplay</doc>
+                 line="3403">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -4275,7 +4290,7 @@ functionality.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/x11/meta-x11-display.c"
-                 line="2823">a #MetaDisplay</doc>
+                 line="2831">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -4301,19 +4316,19 @@ functionality.</doc>
       <method name="is_grabbed" c:identifier="meta_display_is_grabbed">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="1773">Returns %TRUE if there is an ongoing grab operation.</doc>
+             line="1711">Returns %TRUE if there is an ongoing grab operation.</doc>
         <source-position filename="src/meta/display.h" line="131"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="1779">Whether there is an active display grab operation.</doc>
+               line="1717">Whether there is an active display grab operation.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="1775">The #MetaDisplay that the window is on</doc>
+                 line="1713">The #MetaDisplay that the window is on</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -4322,20 +4337,20 @@ functionality.</doc>
               c:identifier="meta_display_is_pointer_emulating_sequence">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="2662">Tells whether the event sequence is the used for pointer emulation
+             line="2600">Tells whether the event sequence is the used for pointer emulation
 and single-touch interaction.</doc>
         <source-position filename="src/meta/display.h" line="171"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="2670">#TRUE if the sequence emulates pointer behavior</doc>
+               line="2608">#TRUE if the sequence emulates pointer behavior</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2664">the display</doc>
+                 line="2602">the display</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
           <parameter name="sequence"
@@ -4344,7 +4359,7 @@ and single-touch interaction.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2665">a #ClutterEventSequence</doc>
+                 line="2603">a #ClutterEventSequence</doc>
             <type name="Clutter.EventSequence" c:type="ClutterEventSequence*"/>
           </parameter>
         </parameters>
@@ -4353,13 +4368,13 @@ and single-touch interaction.</doc>
               c:identifier="meta_display_list_all_windows">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="2094">List all windows, including override-redirect ones. The windows are
+             line="2032">List all windows, including override-redirect ones. The windows are
 in no particular order.</doc>
         <source-position filename="src/meta/display.h" line="111"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="2101">List of windows</doc>
+               line="2039">List of windows</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Window"/>
           </type>
@@ -4368,7 +4383,7 @@ in no particular order.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2096">a #MetaDisplay</doc>
+                 line="2034">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -4456,7 +4471,7 @@ keybinding or has not been added with meta_display_add_keybinding().</doc>
               c:identifier="meta_display_sort_windows_by_stacking">
         <doc xml:space="preserve"
              filename="src/core/display.c"
-             line="2386">Sorts a set of windows according to their current stacking order. If windows
+             line="2324">Sorts a set of windows according to their current stacking order. If windows
 from multiple screens are present in the set of input windows, then all the
 windows on screen 0 are sorted below all the windows on screen 1, and so forth.
 Since the stacking order of override-redirect windows isn't controlled by
@@ -4469,7 +4484,7 @@ window into their current stacking order.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/core/display.c"
-               line="2401">Input windows sorted by stacking order, from lowest to highest</doc>
+               line="2339">Input windows sorted by stacking order, from lowest to highest</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="Window"/>
           </type>
@@ -4478,13 +4493,13 @@ window into their current stacking order.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2388">a #MetaDisplay</doc>
+                 line="2326">a #MetaDisplay</doc>
             <type name="Display" c:type="MetaDisplay*"/>
           </instance-parameter>
           <parameter name="windows" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/display.c"
-                 line="2389">Set of windows</doc>
+                 line="2327">Set of windows</doc>
             <type name="GLib.SList" c:type="GSList*">
               <type name="Window"/>
             </type>
@@ -7490,7 +7505,7 @@ DBus service, so apps like GNOME Settings can use this functionality.</doc>
               c:identifier="meta_monitor_manager_get_is_builtin_display_on">
         <doc xml:space="preserve"
              filename="src/backends/meta-monitor-manager.c"
-             line="4328">Returns whether the built-in display (i.e. a laptop panel) is turned on.</doc>
+             line="4429">Returns whether the built-in display (i.e. a laptop panel) is turned on.</doc>
         <source-position filename="src/meta/meta-monitor-manager.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7499,7 +7514,7 @@ DBus service, so apps like GNOME Settings can use this functionality.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-monitor-manager.c"
-                 line="4330">A #MetaMonitorManager object</doc>
+                 line="4431">A #MetaMonitorManager object</doc>
             <type name="MonitorManager" c:type="MetaMonitorManager*"/>
           </instance-parameter>
         </parameters>
@@ -7510,7 +7525,7 @@ DBus service, so apps like GNOME Settings can use this functionality.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/backends/meta-monitor-manager.c"
-               line="4307">The monitor index or -1 if @id isn't valid or the connector
+               line="4408">The monitor index or -1 if @id isn't valid or the connector
 isn't associated with a logical monitor.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -7518,13 +7533,13 @@ isn't associated with a logical monitor.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-monitor-manager.c"
-                 line="4304">A #MetaMonitorManager</doc>
+                 line="4405">A #MetaMonitorManager</doc>
             <type name="MonitorManager" c:type="MetaMonitorManager*"/>
           </instance-parameter>
           <parameter name="connector" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-monitor-manager.c"
-                 line="4305">A valid connector name</doc>
+                 line="4406">A valid connector name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -7608,14 +7623,14 @@ isn't associated with a logical monitor.</doc>
           <parameter name="logical_monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-monitor-manager.c"
-                 line="1563">The #MetaLogicalMonitor where the privacy screen state
+                 line="1660">The #MetaLogicalMonitor where the privacy screen state
                   changed</doc>
             <type/>
           </parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/backends/meta-monitor-manager.c"
-                 line="1565">%TRUE if the privacy screen was enabled, otherwise %FALSE</doc>
+                 line="1662">%TRUE if the privacy screen was enabled, otherwise %FALSE</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -11839,7 +11854,7 @@ rendering, each #MetaWindow will be part of a [class@Meta.WindowActor].</doc>
               glib:get-property="appears-focused">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6502">Determines if the window should be drawn with a focused appearance.
+             line="6510">Determines if the window should be drawn with a focused appearance.
 
 This is true for focused windows but also true for windows with a focused modal
 dialog attached.</doc>
@@ -11847,14 +11862,14 @@ dialog attached.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6511">%TRUE if the window should be drawn with a focused frame</doc>
+               line="6519">%TRUE if the window should be drawn with a focused frame</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6504">a #MetaWindow</doc>
+                 line="6512">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12062,7 +12077,7 @@ and return the "root" window which has no non-transient parent.</doc>
               c:identifier="meta_window_foreach_ancestor">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6102">If @window is transient, call @func with the window for which it's transient,
+             line="6109">If @window is transient, call @func with the window for which it's transient,
 repeatedly until either we find a non-transient window, or @func returns %FALSE.</doc>
         <source-position filename="src/meta/window.h" line="261"/>
         <return-value transfer-ownership="none">
@@ -12072,7 +12087,7 @@ repeatedly until either we find a non-transient window, or @func returns %FALSE.
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6104">a #MetaWindow</doc>
+                 line="6111">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
           <parameter name="func"
@@ -12081,7 +12096,7 @@ repeatedly until either we find a non-transient window, or @func returns %FALSE.
                      closure="1">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6105">Called for each window which is a transient parent of @window</doc>
+                 line="6112">Called for each window which is a transient parent of @window</doc>
             <type name="WindowForeachFunc" c:type="MetaWindowForeachFunc"/>
           </parameter>
           <parameter name="user_data"
@@ -12090,7 +12105,7 @@ repeatedly until either we find a non-transient window, or @func returns %FALSE.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6106">User data</doc>
+                 line="6113">User data</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
         </parameters>
@@ -12099,7 +12114,7 @@ repeatedly until either we find a non-transient window, or @func returns %FALSE.
               c:identifier="meta_window_foreach_transient">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6063">Call @func for every window which is either transient for @window, or is
+             line="6070">Call @func for every window which is either transient for @window, or is
 a transient of a window which is in turn transient for @window.
 The order of window enumeration is not defined.
 
@@ -12112,7 +12127,7 @@ Iteration will stop if @func at any point returns %FALSE.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6065">a #MetaWindow</doc>
+                 line="6072">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
           <parameter name="func"
@@ -12121,7 +12136,7 @@ Iteration will stop if @func at any point returns %FALSE.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6066">Called for each window which is a transient of @window (transitively)</doc>
+                 line="6073">Called for each window which is a transient of @window (transitively)</doc>
             <type name="WindowForeachFunc" c:type="MetaWindowForeachFunc"/>
           </parameter>
           <parameter name="user_data"
@@ -12130,7 +12145,7 @@ Iteration will stop if @func at any point returns %FALSE.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6067">User data</doc>
+                 line="6074">User data</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
         </parameters>
@@ -12206,7 +12221,7 @@ buffer.</doc>
               c:identifier="meta_window_get_client_content_rect">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="8313">Gets the client rectangle that ATSPI window coordinates
+             line="8321">Gets the client rectangle that ATSPI window coordinates
 are relative to.</doc>
         <source-position filename="src/meta/window.h" line="127"/>
         <return-value transfer-ownership="none">
@@ -12216,7 +12231,7 @@ are relative to.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="8315">A #MetaWindow</doc>
+                 line="8323">A #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
           <parameter name="rect"
@@ -12225,7 +12240,7 @@ are relative to.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="8316">pointer to an allocated #MtkRectangle</doc>
+                 line="8324">pointer to an allocated #MtkRectangle</doc>
             <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
           </parameter>
         </parameters>
@@ -12234,19 +12249,19 @@ are relative to.</doc>
               c:identifier="meta_window_get_client_type">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="7775">Returns the #MetaWindowClientType of the window.</doc>
+             line="7783">Returns the #MetaWindowClientType of the window.</doc>
         <source-position filename="src/meta/window.h" line="428"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="7781">The root ancestor window</doc>
+               line="7789">The root ancestor window</doc>
           <type name="WindowClientType" c:type="MetaWindowClientType"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="7777">a #MetaWindow</doc>
+                 line="7785">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12255,19 +12270,19 @@ are relative to.</doc>
               c:identifier="meta_window_get_compositor_private">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6753">Gets the compositor's wrapper object for @window.</doc>
+             line="6761">Gets the compositor's wrapper object for @window.</doc>
         <source-position filename="src/meta/window.h" line="234"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6759">the wrapper object.</doc>
+               line="6767">the wrapper object.</doc>
           <type name="GObject.Object" c:type="GObject*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6755">a #MetaWindow</doc>
+                 line="6763">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12291,14 +12306,14 @@ are relative to.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6559">The display for @window</doc>
+               line="6567">The display for @window</doc>
           <type name="Display" c:type="MetaDisplay*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6557">A #MetaWindow</doc>
+                 line="6565">A #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12336,19 +12351,19 @@ adds to the window, or any area that the client adds to draw a client-side shado
       <method name="get_frame_type" c:identifier="meta_window_get_frame_type">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6992">Gets the type of window decorations that should be used for this window.</doc>
+             line="7000">Gets the type of window decorations that should be used for this window.</doc>
         <source-position filename="src/meta/window.h" line="348"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6998">the frame type</doc>
+               line="7006">the frame type</doc>
           <type name="FrameType" c:type="MetaFrameType"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6994">a #MetaWindow</doc>
+                 line="7002">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12360,14 +12375,14 @@ adds to the window, or any area that the client adds to draw a client-side shado
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6733">the object path</doc>
+               line="6741">the object path</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6731">a #MetaWindow</doc>
+                 line="6739">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12379,14 +12394,14 @@ adds to the window, or any area that the client adds to draw a client-side shado
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6685">the application ID</doc>
+               line="6693">the application ID</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6683">a #MetaWindow</doc>
+                 line="6691">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12398,14 +12413,14 @@ adds to the window, or any area that the client adds to draw a client-side shado
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6709">the object path</doc>
+               line="6717">the object path</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6707">a #MetaWindow</doc>
+                 line="6715">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12417,14 +12432,14 @@ adds to the window, or any area that the client adds to draw a client-side shado
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6745">the object path</doc>
+               line="6753">the object path</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6743">a #MetaWindow</doc>
+                 line="6751">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12435,14 +12450,14 @@ adds to the window, or any area that the client adds to draw a client-side shado
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6673">the theme variant or %NULL</doc>
+               line="6681">the theme variant or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6671">a #MetaWindow</doc>
+                 line="6679">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12454,14 +12469,14 @@ adds to the window, or any area that the client adds to draw a client-side shado
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6697">the unique name</doc>
+               line="6705">the unique name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6695">a #MetaWindow</doc>
+                 line="6703">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12473,14 +12488,14 @@ adds to the window, or any area that the client adds to draw a client-side shado
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6721">the object path</doc>
+               line="6729">the object path</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6719">a #MetaWindow</doc>
+                 line="6727">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12489,7 +12504,7 @@ adds to the window, or any area that the client adds to draw a client-side shado
               c:identifier="meta_window_get_icon_geometry">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="5503">Gets the location of the icon corresponding to the window.
+             line="5510">Gets the location of the icon corresponding to the window.
 
 The location will be provided set by the task bar or other user interface
 element displaying the icon, and is relative to the root window.</doc>
@@ -12497,14 +12512,14 @@ element displaying the icon, and is relative to the root window.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="5513">%TRUE if the icon geometry was successfully retrieved.</doc>
+               line="5520">%TRUE if the icon geometry was successfully retrieved.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="5505">a #MetaWindow</doc>
+                 line="5512">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
           <parameter name="rect"
@@ -12513,7 +12528,7 @@ element displaying the icon, and is relative to the root window.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="5506">rectangle into which to store the returned geometry.</doc>
+                 line="5513">rectangle into which to store the returned geometry.</doc>
             <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
           </parameter>
         </parameters>
@@ -12521,19 +12536,19 @@ element displaying the icon, and is relative to the root window.</doc>
       <method name="get_id" c:identifier="meta_window_get_id">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="7761">Returns the window id associated with window.</doc>
+             line="7769">Returns the window id associated with window.</doc>
         <source-position filename="src/meta/window.h" line="425"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="7767">The window id</doc>
+               line="7775">The window id</doc>
           <type name="guint64" c:type="uint64_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="7763">a #MetaWindow</doc>
+                 line="7771">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12596,7 +12611,7 @@ if the window has been recently unmanaged and does not have a monitor.</doc>
               glib:get-property="mutter-hints">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6966">Gets the current value of the _MUTTER_HINTS property.
+             line="6974">Gets the current value of the _MUTTER_HINTS property.
 
 The purpose of the hints is to allow fine-tuning of the Window Manager and
 Compositor behaviour on per-window basis, and is intended primarily for
@@ -12610,7 +12625,7 @@ by plugins.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6981">the _MUTTER_HINTS string, or %NULL if no
+               line="6989">the _MUTTER_HINTS string, or %NULL if no
 hints are set.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -12618,7 +12633,7 @@ hints are set.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6968">a #MetaWindow</doc>
+                 line="6976">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12626,7 +12641,7 @@ hints are set.</doc>
       <method name="get_pid" c:identifier="meta_window_get_pid">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6862">Returns the pid of the process that created this window, if available
+             line="6870">Returns the pid of the process that created this window, if available
 to the windowing system.
 
 Note that the value returned by this is vulnerable to spoofing attacks
@@ -12635,14 +12650,14 @@ by the client.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6872">the pid, or 0 if not known.</doc>
+               line="6880">the pid, or 0 if not known.</doc>
           <type name="pid_t" c:type="pid_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6864">a #MetaWindow</doc>
+                 line="6872">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12662,20 +12677,20 @@ by the client.</doc>
               c:identifier="meta_window_get_sandboxed_app_id">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6652">Gets an unique id for a sandboxed app (currently flatpaks and snaps are
+             line="6660">Gets an unique id for a sandboxed app (currently flatpaks and snaps are
 supported).</doc>
         <source-position filename="src/meta/window.h" line="183"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6659">the sandboxed application ID or %NULL</doc>
+               line="6667">the sandboxed application ID or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6654">a #MetaWindow</doc>
+                 line="6662">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12684,7 +12699,7 @@ supported).</doc>
               c:identifier="meta_window_get_stable_sequence">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6395">The stable sequence number is a monotonicially increasing
+             line="6403">The stable sequence number is a monotonicially increasing
 unique integer assigned to each #MetaWindow upon creation.
 
 This number can be useful for sorting windows in a stable
@@ -12693,14 +12708,14 @@ fashion.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6405">Internal sequence number for this window</doc>
+               line="6413">Internal sequence number for this window</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6397">A #MetaWindow</doc>
+                 line="6405">A #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12728,7 +12743,7 @@ fashion.</doc>
       <method name="get_tile_match" c:identifier="meta_window_get_tile_match">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="7145">Returns the matching tiled window on the same monitor as @window. This is
+             line="7153">Returns the matching tiled window on the same monitor as @window. This is
 the topmost tiled window in a complementary tile mode that is:
 
  - on the same monitor;
@@ -12740,7 +12755,7 @@ the topmost tiled window in a complementary tile mode that is:
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="7158">the matching tiled window or
+               line="7166">the matching tiled window or
 %NULL if it doesn't exist.</doc>
           <type name="Window" c:type="MetaWindow*"/>
         </return-value>
@@ -12748,7 +12763,7 @@ the topmost tiled window in a complementary tile mode that is:
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="7147">a #MetaWindow</doc>
+                 line="7155">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12760,14 +12775,14 @@ the topmost tiled window in a complementary tile mode that is:
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6791">the current title of the window.</doc>
+               line="6799">the current title of the window.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6789">a #MetaWindow</doc>
+                 line="6797">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12776,7 +12791,7 @@ the topmost tiled window in a complementary tile mode that is:
               c:identifier="meta_window_get_transient_for">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6840">Returns the #MetaWindow for the window that is pointed to by the
+             line="6848">Returns the #MetaWindow for the window that is pointed to by the
 WM_TRANSIENT_FOR hint on this window (see XGetTransientForHint()
 or XSetTransientForHint()). Mutter keeps transient windows above their
 parents. A typical usage of this hint is for a dialog that wants to stay
@@ -12785,7 +12800,7 @@ above its associated window.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6850">the window this window is transient for,
+               line="6858">the window this window is transient for,
 or %NULL if the WM_TRANSIENT_FOR hint is unset or does not point to a
 toplevel window that Mutter knows about.</doc>
           <type name="Window" c:type="MetaWindow*"/>
@@ -12794,7 +12809,7 @@ toplevel window that Mutter knows about.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6842">a #MetaWindow</doc>
+                 line="6850">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12804,7 +12819,7 @@ toplevel window that Mutter knows about.</doc>
               glib:get-property="user-time">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6339">The user time represents a timestamp for the last time the user
+             line="6347">The user time represents a timestamp for the last time the user
 interacted with this window.
 
 Note this property is only available for non-override-redirect windows.
@@ -12817,14 +12832,14 @@ and when focusing the window.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6353">The last time the user interacted with this window.</doc>
+               line="6361">The last time the user interacted with this window.</doc>
           <type name="guint32" c:type="guint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6341">a #MetaWindow</doc>
+                 line="6349">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12847,12 +12862,12 @@ and when focusing the window.</doc>
               glib:get-property="wm-class">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6616">Return the current value of the name part of `WM_CLASS` X property.</doc>
+             line="6624">Return the current value of the name part of `WM_CLASS` X property.</doc>
         <source-position filename="src/meta/window.h" line="174"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6622">the current value of the name part of `WM_CLASS` X
+               line="6630">the current value of the name part of `WM_CLASS` X
 property</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -12860,7 +12875,7 @@ property</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6618">a #MetaWindow</doc>
+                 line="6626">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12869,12 +12884,12 @@ property</doc>
               c:identifier="meta_window_get_wm_class_instance">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6634">Return the current value of the instance part of `WM_CLASS` X property.</doc>
+             line="6642">Return the current value of the instance part of `WM_CLASS` X property.</doc>
         <source-position filename="src/meta/window.h" line="177"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6640">the current value of the instance part of `WM_CLASS` X
+               line="6648">the current value of the instance part of `WM_CLASS` X
 property.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -12882,7 +12897,7 @@ property.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6636">a #MetaWindow</doc>
+                 line="6644">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -12891,7 +12906,7 @@ property.</doc>
               c:identifier="meta_window_get_work_area_all_monitors">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="5987">Get the work area for all monitors for @window.</doc>
+             line="5994">Get the work area for all monitors for @window.</doc>
         <source-position filename="src/meta/window.h" line="392"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12900,7 +12915,7 @@ property.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="5989">a #MetaWindow</doc>
+                 line="5996">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
           <parameter name="area"
@@ -12909,7 +12924,7 @@ property.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="5990">a location to store the work area</doc>
+                 line="5997">a location to store the work area</doc>
             <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
           </parameter>
         </parameters>
@@ -12918,7 +12933,7 @@ property.</doc>
               c:identifier="meta_window_get_work_area_current_monitor">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="5946">Get the work area for the monitor @window is currently on.</doc>
+             line="5953">Get the work area for the monitor @window is currently on.</doc>
         <source-position filename="src/meta/window.h" line="383"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12927,7 +12942,7 @@ property.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="5948">a #MetaWindow</doc>
+                 line="5955">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
           <parameter name="area"
@@ -12936,7 +12951,7 @@ property.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="5949">a location to store the work area</doc>
+                 line="5956">a location to store the work area</doc>
             <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
           </parameter>
         </parameters>
@@ -12945,7 +12960,7 @@ property.</doc>
               c:identifier="meta_window_get_work_area_for_monitor">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="5960">Get the work area for @window, given the monitor index
+             line="5967">Get the work area for @window, given the monitor index
 @which_monitor.</doc>
         <source-position filename="src/meta/window.h" line="387"/>
         <return-value transfer-ownership="none">
@@ -12955,13 +12970,13 @@ property.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="5962">a #MetaWindow</doc>
+                 line="5969">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
           <parameter name="which_monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="5963">a moniotr to get the work area for</doc>
+                 line="5970">a moniotr to get the work area for</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="area"
@@ -12970,7 +12985,7 @@ property.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="5964">a location to store the work area</doc>
+                 line="5971">a location to store the work area</doc>
             <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
           </parameter>
         </parameters>
@@ -12978,7 +12993,7 @@ property.</doc>
       <method name="get_workspace" c:identifier="meta_window_get_workspace">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6573">Gets the [class@Meta.Workspace] that the window is currently displayed on.
+             line="6581">Gets the [class@Meta.Workspace] that the window is currently displayed on.
 
 If the window is on all workspaces, returns the currently active
 workspace.</doc>
@@ -12986,14 +13001,14 @@ workspace.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6582">the #MetaWorkspace for the window</doc>
+               line="6590">the #MetaWorkspace for the window</doc>
           <type name="Workspace" c:type="MetaWorkspace*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6575">a #MetaWindow</doc>
+                 line="6583">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -13002,7 +13017,7 @@ workspace.</doc>
               c:identifier="meta_window_has_attached_dialogs">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="7094">Tests if @window has any transients attached to it.
+             line="7102">Tests if @window has any transients attached to it.
 
 If the `attach_modal_dialogs` option is not enabled, this will
 always return %FALSE.</doc>
@@ -13010,14 +13025,14 @@ always return %FALSE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="7103">whether @window has attached transients</doc>
+               line="7111">whether @window has attached transients</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="7096">a #MetaWindow</doc>
+                 line="7104">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -13073,27 +13088,27 @@ always return %FALSE.</doc>
               c:identifier="meta_window_is_ancestor_of_transient">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6150">The function determines whether @window is an ancestor of @transient; it does
+             line="6157">The function determines whether @window is an ancestor of @transient; it does
 so by traversing the @transient's ancestors until it either locates @window
 or reaches an ancestor that is not transient.</doc>
         <source-position filename="src/meta/window.h" line="249"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6159">%TRUE if window is an ancestor of transient.</doc>
+               line="6166">%TRUE if window is an ancestor of transient.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6152">a #MetaWindow</doc>
+                 line="6159">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
           <parameter name="transient" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6153">a #MetaWindow</doc>
+                 line="6160">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </parameter>
         </parameters>
@@ -13102,7 +13117,7 @@ or reaches an ancestor that is not transient.</doc>
               c:identifier="meta_window_is_attached_dialog">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="7062">Tests if @window should be attached to its parent window.
+             line="7070">Tests if @window should be attached to its parent window.
 
 If the `attach_modal_dialogs` option is not enabled, this will
 always return %FALSE.</doc>
@@ -13110,14 +13125,14 @@ always return %FALSE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="7071">whether @window should be attached to its parent</doc>
+               line="7079">whether @window should be attached to its parent</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="7064">a #MetaWindow</doc>
+                 line="7072">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -13208,7 +13223,7 @@ always return %FALSE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6529">%TRUE if this window isn't managed by mutter; it will
+               line="6537">%TRUE if this window isn't managed by mutter; it will
 control its own positioning and mutter won't draw decorations
 among other things.  In X terminology this is "override redirect".</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -13217,7 +13232,7 @@ among other things.  In X terminology this is "override redirect".</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6527">A #MetaWindow</doc>
+                 line="6535">A #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -13227,7 +13242,7 @@ among other things.  In X terminology this is "override redirect".</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6957">%TRUE if this window originates from a host
+               line="6965">%TRUE if this window originates from a host
 different from the one running mutter.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -13235,7 +13250,7 @@ different from the one running mutter.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6955">a #MetaWindow</doc>
+                 line="6963">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -13264,19 +13279,19 @@ different from the one running mutter.</doc>
               glib:get-property="skip-taskbar">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="6539">Gets whether this window should be ignored by task lists.</doc>
+             line="6547">Gets whether this window should be ignored by task lists.</doc>
         <source-position filename="src/meta/window.h" line="116"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/window.c"
-               line="6545">%TRUE if the skip bar hint is set.</doc>
+               line="6553">%TRUE if the skip bar hint is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="6541">A #MetaWindow</doc>
+                 line="6549">A #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
         </parameters>
@@ -13508,7 +13523,7 @@ the relative position of the window's top left corner.</doc>
               c:identifier="meta_window_protocol_to_stage_rect">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="8260">Transform the coordinates from protocol coordinates to coordinates expected
+             line="8268">Transform the coordinates from protocol coordinates to coordinates expected
 by the stage and internal window management logic.</doc>
         <source-position filename="src/meta/window.h" line="439"/>
         <return-value transfer-ownership="none">
@@ -13518,13 +13533,13 @@ by the stage and internal window management logic.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="8262">A #MetaWindow</doc>
+                 line="8270">A #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
           <parameter name="protocol_rect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="8263">rectangle in protocol coordinate space</doc>
+                 line="8271">rectangle in protocol coordinate space</doc>
             <type name="Mtk.Rectangle" c:type="const MtkRectangle*"/>
           </parameter>
           <parameter name="stage_rect"
@@ -13533,7 +13548,7 @@ by the stage and internal window management logic.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="8264">rect in stage coordinate space</doc>
+                 line="8272">rect in stage coordinate space</doc>
             <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
           </parameter>
         </parameters>
@@ -13553,7 +13568,7 @@ by the stage and internal window management logic.</doc>
               c:identifier="meta_window_raise_and_make_recent_on_workspace">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="5210">Raises a window and marks it as the most recently used window on the
+             line="5217">Raises a window and marks it as the most recently used window on the
 workspace @target_workspace. If the window exists on all workspaces, it will
 become the most recently used sticky window on all other workspaces. This
 ensures proper tracking among windows on all workspaces while not overriding
@@ -13566,13 +13581,13 @@ MRU for other windows.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="5212">a #MetaWindow</doc>
+                 line="5219">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
           <parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="5213">the #MetaWorkspace to raise and make it most recent on</doc>
+                 line="5220">the #MetaWorkspace to raise and make it most recent on</doc>
             <type name="Workspace" c:type="MetaWorkspace*"/>
           </parameter>
         </parameters>
@@ -13608,7 +13623,7 @@ MRU for other windows.</doc>
               c:identifier="meta_window_set_icon_geometry">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="5532">Sets or unsets the location of the icon corresponding to the window.
+             line="5539">Sets or unsets the location of the icon corresponding to the window.
 
 If set, the location should correspond to a dock, task bar or other user
 interface element displaying the icon, and is relative to the root window.</doc>
@@ -13620,7 +13635,7 @@ interface element displaying the icon, and is relative to the root window.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="5534">a #MetaWindow</doc>
+                 line="5541">a #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
           <parameter name="rect"
@@ -13629,7 +13644,7 @@ interface element displaying the icon, and is relative to the root window.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="5535">rectangle with the desired geometry or %NULL.</doc>
+                 line="5542">rectangle with the desired geometry or %NULL.</doc>
             <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
           </parameter>
         </parameters>
@@ -13656,7 +13671,7 @@ interface element displaying the icon, and is relative to the root window.</doc>
               c:identifier="meta_window_stage_to_protocol_rect">
         <doc xml:space="preserve"
              filename="src/core/window.c"
-             line="8213">Transform the coordinates from stage coordinates to protocol coordinates</doc>
+             line="8221">Transform the coordinates from stage coordinates to protocol coordinates</doc>
         <source-position filename="src/meta/window.h" line="434"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -13665,13 +13680,13 @@ interface element displaying the icon, and is relative to the root window.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="8215">A #MetaWindow</doc>
+                 line="8223">A #MetaWindow</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </instance-parameter>
           <parameter name="stage_rect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="8216">x #MtkRectangle in stage coordinate space</doc>
+                 line="8224">x #MtkRectangle in stage coordinate space</doc>
             <type name="Mtk.Rectangle" c:type="const MtkRectangle*"/>
           </parameter>
           <parameter name="protocol_rect"
@@ -13680,7 +13695,7 @@ interface element displaying the icon, and is relative to the root window.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/window.c"
-                 line="8217">x #MtkRectangle in protocol coordinate space</doc>
+                 line="8225">x #MtkRectangle in protocol coordinate space</doc>
             <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
           </parameter>
         </parameters>
@@ -14750,7 +14765,7 @@ are unmapped.</doc>
               c:identifier="meta_workspace_activate_with_focus">
         <doc xml:space="preserve"
              filename="src/core/workspace.c"
-             line="515">Switches to @workspace and possibly activates the window @focus_this.
+             line="535">Switches to @workspace and possibly activates the window @focus_this.
 
 The window @focus_this is activated by calling meta_window_activate()
 which will unminimize it and transient parents, raise it and give it
@@ -14770,19 +14785,19 @@ no other window gets focused first before @focus_this.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="517">a #MetaWorkspace</doc>
+                 line="537">a #MetaWorkspace</doc>
             <type name="Workspace" c:type="MetaWorkspace*"/>
           </instance-parameter>
           <parameter name="focus_this" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="518">the #MetaWindow to be focused, or %NULL</doc>
+                 line="538">the #MetaWindow to be focused, or %NULL</doc>
             <type name="Window" c:type="MetaWindow*"/>
           </parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="519">timestamp for @focus_this</doc>
+                 line="539">timestamp for @focus_this</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -14790,19 +14805,19 @@ no other window gets focused first before @focus_this.</doc>
       <method name="get_display" c:identifier="meta_workspace_get_display">
         <doc xml:space="preserve"
              filename="src/core/workspace.c"
-             line="1660">Gets the #MetaDisplay that the workspace is part of.</doc>
+             line="1682">Gets the #MetaDisplay that the workspace is part of.</doc>
         <source-position filename="src/meta/workspace.h" line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/workspace.c"
-               line="1666">the #MetaDisplay for the workspace</doc>
+               line="1688">the #MetaDisplay for the workspace</doc>
           <type name="Display" c:type="MetaDisplay*"/>
         </return-value>
         <parameters>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="1662">a #MetaWorkspace</doc>
+                 line="1684">a #MetaWorkspace</doc>
             <type name="Workspace" c:type="MetaWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -14810,14 +14825,14 @@ no other window gets focused first before @focus_this.</doc>
       <method name="get_neighbor" c:identifier="meta_workspace_get_neighbor">
         <doc xml:space="preserve"
              filename="src/core/workspace.c"
-             line="1240">Calculate and retrieve the workspace that is next to @workspace,
+             line="1262">Calculate and retrieve the workspace that is next to @workspace,
 according to @direction and the current workspace layout, as set
 by meta_screen_override_workspace_layout().</doc>
         <source-position filename="src/meta/workspace.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/workspace.c"
-               line="1249">the workspace next to @workspace, or
+               line="1271">the workspace next to @workspace, or
   @workspace itself if the neighbor would be outside the layout</doc>
           <type name="Workspace" c:type="MetaWorkspace*"/>
         </return-value>
@@ -14825,13 +14840,13 @@ by meta_screen_override_workspace_layout().</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="1242">a #MetaWorkspace</doc>
+                 line="1264">a #MetaWorkspace</doc>
             <type name="Workspace" c:type="MetaWorkspace*"/>
           </instance-parameter>
           <parameter name="direction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="1243">a #MetaMotionDirection, relative to @workspace</doc>
+                 line="1265">a #MetaMotionDirection, relative to @workspace</doc>
             <type name="MotionDirection" c:type="MetaMotionDirection"/>
           </parameter>
         </parameters>
@@ -14840,7 +14855,7 @@ by meta_screen_override_workspace_layout().</doc>
               c:identifier="meta_workspace_get_work_area_all_monitors">
         <doc xml:space="preserve"
              filename="src/core/workspace.c"
-             line="1175">Stores the work area in @area.</doc>
+             line="1197">Stores the work area in @area.</doc>
         <source-position filename="src/meta/workspace.h" line="53"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -14849,7 +14864,7 @@ by meta_screen_override_workspace_layout().</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="1177">a #MetaWorkspace</doc>
+                 line="1199">a #MetaWorkspace</doc>
             <type name="Workspace" c:type="MetaWorkspace*"/>
           </instance-parameter>
           <parameter name="area"
@@ -14858,7 +14873,7 @@ by meta_screen_override_workspace_layout().</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="1178">location to store the work area</doc>
+                 line="1200">location to store the work area</doc>
             <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
           </parameter>
         </parameters>
@@ -14867,7 +14882,7 @@ by meta_screen_override_workspace_layout().</doc>
               c:identifier="meta_workspace_get_work_area_for_monitor">
         <doc xml:space="preserve"
              filename="src/core/workspace.c"
-             line="1141">Stores the work area for @which_monitor on @workspace
+             line="1163">Stores the work area for @which_monitor on @workspace
 in @area.</doc>
         <source-position filename="src/meta/workspace.h" line="48"/>
         <return-value transfer-ownership="none">
@@ -14877,13 +14892,13 @@ in @area.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="1143">a #MetaWorkspace</doc>
+                 line="1165">a #MetaWorkspace</doc>
             <type name="Workspace" c:type="MetaWorkspace*"/>
           </instance-parameter>
           <parameter name="which_monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="1144">a monitor index</doc>
+                 line="1166">a monitor index</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="area"
@@ -14892,7 +14907,7 @@ in @area.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="1145">location to store the work area</doc>
+                 line="1167">location to store the work area</doc>
             <type name="Mtk.Rectangle" c:type="MtkRectangle*"/>
           </parameter>
         </parameters>
@@ -14911,13 +14926,13 @@ in @area.</doc>
       <method name="list_windows" c:identifier="meta_workspace_list_windows">
         <doc xml:space="preserve"
              filename="src/core/workspace.c"
-             line="727">Gets windows contained on the workspace, including workspace-&gt;windows
+             line="749">Gets windows contained on the workspace, including workspace-&gt;windows
 and also sticky windows. Override-redirect windows are not included.</doc>
         <source-position filename="src/meta/workspace.h" line="45"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/core/workspace.c"
-               line="734">the list of windows.</doc>
+               line="756">the list of windows.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Window"/>
           </type>
@@ -14926,7 +14941,7 @@ and also sticky windows. Override-redirect windows are not included.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="729">a #MetaWorkspace</doc>
+                 line="751">a #MetaWorkspace</doc>
             <type name="Workspace" c:type="MetaWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -14935,7 +14950,7 @@ and also sticky windows. Override-redirect windows are not included.</doc>
               c:identifier="meta_workspace_set_builtin_struts">
         <doc xml:space="preserve"
              filename="src/core/workspace.c"
-             line="1042">Sets a list of struts that will be used in addition to the struts
+             line="1064">Sets a list of struts that will be used in addition to the struts
 of the windows in the workspace when computing the work area of
 the workspace.</doc>
         <source-position filename="src/meta/workspace.h" line="65"/>
@@ -14946,13 +14961,13 @@ the workspace.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="1044">a #MetaWorkspace</doc>
+                 line="1066">a #MetaWorkspace</doc>
             <type name="Workspace" c:type="MetaWorkspace*"/>
           </instance-parameter>
           <parameter name="struts" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/core/workspace.c"
-                 line="1045">list of #MetaStrut</doc>
+                 line="1067">list of #MetaStrut</doc>
             <type name="GLib.SList" c:type="GSList*">
               <type name="Strut"/>
             </type>
@@ -15606,19 +15621,19 @@ will be printed.</doc>
     <function name="create_context" c:identifier="meta_create_context">
       <doc xml:space="preserve"
            filename="src/core/meta-context-main.c"
-           line="729">Create a context.</doc>
+           line="731">Create a context.</doc>
       <source-position filename="src/meta/meta-context.h" line="31"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/core/meta-context-main.c"
-             line="735">A new context instance.</doc>
+             line="737">A new context instance.</doc>
         <type name="Context" c:type="MetaContext*"/>
       </return-value>
       <parameters>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/core/meta-context-main.c"
-               line="731">Human readable name of display server or window manager</doc>
+               line="733">Human readable name of display server or window manager</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
