@@ -13,3 +13,6 @@
 	path = types-dev
 	url = git@github.com:gjsify/types.git
 	branch = dev
+[submodule "devdocsgjs"]
+	path = devdocsgjs
+	url = https://gitlab.gnome.org/GNOME/devdocsgjs.git
