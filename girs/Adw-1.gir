@@ -12436,7 +12436,7 @@ See also [class@CarouselIndicatorDots].
                  c:type="AdwCenteringPolicy">
       <doc xml:space="preserve"
            filename="src/adw-header-bar.c"
-           line="139">Describes title centering behavior of a [class@HeaderBar] widget.</doc>
+           line="144">Describes title centering behavior of a [class@HeaderBar] widget.</doc>
       <member name="loose"
               value="0"
               c:identifier="ADW_CENTERING_POLICY_LOOSE"
@@ -12444,7 +12444,7 @@ See also [class@CarouselIndicatorDots].
               glib:name="ADW_CENTERING_POLICY_LOOSE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="141">Keep the title centered when possible</doc>
+             line="146">Keep the title centered when possible</doc>
       </member>
       <member name="strict"
               value="1"
@@ -12453,7 +12453,7 @@ See also [class@CarouselIndicatorDots].
               glib:name="ADW_CENTERING_POLICY_STRICT">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="142">Keep the title centered at all cost</doc>
+             line="147">Keep the title centered at all cost</doc>
       </member>
     </enumeration>
     <class name="Clamp"
@@ -14159,7 +14159,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_1_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_1_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="191"/>
+      <source-position filename="src/adw-version.h" line="201"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14168,7 +14168,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_2_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_2_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="209"/>
+      <source-position filename="src/adw-version.h" line="219"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14177,7 +14177,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_3_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_3_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="227"/>
+      <source-position filename="src/adw-version.h" line="237"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14186,7 +14186,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_4_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_4_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="245"/>
+      <source-position filename="src/adw-version.h" line="255"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14195,7 +14195,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_5_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_5_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="263"/>
+      <source-position filename="src/adw-version.h" line="273"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14204,7 +14204,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_6_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_6_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="281"/>
+      <source-position filename="src/adw-version.h" line="291"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14213,7 +14213,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_7_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_7_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="299"/>
+      <source-position filename="src/adw-version.h" line="309"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14222,7 +14222,16 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_IN_1_8_FOR"
                     c:identifier="ADW_DEPRECATED_IN_1_8_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="317"/>
+      <source-position filename="src/adw-version.h" line="327"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_1_9_FOR"
+                    c:identifier="ADW_DEPRECATED_IN_1_9_FOR"
+                    introspectable="0">
+      <source-position filename="src/adw-version.h" line="345"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14231,7 +14240,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_1_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_1_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="193"/>
+      <source-position filename="src/adw-version.h" line="203"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14240,7 +14249,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_2_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_2_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="211"/>
+      <source-position filename="src/adw-version.h" line="221"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14249,7 +14258,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_3_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_3_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="229"/>
+      <source-position filename="src/adw-version.h" line="239"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14258,7 +14267,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_4_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_4_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="247"/>
+      <source-position filename="src/adw-version.h" line="257"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14267,7 +14276,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_5_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_5_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="265"/>
+      <source-position filename="src/adw-version.h" line="275"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14276,7 +14285,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_6_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_6_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="283"/>
+      <source-position filename="src/adw-version.h" line="293"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14285,7 +14294,7 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_7_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_7_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="301"/>
+      <source-position filename="src/adw-version.h" line="311"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -14294,7 +14303,16 @@ The subtitle is interpreted as Pango markup if
     <function-macro name="DEPRECATED_TYPE_IN_1_8_FOR"
                     c:identifier="ADW_DEPRECATED_TYPE_IN_1_8_FOR"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="319"/>
+      <source-position filename="src/adw-version.h" line="329"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_TYPE_IN_1_9_FOR"
+                    c:identifier="ADW_DEPRECATED_TYPE_IN_1_9_FOR"
+                    introspectable="0">
+      <source-position filename="src/adw-version.h" line="347"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -18560,7 +18578,7 @@ It determines the type of animation when transitioning between children in a
            glib:type-struct="HeaderBarClass">
       <doc xml:space="preserve"
            filename="src/adw-header-bar.c"
-           line="40">A title bar widget.
+           line="45">A title bar widget.
 
 &lt;picture&gt;
   &lt;source srcset="header-bar-dark.png" media="(prefers-color-scheme: dark)"&gt;
@@ -18661,12 +18679,12 @@ contains a node with the name `widget` that contains a node with the name
       <constructor name="new" c:identifier="adw_header_bar_new">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1009">Creates a new `AdwHeaderBar`.</doc>
+             line="1052">Creates a new `AdwHeaderBar`.</doc>
         <source-position filename="src/adw-header-bar.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1014">the newly created `AdwHeaderBar`.</doc>
+               line="1057">the newly created `AdwHeaderBar`.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -18675,19 +18693,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="centering-policy">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1371">Gets the policy for aligning the center widget.</doc>
+             line="1414">Gets the policy for aligning the center widget.</doc>
         <source-position filename="src/adw-header-bar.h" line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1377">the centering policy</doc>
+               line="1420">the centering policy</doc>
           <type name="CenteringPolicy" c:type="AdwCenteringPolicy"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1373">a header bar</doc>
+                 line="1416">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18697,19 +18715,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="decoration-layout">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1323">Gets the decoration layout for @self.</doc>
+             line="1366">Gets the decoration layout for @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="82"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1329">the decoration layout</doc>
+               line="1372">the decoration layout</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1325">a header bar</doc>
+                 line="1368">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18720,19 +18738,19 @@ contains a node with the name `widget` that contains a node with the name
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1266">Gets whether @self can show the back button.</doc>
+             line="1309">Gets whether @self can show the back button.</doc>
         <source-position filename="src/adw-header-bar.h" line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1272">whether to show the back button</doc>
+               line="1315">whether to show the back button</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1268">a header bar</doc>
+                 line="1311">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18742,19 +18760,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="show-end-title-buttons">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1218">Gets whether to show title buttons at the end of @self.</doc>
+             line="1261">Gets whether to show title buttons at the end of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1224">`TRUE` if title buttons at the end are shown</doc>
+               line="1267">`TRUE` if title buttons at the end are shown</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1220">a header bar</doc>
+                 line="1263">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18764,19 +18782,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="show-start-title-buttons">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1170">Gets whether to show title buttons at the start of @self.</doc>
+             line="1213">Gets whether to show title buttons at the start of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1176">`TRUE` if title buttons at the start are shown</doc>
+               line="1219">`TRUE` if title buttons at the start are shown</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1172">a header bar</doc>
+                 line="1215">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18787,19 +18805,19 @@ contains a node with the name `widget` that contains a node with the name
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1416">Gets whether the title widget should be shown.</doc>
+             line="1459">Gets whether the title widget should be shown.</doc>
         <source-position filename="src/adw-header-bar.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1422">whether the title widget should be shown.</doc>
+               line="1465">whether the title widget should be shown.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1418">a header bar</doc>
+                 line="1461">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18809,19 +18827,19 @@ contains a node with the name `widget` that contains a node with the name
               glib:get-property="title-widget">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1104">Gets the title widget widget of @self.</doc>
+             line="1147">Gets the title widget widget of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="58"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1110">the title widget</doc>
+               line="1153">the title widget</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1106">a header bar</doc>
+                 line="1149">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -18829,7 +18847,7 @@ contains a node with the name `widget` that contains a node with the name
       <method name="pack_end" c:identifier="adw_header_bar_pack_end">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1045">Adds @child to @self, packed with reference to the end of @self.</doc>
+             line="1088">Adds @child to @self, packed with reference to the end of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18838,13 +18856,13 @@ contains a node with the name `widget` that contains a node with the name
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1047">a header bar</doc>
+                 line="1090">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1048">the widget to be added to @self</doc>
+                 line="1091">the widget to be added to @self</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -18852,7 +18870,7 @@ contains a node with the name `widget` that contains a node with the name
       <method name="pack_start" c:identifier="adw_header_bar_pack_start">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1022">Adds @child to @self, packed with reference to the start of the @self.</doc>
+             line="1065">Adds @child to @self, packed with reference to the start of the @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18861,13 +18879,13 @@ contains a node with the name `widget` that contains a node with the name
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1024">a header bar</doc>
+                 line="1067">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1025">the widget to be added to @self</doc>
+                 line="1068">the widget to be added to @self</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -18875,7 +18893,7 @@ contains a node with the name `widget` that contains a node with the name
       <method name="remove" c:identifier="adw_header_bar_remove">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1068">Removes a child from @self.
+             line="1111">Removes a child from @self.
 
 The child must have been added with [method@HeaderBar.pack_start],
 [method@HeaderBar.pack_end] or [property@HeaderBar:title-widget].</doc>
@@ -18887,13 +18905,13 @@ The child must have been added with [method@HeaderBar.pack_start],
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1070">a header bar</doc>
+                 line="1113">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1071">the child to remove</doc>
+                 line="1114">the child to remove</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -18903,7 +18921,7 @@ The child must have been added with [method@HeaderBar.pack_start],
               glib:set-property="centering-policy">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1387">Sets the policy for aligning the center widget.</doc>
+             line="1430">Sets the policy for aligning the center widget.</doc>
         <source-position filename="src/adw-header-bar.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18912,13 +18930,13 @@ The child must have been added with [method@HeaderBar.pack_start],
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1389">a header bar</doc>
+                 line="1432">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="centering_policy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1390">the centering policy</doc>
+                 line="1433">the centering policy</doc>
             <type name="CenteringPolicy" c:type="AdwCenteringPolicy"/>
           </parameter>
         </parameters>
@@ -18928,7 +18946,7 @@ The child must have been added with [method@HeaderBar.pack_start],
               glib:set-property="decoration-layout">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1339">Sets the decoration layout for @self.
+             line="1382">Sets the decoration layout for @self.
 
 If this property is not set, the
 [property@Gtk.Settings:gtk-decoration-layout] setting is used.
@@ -18948,7 +18966,7 @@ and minimize, maximize and close buttons at the end.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1341">a header bar</doc>
+                 line="1384">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="layout"
@@ -18957,7 +18975,7 @@ and minimize, maximize and close buttons at the end.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1342">a decoration layout</doc>
+                 line="1385">a decoration layout</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -18968,7 +18986,7 @@ and minimize, maximize and close buttons at the end.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1284">Sets whether @self can show the back button.
+             line="1327">Sets whether @self can show the back button.
 
 The back button will never be shown unless the header bar is placed inside an
 [class@NavigationView]. Usually, there is no reason to set it to `FALSE`.</doc>
@@ -18980,13 +18998,13 @@ The back button will never be shown unless the header bar is placed inside an
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1286">a header bar</doc>
+                 line="1329">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="show_back_button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1287">whether to show the back button</doc>
+                 line="1330">whether to show the back button</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18996,7 +19014,7 @@ The back button will never be shown unless the header bar is placed inside an
               glib:set-property="show-end-title-buttons">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1234">Sets whether to show title buttons at the end of @self.
+             line="1277">Sets whether to show title buttons at the end of @self.
 
 See [property@HeaderBar:show-start-title-buttons] for the other side.
 
@@ -19011,13 +19029,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1236">a header bar</doc>
+                 line="1279">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1237">`TRUE` to show standard title buttons</doc>
+                 line="1280">`TRUE` to show standard title buttons</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -19027,7 +19045,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
               glib:set-property="show-start-title-buttons">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1186">Sets whether to show title buttons at the start of @self.
+             line="1229">Sets whether to show title buttons at the start of @self.
 
 See [property@HeaderBar:show-end-title-buttons] for the other side.
 
@@ -19042,13 +19060,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1188">a header bar</doc>
+                 line="1231">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1189">`TRUE` to show standard title buttons</doc>
+                 line="1232">`TRUE` to show standard title buttons</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -19059,7 +19077,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1434">Sets whether the title widget should be shown.</doc>
+             line="1477">Sets whether the title widget should be shown.</doc>
         <source-position filename="src/adw-header-bar.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -19068,13 +19086,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1436">a header bar</doc>
+                 line="1479">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="show_title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1437">whether the title widget is visible</doc>
+                 line="1480">whether the title widget is visible</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -19084,7 +19102,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
               glib:set-property="title-widget">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1120">Sets the title widget for @self.
+             line="1163">Sets the title widget for @self.
 
 When set to `NULL`, the header bar will display the title of the window it
 is contained in.
@@ -19108,7 +19126,7 @@ To use a different title, use [class@WindowTitle]:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1122">a header bar</doc>
+                 line="1165">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="title_widget"
@@ -19117,7 +19135,7 @@ To use a different title, use [class@WindowTitle]:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1123">a widget to use for a title</doc>
+                 line="1166">a widget to use for a title</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -19130,7 +19148,7 @@ To use a different title, use [class@WindowTitle]:
                 default-value="ADW_CENTERING_POLICY_LOOSE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="906">The policy for aligning the center widget.</doc>
+             line="949">The policy for aligning the center widget.</doc>
         <type name="CenteringPolicy"/>
       </property>
       <property name="decoration-layout"
@@ -19141,7 +19159,7 @@ To use a different title, use [class@WindowTitle]:
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="885">The decoration layout for buttons.
+             line="928">The decoration layout for buttons.
 
 If this property is not set, the
 [property@Gtk.Settings:gtk-decoration-layout] setting is used.
@@ -19164,7 +19182,7 @@ and minimize, maximize and close buttons at the end.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="870">Whether the header bar can show the back button.
+             line="913">Whether the header bar can show the back button.
 
 The back button will never be shown unless the header bar is placed inside an
 [class@NavigationView]. Usually, there is no reason to set this to `FALSE`.</doc>
@@ -19178,7 +19196,7 @@ The back button will never be shown unless the header bar is placed inside an
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="853">Whether to show title buttons at the end of the header bar.
+             line="896">Whether to show title buttons at the end of the header bar.
 
 See [property@HeaderBar:show-start-title-buttons] for the other side.
 
@@ -19196,7 +19214,7 @@ closed).</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="836">Whether to show title buttons at the start of the header bar.
+             line="879">Whether to show title buttons at the start of the header bar.
 
 See [property@HeaderBar:show-end-title-buttons] for the other side.
 
@@ -19215,7 +19233,7 @@ closed).</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="917">Whether the title widget should be shown.</doc>
+             line="960">Whether the title widget should be shown.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="title-widget"
@@ -19225,7 +19243,7 @@ closed).</doc>
                 getter="get_title_widget">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="811">The title widget to display.
+             line="854">The title widget to display.
 
 When set to `NULL`, the header bar will display the title of the window it
 is contained in.
@@ -21585,7 +21603,7 @@ New values may be added to this enumeration over time.</doc>
       <source-position filename="src/adw-version.h" line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="8" c:type="ADW_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="9" c:type="ADW_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="src/adw-version.h"
            line="24">Adwaita minor version component (e.g. 2 if the version is 1.2.3).</doc>
@@ -38142,19 +38160,19 @@ See [property@Gtk.DropTarget:value].</doc>
               glib:get-property="child">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2813">Gets the child of @self.</doc>
+             line="2851">Gets the child of @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="2819">the child of @self</doc>
+               line="2857">the child of @self</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2815">a tab page</doc>
+                 line="2853">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38164,19 +38182,19 @@ See [property@Gtk.DropTarget:value].</doc>
               glib:get-property="icon">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2967">Gets the icon of @self.</doc>
+             line="3005">Gets the icon of @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="69"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="2973">the icon of @self</doc>
+               line="3011">the icon of @self</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2969">a tab page</doc>
+                 line="3007">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38186,19 +38204,19 @@ See [property@Gtk.DropTarget:value].</doc>
               glib:get-property="indicator-activatable">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3150">Gets whether the indicator of @self is activatable.</doc>
+             line="3188">Gets whether the indicator of @self is activatable.</doc>
         <source-position filename="src/adw-tab-view.h" line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3157">whether the indicator is activatable</doc>
+               line="3195">whether the indicator is activatable</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3152">a tab page</doc>
+                 line="3190">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38208,19 +38226,19 @@ See [property@Gtk.DropTarget:value].</doc>
               glib:get-property="indicator-icon">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3054">Gets the indicator icon of @self.</doc>
+             line="3092">Gets the indicator icon of @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="81"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3060">the indicator icon of @self</doc>
+               line="3098">the indicator icon of @self</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3056">a tab page</doc>
+                 line="3094">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38231,19 +38249,19 @@ See [property@Gtk.DropTarget:value].</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3106">Gets the tooltip of the indicator icon of @self.</doc>
+             line="3144">Gets the tooltip of the indicator icon of @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3112">the indicator tooltip of @self</doc>
+               line="3150">the indicator tooltip of @self</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3108">a tab page</doc>
+                 line="3146">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38254,19 +38272,19 @@ See [property@Gtk.DropTarget:value].</doc>
               version="1.3">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3244">Gets the search keyword of @self.</doc>
+             line="3282">Gets the search keyword of @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="105"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3250">the search keyword of @self</doc>
+               line="3288">the search keyword of @self</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3246">a tab page</doc>
+                 line="3284">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38277,19 +38295,19 @@ See [property@Gtk.DropTarget:value].</doc>
               version="1.3">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3392">Gets whether to live thumbnail is enabled @self.</doc>
+             line="3430">Gets whether to live thumbnail is enabled @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="123"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3398">whether live thumbnail is enabled</doc>
+               line="3436">whether live thumbnail is enabled</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3394">a tab overview</doc>
+                 line="3432">a tab overview</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38299,19 +38317,19 @@ See [property@Gtk.DropTarget:value].</doc>
               glib:get-property="loading">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3009">Gets whether @self is loading.</doc>
+             line="3047">Gets whether @self is loading.</doc>
         <source-position filename="src/adw-tab-view.h" line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3015">whether @self is loading</doc>
+               line="3053">whether @self is loading</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3011">a tab page</doc>
+                 line="3049">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38321,19 +38339,19 @@ See [property@Gtk.DropTarget:value].</doc>
               glib:get-property="needs-attention">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3195">Gets whether @self needs attention.</doc>
+             line="3233">Gets whether @self needs attention.</doc>
         <source-position filename="src/adw-tab-view.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3201">whether @self needs attention</doc>
+               line="3239">whether @self needs attention</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3197">a tab page</doc>
+                 line="3235">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38343,21 +38361,21 @@ See [property@Gtk.DropTarget:value].</doc>
               glib:get-property="parent">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2829">Gets the parent page of @self.
+             line="2867">Gets the parent page of @self.
 
 See [method@TabView.add_page] and [method@TabView.close_page].</doc>
         <source-position filename="src/adw-tab-view.h" line="48"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="2837">the parent page</doc>
+               line="2875">the parent page</doc>
           <type name="TabPage" c:type="AdwTabPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2831">a tab page</doc>
+                 line="2869">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38367,21 +38385,21 @@ See [method@TabView.add_page] and [method@TabView.close_page].</doc>
               glib:get-property="pinned">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2863">Gets whether @self is pinned.
+             line="2901">Gets whether @self is pinned.
 
 See [method@TabView.set_page_pinned].</doc>
         <source-position filename="src/adw-tab-view.h" line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="2871">whether @self is pinned</doc>
+               line="2909">whether @self is pinned</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2865">a tab page</doc>
+                 line="2903">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38391,19 +38409,19 @@ See [method@TabView.set_page_pinned].</doc>
               glib:get-property="selected">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2847">Gets whether @self is selected.</doc>
+             line="2885">Gets whether @self is selected.</doc>
         <source-position filename="src/adw-tab-view.h" line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="2853">whether @self is selected</doc>
+               line="2891">whether @self is selected</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2849">a tab page</doc>
+                 line="2887">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38414,19 +38432,19 @@ See [method@TabView.set_page_pinned].</doc>
               version="1.3">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3288">Gets the horizontal alignment of the thumbnail for @self.</doc>
+             line="3326">Gets the horizontal alignment of the thumbnail for @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="111"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3294">the horizontal alignment</doc>
+               line="3332">the horizontal alignment</doc>
           <type name="gfloat" c:type="float"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3290">a tab page</doc>
+                 line="3328">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38437,19 +38455,19 @@ See [method@TabView.set_page_pinned].</doc>
               version="1.3">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3340">Gets the vertical alignment of the thumbnail for @self.</doc>
+             line="3378">Gets the vertical alignment of the thumbnail for @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="117"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3346">the vertical alignment</doc>
+               line="3384">the vertical alignment</doc>
           <type name="gfloat" c:type="float"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3342">a tab overview</doc>
+                 line="3380">a tab overview</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38459,19 +38477,19 @@ See [method@TabView.set_page_pinned].</doc>
               glib:get-property="title">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2881">Gets the title of @self.</doc>
+             line="2919">Gets the title of @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="2887">the title of @self</doc>
+               line="2925">the title of @self</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2883">a tab page</doc>
+                 line="2921">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38481,19 +38499,19 @@ See [method@TabView.set_page_pinned].</doc>
               glib:get-property="tooltip">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2927">Gets the tooltip of @self.</doc>
+             line="2965">Gets the tooltip of @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="63"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="2933">the tooltip of @self</doc>
+               line="2971">the tooltip of @self</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2929">a tab page</doc>
+                 line="2967">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38503,7 +38521,7 @@ See [method@TabView.set_page_pinned].</doc>
               version="1.3">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3446">Invalidates thumbnail for @self.
+             line="3484">Invalidates thumbnail for @self.
 
 If an [class@TabOverview] is open, the thumbnail representing @self will be
 immediately updated. Otherwise it will be update when opening the overview.
@@ -38519,7 +38537,7 @@ See also [method@TabView.invalidate_thumbnails].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3448">a tab page</doc>
+                 line="3486">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
         </parameters>
@@ -38529,7 +38547,7 @@ See also [method@TabView.invalidate_thumbnails].</doc>
               glib:set-property="icon">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2983">Sets the icon of @self.
+             line="3021">Sets the icon of @self.
 
 [class@TabBar] and [class@TabOverview] display the icon next to the title,
 unless [property@TabPage:loading] is set to `TRUE`.
@@ -38544,7 +38562,7 @@ unless [property@TabPage:loading] is set to `TRUE`.
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2985">a tab page</doc>
+                 line="3023">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
           <parameter name="icon"
@@ -38553,7 +38571,7 @@ unless [property@TabPage:loading] is set to `TRUE`.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2986">the icon of @self</doc>
+                 line="3024">the icon of @self</doc>
             <type name="Gio.Icon" c:type="GIcon*"/>
           </parameter>
         </parameters>
@@ -38563,7 +38581,7 @@ unless [property@TabPage:loading] is set to `TRUE`.
               glib:set-property="indicator-activatable">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3167">Sets whether the indicator of @self is activatable.
+             line="3205">Sets whether the indicator of @self is activatable.
 
 If set to `TRUE`, [signal@TabView::indicator-activated] will be emitted
 when the indicator icon is clicked.
@@ -38577,13 +38595,13 @@ If [property@TabPage:indicator-icon] is not set, does nothing.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3169">a tab page</doc>
+                 line="3207">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
           <parameter name="activatable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3170">whether the indicator is activatable</doc>
+                 line="3208">whether the indicator is activatable</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -38593,7 +38611,7 @@ If [property@TabPage:indicator-icon] is not set, does nothing.</doc>
               glib:set-property="indicator-icon">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3070">Sets the indicator icon of @self.
+             line="3108">Sets the indicator icon of @self.
 
 A common use case is an audio or camera indicator in a web browser.
 
@@ -38618,7 +38636,7 @@ indicator icon can act as a button.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3072">a tab page</doc>
+                 line="3110">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
           <parameter name="indicator_icon"
@@ -38627,7 +38645,7 @@ indicator icon can act as a button.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3073">the indicator icon of @self</doc>
+                 line="3111">the indicator icon of @self</doc>
             <type name="Gio.Icon" c:type="GIcon*"/>
           </parameter>
         </parameters>
@@ -38638,7 +38656,7 @@ indicator icon can act as a button.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3124">Sets the tooltip of the indicator icon of @self.
+             line="3162">Sets the tooltip of the indicator icon of @self.
 
 The tooltip can be marked up with the Pango text markup language.
 
@@ -38651,13 +38669,13 @@ See [property@TabPage:indicator-icon].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3126">a tab page</doc>
+                 line="3164">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
           <parameter name="tooltip" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3127">the indicator tooltip of @self</doc>
+                 line="3165">the indicator tooltip of @self</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -38668,7 +38686,7 @@ See [property@TabPage:indicator-icon].</doc>
               version="1.3">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3262">Sets the search keyword for @self.
+             line="3300">Sets the search keyword for @self.
 
 [class@TabOverview] can search pages by their keywords in addition to their
 titles and tooltips.
@@ -38682,13 +38700,13 @@ Keywords allow to include e.g. page URLs into tab search in a web browser.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3264">a tab page</doc>
+                 line="3302">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
           <parameter name="keyword" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3265">the search keyword</doc>
+                 line="3303">the search keyword</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -38699,7 +38717,7 @@ Keywords allow to include e.g. page URLs into tab search in a web browser.</doc>
               version="1.3">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3410">Sets whether to enable live thumbnail for @self.
+             line="3448">Sets whether to enable live thumbnail for @self.
 
 When set to `TRUE`, @self's thumbnail in [class@TabOverview] will update
 immediately when @self is redrawn or resized.
@@ -38716,13 +38734,13 @@ selected, and otherwise it will be static and will only update when
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3412">a tab page</doc>
+                 line="3450">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
           <parameter name="live_thumbnail" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3413">whether to enable live thumbnail</doc>
+                 line="3451">whether to enable live thumbnail</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -38732,7 +38750,7 @@ selected, and otherwise it will be static and will only update when
               glib:set-property="loading">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3025">Sets whether @self is loading.
+             line="3063">Sets whether @self is loading.
 
 If set to `TRUE`, [class@TabBar] and [class@TabOverview] will display a
 spinner in place of icon.
@@ -38747,13 +38765,13 @@ status will not be visible with `AdwTabBar`.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3027">a tab page</doc>
+                 line="3065">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
           <parameter name="loading" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3028">whether @self is loading</doc>
+                 line="3066">whether @self is loading</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -38763,7 +38781,7 @@ status will not be visible with `AdwTabBar`.</doc>
               glib:set-property="needs-attention">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3211">Sets whether @self needs attention.
+             line="3249">Sets whether @self needs attention.
 
 [class@TabBar] will display a line under the tab representing the page if
 set to `TRUE`. If the tab is not visible, the corresponding edge of the tab
@@ -38782,13 +38800,13 @@ selected have [property@TabPage:needs-attention] set to `TRUE`.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3213">a tab page</doc>
+                 line="3251">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
           <parameter name="needs_attention" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3214">whether @self needs attention</doc>
+                 line="3252">whether @self needs attention</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -38799,7 +38817,7 @@ selected have [property@TabPage:needs-attention] set to `TRUE`.</doc>
               version="1.3">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3306">Sets the horizontal alignment of the thumbnail for @self.
+             line="3344">Sets the horizontal alignment of the thumbnail for @self.
 
 If the page is so wide that [class@TabOverview] can't display it completely
 and has to crop it, horizontal alignment will determine which part of the
@@ -38817,13 +38835,13 @@ The default horizontal alignment is 0.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3308">a tab page</doc>
+                 line="3346">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
           <parameter name="xalign" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3309">the new value</doc>
+                 line="3347">the new value</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
         </parameters>
@@ -38834,7 +38852,7 @@ The default horizontal alignment is 0.</doc>
               version="1.3">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3358">Sets the vertical alignment of the thumbnail for @self.
+             line="3396">Sets the vertical alignment of the thumbnail for @self.
 
 If the page is so tall that [class@TabOverview] can't display it completely
 and has to crop it, vertical alignment will determine which part of the page
@@ -38852,13 +38870,13 @@ The default vertical alignment is 0.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3360">a tab page</doc>
+                 line="3398">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
           <parameter name="yalign" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3361">the new value</doc>
+                 line="3399">the new value</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
         </parameters>
@@ -38868,7 +38886,7 @@ The default vertical alignment is 0.</doc>
               glib:set-property="title">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2897">[class@TabBar] will display it in the center of the tab unless it's pinned,
+             line="2935">[class@TabBar] will display it in the center of the tab unless it's pinned,
 and will use it as a tooltip unless [property@TabPage:tooltip] is set.
 
 [class@TabOverview] will display it below the thumbnail unless it's pinned,
@@ -38884,13 +38902,13 @@ Sets the title of @self.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2899">a tab page</doc>
+                 line="2937">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2900">the title of @self</doc>
+                 line="2938">the title of @self</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -38900,7 +38918,7 @@ Sets the title of @self.</doc>
               glib:set-property="tooltip">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2943">Sets the tooltip of @self.
+             line="2981">Sets the tooltip of @self.
 
 The tooltip can be marked up with the Pango text markup language.
 
@@ -38914,13 +38932,13 @@ If not set, [class@TabBar] and [class@TabOverview] will use
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2945">a tab page</doc>
+                 line="2983">a tab page</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </instance-parameter>
           <parameter name="tooltip" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2946">the tooltip of @self</doc>
+                 line="2984">the tooltip of @self</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -39255,19 +39273,19 @@ are the accessible parent objects of the child widgets.</doc>
       <constructor name="new" c:identifier="adw_tab_view_new">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3485">Creates a new `AdwTabView`.</doc>
+             line="3523">Creates a new `AdwTabView`.</doc>
         <source-position filename="src/adw-tab-view.h" line="137"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3490">the newly created `AdwTabView`</doc>
+               line="3528">the newly created `AdwTabView`</doc>
           <type name="TabView" c:type="AdwTabView*"/>
         </return-value>
       </constructor>
       <method name="add_page" c:identifier="adw_tab_view_add_page">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4068">Adds @child to @self with @parent as the parent.
+             line="4106">Adds @child to @self with @parent as the parent.
 
 This function can be used to automatically position new pages, and to select
 the correct page when this page is closed while being selected (see
@@ -39278,20 +39296,20 @@ If @parent is `NULL`, this function is equivalent to [method@TabView.append].</d
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4082">the page object representing @child</doc>
+               line="4120">the page object representing @child</doc>
           <type name="TabPage" c:type="AdwTabPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4070">a tab view</doc>
+                 line="4108">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4071">a widget to add</doc>
+                 line="4109">a widget to add</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="parent"
@@ -39300,7 +39318,7 @@ If @parent is `NULL`, this function is equivalent to [method@TabView.append].</d
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4072">a parent page for @child</doc>
+                 line="4110">a parent page for @child</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
         </parameters>
@@ -39310,7 +39328,7 @@ If @parent is `NULL`, this function is equivalent to [method@TabView.append].</d
               version="1.2">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3864">Adds @shortcuts for @self.
+             line="3902">Adds @shortcuts for @self.
 
 See [property@TabView:shortcuts] for details.</doc>
         <source-position filename="src/adw-tab-view.h" line="176"/>
@@ -39321,13 +39339,13 @@ See [property@TabView:shortcuts] for details.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3866">a tab view</doc>
+                 line="3904">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="shortcuts" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3867">the shortcuts to add</doc>
+                 line="3905">the shortcuts to add</doc>
             <type name="TabViewShortcuts" c:type="AdwTabViewShortcuts"/>
           </parameter>
         </parameters>
@@ -39335,25 +39353,25 @@ See [property@TabView:shortcuts] for details.</doc>
       <method name="append" c:identifier="adw_tab_view_append">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4168">Inserts @child as the last non-pinned page.</doc>
+             line="4206">Inserts @child as the last non-pinned page.</doc>
         <source-position filename="src/adw-tab-view.h" line="212"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4175">the page object representing @child</doc>
+               line="4213">the page object representing @child</doc>
           <type name="TabPage" c:type="AdwTabPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4170">a tab view</doc>
+                 line="4208">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4171">a widget to add</doc>
+                 line="4209">a widget to add</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -39361,25 +39379,25 @@ See [property@TabView:shortcuts] for details.</doc>
       <method name="append_pinned" c:identifier="adw_tab_view_append_pinned">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4234">Inserts @child as the last pinned page.</doc>
+             line="4272">Inserts @child as the last pinned page.</doc>
         <source-position filename="src/adw-tab-view.h" line="223"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4241">the page object representing @child</doc>
+               line="4279">the page object representing @child</doc>
           <type name="TabPage" c:type="AdwTabPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4236">a tab view</doc>
+                 line="4274">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4237">a widget to add</doc>
+                 line="4275">a widget to add</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -39388,7 +39406,7 @@ See [property@TabView:shortcuts] for details.</doc>
               c:identifier="adw_tab_view_close_other_pages">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4335">Requests to close all pages other than @page.</doc>
+             line="4373">Requests to close all pages other than @page.</doc>
         <source-position filename="src/adw-tab-view.h" line="235"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -39397,13 +39415,13 @@ See [property@TabView:shortcuts] for details.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4337">a tab view</doc>
+                 line="4375">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4338">a page of @self</doc>
+                 line="4376">a page of @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
         </parameters>
@@ -39411,7 +39429,7 @@ See [property@TabView:shortcuts] for details.</doc>
       <method name="close_page" c:identifier="adw_tab_view_close_page">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4254">Requests to close @page.
+             line="4292">Requests to close @page.
 
 Calling this function will result in the [signal@TabView::close-page] signal
 being emitted for @page. Closing the page can then be confirmed or
@@ -39441,13 +39459,13 @@ are pinned, the parent will be selected instead.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4256">a tab view</doc>
+                 line="4294">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4257">a page of @self</doc>
+                 line="4295">a page of @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
         </parameters>
@@ -39456,7 +39474,7 @@ are pinned, the parent will be selected instead.</doc>
               c:identifier="adw_tab_view_close_page_finish">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4299">Completes a [method@TabView.close_page] call for @page.
+             line="4337">Completes a [method@TabView.close_page] call for @page.
 
 If @confirm is `TRUE`, @page will be closed. If it's `FALSE`, it will be
 reverted to its previous state and [method@TabView.close_page] can be called
@@ -39472,19 +39490,19 @@ This function should not be called unless a custom handler for
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4301">a tab view</doc>
+                 line="4339">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4302">a page of @self</doc>
+                 line="4340">a page of @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
           <parameter name="confirm" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4303">whether to confirm or deny closing @page</doc>
+                 line="4341">whether to confirm or deny closing @page</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -39493,7 +39511,7 @@ This function should not be called unless a custom handler for
               c:identifier="adw_tab_view_close_pages_after">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4388">Requests to close all pages after @page.</doc>
+             line="4426">Requests to close all pages after @page.</doc>
         <source-position filename="src/adw-tab-view.h" line="241"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -39502,13 +39520,13 @@ This function should not be called unless a custom handler for
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4390">a tab view</doc>
+                 line="4428">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4391">a page of @self</doc>
+                 line="4429">a page of @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
         </parameters>
@@ -39517,7 +39535,7 @@ This function should not be called unless a custom handler for
               c:identifier="adw_tab_view_close_pages_before">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4362">Requests to close all pages before @page.</doc>
+             line="4400">Requests to close all pages before @page.</doc>
         <source-position filename="src/adw-tab-view.h" line="238"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -39526,13 +39544,13 @@ This function should not be called unless a custom handler for
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4364">a tab view</doc>
+                 line="4402">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4365">a page of @self</doc>
+                 line="4403">a page of @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
         </parameters>
@@ -39542,19 +39560,19 @@ This function should not be called unless a custom handler for
               glib:get-property="default-icon">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3717">Gets the default icon of @self.</doc>
+             line="3755">Gets the default icon of @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="159"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3723">the default icon of @self.</doc>
+               line="3761">the default icon of @self.</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3719">a tab view</doc>
+                 line="3757">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
         </parameters>
@@ -39564,7 +39582,7 @@ This function should not be called unless a custom handler for
               glib:get-property="is-transferring-page">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3532">Whether a page is being transferred.
+             line="3570">Whether a page is being transferred.
 
 The corresponding property will be set to `TRUE` when a drag-n-drop tab
 transfer starts on any `AdwTabView`, and to `FALSE` after it ends.
@@ -39575,14 +39593,14 @@ be safely dropped on the tab view.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3544">whether a page is being transferred</doc>
+               line="3582">whether a page is being transferred</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3534">a tab view</doc>
+                 line="3572">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
         </parameters>
@@ -39592,19 +39610,19 @@ be safely dropped on the tab view.</doc>
               glib:get-property="menu-model">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3774">Gets the tab context menu model for @self.</doc>
+             line="3812">Gets the tab context menu model for @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="165"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3780">the tab context menu model for @self</doc>
+               line="3818">the tab context menu model for @self</doc>
           <type name="Gio.MenuModel" c:type="GMenuModel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3776">a tab view</doc>
+                 line="3814">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
         </parameters>
@@ -39614,19 +39632,19 @@ be safely dropped on the tab view.</doc>
               glib:get-property="n-pages">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3498">Gets the number of pages in @self.</doc>
+             line="3536">Gets the number of pages in @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="140"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3504">the number of pages in @self</doc>
+               line="3542">the number of pages in @self</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3500">a tab view</doc>
+                 line="3538">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
         </parameters>
@@ -39636,21 +39654,21 @@ be safely dropped on the tab view.</doc>
               glib:get-property="n-pinned-pages">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3514">Gets the number of pinned pages in @self.
+             line="3552">Gets the number of pinned pages in @self.
 
 See [method@TabView.set_page_pinned].</doc>
         <source-position filename="src/adw-tab-view.h" line="142"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3522">the number of pinned pages in @self</doc>
+               line="3560">the number of pinned pages in @self</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3516">a tab view</doc>
+                 line="3554">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
         </parameters>
@@ -39658,25 +39676,25 @@ See [method@TabView.set_page_pinned].</doc>
       <method name="get_nth_page" c:identifier="adw_tab_view_get_nth_page">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4013">Gets the [class@TabPage] representing the child at @position.</doc>
+             line="4051">Gets the [class@TabPage] representing the child at @position.</doc>
         <source-position filename="src/adw-tab-view.h" line="192"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4020">the page object at @position</doc>
+               line="4058">the page object at @position</doc>
           <type name="TabPage" c:type="AdwTabPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4015">a tab view</doc>
+                 line="4053">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4016">the index of the page in @self, starting from 0</doc>
+                 line="4054">the index of the page in @self, starting from 0</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -39684,25 +39702,25 @@ See [method@TabView.set_page_pinned].</doc>
       <method name="get_page" c:identifier="adw_tab_view_get_page">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3984">Gets the [class@TabPage] object representing @child.</doc>
+             line="4022">Gets the [class@TabPage] object representing @child.</doc>
         <source-position filename="src/adw-tab-view.h" line="188"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3991">the page object for @child</doc>
+               line="4029">the page object for @child</doc>
           <type name="TabPage" c:type="AdwTabPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3986">a tab view</doc>
+                 line="4024">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3987">a child in @self</doc>
+                 line="4025">a child in @self</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -39711,25 +39729,25 @@ See [method@TabView.set_page_pinned].</doc>
               c:identifier="adw_tab_view_get_page_position">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4039">Finds the position of @page in @self, starting from 0.</doc>
+             line="4077">Finds the position of @page in @self, starting from 0.</doc>
         <source-position filename="src/adw-tab-view.h" line="196"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4046">the position of @page in @self</doc>
+               line="4084">the position of @page in @self</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4041">a tab view</doc>
+                 line="4079">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4042">a page of @self</doc>
+                 line="4080">a page of @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
         </parameters>
@@ -39739,23 +39757,27 @@ See [method@TabView.set_page_pinned].</doc>
               glib:get-property="pages">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4660">Returns a [iface@Gio.ListModel] that contains the pages of @self.
+             line="4698">Returns a [iface@Gio.ListModel] that contains the pages of @self.
 
-This can be used to keep an up-to-date view. The model also implements
-[iface@Gtk.SelectionModel] and can be used to track and change the selected
-page.</doc>
+This can be used to keep an up-to-date view.
+
+The model implements [iface@Gtk.SectionModel], with one section for pinned
+pages and one for the rest of the pages.
+
+It also implements [iface@Gtk.SelectionModel] and can be used to track and
+change the selected page.</doc>
         <source-position filename="src/adw-tab-view.h" line="268"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4670">a `GtkSelectionModel` for the pages of @self</doc>
+               line="4712">a `GtkSelectionModel` for the pages of @self</doc>
           <type name="Gtk.SelectionModel" c:type="GtkSelectionModel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4662">a tab view</doc>
+                 line="4700">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
         </parameters>
@@ -39765,19 +39787,19 @@ page.</doc>
               glib:get-property="selected-page">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3554">Gets the currently selected page in @self.</doc>
+             line="3592">Gets the currently selected page in @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="148"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3560">the selected page</doc>
+               line="3598">the selected page</doc>
           <type name="TabPage" c:type="AdwTabPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3556">a tab view</doc>
+                 line="3594">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
         </parameters>
@@ -39788,19 +39810,19 @@ page.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3816">Gets the enabled shortcuts for @self.</doc>
+             line="3854">Gets the enabled shortcuts for @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="171"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3822">the shortcut mask</doc>
+               line="3860">the shortcut mask</doc>
           <type name="TabViewShortcuts" c:type="AdwTabViewShortcuts"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3818">a tab view</doc>
+                 line="3856">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
         </parameters>
@@ -39808,7 +39830,7 @@ page.</doc>
       <method name="insert" c:identifier="adw_tab_view_insert">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4121">Inserts a non-pinned page at @position.
+             line="4159">Inserts a non-pinned page at @position.
 
 It's an error to try to insert a page before a pinned page, in that case
 [method@TabView.insert_pinned] should be used instead.</doc>
@@ -39816,26 +39838,26 @@ It's an error to try to insert a page before a pinned page, in that case
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4132">the page object representing @child</doc>
+               line="4170">the page object representing @child</doc>
           <type name="TabPage" c:type="AdwTabPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4123">a tab view</doc>
+                 line="4161">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4124">a widget to add</doc>
+                 line="4162">a widget to add</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4125">the position to add @child at, starting from 0</doc>
+                 line="4163">the position to add @child at, starting from 0</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -39843,7 +39865,7 @@ It's an error to try to insert a page before a pinned page, in that case
       <method name="insert_pinned" c:identifier="adw_tab_view_insert_pinned">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4188">Inserts a pinned page at @position.
+             line="4226">Inserts a pinned page at @position.
 
 It's an error to try to insert a pinned page after a non-pinned page, in
 that case [method@TabView.insert] should be used instead.</doc>
@@ -39851,26 +39873,26 @@ that case [method@TabView.insert] should be used instead.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4199">the page object representing @child</doc>
+               line="4237">the page object representing @child</doc>
           <type name="TabPage" c:type="AdwTabPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4190">a tab view</doc>
+                 line="4228">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4191">a widget to add</doc>
+                 line="4229">a widget to add</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4192">the position to add @child at, starting from 0</doc>
+                 line="4230">the position to add @child at, starting from 0</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -39880,7 +39902,7 @@ that case [method@TabView.insert] should be used instead.</doc>
               version="1.3">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4685">Invalidates thumbnails for all pages in @self.
+             line="4727">Invalidates thumbnails for all pages in @self.
 
 This is a convenience method, equivalent to calling
 [method@TabPage.invalidate_thumbnail] on each page.</doc>
@@ -39892,7 +39914,7 @@ This is a convenience method, equivalent to calling
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4687">a tab view</doc>
+                 line="4729">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
         </parameters>
@@ -39900,25 +39922,25 @@ This is a convenience method, equivalent to calling
       <method name="prepend" c:identifier="adw_tab_view_prepend">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4148">Inserts @child as the first non-pinned page.</doc>
+             line="4186">Inserts @child as the first non-pinned page.</doc>
         <source-position filename="src/adw-tab-view.h" line="209"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4155">the page object representing @child</doc>
+               line="4193">the page object representing @child</doc>
           <type name="TabPage" c:type="AdwTabPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4150">a tab view</doc>
+                 line="4188">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4151">a widget to add</doc>
+                 line="4189">a widget to add</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -39926,25 +39948,25 @@ This is a convenience method, equivalent to calling
       <method name="prepend_pinned" c:identifier="adw_tab_view_prepend_pinned">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4214">Inserts @child as the first pinned page.</doc>
+             line="4252">Inserts @child as the first pinned page.</doc>
         <source-position filename="src/adw-tab-view.h" line="220"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4221">the page object representing @child</doc>
+               line="4259">the page object representing @child</doc>
           <type name="TabPage" c:type="AdwTabPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4216">a tab view</doc>
+                 line="4254">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4217">a widget to add</doc>
+                 line="4255">a widget to add</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -39954,7 +39976,7 @@ This is a convenience method, equivalent to calling
               version="1.2">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3885">Removes @shortcuts from @self.
+             line="3923">Removes @shortcuts from @self.
 
 See [property@TabView:shortcuts] for details.</doc>
         <source-position filename="src/adw-tab-view.h" line="179"/>
@@ -39965,13 +39987,13 @@ See [property@TabView:shortcuts] for details.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3887">a tab view</doc>
+                 line="3925">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="shortcuts" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3888">the shortcuts to remove</doc>
+                 line="3926">the shortcuts to remove</doc>
             <type name="TabViewShortcuts" c:type="AdwTabViewShortcuts"/>
           </parameter>
         </parameters>
@@ -39980,25 +40002,25 @@ See [property@TabView:shortcuts] for details.</doc>
               c:identifier="adw_tab_view_reorder_backward">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4470">Reorders @page to before its previous page if possible.</doc>
+             line="4508">Reorders @page to before its previous page if possible.</doc>
         <source-position filename="src/adw-tab-view.h" line="249"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4477">whether @page was moved</doc>
+               line="4515">whether @page was moved</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4472">a tab view</doc>
+                 line="4510">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4473">a page of @self</doc>
+                 line="4511">a page of @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
         </parameters>
@@ -40006,25 +40028,25 @@ See [property@TabView:shortcuts] for details.</doc>
       <method name="reorder_first" c:identifier="adw_tab_view_reorder_first">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4532">Reorders @page to the first possible position.</doc>
+             line="4570">Reorders @page to the first possible position.</doc>
         <source-position filename="src/adw-tab-view.h" line="255"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4539">whether @page was moved</doc>
+               line="4577">whether @page was moved</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4534">a tab view</doc>
+                 line="4572">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4535">a page of @self</doc>
+                 line="4573">a page of @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
         </parameters>
@@ -40033,25 +40055,25 @@ See [property@TabView:shortcuts] for details.</doc>
               c:identifier="adw_tab_view_reorder_forward">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4501">Reorders @page to after its next page if possible.</doc>
+             line="4539">Reorders @page to after its next page if possible.</doc>
         <source-position filename="src/adw-tab-view.h" line="252"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4508">whether @page was moved</doc>
+               line="4546">whether @page was moved</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4503">a tab view</doc>
+                 line="4541">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4504">a page of @self</doc>
+                 line="4542">a page of @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
         </parameters>
@@ -40059,25 +40081,25 @@ See [property@TabView:shortcuts] for details.</doc>
       <method name="reorder_last" c:identifier="adw_tab_view_reorder_last">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4558">Reorders @page to the last possible position.</doc>
+             line="4596">Reorders @page to the last possible position.</doc>
         <source-position filename="src/adw-tab-view.h" line="258"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4565">whether @page was moved</doc>
+               line="4603">whether @page was moved</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4560">a tab view</doc>
+                 line="4598">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4561">a page of @self</doc>
+                 line="4599">a page of @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
         </parameters>
@@ -40085,7 +40107,7 @@ See [property@TabView:shortcuts] for details.</doc>
       <method name="reorder_page" c:identifier="adw_tab_view_reorder_page">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4414">Reorders @page to @position.
+             line="4452">Reorders @page to @position.
 
 It's a programmer error to try to reorder a pinned page after a non-pinned
 one, or a non-pinned page before a pinned one.</doc>
@@ -40093,26 +40115,26 @@ one, or a non-pinned page before a pinned one.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="4425">whether @page was moved</doc>
+               line="4463">whether @page was moved</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4416">a tab view</doc>
+                 line="4454">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4417">a page of @self</doc>
+                 line="4455">a page of @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4418">the position to insert the page at, starting at 0</doc>
+                 line="4456">the position to insert the page at, starting at 0</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -40121,21 +40143,21 @@ one, or a non-pinned page before a pinned one.</doc>
               c:identifier="adw_tab_view_select_next_page">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3626">Selects the page after the currently selected page.
+             line="3664">Selects the page after the currently selected page.
 
 If the last page was already selected, this function does nothing.</doc>
         <source-position filename="src/adw-tab-view.h" line="156"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3634">whether the selected page was changed</doc>
+               line="3672">whether the selected page was changed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3628">a tab view</doc>
+                 line="3666">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
         </parameters>
@@ -40144,21 +40166,21 @@ If the last page was already selected, this function does nothing.</doc>
               c:identifier="adw_tab_view_select_previous_page">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3593">Selects the page before the currently selected page.
+             line="3631">Selects the page before the currently selected page.
 
 If the first page was already selected, this function does nothing.</doc>
         <source-position filename="src/adw-tab-view.h" line="154"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="3601">whether the selected page was changed</doc>
+               line="3639">whether the selected page was changed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3595">a tab view</doc>
+                 line="3633">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
         </parameters>
@@ -40168,7 +40190,7 @@ If the first page was already selected, this function does nothing.</doc>
               glib:set-property="default-icon">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3733">Sets the default page icon for @self.
+             line="3771">Sets the default page icon for @self.
 
 If a page doesn't provide its own icon via [property@TabPage:icon], a default
 icon may be used instead for contexts where having an icon is necessary.
@@ -40188,13 +40210,13 @@ By default, the `adw-tab-icon-missing-symbolic` icon is used.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3735">a tab view</doc>
+                 line="3773">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="default_icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3736">the default icon</doc>
+                 line="3774">the default icon</doc>
             <type name="Gio.Icon" c:type="GIcon*"/>
           </parameter>
         </parameters>
@@ -40204,7 +40226,7 @@ By default, the `adw-tab-icon-missing-symbolic` icon is used.</doc>
               glib:set-property="menu-model">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3790">Sets the tab context menu model for @self.
+             line="3828">Sets the tab context menu model for @self.
 
 When a context menu is shown for a tab, it will be constructed from the
 provided menu model. Use the [signal@TabView::setup-menu] signal to set up
@@ -40217,7 +40239,7 @@ the menu actions for the particular tab.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3792">a tab view</doc>
+                 line="3830">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="menu_model"
@@ -40226,7 +40248,7 @@ the menu actions for the particular tab.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3793">a menu model</doc>
+                 line="3831">a menu model</doc>
             <type name="Gio.MenuModel" c:type="GMenuModel*"/>
           </parameter>
         </parameters>
@@ -40235,7 +40257,7 @@ the menu actions for the particular tab.</doc>
               c:identifier="adw_tab_view_set_page_pinned">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3906">Pins or unpins @page.
+             line="3944">Pins or unpins @page.
 
 Pinned pages are guaranteed to be placed before all non-pinned pages; at any
 given moment the first [property@TabView:n-pinned-pages] pages in @self are
@@ -40272,19 +40294,19 @@ Changes the value of the [property@TabPage:pinned] property.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3908">a tab view</doc>
+                 line="3946">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3909">a page of @self</doc>
+                 line="3947">a page of @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
           <parameter name="pinned" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3910">whether @page should be pinned</doc>
+                 line="3948">whether @page should be pinned</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -40294,7 +40316,7 @@ Changes the value of the [property@TabPage:pinned] property.</doc>
               glib:set-property="selected-page">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3570">Sets the currently selected page in @self.</doc>
+             line="3608">Sets the currently selected page in @self.</doc>
         <source-position filename="src/adw-tab-view.h" line="150"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -40303,13 +40325,13 @@ Changes the value of the [property@TabPage:pinned] property.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3572">a tab view</doc>
+                 line="3610">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="selected_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3573">a page in @self</doc>
+                 line="3611">a page in @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
         </parameters>
@@ -40320,7 +40342,7 @@ Changes the value of the [property@TabPage:pinned] property.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="3834">Sets the enabled shortcuts for @self.
+             line="3872">Sets the enabled shortcuts for @self.
 
 See [flags@TabViewShortcuts] for the list of the available shortcuts. All of
 the shortcuts are enabled by default.
@@ -40335,13 +40357,13 @@ a convenient way to manage individual shortcuts.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3836">a tab view</doc>
+                 line="3874">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="shortcuts" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="3837">the new shortcuts</doc>
+                 line="3875">the new shortcuts</doc>
             <type name="TabViewShortcuts" c:type="AdwTabViewShortcuts"/>
           </parameter>
         </parameters>
@@ -40349,7 +40371,7 @@ a convenient way to manage individual shortcuts.</doc>
       <method name="transfer_page" c:identifier="adw_tab_view_transfer_page">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="4622">Transfers @page from @self to @other_view.
+             line="4660">Transfers @page from @self to @other_view.
 
 The @page object will be reused.
 
@@ -40363,25 +40385,25 @@ one, or a non-pinned page before a pinned one.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4624">a tab view</doc>
+                 line="4662">a tab view</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4625">a page of @self</doc>
+                 line="4663">a page of @self</doc>
             <type name="TabPage" c:type="AdwTabPage*"/>
           </parameter>
           <parameter name="other_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4626">the tab view to transfer the page to</doc>
+                 line="4664">the tab view to transfer the page to</doc>
             <type name="TabView" c:type="AdwTabView*"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="4627">the position to insert the page at, starting at 0</doc>
+                 line="4665">the position to insert the page at, starting at 0</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -40393,7 +40415,7 @@ one, or a non-pinned page before a pinned one.</doc>
                 getter="get_default_icon">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2465">Default page icon.
+             line="2499">Default page icon.
 
 If a page doesn't provide its own icon via [property@TabPage:icon], a
 default icon may be used instead for contexts where having an icon is
@@ -40415,7 +40437,7 @@ By default, the `adw-tab-icon-missing-symbolic` icon is used.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2439">Whether a page is being transferred.
+             line="2473">Whether a page is being transferred.
 
 This property will be set to `TRUE` when a drag-n-drop tab transfer starts
 on any `AdwTabView`, and to `FALSE` after it ends.
@@ -40431,7 +40453,7 @@ be safely dropped on the tab view.</doc>
                 getter="get_menu_model">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2488">Tab context menu model.
+             line="2522">Tab context menu model.
 
 When a context menu is shown for a tab, it will be constructed from the
 provided menu model. Use the [signal@TabView::setup-menu] signal to set up
@@ -40444,7 +40466,7 @@ the menu actions for the particular tab.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2417">The number of pages in the tab view.</doc>
+             line="2451">The number of pages in the tab view.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="n-pinned-pages"
@@ -40453,7 +40475,7 @@ the menu actions for the particular tab.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2427">The number of pinned pages in the tab view.
+             line="2461">The number of pinned pages in the tab view.
 
 See [method@TabView.set_page_pinned].</doc>
         <type name="gint" c:type="gint"/>
@@ -40461,11 +40483,15 @@ See [method@TabView.set_page_pinned].</doc>
       <property name="pages" transfer-ownership="none" getter="get_pages">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2521">A selection model with the tab view's pages.
+             line="2555">A list model with the tab view's pages.
 
-This can be used to keep an up-to-date view. The model also implements
-[iface@Gtk.SelectionModel] and can be used to track and change the selected
-page.</doc>
+This can be used to keep an up-to-date view.
+
+The model implements [iface@Gtk.SectionModel], with one section for pinned
+pages and one for the rest of the pages.
+
+It also implements [iface@Gtk.SelectionModel] and can be used to track and
+change the selected page.</doc>
         <type name="Gtk.SelectionModel"/>
       </property>
       <property name="selected-page"
@@ -40475,7 +40501,7 @@ page.</doc>
                 getter="get_selected_page">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2455">The currently selected page.</doc>
+             line="2489">The currently selected page.</doc>
         <type name="TabPage"/>
       </property>
       <property name="shortcuts"
@@ -40487,7 +40513,7 @@ page.</doc>
                 default-value="ADW_TAB_VIEW_SHORTCUT_CONTROL_TAB | ADW_TAB_VIEW_SHORTCUT_CONTROL_SHIFT_TAB | ADW_TAB_VIEW_SHORTCUT_CONTROL_PAGE_UP | ADW_TAB_VIEW_SHORTCUT_CONTROL_PAGE_DOWN | ADW_TAB_VIEW_SHORTCUT_CONTROL_HOME | ADW_TAB_VIEW_SHORTCUT_CONTROL_END | ADW_TAB_VIEW_SHORTCUT_CONTROL_SHIFT_PAGE_UP | ADW_TAB_VIEW_SHORTCUT_CONTROL_SHIFT_PAGE_DOWN | ADW_TAB_VIEW_SHORTCUT_CONTROL_SHIFT_HOME | ADW_TAB_VIEW_SHORTCUT_CONTROL_SHIFT_END | ADW_TAB_VIEW_SHORTCUT_ALT_DIGITS | ADW_TAB_VIEW_SHORTCUT_ALT_ZERO">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2502">The enabled shortcuts.
+             line="2536">The enabled shortcuts.
 
 See [flags@TabViewShortcuts] for the list of the available shortcuts. All
 of the shortcuts are enabled by default.
@@ -40499,7 +40525,7 @@ provide a convenient way to manage individual shortcuts.</doc>
       <glib:signal name="close-page" when="last">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2614">Emitted after [method@TabView.close_page] has been called for @page.
+             line="2652">Emitted after [method@TabView.close_page] has been called for @page.
 
 The handler is expected to call [method@TabView.close_page_finish] to
 confirm or reject the closing.
@@ -40531,14 +40557,14 @@ The signal handler should return `GDK_EVENT_STOP` to stop propagation or
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="2649">whether propagation should be stopped</doc>
+               line="2687">whether propagation should be stopped</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2617">a page of @self</doc>
+                 line="2655">a page of @self</doc>
             <type name="TabPage"/>
           </parameter>
         </parameters>
@@ -40546,7 +40572,7 @@ The signal handler should return `GDK_EVENT_STOP` to stop propagation or
       <glib:signal name="create-window" when="last">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2692">Emitted when a tab should be transferred into a new window.
+             line="2730">Emitted when a tab should be transferred into a new window.
 
 This can happen after a tab has been dropped on desktop.
 
@@ -40555,14 +40581,14 @@ needed and return its `AdwTabView` that the page will be transferred into.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-tab-view.c"
-               line="2703">the `AdwTabView` from the new window</doc>
+               line="2741">the `AdwTabView` from the new window</doc>
           <type name="TabView"/>
         </return-value>
       </glib:signal>
       <glib:signal name="indicator-activated" when="last">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2719">Emitted after the indicator icon on @page has been activated.
+             line="2757">Emitted after the indicator icon on @page has been activated.
 
 See [property@TabPage:indicator-icon] and
 [property@TabPage:indicator-activatable].</doc>
@@ -40573,7 +40599,7 @@ See [property@TabPage:indicator-icon] and
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2722">a page of @self</doc>
+                 line="2760">a page of @self</doc>
             <type name="TabPage"/>
           </parameter>
         </parameters>
@@ -40581,7 +40607,7 @@ See [property@TabPage:indicator-icon] and
       <glib:signal name="page-attached" when="last">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2537">Emitted when a page has been created or transferred to @self.
+             line="2575">Emitted when a page has been created or transferred to @self.
 
 A typical reason to connect to this signal would be to connect to page
 signals for things such as updating window title.</doc>
@@ -40592,13 +40618,13 @@ signals for things such as updating window title.</doc>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2540">a page of @self</doc>
+                 line="2578">a page of @self</doc>
             <type name="TabPage"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2541">the position of the page, starting from 0</doc>
+                 line="2579">the position of the page, starting from 0</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -40606,7 +40632,7 @@ signals for things such as updating window title.</doc>
       <glib:signal name="page-detached" when="last">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2562">Emitted when a page has been removed or transferred to another view.
+             line="2600">Emitted when a page has been removed or transferred to another view.
 
 A typical reason to connect to this signal would be to disconnect signal
 handlers connected in the [signal@TabView::page-attached] handler.
@@ -40622,13 +40648,13 @@ child dispose handler for that or do it in sync with your
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2565">a page of @self</doc>
+                 line="2603">a page of @self</doc>
             <type name="TabPage"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2566">the position of the removed page, starting from 0</doc>
+                 line="2604">the position of the removed page, starting from 0</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -40636,7 +40662,7 @@ child dispose handler for that or do it in sync with your
       <glib:signal name="page-reordered" when="last">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2592">Emitted after @page has been reordered to @position.</doc>
+             line="2630">Emitted after @page has been reordered to @position.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -40644,13 +40670,13 @@ child dispose handler for that or do it in sync with your
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2595">a page of @self</doc>
+                 line="2633">a page of @self</doc>
             <type name="TabPage"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2596">the position @page was moved to, starting at 0</doc>
+                 line="2634">the position @page was moved to, starting at 0</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -40658,7 +40684,7 @@ child dispose handler for that or do it in sync with your
       <glib:signal name="setup-menu" when="last">
         <doc xml:space="preserve"
              filename="src/adw-tab-view.c"
-             line="2666">Emitted when a context menu is opened or closed for @page.
+             line="2704">Emitted when a context menu is opened or closed for @page.
 
 If the menu has been closed, @page will be set to `NULL`.
 
@@ -40674,7 +40700,7 @@ disable actions not applicable to @page.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-tab-view.c"
-                 line="2669">a page of @self</doc>
+                 line="2707">a page of @self</doc>
             <type name="TabPage"/>
           </parameter>
         </parameters>
@@ -44550,7 +44576,7 @@ See also [property@ToolbarView:bottom-bar-style].</doc>
     <function-macro name="UNAVAILABLE"
                     c:identifier="ADW_UNAVAILABLE"
                     introspectable="0">
-      <source-position filename="src/adw-version.h" line="327"/>
+      <source-position filename="src/adw-version.h" line="355"/>
       <parameters>
         <parameter name="major">
         </parameter>
@@ -44558,7 +44584,7 @@ See also [property@ToolbarView:bottom-bar-style].</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="1.8.0" c:type="ADW_VERSION_S">
+    <constant name="VERSION_S" value="1.9.alpha" c:type="ADW_VERSION_S">
       <doc xml:space="preserve"
            filename="src/adw-version.h"
            line="45">Adwaita version, encoded as a string, useful for printing and
@@ -49825,7 +49851,7 @@ This function is in the library, so it represents the libadwaita library your
 code is running against. Contrast with the [const@MAJOR_VERSION] constant,
 which represents the major version of the libadwaita headers you have
 included when compiling your code.</doc>
-      <source-position filename="src/adw-version.h" line="333"/>
+      <source-position filename="src/adw-version.h" line="361"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/adw-version.c"
@@ -49844,7 +49870,7 @@ This function is in the library, so it represents the libadwaita library your
 code is running against. Contrast with the [const@MAJOR_VERSION] constant,
 which represents the micro version of the libadwaita headers you have
 included when compiling your code.</doc>
-      <source-position filename="src/adw-version.h" line="337"/>
+      <source-position filename="src/adw-version.h" line="365"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/adw-version.c"
@@ -49863,7 +49889,7 @@ This function is in the library, so it represents the libadwaita library your
 code is running against. Contrast with the [const@MAJOR_VERSION] constant,
 which represents the minor version of the libadwaita headers you have
 included when compiling your code.</doc>
-      <source-position filename="src/adw-version.h" line="335"/>
+      <source-position filename="src/adw-version.h" line="363"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/adw-version.c"
