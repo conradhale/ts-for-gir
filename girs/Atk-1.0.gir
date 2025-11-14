@@ -774,7 +774,7 @@ A string name/value pair representing a generic attribute.</doc>
       </function>
     </record>
     <constant name="BINARY_AGE"
-              value="25810"
+              value="25811"
               c:type="ATK_BINARY_AGE"
               version="2.7.4">
       <doc xml:space="preserve"
@@ -7159,7 +7159,7 @@ against at application run time.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="0"
+              value="1"
               c:type="ATK_MICRO_VERSION"
               version="2.7.4">
       <doc xml:space="preserve"
@@ -15487,7 +15487,7 @@ or zero if value does not implement this interface.</doc>
              filename="atk/atktable.c"
              line="587">Gets the summary description of the table.</doc>
         <source-position filename="atk/atktable.h" line="72"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atktable.c"
                line="593">a AtkObject* representing a summary description
@@ -16369,7 +16369,7 @@ or zero if value does not implement this interface.</doc>
              filename="atk/atktable.c"
              line="587">Gets the summary description of the table.</doc>
         <source-position filename="atk/atktable.h" line="174"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atktable.c"
                line="593">a AtkObject* representing a summary description
@@ -17077,7 +17077,7 @@ or 0 if the cell does not implement this method.</doc>
              filename="atk/atktablecell.c"
              line="238">Returns a reference to the accessible of the containing table.</doc>
         <source-position filename="atk/atktablecell.h" line="80"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atktablecell.c"
                line="244">the atk object for the containing table.</doc>
@@ -17297,7 +17297,7 @@ or 0 if the cell does not implement this method.</doc>
              filename="atk/atktablecell.c"
              line="238">Returns a reference to the accessible of the containing table.</doc>
         <source-position filename="atk/atktablecell.h" line="105"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atktablecell.c"
                line="244">the atk object for the containing table.</doc>
@@ -17531,7 +17531,7 @@ representing the row header cells.</doc>
   accessible of the containing table</doc>
         <callback name="get_table">
           <source-position filename="atk/atktablecell.h" line="80"/>
-          <return-value transfer-ownership="full">
+          <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atktablecell.c"
                  line="244">the atk object for the containing table.</doc>
@@ -17905,7 +17905,7 @@ interface.</doc>
       <field name="get_summary">
         <callback name="get_summary">
           <source-position filename="atk/atktable.h" line="72"/>
-          <return-value transfer-ownership="full">
+          <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atktable.c"
                  line="593">a AtkObject* representing a summary description

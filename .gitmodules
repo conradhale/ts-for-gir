@@ -4,14 +4,14 @@
 	branch = master
 [submodule "types"]
 	path = types-release
-	url = https://github.com/gjsify/types
+	url = https://github.com/conradhale/types
 	branch = main
 [submodule "gjs"]
 	path = gjs
 	url = https://gitlab.gnome.org/GNOME/gjs.git
 [submodule "types-dev"]
 	path = types-dev
-	url = git@github.com:gjsify/types.git
+	url = git@github.com:conradhale/types.git
 	branch = dev
 [submodule "devdocsgjs"]
 	path = devdocsgjs
