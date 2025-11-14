@@ -62,49 +62,49 @@ declare namespace package {
 
     /**
      * The base name of the entry point (eg. org.foo.Bar.App)
-     * 
+     *
      * Note: Run `pkg.init()` before accessing this property.
      */
     export const name: string
     /**
      * The version of the package
-     * 
+     *
      * Note: Run `pkg.init()` before accessing this property.
      */
     export const version: string
     /**
      * The prefix of the package
-     * 
+     *
      * Note: Run `pkg.init()` before accessing this property.
      */
     export const prefix: string
     /**
      * The final datadir when installed; usually, these would be prefix + '/share'
-     * 
+     *
      * Note: Run `pkg.init()` before accessing this property.
      */
     export const datadir: string
     /**
      * The final libdir when installed; usually, these would be prefix + '/lib' (or '/lib64')
-     * 
+     *
      * Note: Run `pkg.init()` before accessing this property.
      */
     export const libdir: string
     /**
      * The final pkglibdir when installed; usually, this would be prefix + '/lib' (or '/lib64')
-     * 
+     *
      * Note: Run `pkg.init()` before accessing this property.
      */
     export const pkglibdir: string
     /**
      * The final moduledir when installed; usually, this would be prefix + '/lib' (or '/lib64')
-     * 
+     *
      * Note: Run `pkg.init()` before accessing this property.
      */
     export const moduledir: string
     /**
      * The directory containing gettext translation files; this will be datadir + '/locale' when installed and './po' in the source tree
-     * 
+     *
      * Note: Run `pkg.init()` before accessing this property.
      */
     export const localedir: string
@@ -216,25 +216,25 @@ declare namespace package {
     export function initGettext(): void;
     /**
      * Initializes string formatting capabilities by adding a format() method to String.prototype.
-     * 
+     *
      * After calling this method, you can use a printf-style string formatting by calling
      * the format() method on any string:
-     * 
+     *
      * @example
      * ```ts
      * pkg.initFormat();
-     * 
+     *
      * // Now you can use format() on any string
      * const name = "User";
      * const count = 5;
      * const formatted = "Hello %s, you have %d items".format(name, count);
      * // formatted = "Hello User, you have 5 items"
-     * 
+     *
      * // Format numbers with precision
      * const price = 10.5;
      * const priceStr = "Price: $%.2f".format(price);
      * // priceStr = "Price: $10.50"
-     * 
+     *
      * // Pad with zeros
      * const id = 42;
      * const idStr = "ID: %05d".format(id);
@@ -296,42 +296,42 @@ declare namespace lang {
 declare namespace format {
     /**
      * Formats a string using printf-style format specifiers.
-     * 
+     *
      * @param str The format string
      * @param args The arguments to be formatted
      * @returns The formatted string
      */
     export function vprintf(str: string, args: (string | number | boolean | null | undefined)[]): string;
-    
+
     /**
      * Prints a formatted string to the console.
      * Similar to C's printf function.
-     * 
+     *
      * @param fmt The format string
      * @param args The arguments to be formatted
      */
     export function printf(fmt: string, ...args: (string | number | boolean | null | undefined)[]): void;
-    
+
     /**
      * Formats a string with the given arguments.
      * This is the implementation that backs String.prototype.format
      * when pkg.initFormat() is called.
-     * 
+     *
      * Supported format specifiers:
      * - %s: Formats as a string
      * - %d: Formats as an integer
      * - %x: Formats as a hexadecimal number
      * - %f: Formats as a floating point number, optionally with precision (e.g. %.2f)
-     * 
+     *
      * All specifiers can be prefixed with a minimum field width, e.g. "%5s" will pad with spaces.
      * If the width is prefixed with '0', it will pad with zeroes instead of spaces.
-     * 
+     *
      * @example
      * ```ts
      * format.format("Hello %s, you have %d items", "User", 5);
      * // Returns: "Hello User, you have 5 items"
      * ```
-     * 
+     *
      * @param fmt The format string
      * @param args The arguments to format the string with
      * @returns The formatted string
@@ -358,15 +358,15 @@ declare namespace mainloop {
  * @example
  * ```ts
  * const Signals = imports.signals;
- * 
+ *
  * // Define an interface with the same name of your class to make the methods known
  * interface Events extends Signals.Methods {}
- * 
+ *
  * class Events {}
  * Signals.addSignalMethods(Events.prototype);
- * 
+ *
  * const events = new Events();
- * 
+ *
  * // Typescript will not complain here
  * events.emit("test-signal", "test argument");
  * ```
@@ -375,13 +375,13 @@ export interface SignalMethods {
     /**
      * Connects a callback to a signal for an object. Pass the returned ID to
      * `disconnect()` to remove the handler.
-     * 
+     *
      * If `callback` returns `true`, emission will stop and no other handlers will be
      * invoked.
-     * 
+     *
      * > Warning: Unlike GObject signals, `this` within a signal callback will always
      * > refer to the global object (ie. `globalThis`).
-     * 
+     *
      * @param sigName A signal name
      * @param callback A callback function
      * @returns A handler ID
@@ -389,7 +389,7 @@ export interface SignalMethods {
     connect(sigName: string, callback: (self: any, ...args: any[]) => void): number;
     /**
      * Emits a signal for an object. Emission stops if a signal handler returns `true`.
-     * 
+     *
      * Unlike GObject signals, it is not necessary to declare signals or define their
      * signature. Simply call `emit()` with whatever signal name you wish, with
      * whatever arguments you wish.
@@ -649,7 +649,7 @@ declare global {
             [namespace: string]: string
         }
     }
-    
+
     interface GjsImports {
         gi: GjsGiImports
         lang: typeof lang
@@ -669,17 +669,17 @@ declare global {
      * Run `pkg.initGettext()` before using this.
      * See {@link gettext.gettext}
      */
-    const _: typeof gettext.gettext
+    var _: typeof gettext.gettext
     /**
      * Run `pkg.initGettext()` before using this.
      * See {@link gettext.pgettext}
      */
-    const C_: typeof gettext.pgettext
+    var C_: typeof gettext.pgettext
     /**
      * Run `pkg.initGettext()` before using this.
      * Currently not implemented.
      */
-    const N_: ((x: string) => string)
+    var N_: ((x: string) => string)
 
     function print(...args: any[]): void
     function printerr(...args: any[]): void
@@ -718,29 +718,29 @@ declare global {
         /**
          * Formats a string with the given arguments.
          * This method is made available by calling `pkg.initFormat()`.
-         * 
+         *
          * Supported format specifiers:
          * - %s: Formats as a string
          * - %d: Formats as an integer
          * - %x: Formats as a hexadecimal number
          * - %f: Formats as a floating point number, optionally with precision (e.g. %.2f)
-         * 
+         *
          * All specifiers can be prefixed with a minimum field width, e.g. "%5s" will pad with spaces.
          * If the width is prefixed with '0', it will pad with zeroes instead of spaces.
-         * 
+         *
          * @example
          * ```ts
          * // After calling pkg.initFormat()
          * "Hello %s, you have %d items".format("User", 5);
          * // Returns: "Hello User, you have 5 items"
-         * 
+         *
          * "Price: $%.2f".format(10.5);
          * // Returns: "Price: $10.50"
-         * 
+         *
          * "ID: %05d".format(42);
          * // Returns: "ID: 00042"
          * ```
-         * 
+         *
          * @param args The arguments to format the string with
          * @returns The formatted string
          */

@@ -14,6 +14,7 @@ import { IntrospectedField, JSField } from "../gir/property.ts";
 import {
 	AnyFunctionType,
 	AnyType,
+	NumberType,
 	ArrayType,
 	BooleanType,
 	FunctionType,
@@ -23,7 +24,6 @@ import {
 	GenerifiedTypeIdentifier,
 	NativeType,
 	StringType,
-	ThisType,
 	TypeIdentifier,
 	Uint8ArrayType,
 	VoidType,
@@ -161,19 +161,19 @@ export default {
 			// This is not ideal, but DBusProxy's define functions and properties on the prototype.
 			DBusProxy.__ts__indexSignature = "[key: string]: any;";
 
+			const proxyWrapperParams = "bus: DBusConnection, name: string, object: string, asyncCallback?: (initable: (T & DBusProxy) | null, error: unknown | null) => void, cancellable?: Cancellable | null, flags?: DBusProxyFlags";
 			const makeProxyWrapper = new IntrospectedStaticClassFunction({
 				name: "makeProxyWrapper",
 				parent: DBusProxy,
 				parameters: [
 					new IntrospectedFunctionParameter({
-						name: "args",
-						type: new ArrayType(AnyType),
-						isVarArgs: true,
+						name: "interfaceXml",
+						type: StringType,
 						direction: GirDirection.In,
 					}),
 				],
 				return_type: new NativeType(
-					"(bus: DBusConnection, name: string, object: string, asyncCallback?: (initable: (T & DBusProxy) | null, error: unknown | null) => void, cancellable?: Cancellable | null, flags?: DBusProxyFlags) => T & DBusProxy",
+					`{ new (${proxyWrapperParams}): T & DBusProxy, newAsync(${proxyWrapperParams}): Promise<T & DBusProxy> }`,
 				),
 			});
 
@@ -186,105 +186,84 @@ export default {
 					parent: DBusProxy,
 					parameters: [
 						new IntrospectedFunctionParameter({
-							name: "proxy",
-							type: ThisType,
-							direction: GirDirection.In,
-						}),
-						new IntrospectedFunctionParameter({
 							name: "name",
 							type: StringType,
 							direction: GirDirection.In,
 						}),
 						new IntrospectedFunctionParameter({
-							name: "args",
-							type: new ArrayType(AnyType),
+							name: "callback",
+							type: new NativeType('(proxy: this, name: string, ...args: any[]) => void'),
 							direction: GirDirection.In,
 						}),
 					],
-					return_type: AnyType,
+					return_type: NumberType,
 				}),
 				new IntrospectedClassFunction({
 					name: "disconnectSignal",
 					parent: DBusProxy,
 					parameters: [
 						new IntrospectedFunctionParameter({
-							name: "args",
-							type: new ArrayType(AnyType),
-							isVarArgs: true,
+							name: "id",
+							type: NumberType,
 							direction: GirDirection.In,
 						}),
 					],
-					return_type: AnyType,
+					return_type: NumberType,
 				}),
 			);
 		}
 
-		{
-			const [bus_get] = namespace.getMembers("bus_get");
-			const [bus_get_finish] = namespace.getMembers("bus_get_finish");
-			const [bus_get_sync] = namespace.getMembers("bus_get_sync");
-			const [bus_own_name] = namespace.getMembers("bus_own_name");
-			const [bus_own_name_on_connection] = namespace.getMembers("bus_own_name_on_connection");
-			const [bus_unown_name] = namespace.getMembers("bus_unown_name");
-			const [bus_watch_name] = namespace.getMembers("bus_watch_name");
-			const [bus_unwatch_name] = namespace.getMembers("bus_unwatch_name");
-			const [bus_watch_name_on_connection] = namespace.getMembers("bus_watch_name_on_connection");
+    {
+      const fns: Map<string, IntrospectedFunction[]> = new Map()
 
-			if (
-				!(
-					bus_get instanceof IntrospectedFunction &&
-					bus_get_finish instanceof IntrospectedFunction &&
-					bus_get_sync instanceof IntrospectedFunction &&
-					bus_own_name instanceof IntrospectedFunction &&
-					bus_own_name_on_connection instanceof IntrospectedFunction &&
-					bus_unown_name instanceof IntrospectedFunction &&
-					bus_watch_name instanceof IntrospectedFunction &&
-					bus_unwatch_name instanceof IntrospectedFunction &&
-					bus_watch_name_on_connection instanceof IntrospectedFunction
-				)
-			) {
-				throw new Error("Invalid dbus functions found in Gio!");
-			}
+      for (const fn of [
+        'bus_get',
+        'bus_get_finish',
+        'bus_get_sync',
+        'bus_own_name',
+        'bus_own_name_on_connection',
+        'bus_unown_name',
+        'bus_watch_name',
+        'bus_unwatch_name',
+        'bus_watch_name_on_connection',
+      ]) {
+        fns.set(fn, namespace.getMembers(fn).map(member => {
+          if (!(member instanceof IntrospectedFunction)) {
+            throw new Error("Invalid dbus functions found in Gio!");
+          }
+          return member
+        }))
+      }
 
-			const DBus = new IntrospectedInterface({
-				name: "DBus",
-				namespace,
-			});
+      const DBus = new IntrospectedInterface({
+        name: "DBus",
+        namespace,
+      });
 
-			DBus.members.push(
-				...[
-					bus_get,
-					bus_get_finish,
-					bus_get_sync,
-					bus_own_name,
-					bus_own_name_on_connection,
-					bus_unown_name,
-					bus_watch_name,
-					bus_unwatch_name,
-					bus_watch_name_on_connection,
-				]
-					.map((fn) => {
-						// Convert function to static class function
-						const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = fn;
+      DBus.members.push(
+        ...fns.values().flatMap(fns => fns.map(fn => {
+          // Convert function to static class function
+          const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = fn;
 
-						return new IntrospectedStaticClassFunction({
-							parent: DBus,
-							name,
-							output_parameters,
-							parameters,
-							return_type,
-							doc,
-							isIntrospectable,
-						});
-					})
-					.map((fn) => {
-						const member = fn.copy();
+          return new IntrospectedStaticClassFunction({
+            parent: DBus,
+            name,
+            output_parameters,
+            parameters,
+            return_type,
+            doc,
+            isIntrospectable,
+          });
+        })
+          .map((fn) => {
+            const member = fn.copy();
 
-						member.name = member.name.substring(4);
+            member.name = member.name.substring(4);
 
-						return member;
-					}),
-			);
+            return member;
+          }),
+        )
+      );
 
 			const DBusConnection = namespace.assertClass("DBusConnection");
 
@@ -323,26 +302,26 @@ export default {
 			DBusConnection.members.push(
 				new IntrospectedClassFunction({
 					name: "watch_name",
-					parameters: bus_watch_name_on_connection.parameters.slice(1),
-					return_type: bus_watch_name_on_connection.return_type,
+					parameters: fns.get('bus_watch_name_on_connection')?.at(0)?.parameters.slice(1),
+					return_type: fns.get('bus_watch_name_on_connection')?.at(0)?.return_type,
 					parent: DBusConnection,
 				}),
 				new IntrospectedClassFunction({
 					name: "unwatch_name",
-					parameters: bus_unwatch_name.parameters.slice(),
-					return_type: bus_unwatch_name.return_type,
+					parameters: fns.get('bus_unwatch_name')?.at(0)?.parameters.slice(),
+					return_type: fns.get('bus_unwatch_name')?.at(0)?.return_type,
 					parent: DBusConnection,
 				}),
 				new IntrospectedClassFunction({
 					name: "own_name",
-					parameters: bus_own_name_on_connection.parameters.slice(1),
-					return_type: bus_own_name_on_connection.return_type,
+					parameters: fns.get('bus_own_name_on_connection')?.at(0)?.parameters.slice(1),
+					return_type: fns.get('bus_own_name_on_connection')?.at(0)?.return_type,
 					parent: DBusConnection,
 				}),
 				new IntrospectedClassFunction({
 					name: "unown_name",
-					parameters: bus_unown_name.parameters.slice(),
-					return_type: bus_unown_name.return_type,
+					parameters: fns.get('bus_unown_name')?.at(0)?.parameters.slice(),
+					return_type: fns.get('bus_unown_name')?.at(0)?.return_type,
 					parent: DBusConnection,
 				}),
 			);
@@ -380,10 +359,10 @@ export default {
 		// * `emit_property_changed(name, variant)`
 
 		{
-			const Variant = namespace.assertInstalledImport("GLib").assertClass("Variant");
-			const DBusConnection = namespace.assertClass("DBusConnection");
-			const DBusInterfaceInfo = namespace.assertClass("DBusInterfaceInfo");
+			const DBusInterfaceSkeleton = namespace.assertClass("DBusInterfaceSkeleton");
 			const DBusExportedObject = new IntrospectedClass("DBusExportedObject", namespace);
+
+			DBusExportedObject.superType = DBusInterfaceSkeleton.getType()
 
 			DBusExportedObject.members.push(
 				new IntrospectedStaticClassFunction({
@@ -391,8 +370,8 @@ export default {
 					parent: DBusExportedObject,
 					parameters: [
 						new IntrospectedFunctionParameter({
-							name: "info",
-							type: StringType,
+							name: "interfaceInfo",
+							type: new NativeType('DBusInterfaceInfo | string'),
 							direction: GirDirection.In,
 						}),
 						new IntrospectedFunctionParameter({
@@ -402,102 +381,6 @@ export default {
 						}),
 					],
 					return_type: DBusExportedObject.getType(),
-				}),
-				new IntrospectedClassFunction({
-					name: "get_info",
-					parent: DBusExportedObject,
-					parameters: [],
-					return_type: DBusInterfaceInfo.getType(),
-				}),
-				new IntrospectedClassFunction({
-					name: "get_connection",
-					parent: DBusExportedObject,
-					parameters: [],
-					return_type: DBusConnection.getType(),
-				}),
-				new IntrospectedClassFunction({
-					name: "get_object_path",
-					parent: DBusExportedObject,
-					parameters: [],
-					return_type: StringType,
-				}),
-				new IntrospectedClassFunction({
-					name: "unexport_from_connection",
-					parent: DBusExportedObject,
-					parameters: [
-						new IntrospectedFunctionParameter({
-							name: "connection",
-							type: DBusConnection.getType(),
-							direction: GirDirection.In,
-						}),
-					],
-					return_type: VoidType,
-				}),
-				// export(busConnection, objectPath)
-				new IntrospectedClassFunction({
-					name: "export",
-					parent: DBusExportedObject,
-					parameters: [
-						new IntrospectedFunctionParameter({
-							name: "busConnection",
-							type: DBusConnection.getType(),
-							direction: GirDirection.In,
-						}),
-						new IntrospectedFunctionParameter({
-							name: "objectPath",
-							type: StringType,
-							direction: GirDirection.In,
-						}),
-					],
-					return_type: VoidType,
-				}),
-				// unexport()
-				new IntrospectedClassFunction({
-					name: "unexport",
-					parent: DBusExportedObject,
-					return_type: VoidType,
-				}),
-				// flush()
-				new IntrospectedClassFunction({
-					name: "flush",
-					parent: DBusExportedObject,
-					return_type: VoidType,
-				}),
-				// emit_signal(name, variant)
-				new IntrospectedClassFunction({
-					name: "emit_signal",
-					parent: DBusExportedObject,
-					parameters: [
-						new IntrospectedFunctionParameter({
-							name: "name",
-							type: StringType,
-							direction: GirDirection.In,
-						}),
-						new IntrospectedFunctionParameter({
-							name: "variant",
-							type: Variant.getType(),
-							direction: GirDirection.In,
-						}),
-					],
-					return_type: VoidType,
-				}),
-				// emit_property_changed(name, variant)
-				new IntrospectedClassFunction({
-					name: "emit_property_changed",
-					parent: DBusExportedObject,
-					parameters: [
-						new IntrospectedFunctionParameter({
-							name: "name",
-							type: StringType,
-							direction: GirDirection.In,
-						}),
-						new IntrospectedFunctionParameter({
-							name: "variant",
-							type: Variant.getType(),
-							direction: GirDirection.In,
-						}),
-					],
-					return_type: VoidType,
 				}),
 			);
 
