@@ -14077,7 +14077,7 @@ container that has been allocated.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="BINARY_AGE" value="2451" c:type="GTK_BINARY_AGE">
+    <constant name="BINARY_AGE" value="2450" c:type="GTK_BINARY_AGE">
       <doc xml:space="preserve"
            filename="gtk/gtkversion.h"
            line="69">Like gtk_get_binary_age(), but from the headers used at
@@ -96964,7 +96964,7 @@ against at application run time.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="51" c:type="GTK_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="50" c:type="GTK_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gtk/gtkversion.h"
            line="60">Like gtk_get_micro_version(), but from the headers used at
@@ -97128,12 +97128,12 @@ with name arrow, for scrolling menu arrows. These subnodes get the
       <constructor name="new" c:identifier="gtk_menu_new">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="1693">Creates a new #GtkMenu</doc>
+             line="1689">Creates a new #GtkMenu</doc>
         <source-position filename="gtk/gtkmenu.h" line="132"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkmenu.c"
-               line="1698">a new #GtkMenu</doc>
+               line="1694">a new #GtkMenu</doc>
           <type name="Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -97142,7 +97142,7 @@ with name arrow, for scrolling menu arrows. These subnodes get the
                    version="3.4">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="6339">Creates a #GtkMenu and populates it with menu items and
+             line="6328">Creates a #GtkMenu and populates it with menu items and
 submenus according to @model.
 
 The created menu items are connected to actions found in the
@@ -97156,14 +97156,14 @@ attach widget or on any of its parent widgets.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkmenu.c"
-               line="6354">a new #GtkMenu</doc>
+               line="6343">a new #GtkMenu</doc>
           <type name="Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="model" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="6341">a #GMenuModel</doc>
+                 line="6330">a #GMenuModel</doc>
             <type name="Gio.MenuModel" c:type="GMenuModel*"/>
           </parameter>
         </parameters>
@@ -97173,13 +97173,13 @@ attach widget or on any of its parent widgets.</doc>
                 version="2.6">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="6234">Returns a list of the menus which are attached to this widget.
+             line="6223">Returns a list of the menus which are attached to this widget.
 This list is owned by GTK+ and must not be modified.</doc>
         <source-position filename="gtk/gtkmenu.h" line="265"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkmenu.c"
-               line="6241">the list
+               line="6230">the list
     of menus attached to his widget.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Widget"/>
@@ -97189,7 +97189,7 @@ This list is owned by GTK+ and must not be modified.</doc>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="6236">a #GtkWidget</doc>
+                 line="6225">a #GtkWidget</doc>
             <type name="Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -97197,7 +97197,7 @@ This list is owned by GTK+ and must not be modified.</doc>
       <method name="attach" c:identifier="gtk_menu_attach" version="2.4">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="5743">Adds a new #GtkMenuItem to a (table) menu. The number of “cells” that
+             line="5732">Adds a new #GtkMenuItem to a (table) menu. The number of “cells” that
 an item will occupy is specified by @left_attach, @right_attach,
 @top_attach and @bottom_attach. These each represent the leftmost,
 rightmost, uppermost and lower column and row numbers of the table.
@@ -97212,37 +97212,37 @@ Note that this function is not related to gtk_menu_detach().</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="5745">a #GtkMenu</doc>
+                 line="5734">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="5746">a #GtkMenuItem</doc>
+                 line="5735">a #GtkMenuItem</doc>
             <type name="Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="left_attach" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="5747">The column number to attach the left side of the item to</doc>
+                 line="5736">The column number to attach the left side of the item to</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="right_attach" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="5748">The column number to attach the right side of the item to</doc>
+                 line="5737">The column number to attach the right side of the item to</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="top_attach" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="5749">The row number to attach the top of the item to</doc>
+                 line="5738">The row number to attach the top of the item to</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="bottom_attach" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="5750">The row number to attach the bottom of the item to</doc>
+                 line="5739">The row number to attach the bottom of the item to</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -97250,7 +97250,7 @@ Note that this function is not related to gtk_menu_detach().</doc>
       <method name="attach_to_widget" c:identifier="gtk_menu_attach_to_widget">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="1522">Attaches the menu to the widget and provides a callback function
+             line="1518">Attaches the menu to the widget and provides a callback function
 that will be invoked when the menu calls gtk_menu_detach() during
 its destruction.
 
@@ -97266,13 +97266,13 @@ widgets moves between screens.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="1524">a #GtkMenu</doc>
+                 line="1520">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="attach_widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="1525">the #GtkWidget that the menu will be attached to</doc>
+                 line="1521">the #GtkWidget that the menu will be attached to</doc>
             <type name="Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="detacher"
@@ -97282,7 +97282,7 @@ widgets moves between screens.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="1526">the user supplied callback function
+                 line="1522">the user supplied callback function
             that will be called when the menu calls gtk_menu_detach()</doc>
             <type name="MenuDetachFunc" c:type="GtkMenuDetachFunc"/>
           </parameter>
@@ -97291,7 +97291,7 @@ widgets moves between screens.</doc>
       <method name="detach" c:identifier="gtk_menu_detach">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="1610">Detaches the menu from the widget to which it had been attached.
+             line="1606">Detaches the menu from the widget to which it had been attached.
 This function will call the callback function, @detacher, provided
 when the gtk_menu_attach_to_widget() function was called.</doc>
         <source-position filename="gtk/gtkmenu.h" line="213"/>
@@ -97302,7 +97302,7 @@ when the gtk_menu_attach_to_widget() function was called.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="1612">a #GtkMenu</doc>
+                 line="1608">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
         </parameters>
@@ -97312,20 +97312,20 @@ when the gtk_menu_attach_to_widget() function was called.</doc>
               glib:get-property="accel-group">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2707">Gets the #GtkAccelGroup which holds global accelerators for the
+             line="2703">Gets the #GtkAccelGroup which holds global accelerators for the
 menu. See gtk_menu_set_accel_group().</doc>
         <source-position filename="gtk/gtkmenu.h" line="197"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkmenu.c"
-               line="2714">the #GtkAccelGroup associated with the menu</doc>
+               line="2710">the #GtkAccelGroup associated with the menu</doc>
           <type name="AccelGroup" c:type="GtkAccelGroup*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2709">a #GtkMenu</doc>
+                 line="2705">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
         </parameters>
@@ -97336,19 +97336,19 @@ menu. See gtk_menu_set_accel_group().</doc>
               version="2.14">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2787">Retrieves the accelerator path set on the menu.</doc>
+             line="2783">Retrieves the accelerator path set on the menu.</doc>
         <source-position filename="gtk/gtkmenu.h" line="202"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkmenu.c"
-               line="2793">the accelerator path set on the menu.</doc>
+               line="2789">the accelerator path set on the menu.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2789">a valid #GtkMenu</doc>
+                 line="2785">a valid #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
         </parameters>
@@ -97358,13 +97358,13 @@ menu. See gtk_menu_set_accel_group().</doc>
               glib:get-property="active">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2592">Returns the selected menu item from the menu.  This is used by the
+             line="2588">Returns the selected menu item from the menu.  This is used by the
 #GtkComboBox.</doc>
         <source-position filename="gtk/gtkmenu.h" line="185"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkmenu.c"
-               line="2599">the #GtkMenuItem that was last selected
+               line="2595">the #GtkMenuItem that was last selected
          in the menu.  If a selection has not yet been made, the
          first menu item is selected.</doc>
           <type name="Widget" c:type="GtkWidget*"/>
@@ -97373,7 +97373,7 @@ menu. See gtk_menu_set_accel_group().</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2594">a #GtkMenu</doc>
+                 line="2590">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
         </parameters>
@@ -97383,19 +97383,19 @@ menu. See gtk_menu_set_accel_group().</doc>
               glib:get-property="attach-widget">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="1589">Returns the #GtkWidget that the menu is attached to.</doc>
+             line="1585">Returns the #GtkWidget that the menu is attached to.</doc>
         <source-position filename="gtk/gtkmenu.h" line="220"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkmenu.c"
-               line="1595">the #GtkWidget that the menu is attached to</doc>
+               line="1591">the #GtkWidget that the menu is attached to</doc>
           <type name="Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="1591">a #GtkMenu</doc>
+                 line="1587">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
         </parameters>
@@ -97406,12 +97406,12 @@ menu. See gtk_menu_set_accel_group().</doc>
               version="2.14">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="6180">Retrieves the number of the monitor on which to show the menu.</doc>
+             line="6169">Retrieves the number of the monitor on which to show the menu.</doc>
         <source-position filename="gtk/gtkmenu.h" line="258"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkmenu.c"
-               line="6186">the number of the monitor on which the menu should
+               line="6175">the number of the monitor on which the menu should
    be popped up or -1, if no monitor has been set</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -97419,7 +97419,7 @@ menu. See gtk_menu_set_accel_group().</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="6182">a #GtkMenu</doc>
+                 line="6171">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
         </parameters>
@@ -97430,20 +97430,20 @@ menu. See gtk_menu_set_accel_group().</doc>
               version="2.18">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="6320">Returns whether the menu reserves space for toggles and
+             line="6309">Returns whether the menu reserves space for toggles and
 icons, regardless of their actual presence.</doc>
         <source-position filename="gtk/gtkmenu.h" line="271"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkmenu.c"
-               line="6327">Whether the menu reserves toggle space</doc>
+               line="6316">Whether the menu reserves toggle space</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="6322">a #GtkMenu</doc>
+                 line="6311">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
         </parameters>
@@ -97455,20 +97455,20 @@ icons, regardless of their actual presence.</doc>
               deprecated-version="3.10">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="3082">Returns whether the menu is torn off.
+             line="3078">Returns whether the menu is torn off.
 See gtk_menu_set_tearoff_state().</doc>
         <source-position filename="gtk/gtkmenu.h" line="226"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkmenu.c"
-               line="3089">%TRUE if the menu is currently torn off.</doc>
+               line="3085">%TRUE if the menu is currently torn off.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="3084">a #GtkMenu</doc>
+                 line="3080">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
         </parameters>
@@ -97479,12 +97479,12 @@ See gtk_menu_set_tearoff_state().</doc>
               deprecated-version="3.10">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="3135">Returns the title of the menu. See gtk_menu_set_title().</doc>
+             line="3131">Returns the title of the menu. See gtk_menu_set_title().</doc>
         <source-position filename="gtk/gtkmenu.h" line="235"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkmenu.c"
-               line="3141">the title of the menu, or %NULL if the menu
+               line="3137">the title of the menu, or %NULL if the menu
     has no title set on it. This string is owned by GTK+
     and should not be modified or freed.</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -97493,7 +97493,7 @@ See gtk_menu_set_tearoff_state().</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="3137">a #GtkMenu</doc>
+                 line="3133">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
         </parameters>
@@ -97503,7 +97503,7 @@ See gtk_menu_set_tearoff_state().</doc>
               version="3.22">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="6199">Places @menu on the given monitor.</doc>
+             line="6188">Places @menu on the given monitor.</doc>
         <source-position filename="gtk/gtkmenu.h" line="261"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -97512,13 +97512,13 @@ See gtk_menu_set_tearoff_state().</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="6201">a #GtkMenu</doc>
+                 line="6190">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="6202">the monitor to place the menu on</doc>
+                 line="6191">the monitor to place the menu on</doc>
             <type name="Gdk.Monitor" c:type="GdkMonitor*"/>
           </parameter>
         </parameters>
@@ -97526,7 +97526,7 @@ See gtk_menu_set_tearoff_state().</doc>
       <method name="popdown" c:identifier="gtk_menu_popdown">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2506">Removes the menu from the screen.</doc>
+             line="2502">Removes the menu from the screen.</doc>
         <source-position filename="gtk/gtkmenu.h" line="179"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -97535,7 +97535,7 @@ See gtk_menu_set_tearoff_state().</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2508">a #GtkMenu</doc>
+                 line="2504">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
         </parameters>
@@ -97546,7 +97546,7 @@ See gtk_menu_set_tearoff_state().</doc>
               deprecated-version="3.22">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2104">Displays a menu and makes it available for selection.
+             line="2100">Displays a menu and makes it available for selection.
 
 Applications can use this function to display context-sensitive
 menus, and will typically supply %NULL for the @parent_menu_shell,
@@ -97580,7 +97580,7 @@ have this problem.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2106">a #GtkMenu</doc>
+                 line="2102">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="parent_menu_shell"
@@ -97589,7 +97589,7 @@ have this problem.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2107">the menu shell containing the
+                 line="2103">the menu shell containing the
     triggering menu item, or %NULL</doc>
             <type name="Widget" c:type="GtkWidget*"/>
           </parameter>
@@ -97599,7 +97599,7 @@ have this problem.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2109">the menu item whose activation
+                 line="2105">the menu item whose activation
     triggered the popup, or %NULL</doc>
             <type name="Widget" c:type="GtkWidget*"/>
           </parameter>
@@ -97611,7 +97611,7 @@ have this problem.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2111">a user supplied function used to position
+                 line="2107">a user supplied function used to position
     the menu, or %NULL</doc>
             <type name="MenuPositionFunc" c:type="GtkMenuPositionFunc"/>
           </parameter>
@@ -97621,19 +97621,19 @@ have this problem.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2113">user supplied data to be passed to @func.</doc>
+                 line="2109">user supplied data to be passed to @func.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2114">the mouse button which was pressed to initiate the event.</doc>
+                 line="2110">the mouse button which was pressed to initiate the event.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="activate_time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2115">the time at which the activation event occurred.</doc>
+                 line="2111">the time at which the activation event occurred.</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -97643,7 +97643,7 @@ have this problem.</doc>
               version="3.22">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2378">Displays @menu and makes it available for selection.
+             line="2374">Displays @menu and makes it available for selection.
 
 See gtk_menu_popup_at_widget () to pop up a menu at a widget.
 gtk_menu_popup_at_rect () also allows you to position a menu at an arbitrary
@@ -97663,7 +97663,7 @@ out how it was actually positioned.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2380">the #GtkMenu to pop up</doc>
+                 line="2376">the #GtkMenu to pop up</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="trigger_event"
@@ -97672,7 +97672,7 @@ out how it was actually positioned.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2381">the #GdkEvent that initiated this request or
+                 line="2377">the #GdkEvent that initiated this request or
                 %NULL if it's the current event</doc>
             <type name="Gdk.Event" c:type="const GdkEvent*"/>
           </parameter>
@@ -97683,7 +97683,7 @@ out how it was actually positioned.</doc>
               version="3.22">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2202">Displays @menu and makes it available for selection.
+             line="2198">Displays @menu and makes it available for selection.
 
 See gtk_menu_popup_at_widget () and gtk_menu_popup_at_pointer (), which
 handle more common cases for popping up menus.
@@ -97709,31 +97709,31 @@ Other properties that influence the behaviour of this function are
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2204">the #GtkMenu to pop up</doc>
+                 line="2200">the #GtkMenu to pop up</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="rect_window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2205">the #GdkWindow @rect is relative to</doc>
+                 line="2201">the #GdkWindow @rect is relative to</doc>
             <type name="Gdk.Window" c:type="GdkWindow*"/>
           </parameter>
           <parameter name="rect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2206">the #GdkRectangle to align @menu with</doc>
+                 line="2202">the #GdkRectangle to align @menu with</doc>
             <type name="Gdk.Rectangle" c:type="const GdkRectangle*"/>
           </parameter>
           <parameter name="rect_anchor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2207">the point on @rect to align with @menu's anchor point</doc>
+                 line="2203">the point on @rect to align with @menu's anchor point</doc>
             <type name="Gdk.Gravity" c:type="GdkGravity"/>
           </parameter>
           <parameter name="menu_anchor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2208">the point on @menu to align with @rect's anchor point</doc>
+                 line="2204">the point on @menu to align with @rect's anchor point</doc>
             <type name="Gdk.Gravity" c:type="GdkGravity"/>
           </parameter>
           <parameter name="trigger_event"
@@ -97742,7 +97742,7 @@ Other properties that influence the behaviour of this function are
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2209">the #GdkEvent that initiated this request or
+                 line="2205">the #GdkEvent that initiated this request or
                 %NULL if it's the current event</doc>
             <type name="Gdk.Event" c:type="const GdkEvent*"/>
           </parameter>
@@ -97753,7 +97753,7 @@ Other properties that influence the behaviour of this function are
               version="3.22">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2286">Displays @menu and makes it available for selection.
+             line="2282">Displays @menu and makes it available for selection.
 
 See gtk_menu_popup_at_pointer () to pop up a menu at the master pointer.
 gtk_menu_popup_at_rect () also allows you to position a menu at an arbitrary
@@ -97781,25 +97781,25 @@ Other properties that influence the behaviour of this function are
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2288">the #GtkMenu to pop up</doc>
+                 line="2284">the #GtkMenu to pop up</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2289">the #GtkWidget to align @menu with</doc>
+                 line="2285">the #GtkWidget to align @menu with</doc>
             <type name="Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="widget_anchor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2290">the point on @widget to align with @menu's anchor point</doc>
+                 line="2286">the point on @widget to align with @menu's anchor point</doc>
             <type name="Gdk.Gravity" c:type="GdkGravity"/>
           </parameter>
           <parameter name="menu_anchor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2291">the point on @menu to align with @widget's anchor point</doc>
+                 line="2287">the point on @menu to align with @widget's anchor point</doc>
             <type name="Gdk.Gravity" c:type="GdkGravity"/>
           </parameter>
           <parameter name="trigger_event"
@@ -97808,7 +97808,7 @@ Other properties that influence the behaviour of this function are
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2292">the #GdkEvent that initiated this request or
+                 line="2288">the #GdkEvent that initiated this request or
                 %NULL if it's the current event</doc>
             <type name="Gdk.Event" c:type="const GdkEvent*"/>
           </parameter>
@@ -97821,7 +97821,7 @@ Other properties that influence the behaviour of this function are
               deprecated-version="3.22">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2029">Displays a menu and makes it available for selection.
+             line="2025">Displays a menu and makes it available for selection.
 
 Applications can use this function to display context-sensitive menus,
 and will typically supply %NULL for the @parent_menu_shell,
@@ -97855,7 +97855,7 @@ have this problem.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2031">a #GtkMenu</doc>
+                 line="2027">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="device"
@@ -97864,7 +97864,7 @@ have this problem.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2032">a #GdkDevice</doc>
+                 line="2028">a #GdkDevice</doc>
             <type name="Gdk.Device" c:type="GdkDevice*"/>
           </parameter>
           <parameter name="parent_menu_shell"
@@ -97873,7 +97873,7 @@ have this problem.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2033">the menu shell containing the triggering
+                 line="2029">the menu shell containing the triggering
     menu item, or %NULL</doc>
             <type name="Widget" c:type="GtkWidget*"/>
           </parameter>
@@ -97883,7 +97883,7 @@ have this problem.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2035">the menu item whose activation triggered
+                 line="2031">the menu item whose activation triggered
     the popup, or %NULL</doc>
             <type name="Widget" c:type="GtkWidget*"/>
           </parameter>
@@ -97896,7 +97896,7 @@ have this problem.</doc>
                      destroy="5">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2037">a user supplied function used to position the menu,
+                 line="2033">a user supplied function used to position the menu,
     or %NULL</doc>
             <type name="MenuPositionFunc" c:type="GtkMenuPositionFunc"/>
           </parameter>
@@ -97906,7 +97906,7 @@ have this problem.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2039">user supplied data to be passed to @func</doc>
+                 line="2035">user supplied data to be passed to @func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy"
@@ -97916,19 +97916,19 @@ have this problem.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2040">destroy notify for @data</doc>
+                 line="2036">destroy notify for @data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2041">the mouse button which was pressed to initiate the event</doc>
+                 line="2037">the mouse button which was pressed to initiate the event</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="activate_time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2042">the time at which the activation event occurred</doc>
+                 line="2038">the time at which the activation event occurred</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -97936,7 +97936,7 @@ have this problem.</doc>
       <method name="reorder_child" c:identifier="gtk_menu_reorder_child">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="3155">Moves @child to a new @position in the list of @menu
+             line="3151">Moves @child to a new @position in the list of @menu
 children.</doc>
         <source-position filename="gtk/gtkmenu.h" line="238"/>
         <return-value transfer-ownership="none">
@@ -97946,19 +97946,19 @@ children.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="3157">a #GtkMenu</doc>
+                 line="3153">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="3158">the #GtkMenuItem to move</doc>
+                 line="3154">the #GtkMenuItem to move</doc>
             <type name="Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="3159">the new position to place @child.
+                 line="3155">the new position to place @child.
     Positions are numbered from 0 to n - 1</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -97967,7 +97967,7 @@ children.</doc>
       <method name="reposition" c:identifier="gtk_menu_reposition">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2845">Repositions the menu according to its position function.</doc>
+             line="2841">Repositions the menu according to its position function.</doc>
         <source-position filename="gtk/gtkmenu.h" line="176"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -97976,7 +97976,7 @@ children.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2847">a #GtkMenu</doc>
+                 line="2843">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
         </parameters>
@@ -97986,7 +97986,7 @@ children.</doc>
               glib:set-property="accel-group">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2673">Set the #GtkAccelGroup which holds global accelerators for the
+             line="2669">Set the #GtkAccelGroup which holds global accelerators for the
 menu.  This accelerator group needs to also be added to all windows
 that this menu is being used in with gtk_window_add_accel_group(),
 in order for those windows to support all the accelerators
@@ -97999,7 +97999,7 @@ contained in this group.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2675">a #GtkMenu</doc>
+                 line="2671">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="accel_group"
@@ -98008,7 +98008,7 @@ contained in this group.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2676">the #GtkAccelGroup to be associated
+                 line="2672">the #GtkAccelGroup to be associated
               with the menu.</doc>
             <type name="AccelGroup" c:type="GtkAccelGroup*"/>
           </parameter>
@@ -98019,7 +98019,7 @@ contained in this group.</doc>
               glib:set-property="accel-path">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2742">Sets an accelerator path for this menu from which accelerator paths
+             line="2738">Sets an accelerator path for this menu from which accelerator paths
 for its immediate children, its menu items, can be constructed.
 The main purpose of this function is to spare the programmer the
 inconvenience of having to call gtk_menu_item_set_accel_path() on
@@ -98048,7 +98048,7 @@ it first with g_intern_static_string().</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2744">a valid #GtkMenu</doc>
+                 line="2740">a valid #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="accel_path"
@@ -98057,7 +98057,7 @@ it first with g_intern_static_string().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2745">a valid accelerator path, or %NULL to unset the path</doc>
+                 line="2741">a valid accelerator path, or %NULL to unset the path</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -98067,7 +98067,7 @@ it first with g_intern_static_string().</doc>
               glib:set-property="active">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2637">Selects the specified menu item within the menu.  This is used by
+             line="2633">Selects the specified menu item within the menu.  This is used by
 the #GtkComboBox and should not be used by anyone else.</doc>
         <source-position filename="gtk/gtkmenu.h" line="187"/>
         <return-value transfer-ownership="none">
@@ -98077,13 +98077,13 @@ the #GtkComboBox and should not be used by anyone else.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2639">a #GtkMenu</doc>
+                 line="2635">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2640">the index of the menu item to select.  Index values are
+                 line="2636">the index of the menu item to select.  Index values are
         from 0 to n-1</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
@@ -98095,7 +98095,7 @@ the #GtkComboBox and should not be used by anyone else.</doc>
               version="2.4">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="6145">Informs GTK+ on which monitor a menu should be popped up.
+             line="6134">Informs GTK+ on which monitor a menu should be popped up.
 See gdk_monitor_get_geometry().
 
 This function should be called from a #GtkMenuPositionFunc
@@ -98112,13 +98112,13 @@ the screen boundaries.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="6147">a #GtkMenu</doc>
+                 line="6136">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="monitor_num" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="6148">the number of the monitor on which the menu should
+                 line="6137">the number of the monitor on which the menu should
    be popped up</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -98130,7 +98130,7 @@ the screen boundaries.</doc>
               version="2.18">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="6290">Sets whether the menu should reserve space for drawing toggles
+             line="6279">Sets whether the menu should reserve space for drawing toggles
 or icons, regardless of their actual presence.</doc>
         <source-position filename="gtk/gtkmenu.h" line="268"/>
         <return-value transfer-ownership="none">
@@ -98140,13 +98140,13 @@ or icons, regardless of their actual presence.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="6292">a #GtkMenu</doc>
+                 line="6281">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="reserve_toggle_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="6293">whether to reserve size for toggles</doc>
+                 line="6282">whether to reserve size for toggles</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -98156,7 +98156,7 @@ or icons, regardless of their actual presence.</doc>
               version="2.2">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="5712">Sets the #GdkScreen on which the menu will be displayed.</doc>
+             line="5701">Sets the #GdkScreen on which the menu will be displayed.</doc>
         <source-position filename="gtk/gtkmenu.h" line="243"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -98165,7 +98165,7 @@ or icons, regardless of their actual presence.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="5714">a #GtkMenu</doc>
+                 line="5703">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="screen"
@@ -98174,7 +98174,7 @@ or icons, regardless of their actual presence.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="5715">a #GdkScreen, or %NULL if the screen should be
+                 line="5704">a #GdkScreen, or %NULL if the screen should be
          determined by the widget the menu is attached to</doc>
             <type name="Gdk.Screen" c:type="GdkScreen*"/>
           </parameter>
@@ -98187,7 +98187,7 @@ or icons, regardless of their actual presence.</doc>
               deprecated-version="3.10">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="2962">Changes the tearoff state of the menu.  A menu is normally
+             line="2958">Changes the tearoff state of the menu.  A menu is normally
 displayed as drop down menu which persists as long as the menu is
 active.  It can also be displayed as a tearoff menu which persists
 until it is closed or reattached.</doc>
@@ -98199,13 +98199,13 @@ until it is closed or reattached.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2964">a #GtkMenu</doc>
+                 line="2960">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="torn_off" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="2965">If %TRUE, menu is displayed as a tearoff menu.</doc>
+                 line="2961">If %TRUE, menu is displayed as a tearoff menu.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -98216,7 +98216,7 @@ until it is closed or reattached.</doc>
               deprecated-version="3.10">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="3101">Sets the title string for the menu.
+             line="3097">Sets the title string for the menu.
 
 The title is displayed when the menu is shown as a tearoff
 menu. If @title is %NULL, the menu will see if it is attached
@@ -98230,7 +98230,7 @@ text as that menu item’s label.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="3103">a #GtkMenu</doc>
+                 line="3099">a #GtkMenu</doc>
             <type name="Menu" c:type="GtkMenu*"/>
           </instance-parameter>
           <parameter name="title"
@@ -98239,7 +98239,7 @@ text as that menu item’s label.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="3104">a string containing the title for the menu, or %NULL to
+                 line="3100">a string containing the title for the menu, or %NULL to
   inherit the title of the parent menu item, if any</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -98253,7 +98253,7 @@ text as that menu item’s label.</doc>
                 getter="get_accel_group">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="649">The accel group holding accelerators for the menu.</doc>
+             line="645">The accel group holding accelerators for the menu.</doc>
         <type name="AccelGroup"/>
       </property>
       <property name="accel-path"
@@ -98265,7 +98265,7 @@ text as that menu item’s label.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="664">An accel path used to conveniently construct accel paths of child items.</doc>
+             line="660">An accel path used to conveniently construct accel paths of child items.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="active"
@@ -98277,7 +98277,7 @@ text as that menu item’s label.</doc>
                 default-value="-1">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="633">The index of the currently selected menu item, or -1 if no
+             line="629">The index of the currently selected menu item, or -1 if no
 menu item is selected.</doc>
         <type name="gint" c:type="gint"/>
       </property>
@@ -98289,7 +98289,7 @@ menu item is selected.</doc>
                 default-value="GDK_ANCHOR_FLIP_X | GDK_ANCHOR_FLIP_Y | GDK_ANCHOR_SLIDE_X | GDK_ANCHOR_SLIDE_Y | GDK_ANCHOR_RESIZE_X | GDK_ANCHOR_RESIZE_Y">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="765">Positioning hints for aligning the menu relative to a rectangle.
+             line="761">Positioning hints for aligning the menu relative to a rectangle.
 
 These hints determine how the menu should be positioned in the case that
 the menu would fall off-screen if placed in its ideal position.
@@ -98312,7 +98312,7 @@ gtk_menu_popup_at_pointer (), #GtkMenu:rect-anchor-dx,
                 getter="get_attach_widget">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="679">The widget the menu is attached to. Setting this property attaches
+             line="675">The widget the menu is attached to. Setting this property attaches
 the menu without a #GtkMenuDetachFunc. If you need to use a detacher,
 use gtk_menu_attach_to_widget() directly.</doc>
         <type name="Widget"/>
@@ -98325,7 +98325,7 @@ use gtk_menu_attach_to_widget() directly.</doc>
                 default-value="GDK_WINDOW_TYPE_HINT_POPUP_MENU">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="854">The #GdkWindowTypeHint to use for the menu's #GdkWindow.
+             line="850">The #GdkWindowTypeHint to use for the menu's #GdkWindow.
 
 See gtk_menu_popup_at_rect (), gtk_menu_popup_at_widget (),
 gtk_menu_popup_at_pointer (), #GtkMenu:anchor-hints,
@@ -98341,7 +98341,7 @@ gtk_menu_popup_at_pointer (), #GtkMenu:anchor-hints,
                 default-value="-1">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="729">The monitor the menu will be popped up on.</doc>
+             line="725">The monitor the menu will be popped up on.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="rect-anchor-dx"
@@ -98352,7 +98352,7 @@ gtk_menu_popup_at_pointer (), #GtkMenu:anchor-hints,
                 default-value="0">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="801">Horizontal offset to apply to the menu, i.e. the rectangle or widget
+             line="797">Horizontal offset to apply to the menu, i.e. the rectangle or widget
 anchor.
 
 See gtk_menu_popup_at_rect (), gtk_menu_popup_at_widget (),
@@ -98368,7 +98368,7 @@ gtk_menu_popup_at_pointer (), #GtkMenu:anchor-hints,
                 default-value="0">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="828">Vertical offset to apply to the menu, i.e. the rectangle or widget anchor.
+             line="824">Vertical offset to apply to the menu, i.e. the rectangle or widget anchor.
 
 See gtk_menu_popup_at_rect (), gtk_menu_popup_at_widget (),
 gtk_menu_popup_at_pointer (), #GtkMenu:anchor-hints,
@@ -98384,7 +98384,7 @@ gtk_menu_popup_at_pointer (), #GtkMenu:anchor-hints,
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="744">A boolean that indicates whether the menu reserves space for
+             line="740">A boolean that indicates whether the menu reserves space for
 toggles and icons, regardless of their actual presence.
 
 This property should only be changed from its default value
@@ -98404,7 +98404,7 @@ toggle space for consistency.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="712">A boolean that indicates whether the menu is torn-off.</doc>
+             line="708">A boolean that indicates whether the menu is torn-off.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="tearoff-title"
@@ -98415,7 +98415,7 @@ toggle space for consistency.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="696">A title that may be displayed by the window manager when this
+             line="692">A title that may be displayed by the window manager when this
 menu is torn-off.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -98433,7 +98433,7 @@ menu is torn-off.</doc>
           <parameter name="scroll_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="571">a #GtkScrollType</doc>
+                 line="567">a #GtkScrollType</doc>
             <type name="ScrollType"/>
           </parameter>
         </parameters>
@@ -98441,7 +98441,7 @@ menu is torn-off.</doc>
       <glib:signal name="popped-up" when="first" version="3.22">
         <doc xml:space="preserve"
              filename="gtk/gtkmenu.c"
-             line="583">Emitted when the position of @menu is finalized after being popped up
+             line="579">Emitted when the position of @menu is finalized after being popped up
 using gtk_menu_popup_at_rect (), gtk_menu_popup_at_widget (), or
 gtk_menu_popup_at_pointer ().
 
@@ -98473,7 +98473,7 @@ gtk_menu_popup_at_pointer (), #GtkMenu:anchor-hints,
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="586">the position of @menu after any possible
+                 line="582">the position of @menu after any possible
                flipping or %NULL if the backend can't obtain it</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
@@ -98483,20 +98483,20 @@ gtk_menu_popup_at_pointer (), #GtkMenu:anchor-hints,
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="588">the final position of @menu or %NULL if the
+                 line="584">the final position of @menu or %NULL if the
              backend can't obtain it</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="flipped_x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="590">%TRUE if the anchors were flipped horizontally</doc>
+                 line="586">%TRUE if the anchors were flipped horizontally</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="flipped_y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkmenu.c"
-                 line="591">%TRUE if the anchors were flipped vertically</doc>
+                 line="587">%TRUE if the anchors were flipped vertically</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>

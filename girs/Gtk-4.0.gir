@@ -3571,7 +3571,7 @@ using [method@Gtk.Accessible.get_platform_state].</doc>
         <doc xml:space="preserve"
              filename="gtk/gtkenums.h"
              line="1636">Defines the human readable text alternative
-   of [enum@Gtk.AccessibleProperty.VALUE_NOW] for a range widget. Value type: string</doc>
+   of aria-valuenow for a range widget. Value type: string</doc>
       </member>
       <member name="help_text"
               value="19"
@@ -3886,7 +3886,7 @@ integers or strings.</doc>
         <doc xml:space="preserve"
              filename="gtk/gtkenums.h"
              line="1712">Defines a human readable text
-   alternative of [enum@Gtk.AccessibleRelation.ROW_INDEX]. Value type: string</doc>
+   alternative of aria-rowindex. Value type: string</doc>
       </member>
       <member name="row_span"
               value="16"
@@ -12360,7 +12360,7 @@ See gtk_assistant_commit() for details.</doc>
  add its own buttons through gtk_assistant_add_action_widget().</doc>
       </member>
     </enumeration>
-    <constant name="BINARY_AGE" value="2002" c:type="GTK_BINARY_AGE">
+    <constant name="BINARY_AGE" value="2001" c:type="GTK_BINARY_AGE">
       <doc xml:space="preserve"
            filename="gtk/gtkversion.h"
            line="63">Like [func@get_binary_age], but from the headers used at
@@ -34058,7 +34058,7 @@ it gets the .color style class.</doc>
                    version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkcolordialogbutton.c"
-             line="435">Creates a new `GtkColorDialogButton` with the
+             line="431">Creates a new `GtkColorDialogButton` with the
 given `GtkColorDialog`.
 
 You can pass `NULL` to this function and set a `GtkColorDialog`
@@ -34067,7 +34067,7 @@ later. The button will be insensitive until that happens.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkcolordialogbutton.c"
-               line="445">the new `GtkColorDialogButton`</doc>
+               line="441">the new `GtkColorDialogButton`</doc>
           <type name="Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
@@ -34077,7 +34077,7 @@ later. The button will be insensitive until that happens.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkcolordialogbutton.c"
-                 line="437">the `GtkColorDialog` to use</doc>
+                 line="433">the `GtkColorDialog` to use</doc>
             <type name="ColorDialog" c:type="GtkColorDialog*"/>
           </parameter>
         </parameters>
@@ -34088,19 +34088,19 @@ later. The button will be insensitive until that happens.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkcolordialogbutton.c"
-             line="468">Returns the `GtkColorDialog` of @self.</doc>
+             line="464">Returns the `GtkColorDialog` of @self.</doc>
         <source-position filename="gtk/gtkcolordialogbutton.h" line="40"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtkcolordialogbutton.c"
-               line="474">the `GtkColorDialog`</doc>
+               line="470">the `GtkColorDialog`</doc>
           <type name="ColorDialog" c:type="GtkColorDialog*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkcolordialogbutton.c"
-                 line="470">a `GtkColorDialogButton`</doc>
+                 line="466">a `GtkColorDialogButton`</doc>
             <type name="ColorDialogButton" c:type="GtkColorDialogButton*"/>
           </instance-parameter>
         </parameters>
@@ -34111,7 +34111,7 @@ later. The button will be insensitive until that happens.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkcolordialogbutton.c"
-             line="512">Returns the color of the button.
+             line="508">Returns the color of the button.
 
 This function is what should be used to obtain
 the color that was chosen by the user. To get
@@ -34120,14 +34120,14 @@ informed about changes, listen to "notify::rgba".</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkcolordialogbutton.c"
-               line="522">the color</doc>
+               line="518">the color</doc>
           <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkcolordialogbutton.c"
-                 line="514">a `GtkColorDialogButton`</doc>
+                 line="510">a `GtkColorDialogButton`</doc>
             <type name="ColorDialogButton" c:type="GtkColorDialogButton*"/>
           </instance-parameter>
         </parameters>
@@ -34138,7 +34138,7 @@ informed about changes, listen to "notify::rgba".</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkcolordialogbutton.c"
-             line="486">Sets a `GtkColorDialog` object to use for
+             line="482">Sets a `GtkColorDialog` object to use for
 creating the color chooser dialog that is
 presented when the user clicks the button.</doc>
         <source-position filename="gtk/gtkcolordialogbutton.h" line="43"/>
@@ -34149,13 +34149,13 @@ presented when the user clicks the button.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkcolordialogbutton.c"
-                 line="488">a `GtkColorDialogButton`</doc>
+                 line="484">a `GtkColorDialogButton`</doc>
             <type name="ColorDialogButton" c:type="GtkColorDialogButton*"/>
           </instance-parameter>
           <parameter name="dialog" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkcolordialogbutton.c"
-                 line="489">the new `GtkColorDialog`</doc>
+                 line="485">the new `GtkColorDialog`</doc>
             <type name="ColorDialog" c:type="GtkColorDialog*"/>
           </parameter>
         </parameters>
@@ -34166,7 +34166,7 @@ presented when the user clicks the button.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkcolordialogbutton.c"
-             line="534">Sets the color of the button.</doc>
+             line="530">Sets the color of the button.</doc>
         <source-position filename="gtk/gtkcolordialogbutton.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -34175,13 +34175,13 @@ presented when the user clicks the button.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkcolordialogbutton.c"
-                 line="536">a `GtkColorDialogButton`</doc>
+                 line="532">a `GtkColorDialogButton`</doc>
             <type name="ColorDialogButton" c:type="GtkColorDialogButton*"/>
           </instance-parameter>
           <parameter name="color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkcolordialogbutton.c"
-                 line="537">the new color</doc>
+                 line="533">the new color</doc>
             <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
           </parameter>
         </parameters>
@@ -34194,7 +34194,7 @@ presented when the user clicks the button.</doc>
                 getter="get_dialog">
         <doc xml:space="preserve"
              filename="gtk/gtkcolordialogbutton.c"
-             line="265">The `GtkColorDialog` that contains parameters for
+             line="261">The `GtkColorDialog` that contains parameters for
 the color chooser dialog.</doc>
         <type name="ColorDialog"/>
       </property>
@@ -34206,7 +34206,7 @@ the color chooser dialog.</doc>
                 getter="get_rgba">
         <doc xml:space="preserve"
              filename="gtk/gtkcolordialogbutton.c"
-             line="278">The selected color.
+             line="274">The selected color.
 
 This property can be set to give the button its initial
 color, and it will be updated to reflect the users choice
@@ -34219,7 +34219,7 @@ to the buttons color.</doc>
       <glib:signal name="activate" when="first" action="1" version="4.14">
         <doc xml:space="preserve"
              filename="gtk/gtkcolordialogbutton.c"
-             line="299">Emitted when the color dialog button is activated.
+             line="295">Emitted when the color dialog button is activated.
 
 The `::activate` signal on `GtkColorDialogButton` is an action signal
 and emitting it causes the button to pop up its dialog.</doc>
@@ -45007,7 +45007,7 @@ with the button and popover nodes as children.
       <constructor name="new" c:identifier="gtk_drop_down_new">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="897">Creates a new `GtkDropDown`.
+             line="869">Creates a new `GtkDropDown`.
 
 You may want to call [method@Gtk.DropDown.set_factory]
 to set up a way to map its items to widgets.</doc>
@@ -45015,7 +45015,7 @@ to set up a way to map its items to widgets.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkdropdown.c"
-               line="907">a new `GtkDropDown`</doc>
+               line="879">a new `GtkDropDown`</doc>
           <type name="Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
@@ -45025,7 +45025,7 @@ to set up a way to map its items to widgets.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="899">the model to use</doc>
+                 line="871">the model to use</doc>
             <type name="Gio.ListModel" c:type="GListModel*"/>
           </parameter>
           <parameter name="expression"
@@ -45034,7 +45034,7 @@ to set up a way to map its items to widgets.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="900">the expression to use</doc>
+                 line="872">the expression to use</doc>
             <type name="Expression" c:type="GtkExpression*"/>
           </parameter>
         </parameters>
@@ -45043,20 +45043,20 @@ to set up a way to map its items to widgets.</doc>
                    c:identifier="gtk_drop_down_new_from_strings">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="927">Creates a new `GtkDropDown` that is populated with
+             line="899">Creates a new `GtkDropDown` that is populated with
 the strings.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="38"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkdropdown.c"
-               line="934">a new `GtkDropDown`</doc>
+               line="906">a new `GtkDropDown`</doc>
           <type name="Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="strings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="929">The strings to put in the dropdown</doc>
+                 line="901">The strings to put in the dropdown</doc>
             <array c:type="const char* const*">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -45068,19 +45068,19 @@ the strings.</doc>
               glib:get-property="enable-search">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1244">Returns whether search is enabled.</doc>
+             line="1216">Returns whether search is enabled.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkdropdown.c"
-               line="1250">%TRUE if the popup includes a search entry</doc>
+               line="1222">%TRUE if the popup includes a search entry</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1246">a `GtkDropDown`</doc>
+                 line="1218">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
         </parameters>
@@ -45090,21 +45090,21 @@ the strings.</doc>
               glib:get-property="expression">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1295">Gets the expression set that is used to obtain strings from items.
+             line="1267">Gets the expression set that is used to obtain strings from items.
 
 See [method@Gtk.DropDown.set_expression].</doc>
         <source-position filename="gtk/gtkdropdown.h" line="80"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtkdropdown.c"
-               line="1303">a `GtkExpression`</doc>
+               line="1275">a `GtkExpression`</doc>
           <type name="Expression" c:type="GtkExpression*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1297">a `GtkDropDown`</doc>
+                 line="1269">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
         </parameters>
@@ -45114,7 +45114,7 @@ See [method@Gtk.DropDown.set_expression].</doc>
               glib:get-property="factory">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1017">Gets the factory that's currently used to populate list items.
+             line="989">Gets the factory that's currently used to populate list items.
 
 The factory returned by this function is always used for the
 item in the button. It is also used for items in the popup
@@ -45123,14 +45123,14 @@ if [property@Gtk.DropDown:list-factory] is not set.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtkdropdown.c"
-               line="1027">The factory in use</doc>
+               line="999">The factory in use</doc>
           <type name="ListItemFactory" c:type="GtkListItemFactory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1019">a `GtkDropDown`</doc>
+                 line="991">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
         </parameters>
@@ -45141,19 +45141,19 @@ if [property@Gtk.DropDown:list-factory] is not set.</doc>
               version="4.12">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1068">Gets the factory that's currently used to create header widgets for the popup.</doc>
+             line="1040">Gets the factory that's currently used to create header widgets for the popup.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="74"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtkdropdown.c"
-               line="1074">The factory in use</doc>
+               line="1046">The factory in use</doc>
           <type name="ListItemFactory" c:type="GtkListItemFactory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1070">a `GtkDropDown`</doc>
+                 line="1042">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
         </parameters>
@@ -45163,19 +45163,19 @@ if [property@Gtk.DropDown:list-factory] is not set.</doc>
               glib:get-property="list-factory">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1110">Gets the factory that's currently used to populate list items in the popup.</doc>
+             line="1082">Gets the factory that's currently used to populate list items in the popup.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="67"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtkdropdown.c"
-               line="1116">The factory in use</doc>
+               line="1088">The factory in use</doc>
           <type name="ListItemFactory" c:type="GtkListItemFactory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1112">a `GtkDropDown`</doc>
+                 line="1084">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
         </parameters>
@@ -45185,19 +45185,19 @@ if [property@Gtk.DropDown:list-factory] is not set.</doc>
               glib:get-property="model">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="942">Gets the model that provides the displayed items.</doc>
+             line="914">Gets the model that provides the displayed items.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="44"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtkdropdown.c"
-               line="948">The model in use</doc>
+               line="920">The model in use</doc>
           <type name="Gio.ListModel" c:type="GListModel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="944">a `GtkDropDown`</doc>
+                 line="916">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
         </parameters>
@@ -45208,12 +45208,12 @@ if [property@Gtk.DropDown:list-factory] is not set.</doc>
               version="4.12">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1382">Returns the match mode that the search filter is using.</doc>
+             line="1354">Returns the match mode that the search filter is using.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkdropdown.c"
-               line="1388">the match mode of the search filter</doc>
+               line="1360">the match mode of the search filter</doc>
           <type name="StringFilterMatchMode"
                 c:type="GtkStringFilterMatchMode"/>
         </return-value>
@@ -45221,7 +45221,7 @@ if [property@Gtk.DropDown:list-factory] is not set.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1384">a `GtkDropDown`</doc>
+                 line="1356">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
         </parameters>
@@ -45231,12 +45231,12 @@ if [property@Gtk.DropDown:list-factory] is not set.</doc>
               glib:get-property="selected">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1175">Gets the position of the selected item.</doc>
+             line="1147">Gets the position of the selected item.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkdropdown.c"
-               line="1181">the position of the selected item, or %GTK_INVALID_LIST_POSITION
+               line="1153">the position of the selected item, or %GTK_INVALID_LIST_POSITION
   if no item is selected</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -45244,7 +45244,7 @@ if [property@Gtk.DropDown:list-factory] is not set.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1177">a `GtkDropDown`</doc>
+                 line="1149">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
         </parameters>
@@ -45254,19 +45254,19 @@ if [property@Gtk.DropDown:list-factory] is not set.</doc>
               glib:get-property="selected-item">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1195">Gets the selected item. If no item is selected, %NULL is returned.</doc>
+             line="1167">Gets the selected item. If no item is selected, %NULL is returned.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="53"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtkdropdown.c"
-               line="1201">The selected item</doc>
+               line="1173">The selected item</doc>
           <type name="GObject.Object" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1197">a `GtkDropDown`</doc>
+                 line="1169">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
         </parameters>
@@ -45277,19 +45277,19 @@ if [property@Gtk.DropDown:list-factory] is not set.</doc>
               version="4.6">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1339">Returns whether to show an arrow within the widget.</doc>
+             line="1311">Returns whether to show an arrow within the widget.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="92"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkdropdown.c"
-               line="1345">%TRUE if an arrow will be shown.</doc>
+               line="1317">%TRUE if an arrow will be shown.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1341">a `GtkDropDown`</doc>
+                 line="1313">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
         </parameters>
@@ -45299,7 +45299,7 @@ if [property@Gtk.DropDown:list-factory] is not set.</doc>
               glib:set-property="enable-search">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1214">Sets whether a search entry will be shown in the popup that
+             line="1186">Sets whether a search entry will be shown in the popup that
 allows to search for items in the list.
 
 Note that [property@Gtk.DropDown:expression] must be set for
@@ -45312,13 +45312,13 @@ search to work.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1216">a `GtkDropDown`</doc>
+                 line="1188">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
           <parameter name="enable_search" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1217">whether to enable search</doc>
+                 line="1189">whether to enable search</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -45328,7 +45328,7 @@ search to work.</doc>
               glib:set-property="expression">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1260">Sets the expression that gets evaluated to obtain strings from items.
+             line="1232">Sets the expression that gets evaluated to obtain strings from items.
 
 This is used for search in the popup. The expression must have
 a value type of %G_TYPE_STRING.</doc>
@@ -45340,7 +45340,7 @@ a value type of %G_TYPE_STRING.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1262">a `GtkDropDown`</doc>
+                 line="1234">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
           <parameter name="expression"
@@ -45349,7 +45349,7 @@ a value type of %G_TYPE_STRING.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1263">a `GtkExpression`</doc>
+                 line="1235">a `GtkExpression`</doc>
             <type name="Expression" c:type="GtkExpression*"/>
           </parameter>
         </parameters>
@@ -45359,7 +45359,7 @@ a value type of %G_TYPE_STRING.</doc>
               glib:set-property="factory">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1037">Sets the `GtkListItemFactory` to use for populating list items.</doc>
+             line="1009">Sets the `GtkListItemFactory` to use for populating list items.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="56"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -45368,7 +45368,7 @@ a value type of %G_TYPE_STRING.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1039">a `GtkDropDown`</doc>
+                 line="1011">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
           <parameter name="factory"
@@ -45377,7 +45377,7 @@ a value type of %G_TYPE_STRING.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1040">the factory to use</doc>
+                 line="1012">the factory to use</doc>
             <type name="ListItemFactory" c:type="GtkListItemFactory*"/>
           </parameter>
         </parameters>
@@ -45388,7 +45388,7 @@ a value type of %G_TYPE_STRING.</doc>
               version="4.12">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1086">Sets the `GtkListItemFactory` to use for creating header widgets for the popup.</doc>
+             line="1058">Sets the `GtkListItemFactory` to use for creating header widgets for the popup.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -45397,7 +45397,7 @@ a value type of %G_TYPE_STRING.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1088">a `GtkDropDown`</doc>
+                 line="1060">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
           <parameter name="factory"
@@ -45406,7 +45406,7 @@ a value type of %G_TYPE_STRING.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1089">the factory to use</doc>
+                 line="1061">the factory to use</doc>
             <type name="ListItemFactory" c:type="GtkListItemFactory*"/>
           </parameter>
         </parameters>
@@ -45416,7 +45416,7 @@ a value type of %G_TYPE_STRING.</doc>
               glib:set-property="list-factory">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1126">Sets the `GtkListItemFactory` to use for populating list items in the popup.</doc>
+             line="1098">Sets the `GtkListItemFactory` to use for populating list items in the popup.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -45425,7 +45425,7 @@ a value type of %G_TYPE_STRING.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1128">a `GtkDropDown`</doc>
+                 line="1100">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
           <parameter name="factory"
@@ -45434,7 +45434,7 @@ a value type of %G_TYPE_STRING.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1129">the factory to use</doc>
+                 line="1101">the factory to use</doc>
             <type name="ListItemFactory" c:type="GtkListItemFactory*"/>
           </parameter>
         </parameters>
@@ -45444,7 +45444,7 @@ a value type of %G_TYPE_STRING.</doc>
               glib:set-property="model">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="958">Sets the `GListModel` to use.</doc>
+             line="930">Sets the `GListModel` to use.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="41"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -45453,7 +45453,7 @@ a value type of %G_TYPE_STRING.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="960">a `GtkDropDown`</doc>
+                 line="932">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
           <parameter name="model"
@@ -45462,7 +45462,7 @@ a value type of %G_TYPE_STRING.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="961">the model to use</doc>
+                 line="933">the model to use</doc>
             <type name="Gio.ListModel" c:type="GListModel*"/>
           </parameter>
         </parameters>
@@ -45473,7 +45473,7 @@ a value type of %G_TYPE_STRING.</doc>
               version="4.12">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1357">Sets the match mode for the search filter.</doc>
+             line="1329">Sets the match mode for the search filter.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="95"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -45482,13 +45482,13 @@ a value type of %G_TYPE_STRING.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1359">a `GtkDropDown`</doc>
+                 line="1331">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
           <parameter name="search_match_mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1360">the new match mode</doc>
+                 line="1332">the new match mode</doc>
             <type name="StringFilterMatchMode"
                   c:type="GtkStringFilterMatchMode"/>
           </parameter>
@@ -45499,7 +45499,7 @@ a value type of %G_TYPE_STRING.</doc>
               glib:set-property="selected">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1153">Selects the item at the given position.</doc>
+             line="1125">Selects the item at the given position.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="47"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -45508,13 +45508,13 @@ a value type of %G_TYPE_STRING.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1155">a `GtkDropDown`</doc>
+                 line="1127">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1156">the position of the item to select, or %GTK_INVALID_LIST_POSITION</doc>
+                 line="1128">the position of the item to select, or %GTK_INVALID_LIST_POSITION</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -45525,7 +45525,7 @@ a value type of %G_TYPE_STRING.</doc>
               version="4.6">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="1313">Sets whether an arrow will be displayed within the widget.</doc>
+             line="1285">Sets whether an arrow will be displayed within the widget.</doc>
         <source-position filename="gtk/gtkdropdown.h" line="89"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -45534,13 +45534,13 @@ a value type of %G_TYPE_STRING.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1315">a `GtkDropDown`</doc>
+                 line="1287">a `GtkDropDown`</doc>
             <type name="DropDown" c:type="GtkDropDown*"/>
           </instance-parameter>
           <parameter name="show_arrow" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkdropdown.c"
-                 line="1316">whether to show an arrow within the widget</doc>
+                 line="1288">whether to show an arrow within the widget</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -45553,7 +45553,7 @@ a value type of %G_TYPE_STRING.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="657">Whether to show a search entry in the popup.
+             line="629">Whether to show a search entry in the popup.
 
 Note that search requires [property@Gtk.DropDown:expression]
 to be set.</doc>
@@ -45566,7 +45566,7 @@ to be set.</doc>
                 getter="get_expression">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="670">An expression to evaluate to obtain strings to match against the search
+             line="642">An expression to evaluate to obtain strings to match against the search
 term.
 
 See [property@Gtk.DropDown:enable-search] for how to enable search.
@@ -45581,7 +45581,7 @@ used to bind strings to labels produced by a default factory.</doc>
                 getter="get_factory">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="590">Factory for populating list items.</doc>
+             line="562">Factory for populating list items.</doc>
         <type name="ListItemFactory"/>
       </property>
       <property name="header-factory"
@@ -45592,7 +45592,7 @@ used to bind strings to labels produced by a default factory.</doc>
                 getter="get_header_factory">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="600">The factory for creating header widgets for the popup.</doc>
+             line="572">The factory for creating header widgets for the popup.</doc>
         <type name="ListItemFactory"/>
       </property>
       <property name="list-factory"
@@ -45602,7 +45602,7 @@ used to bind strings to labels produced by a default factory.</doc>
                 getter="get_list_factory">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="612">The factory for populating list items in the popup.
+             line="584">The factory for populating list items in the popup.
 
 If this is not set, [property@Gtk.DropDown:factory] is used.</doc>
         <type name="ListItemFactory"/>
@@ -45614,7 +45614,7 @@ If this is not set, [property@Gtk.DropDown:factory] is used.</doc>
                 getter="get_model">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="624">Model for the displayed items.</doc>
+             line="596">Model for the displayed items.</doc>
         <type name="Gio.ListModel"/>
       </property>
       <property name="search-match-mode"
@@ -45626,7 +45626,7 @@ If this is not set, [property@Gtk.DropDown:factory] is used.</doc>
                 default-value="GTK_STRING_FILTER_MATCH_MODE_PREFIX">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="696">The match mode for the search filter.</doc>
+             line="668">The match mode for the search filter.</doc>
         <type name="StringFilterMatchMode"/>
       </property>
       <property name="selected"
@@ -45637,7 +45637,7 @@ If this is not set, [property@Gtk.DropDown:factory] is used.</doc>
                 default-value="4294967295">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="634">The position of the selected item.
+             line="606">The position of the selected item.
 
 If no item is selected, the property has the value
 %GTK_INVALID_LIST_POSITION.</doc>
@@ -45648,7 +45648,7 @@ If no item is selected, the property has the value
                 getter="get_selected_item">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="647">The selected item.</doc>
+             line="619">The selected item.</doc>
         <type name="GObject.Object"/>
       </property>
       <property name="show-arrow"
@@ -45660,13 +45660,13 @@ If no item is selected, the property has the value
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="684">Whether to show an arrow within the GtkDropDown widget.</doc>
+             line="656">Whether to show an arrow within the GtkDropDown widget.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <glib:signal name="activate" when="first" action="1" version="4.6">
         <doc xml:space="preserve"
              filename="gtk/gtkdropdown.c"
-             line="711">Emitted to when the drop down is activated.
+             line="683">Emitted to when the drop down is activated.
 
 The `::activate` signal on `GtkDropDown` is an action signal and
 emitting it causes the drop down to pop up its dropdown.</doc>
@@ -66001,7 +66001,7 @@ contains a button node with the .font style class.</doc>
                    version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="733">Creates a new `GtkFontDialogButton` with the
+             line="729">Creates a new `GtkFontDialogButton` with the
 given `GtkFontDialog`.
 
 You can pass `NULL` to this function and set a `GtkFontDialog`
@@ -66010,7 +66010,7 @@ later. The button will be insensitive until that happens.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkfontdialogbutton.c"
-               line="743">the new `GtkFontDialogButton`</doc>
+               line="739">the new `GtkFontDialogButton`</doc>
           <type name="Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
@@ -66020,7 +66020,7 @@ later. The button will be insensitive until that happens.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="735">the `GtkFontDialog` to use</doc>
+                 line="731">the `GtkFontDialog` to use</doc>
             <type name="FontDialog" c:type="GtkFontDialog*"/>
           </parameter>
         </parameters>
@@ -66031,19 +66031,19 @@ later. The button will be insensitive until that happens.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="792">Returns the `GtkFontDialog` of @self.</doc>
+             line="788">Returns the `GtkFontDialog` of @self.</doc>
         <source-position filename="gtk/gtkfontdialogbutton.h" line="40"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtkfontdialogbutton.c"
-               line="798">the `GtkFontDialog`</doc>
+               line="794">the `GtkFontDialog`</doc>
           <type name="FontDialog" c:type="GtkFontDialog*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="794">a `GtkFontDialogButton`</doc>
+                 line="790">a `GtkFontDialogButton`</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
         </parameters>
@@ -66054,7 +66054,7 @@ later. The button will be insensitive until that happens.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="886">Returns the font of the button.
+             line="882">Returns the font of the button.
 
 This function is what should be used to obtain
 the font that was chosen by the user. To get
@@ -66063,14 +66063,14 @@ informed about changes, listen to "notify::font-desc".</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtkfontdialogbutton.c"
-               line="896">the font</doc>
+               line="892">the font</doc>
           <type name="Pango.FontDescription" c:type="PangoFontDescription*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="888">a `GtkFontDialogButton`</doc>
+                 line="884">a `GtkFontDialogButton`</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
         </parameters>
@@ -66081,7 +66081,7 @@ informed about changes, listen to "notify::font-desc".</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="937">Returns the font features of the button.
+             line="933">Returns the font features of the button.
 
 This function is what should be used to obtain the font features
 that were chosen by the user. To get informed about changes, listen
@@ -66094,14 +66094,14 @@ if [property@Gtk.FontDialogButton:level] is set to
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtkfontdialogbutton.c"
-               line="951">the font features</doc>
+               line="947">the font features</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="939">a `GtkFontDialogButton`</doc>
+                 line="935">a `GtkFontDialogButton`</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
         </parameters>
@@ -66112,19 +66112,19 @@ if [property@Gtk.FontDialogButton:level] is set to
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="988">Returns the language that is used for font features.</doc>
+             line="984">Returns the language that is used for font features.</doc>
         <source-position filename="gtk/gtkfontdialogbutton.h" line="94"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtkfontdialogbutton.c"
-               line="994">the language</doc>
+               line="990">the language</doc>
           <type name="Pango.Language" c:type="PangoLanguage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="990">a `GtkFontDialogButton`</doc>
+                 line="986">a `GtkFontDialogButton`</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
         </parameters>
@@ -66135,20 +66135,20 @@ if [property@Gtk.FontDialogButton:level] is set to
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="810">Returns the level of detail at which this dialog
+             line="806">Returns the level of detail at which this dialog
 lets the user select fonts.</doc>
         <source-position filename="gtk/gtkfontdialogbutton.h" line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkfontdialogbutton.c"
-               line="817">the level of detail</doc>
+               line="813">the level of detail</doc>
           <type name="FontLevel" c:type="GtkFontLevel"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="812">a `GtkFontDialogButton</doc>
+                 line="808">a `GtkFontDialogButton</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
         </parameters>
@@ -66159,19 +66159,19 @@ lets the user select fonts.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="1036">Returns whether the selected font is used in the label.</doc>
+             line="1032">Returns whether the selected font is used in the label.</doc>
         <source-position filename="gtk/gtkfontdialogbutton.h" line="101"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkfontdialogbutton.c"
-               line="1042">whether the selected font is used in the label</doc>
+               line="1038">whether the selected font is used in the label</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="1038">a `GtkFontDialogButton`</doc>
+                 line="1034">a `GtkFontDialogButton`</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
         </parameters>
@@ -66182,19 +66182,19 @@ lets the user select fonts.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="1081">Returns whether the selected font size is used in the label.</doc>
+             line="1077">Returns whether the selected font size is used in the label.</doc>
         <source-position filename="gtk/gtkfontdialogbutton.h" line="108"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtkfontdialogbutton.c"
-               line="1087">whether the selected font size is used in the label</doc>
+               line="1083">whether the selected font size is used in the label</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="1083">a `GtkFontDialogButton`</doc>
+                 line="1079">a `GtkFontDialogButton`</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
         </parameters>
@@ -66205,7 +66205,7 @@ lets the user select fonts.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="766">Sets a `GtkFontDialog` object to use for
+             line="762">Sets a `GtkFontDialog` object to use for
 creating the font chooser dialog that is
 presented when the user clicks the button.</doc>
         <source-position filename="gtk/gtkfontdialogbutton.h" line="43"/>
@@ -66216,13 +66216,13 @@ presented when the user clicks the button.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="768">a `GtkFontDialogButton`</doc>
+                 line="764">a `GtkFontDialogButton`</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
           <parameter name="dialog" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="769">the new `GtkFontDialog`</doc>
+                 line="765">the new `GtkFontDialog`</doc>
             <type name="FontDialog" c:type="GtkFontDialog*"/>
           </parameter>
         </parameters>
@@ -66233,7 +66233,7 @@ presented when the user clicks the button.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="853">Sets the font of the button.</doc>
+             line="849">Sets the font of the button.</doc>
         <source-position filename="gtk/gtkfontdialogbutton.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -66242,13 +66242,13 @@ presented when the user clicks the button.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="855">a `GtkFontDialogButton`</doc>
+                 line="851">a `GtkFontDialogButton`</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
           <parameter name="font_desc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="856">the new font</doc>
+                 line="852">the new font</doc>
             <type name="Pango.FontDescription"
                   c:type="const PangoFontDescription*"/>
           </parameter>
@@ -66260,7 +66260,7 @@ presented when the user clicks the button.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="908">Sets the font features of the button.</doc>
+             line="904">Sets the font features of the button.</doc>
         <source-position filename="gtk/gtkfontdialogbutton.h" line="89"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -66269,7 +66269,7 @@ presented when the user clicks the button.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="910">a `GtkFontDialogButton`</doc>
+                 line="906">a `GtkFontDialogButton`</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
           <parameter name="font_features"
@@ -66278,7 +66278,7 @@ presented when the user clicks the button.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="911">the font features</doc>
+                 line="907">the font features</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -66289,7 +66289,7 @@ presented when the user clicks the button.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="963">Sets the language to use for font features.</doc>
+             line="959">Sets the language to use for font features.</doc>
         <source-position filename="gtk/gtkfontdialogbutton.h" line="97"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -66298,7 +66298,7 @@ presented when the user clicks the button.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="965">a `GtkFontDialogButton`</doc>
+                 line="961">a `GtkFontDialogButton`</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
           <parameter name="language"
@@ -66307,7 +66307,7 @@ presented when the user clicks the button.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="966">the new language</doc>
+                 line="962">the new language</doc>
             <type name="Pango.Language" c:type="PangoLanguage*"/>
           </parameter>
         </parameters>
@@ -66318,7 +66318,7 @@ presented when the user clicks the button.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="829">Sets the level of detail at which this dialog
+             line="825">Sets the level of detail at which this dialog
 lets the user select fonts.</doc>
         <source-position filename="gtk/gtkfontdialogbutton.h" line="73"/>
         <return-value transfer-ownership="none">
@@ -66328,13 +66328,13 @@ lets the user select fonts.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="831">a `GtkFontDialogButton`</doc>
+                 line="827">a `GtkFontDialogButton`</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
           <parameter name="level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="832">the level of detail</doc>
+                 line="828">the level of detail</doc>
             <type name="FontLevel" c:type="GtkFontLevel"/>
           </parameter>
         </parameters>
@@ -66345,7 +66345,7 @@ lets the user select fonts.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="1009">If @use_font is `TRUE`, the font name will be written
+             line="1005">If @use_font is `TRUE`, the font name will be written
 using the selected font.</doc>
         <source-position filename="gtk/gtkfontdialogbutton.h" line="104"/>
         <return-value transfer-ownership="none">
@@ -66355,13 +66355,13 @@ using the selected font.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="1011">a `GtkFontDialogButton`</doc>
+                 line="1007">a `GtkFontDialogButton`</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
           <parameter name="use_font" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="1012">If `TRUE`, font name will be written using
+                 line="1008">If `TRUE`, font name will be written using
   the chosen font</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -66373,7 +66373,7 @@ using the selected font.</doc>
               version="4.10">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="1054">If @use_size is `TRUE`, the font name will be written
+             line="1050">If @use_size is `TRUE`, the font name will be written
 using the selected font size.</doc>
         <source-position filename="gtk/gtkfontdialogbutton.h" line="111"/>
         <return-value transfer-ownership="none">
@@ -66383,13 +66383,13 @@ using the selected font size.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="1056">a `GtkFontDialogButton`</doc>
+                 line="1052">a `GtkFontDialogButton`</doc>
             <type name="FontDialogButton" c:type="GtkFontDialogButton*"/>
           </instance-parameter>
           <parameter name="use_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtkfontdialogbutton.c"
-                 line="1057">If `TRUE`, font name will be written using
+                 line="1053">If `TRUE`, font name will be written using
   the chosen font size</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -66403,7 +66403,7 @@ using the selected font size.</doc>
                 getter="get_dialog">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="302">The `GtkFontDialog` that contains parameters for
+             line="298">The `GtkFontDialog` that contains parameters for
 the font chooser dialog.</doc>
         <type name="FontDialog"/>
       </property>
@@ -66415,7 +66415,7 @@ the font chooser dialog.</doc>
                 getter="get_font_desc">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="326">The selected font.
+             line="322">The selected font.
 
 This property can be set to give the button its initial
 font, and it will be updated to reflect the users choice
@@ -66434,7 +66434,7 @@ to the buttons font.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="345">The selected font features.
+             line="341">The selected font features.
 
 This property will be updated to reflect the users choice
 in the font chooser dialog.
@@ -66451,7 +66451,7 @@ to the buttons font features.</doc>
                 getter="get_language">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="363">The selected language for font features.
+             line="359">The selected language for font features.
 
 This property will be updated to reflect the users choice
 in the font chooser dialog.
@@ -66468,7 +66468,7 @@ to the buttons language.</doc>
                 default-value="GTK_FONT_LEVEL_FONT">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="315">The level of detail for the font chooser dialog.</doc>
+             line="311">The level of detail for the font chooser dialog.</doc>
         <type name="FontLevel"/>
       </property>
       <property name="use-font"
@@ -66479,7 +66479,7 @@ to the buttons language.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="381">Whether the buttons label will be drawn in the selected font.</doc>
+             line="377">Whether the buttons label will be drawn in the selected font.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="use-size"
@@ -66490,13 +66490,13 @@ to the buttons language.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="391">Whether the buttons label will use the selected font size.</doc>
+             line="387">Whether the buttons label will use the selected font size.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <glib:signal name="activate" when="first" action="1" version="4.14">
         <doc xml:space="preserve"
              filename="gtk/gtkfontdialogbutton.c"
-             line="403">Emitted when the font dialog button is activated.
+             line="399">Emitted when the font dialog button is activated.
 
 The `::activate` signal on `GtkFontDialogButton` is an action signal
 and emitting it causes the button to pop up its dialog.</doc>
@@ -76013,7 +76013,7 @@ See [signal@Gtk.SpinButton::input].</doc>
       <source-position filename="gtk/gtkspinbutton.h" line="52"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="INTERFACE_AGE" value="2" c:type="GTK_INTERFACE_AGE">
+    <constant name="INTERFACE_AGE" value="1" c:type="GTK_INTERFACE_AGE">
       <doc xml:space="preserve"
            filename="gtk/gtkversion.h"
            line="72">Like [func@get_interface_age], but from the headers used at
@@ -85154,7 +85154,7 @@ triggering @self.</doc>
            glib:get-type="gtk_label_get_type">
       <doc xml:space="preserve"
            filename="gtk/gtklabel.c"
-           line="67">Displays a small amount of text.
+           line="66">Displays a small amount of text.
 
 Most labels are used to label another widget (such as an [class@Entry]).
 
@@ -85377,14 +85377,14 @@ with the [signal@Gtk.Label::activate-link] signal and the
       <constructor name="new" c:identifier="gtk_label_new">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2990">Creates a new label with the given text inside it.
+             line="2961">Creates a new label with the given text inside it.
 
 You can pass `NULL` to get an empty label widget.</doc>
         <source-position filename="gtk/gtklabel.h" line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="2998">the new label</doc>
+               line="2969">the new label</doc>
           <type name="Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
@@ -85394,7 +85394,7 @@ You can pass `NULL` to get an empty label widget.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="2992">the text of the label</doc>
+                 line="2963">the text of the label</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -85403,7 +85403,7 @@ You can pass `NULL` to get an empty label widget.</doc>
                    c:identifier="gtk_label_new_with_mnemonic">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="3013">Creates a new label with the given text inside it, and a mnemonic.
+             line="2984">Creates a new label with the given text inside it, and a mnemonic.
 
 If characters in @str are preceded by an underscore, they are
 underlined. If you need a literal underscore character in a label, use
@@ -85421,7 +85421,7 @@ and be activated by the mnemonic.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="3033">the new label</doc>
+               line="3004">the new label</doc>
           <type name="Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
@@ -85431,7 +85431,7 @@ and be activated by the mnemonic.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3015">the text of the label, with an underscore in front of the
+                 line="2986">the text of the label, with an underscore in front of the
   mnemonic character</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
@@ -85442,7 +85442,7 @@ and be activated by the mnemonic.</doc>
               glib:get-property="attributes">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="3444">Gets the label's attribute list.
+             line="3415">Gets the label's attribute list.
 
 This is the [struct@Pango.AttrList] that was set on the label using
 [method@Gtk.Label.set_attributes], if any. This function does not
@@ -85454,14 +85454,14 @@ attributes for the label, use
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="3457">the attribute list</doc>
+               line="3428">the attribute list</doc>
           <type name="Pango.AttrList" c:type="PangoAttrList*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3446">a label</doc>
+                 line="3417">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85469,7 +85469,7 @@ attributes for the label, use
       <method name="get_current_uri" c:identifier="gtk_label_get_current_uri">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="6026">Returns the URI for the active link in the label.
+             line="5983">Returns the URI for the active link in the label.
 
 The active link is the one under the mouse pointer or, in a
 selectable label, the link in which the text cursor is currently
@@ -85481,14 +85481,14 @@ handler or for use in a [signal@Gtk.Widget::query-tooltip] handler.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="6039">the active URI</doc>
+               line="5996">the active URI</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6028">a label</doc>
+                 line="5985">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85498,21 +85498,21 @@ handler or for use in a [signal@Gtk.Widget::query-tooltip] handler.</doc>
               glib:get-property="ellipsize">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4162">Returns the ellipsization mode of the label.
+             line="4119">Returns the ellipsization mode of the label.
 
 See [method@Gtk.Label.set_ellipsize].</doc>
         <source-position filename="gtk/gtklabel.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="4170">the ellipsization mode</doc>
+               line="4127">the ellipsization mode</doc>
           <type name="Pango.EllipsizeMode" c:type="PangoEllipsizeMode"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4164">a label</doc>
+                 line="4121">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85522,21 +85522,21 @@ See [method@Gtk.Label.set_ellipsize].</doc>
               glib:get-property="extra-menu">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="6235">Gets the extra menu model of the label.
+             line="6192">Gets the extra menu model of the label.
 
 See [method@Gtk.Label.set_extra_menu].</doc>
         <source-position filename="gtk/gtklabel.h" line="177"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="6243">the menu model</doc>
+               line="6200">the menu model</doc>
           <type name="Gio.MenuModel" c:type="GMenuModel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6237">a label</doc>
+                 line="6194">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85546,21 +85546,21 @@ See [method@Gtk.Label.set_extra_menu].</doc>
               glib:get-property="justify">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4115">Returns the justification of the label.
+             line="4072">Returns the justification of the label.
 
 See [method@Gtk.Label.set_justify].</doc>
         <source-position filename="gtk/gtklabel.h" line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="4123">the justification value</doc>
+               line="4080">the justification value</doc>
           <type name="Justification" c:type="GtkJustification"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4117">a label</doc>
+                 line="4074">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85570,7 +85570,7 @@ See [method@Gtk.Label.set_justify].</doc>
               glib:get-property="label">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="3492">Fetches the text from a label.
+             line="3463">Fetches the text from a label.
 
 The returned text includes any embedded underlines indicating
 mnemonics and Pango markup. (See [method@Gtk.Label.get_text]).</doc>
@@ -85578,14 +85578,14 @@ mnemonics and Pango markup. (See [method@Gtk.Label.get_text]).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="3501">the text of the label widget</doc>
+               line="3472">the text of the label widget</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3494">a label</doc>
+                 line="3465">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85593,7 +85593,7 @@ mnemonics and Pango markup. (See [method@Gtk.Label.get_text]).</doc>
       <method name="get_layout" c:identifier="gtk_label_get_layout">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="5467">Gets the Pango layout used to display the label.
+             line="5424">Gets the Pango layout used to display the label.
 
 The layout is useful to e.g. convert text positions to pixel
 positions, in combination with [method@Gtk.Label.get_layout_offsets].
@@ -85604,14 +85604,14 @@ at any time, so it should be considered read-only.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="5479">the [class@Pango.Layout] for this label</doc>
+               line="5436">the [class@Pango.Layout] for this label</doc>
           <type name="Pango.Layout" c:type="PangoLayout*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5469">a label</doc>
+                 line="5426">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85620,7 +85620,7 @@ at any time, so it should be considered read-only.</doc>
               c:identifier="gtk_label_get_layout_offsets">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="5491">Obtains the coordinates where the label will draw its Pango layout.
+             line="5448">Obtains the coordinates where the label will draw its Pango layout.
 
 The coordinates are useful to convert mouse events into coordinates
 inside the [class@Pango.Layout], e.g. to take some action if some part
@@ -85635,7 +85635,7 @@ or [const@Pango.SCALE].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5493">a label</doc>
+                 line="5450">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="x"
@@ -85646,7 +85646,7 @@ or [const@Pango.SCALE].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5494">location to store X offset of layout</doc>
+                 line="5451">location to store X offset of layout</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="y"
@@ -85657,7 +85657,7 @@ or [const@Pango.SCALE].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5495">location to store Y offset of layout</doc>
+                 line="5452">location to store Y offset of layout</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -85667,7 +85667,7 @@ or [const@Pango.SCALE].</doc>
               glib:get-property="lines">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="6108">Gets the number of lines to which an ellipsized, wrapping
+             line="6065">Gets the number of lines to which an ellipsized, wrapping
 label should be limited.
 
 See [method@Gtk.Label.set_lines].</doc>
@@ -85675,14 +85675,14 @@ See [method@Gtk.Label.set_lines].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="6117">the number of lines</doc>
+               line="6074">the number of lines</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6110">a label</doc>
+                 line="6067">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85692,21 +85692,21 @@ See [method@Gtk.Label.set_lines].</doc>
               glib:get-property="max-width-chars">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4241">Retrieves the maximum width of the label in characters.
+             line="4198">Retrieves the maximum width of the label in characters.
 
 See [method@Gtk.Label.set_width_chars].</doc>
         <source-position filename="gtk/gtklabel.h" line="108"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="4249">the maximum width of the label, in characters</doc>
+               line="4206">the maximum width of the label, in characters</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4243">a label</doc>
+                 line="4200">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85716,7 +85716,7 @@ See [method@Gtk.Label.set_width_chars].</doc>
               glib:get-property="mnemonic-keyval">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="3234">Return the mnemonic accelerator.
+             line="3205">Return the mnemonic accelerator.
 
 If the label has been set so that it has a mnemonic key this function
 returns the keyval used for the mnemonic accelerator. If there is no
@@ -85725,14 +85725,14 @@ mnemonic set up it returns `GDK_KEY_VoidSymbol`.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="3244">GDK keyval usable for accelerators, or `GDK_KEY_VoidSymbol`</doc>
+               line="3215">GDK keyval usable for accelerators, or `GDK_KEY_VoidSymbol`</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3236">a label</doc>
+                 line="3207">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85742,14 +85742,14 @@ mnemonic set up it returns `GDK_KEY_VoidSymbol`.</doc>
               glib:get-property="mnemonic-widget">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="3215">Retrieves the mnemonic target of this label.
+             line="3186">Retrieves the mnemonic target of this label.
 
 See [method@Gtk.Label.set_mnemonic_widget].</doc>
         <source-position filename="gtk/gtklabel.h" line="85"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="3223">the target of the label’s mnemonic,
+               line="3194">the target of the label’s mnemonic,
   or `NULL` if none has been set and the default algorithm will be used.</doc>
           <type name="Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -85757,7 +85757,7 @@ See [method@Gtk.Label.set_mnemonic_widget].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3217">a label</doc>
+                 line="3188">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85768,21 +85768,21 @@ See [method@Gtk.Label.set_mnemonic_widget].</doc>
               version="4.6">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4389">Returns natural line wrap mode used by the label.
+             line="4346">Returns natural line wrap mode used by the label.
 
 See [method@Gtk.Label.set_natural_wrap_mode].</doc>
         <source-position filename="gtk/gtklabel.h" line="128"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="4397">the natural line wrap mode</doc>
+               line="4354">the natural line wrap mode</doc>
           <type name="NaturalWrapMode" c:type="GtkNaturalWrapMode"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4391">a label</doc>
+                 line="4348">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85792,19 +85792,19 @@ See [method@Gtk.Label.set_natural_wrap_mode].</doc>
               glib:get-property="selectable">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="5230">Returns whether the label is selectable.</doc>
+             line="5187">Returns whether the label is selectable.</doc>
         <source-position filename="gtk/gtklabel.h" line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="5236">true if the user can copy text from the label</doc>
+               line="5193">true if the user can copy text from the label</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5232">a label</doc>
+                 line="5189">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85813,21 +85813,21 @@ See [method@Gtk.Label.set_natural_wrap_mode].</doc>
               c:identifier="gtk_label_get_selection_bounds">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="5398">Gets the selected range of characters in the label.
+             line="5355">Gets the selected range of characters in the label.
 
 The returned @start and @end positions are in characters.</doc>
         <source-position filename="gtk/gtklabel.h" line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="5408">true if selection is non-empty</doc>
+               line="5365">true if selection is non-empty</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5400">a label</doc>
+                 line="5357">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="start"
@@ -85838,7 +85838,7 @@ The returned @start and @end positions are in characters.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5401">return location for start of selection</doc>
+                 line="5358">return location for start of selection</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="end"
@@ -85849,7 +85849,7 @@ The returned @start and @end positions are in characters.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5402">return location for end of selection</doc>
+                 line="5359">return location for end of selection</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -85859,19 +85859,19 @@ The returned @start and @end positions are in characters.</doc>
               glib:get-property="single-line-mode">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="5628">Returns whether the label is in single line mode.</doc>
+             line="5585">Returns whether the label is in single line mode.</doc>
         <source-position filename="gtk/gtklabel.h" line="154"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="5634">true if the label is in single line mode</doc>
+               line="5591">true if the label is in single line mode</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5630">a label</doc>
+                 line="5587">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85882,14 +85882,14 @@ The returned @start and @end positions are in characters.</doc>
               version="4.8">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="6280">Gets the tab stops for the label.
+             line="6237">Gets the tab stops for the label.
 
 The returned array will be `NULL` if “standard” (8-space) tabs are used.</doc>
         <source-position filename="gtk/gtklabel.h" line="184"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="6288">copy of default tab array,
+               line="6245">copy of default tab array,
   or `NULL` if standard tabs are used</doc>
           <type name="Pango.TabArray" c:type="PangoTabArray*"/>
         </return-value>
@@ -85897,7 +85897,7 @@ The returned array will be `NULL` if “standard” (8-space) tabs are used.</do
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6282">a label</doc>
+                 line="6239">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85905,7 +85905,7 @@ The returned array will be `NULL` if “standard” (8-space) tabs are used.</do
       <method name="get_text" c:identifier="gtk_label_get_text">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4061">Gets the text of the label.
+             line="4018">Gets the text of the label.
 
 The returned text is as it appears on screen. This does not include
 any embedded underlines indicating mnemonics or Pango markup. (See
@@ -85914,14 +85914,14 @@ any embedded underlines indicating mnemonics or Pango markup. (See
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="4071">the text in the label widget</doc>
+               line="4028">the text in the label widget</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4063">a label</doc>
+                 line="4020">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85931,21 +85931,21 @@ any embedded underlines indicating mnemonics or Pango markup. (See
               glib:get-property="use-markup">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="5545">Returns whether the label’s text is interpreted as Pango markup.
+             line="5502">Returns whether the label’s text is interpreted as Pango markup.
 
 See [method@Gtk.Label.set_use_markup].</doc>
         <source-position filename="gtk/gtklabel.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="5553">true if the label’s text will be parsed for markup</doc>
+               line="5510">true if the label’s text will be parsed for markup</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5547">a label</doc>
+                 line="5504">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85955,21 +85955,21 @@ See [method@Gtk.Label.set_use_markup].</doc>
               glib:get-property="use-underline">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="5584">Returns whether underlines in the label indicate mnemonics.
+             line="5541">Returns whether underlines in the label indicate mnemonics.
 
 See [method@Gtk.Label.set_use_underline].</doc>
         <source-position filename="gtk/gtklabel.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="5592">true if underlines in the label indicate mnemonics</doc>
+               line="5549">true if underlines in the label indicate mnemonics</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5586">a label</doc>
+                 line="5543">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -85979,21 +85979,21 @@ See [method@Gtk.Label.set_use_underline].</doc>
               glib:get-property="width-chars">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4201">Retrieves the desired width of the label in characters.
+             line="4158">Retrieves the desired width of the label in characters.
 
 See [method@Gtk.Label.set_width_chars].</doc>
         <source-position filename="gtk/gtklabel.h" line="103"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="4209">the desired width of the label, in characters</doc>
+               line="4166">the desired width of the label, in characters</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4203">a label</doc>
+                 line="4160">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -86003,21 +86003,21 @@ See [method@Gtk.Label.set_width_chars].</doc>
               glib:get-property="wrap">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4294">Returns whether lines in the label are automatically wrapped.
+             line="4251">Returns whether lines in the label are automatically wrapped.
 
 See [method@Gtk.Label.set_wrap].</doc>
         <source-position filename="gtk/gtklabel.h" line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="4302">true if the lines of the label are automatically wrapped</doc>
+               line="4259">true if the lines of the label are automatically wrapped</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4296">a label</doc>
+                 line="4253">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -86027,21 +86027,21 @@ See [method@Gtk.Label.set_wrap].</doc>
               glib:get-property="wrap-mode">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4344">Returns line wrap mode used by the label.
+             line="4301">Returns line wrap mode used by the label.
 
 See [method@Gtk.Label.set_wrap_mode].</doc>
         <source-position filename="gtk/gtklabel.h" line="123"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="4352">the line wrap mode</doc>
+               line="4309">the line wrap mode</doc>
           <type name="Pango.WrapMode" c:type="PangoWrapMode"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4346">a label</doc>
+                 line="4303">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -86051,21 +86051,21 @@ See [method@Gtk.Label.set_wrap_mode].</doc>
               glib:get-property="xalign">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="6153">Gets the `xalign` of the label.
+             line="6110">Gets the `xalign` of the label.
 
 See the [property@Gtk.Label:xalign] property.</doc>
         <source-position filename="gtk/gtklabel.h" line="164"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="6161">the xalign value</doc>
+               line="6118">the xalign value</doc>
           <type name="gfloat" c:type="float"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6155">a label</doc>
+                 line="6112">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -86075,21 +86075,21 @@ See the [property@Gtk.Label:xalign] property.</doc>
               glib:get-property="yalign">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="6197">Gets the `yalign` of the label.
+             line="6154">Gets the `yalign` of the label.
 
 See the [property@Gtk.Label:yalign] property.</doc>
         <source-position filename="gtk/gtklabel.h" line="171"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="6205">the yalign value</doc>
+               line="6162">the yalign value</doc>
           <type name="gfloat" c:type="float"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6199">a label</doc>
+                 line="6156">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
         </parameters>
@@ -86097,7 +86097,7 @@ See the [property@Gtk.Label:yalign] property.</doc>
       <method name="select_region" c:identifier="gtk_label_select_region">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="5365">Selects a range of characters in the label, if the label is selectable.
+             line="5322">Selects a range of characters in the label, if the label is selectable.
 
 See [method@Gtk.Label.set_selectable]. If the label is not selectable,
 this function has no effect. If @start_offset or
@@ -86110,19 +86110,19 @@ this function has no effect. If @start_offset or
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5367">a label</doc>
+                 line="5324">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="start_offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5368">start offset, in characters</doc>
+                 line="5325">start offset, in characters</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="end_offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5369">end offset, in characters</doc>
+                 line="5326">end offset, in characters</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -86132,7 +86132,7 @@ this function has no effect. If @start_offset or
               glib:set-property="attributes">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="3406">Apply attributes to the label text.
+             line="3377">Apply attributes to the label text.
 
 The attributes set with this function will be applied and merged with
 any other attributes previously effected by way of the
@@ -86150,7 +86150,7 @@ to the label after the markup string is parsed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3408">a label</doc>
+                 line="3379">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="attrs"
@@ -86159,7 +86159,7 @@ to the label after the markup string is parsed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3409">a list of style attributes</doc>
+                 line="3380">a list of style attributes</doc>
             <type name="Pango.AttrList" c:type="PangoAttrList*"/>
           </parameter>
         </parameters>
@@ -86169,7 +86169,7 @@ to the label after the markup string is parsed.</doc>
               glib:set-property="ellipsize">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4133">Sets the mode used to ellipsize the text.
+             line="4090">Sets the mode used to ellipsize the text.
 
 The text will be ellipsized if there is not
 enough space to render the entire string.</doc>
@@ -86181,13 +86181,13 @@ enough space to render the entire string.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4135">a label</doc>
+                 line="4092">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4136">the ellipsization mode</doc>
+                 line="4093">the ellipsization mode</doc>
             <type name="Pango.EllipsizeMode" c:type="PangoEllipsizeMode"/>
           </parameter>
         </parameters>
@@ -86197,7 +86197,7 @@ enough space to render the entire string.</doc>
               glib:set-property="extra-menu">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="6215">Sets a menu model to add to the context menu of the label.</doc>
+             line="6172">Sets a menu model to add to the context menu of the label.</doc>
         <source-position filename="gtk/gtklabel.h" line="174"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -86206,7 +86206,7 @@ enough space to render the entire string.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6217">a label</doc>
+                 line="6174">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="model"
@@ -86215,7 +86215,7 @@ enough space to render the entire string.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6218">a menu model</doc>
+                 line="6175">a menu model</doc>
             <type name="Gio.MenuModel" c:type="GMenuModel*"/>
           </parameter>
         </parameters>
@@ -86225,7 +86225,7 @@ enough space to render the entire string.</doc>
               glib:set-property="justify">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4081">Sets the alignment of lines in the label relative to each other.
+             line="4038">Sets the alignment of lines in the label relative to each other.
 
 This function has no effect on labels containing only a single line.
 
@@ -86242,13 +86242,13 @@ use [method@Gtk.Widget.set_halign] instead.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4083">a label</doc>
+                 line="4040">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="jtype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4084">the new justification</doc>
+                 line="4041">the new justification</doc>
             <type name="Justification" c:type="GtkJustification"/>
           </parameter>
         </parameters>
@@ -86258,7 +86258,7 @@ use [method@Gtk.Widget.set_halign] instead.</doc>
               glib:set-property="label">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="3467">Sets the text of the label.
+             line="3438">Sets the text of the label.
 
 The label is interpreted as including embedded underlines and/or Pango
 markup depending on the values of the [property@Gtk.Label:use-underline]
@@ -86271,13 +86271,13 @@ and [property@Gtk.Label:use-markup] properties.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3469">a label</doc>
+                 line="3440">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3470">the new text to set for the label</doc>
+                 line="3441">the new text to set for the label</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -86287,7 +86287,7 @@ and [property@Gtk.Label:use-markup] properties.</doc>
               glib:set-property="lines">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="6082">Sets the number of lines to which an ellipsized, wrapping label
+             line="6039">Sets the number of lines to which an ellipsized, wrapping label
 should be limited.
 
 This has no effect if the label is not wrapping or ellipsized.
@@ -86300,13 +86300,13 @@ Set this to -1 if you don’t want to limit the number of lines.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6084">a label</doc>
+                 line="6041">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="lines" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6085">the desired number of lines, or -1</doc>
+                 line="6042">the desired number of lines, or -1</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -86314,7 +86314,7 @@ Set this to -1 if you don’t want to limit the number of lines.</doc>
       <method name="set_markup" c:identifier="gtk_label_set_markup">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="3977">Sets the labels text and attributes from markup.
+             line="3934">Sets the labels text and attributes from markup.
 
 The string must be marked up with Pango markup
 (see [func@Pango.parse_markup]).
@@ -86345,13 +86345,13 @@ Also see [method@Gtk.Label.set_text].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3979">a label</doc>
+                 line="3936">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3980">the markup string</doc>
+                 line="3937">the markup string</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -86360,7 +86360,7 @@ Also see [method@Gtk.Label.set_text].</doc>
               c:identifier="gtk_label_set_markup_with_mnemonic">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4026">Sets the labels text, attributes and mnemonic from markup.
+             line="3983">Sets the labels text, attributes and mnemonic from markup.
 
 Parses @str which is marked up with Pango markup (see [func@Pango.parse_markup]),
 setting the label’s text and attribute list based on the parse results.
@@ -86377,13 +86377,13 @@ automatically, or explicitly using [method@Gtk.Label.set_mnemonic_widget].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4028">a label</doc>
+                 line="3985">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4029">the markup string</doc>
+                 line="3986">the markup string</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -86393,7 +86393,7 @@ automatically, or explicitly using [method@Gtk.Label.set_mnemonic_widget].</doc>
               glib:set-property="max-width-chars">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4219">Sets the maximum width of the label in characters.</doc>
+             line="4176">Sets the maximum width of the label in characters.</doc>
         <source-position filename="gtk/gtklabel.h" line="105"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -86402,13 +86402,13 @@ automatically, or explicitly using [method@Gtk.Label.set_mnemonic_widget].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4221">a label</doc>
+                 line="4178">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="n_chars" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4222">the new maximum width, in characters.</doc>
+                 line="4179">the new maximum width, in characters.</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -86418,7 +86418,7 @@ automatically, or explicitly using [method@Gtk.Label.set_mnemonic_widget].</doc>
               glib:set-property="mnemonic-widget">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="3163">Associate the label with its mnemonic target.
+             line="3134">Associate the label with its mnemonic target.
 
 If the label has been set so that it has a mnemonic key (using
 i.e. [method@Gtk.Label.set_markup_with_mnemonic],
@@ -86443,7 +86443,7 @@ collisions and toggle focus between the colliding widgets otherwise.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3165">a label</doc>
+                 line="3136">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="widget"
@@ -86452,7 +86452,7 @@ collisions and toggle focus between the colliding widgets otherwise.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3166">the target widget</doc>
+                 line="3137">the target widget</doc>
             <type name="Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -86463,7 +86463,7 @@ collisions and toggle focus between the colliding widgets otherwise.</doc>
               version="4.6">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4362">Selects the line wrapping for the natural size request.
+             line="4319">Selects the line wrapping for the natural size request.
 
 This only affects the natural size requested, for the actual wrapping used,
 see the [property@Gtk.Label:wrap-mode] property.</doc>
@@ -86475,13 +86475,13 @@ see the [property@Gtk.Label:wrap-mode] property.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4364">a label</doc>
+                 line="4321">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="wrap_mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4365">the line wrapping mode</doc>
+                 line="4322">the line wrapping mode</doc>
             <type name="NaturalWrapMode" c:type="GtkNaturalWrapMode"/>
           </parameter>
         </parameters>
@@ -86491,7 +86491,7 @@ see the [property@Gtk.Label:wrap-mode] property.</doc>
               glib:set-property="selectable">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="5176">Makes text in the label selectable.
+             line="5133">Makes text in the label selectable.
 
 Selectable labels allow the user to select text from the label,
 for copy-and-paste.</doc>
@@ -86503,13 +86503,13 @@ for copy-and-paste.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5178">a label</doc>
+                 line="5135">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5179">true to allow selecting text in the label</doc>
+                 line="5136">true to allow selecting text in the label</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -86519,7 +86519,7 @@ for copy-and-paste.</doc>
               glib:set-property="single-line-mode">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="5602">Sets whether the label is in single line mode.</doc>
+             line="5559">Sets whether the label is in single line mode.</doc>
         <source-position filename="gtk/gtklabel.h" line="151"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -86528,13 +86528,13 @@ for copy-and-paste.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5604">a label</doc>
+                 line="5561">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="single_line_mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5605">true to enable single line mode</doc>
+                 line="5562">true to enable single line mode</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -86545,7 +86545,7 @@ for copy-and-paste.</doc>
               version="4.8">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="6253">Sets tab stops for the label.</doc>
+             line="6210">Sets tab stops for the label.</doc>
         <source-position filename="gtk/gtklabel.h" line="180"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -86554,7 +86554,7 @@ for copy-and-paste.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6255">a label</doc>
+                 line="6212">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="tabs"
@@ -86563,7 +86563,7 @@ for copy-and-paste.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6256">tab stops</doc>
+                 line="6213">tab stops</doc>
             <type name="Pango.TabArray" c:type="PangoTabArray*"/>
           </parameter>
         </parameters>
@@ -86571,7 +86571,7 @@ for copy-and-paste.</doc>
       <method name="set_text" c:identifier="gtk_label_set_text">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="3372">Sets the text for the label.
+             line="3343">Sets the text for the label.
 
 It overwrites any text that was there before and clears any
 previously set mnemonic accelerators, and sets the
@@ -86587,13 +86587,13 @@ Also see [method@Gtk.Label.set_markup].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3374">a label</doc>
+                 line="3345">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="3375">the text to show in @self</doc>
+                 line="3346">the text to show in @self</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -86602,7 +86602,7 @@ Also see [method@Gtk.Label.set_markup].</doc>
               c:identifier="gtk_label_set_text_with_mnemonic">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4461">Sets the text for the label, with mnemonics.
+             line="4418">Sets the text for the label, with mnemonics.
 
 If characters in @str are preceded by an underscore, they are underlined
 indicating that they represent a keyboard accelerator called a mnemonic.
@@ -86616,13 +86616,13 @@ automatically, or explicitly using [method@Gtk.Label.set_mnemonic_widget].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4463">a label</doc>
+                 line="4420">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4464">the text</doc>
+                 line="4421">the text</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -86632,7 +86632,7 @@ automatically, or explicitly using [method@Gtk.Label.set_mnemonic_widget].</doc>
               glib:set-property="use-markup">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="5522">Sets whether the text of the label contains markup.
+             line="5479">Sets whether the text of the label contains markup.
 
 See [method@Gtk.Label.set_markup].</doc>
         <source-position filename="gtk/gtklabel.h" line="66"/>
@@ -86643,13 +86643,13 @@ See [method@Gtk.Label.set_markup].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5524">a label</doc>
+                 line="5481">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5525">true if the label’s text should be parsed for markup.</doc>
+                 line="5482">true if the label’s text should be parsed for markup.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -86659,7 +86659,7 @@ See [method@Gtk.Label.set_markup].</doc>
               glib:set-property="use-underline">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="5563">Sets whether underlines in the text indicate mnemonics.</doc>
+             line="5520">Sets whether underlines in the text indicate mnemonics.</doc>
         <source-position filename="gtk/gtklabel.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -86668,13 +86668,13 @@ See [method@Gtk.Label.set_markup].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5565">a label</doc>
+                 line="5522">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="5566">true if underlines in the text indicate mnemonics</doc>
+                 line="5523">true if underlines in the text indicate mnemonics</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -86684,7 +86684,7 @@ See [method@Gtk.Label.set_markup].</doc>
               glib:set-property="width-chars">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4180">Sets the desired width in characters of the label.</doc>
+             line="4137">Sets the desired width in characters of the label.</doc>
         <source-position filename="gtk/gtklabel.h" line="100"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -86693,13 +86693,13 @@ See [method@Gtk.Label.set_markup].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4182">a label</doc>
+                 line="4139">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="n_chars" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4183">the new desired width, in characters.</doc>
+                 line="4140">the new desired width, in characters.</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -86709,7 +86709,7 @@ See [method@Gtk.Label.set_markup].</doc>
               glib:set-property="wrap">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4259">Toggles line wrapping within the label.
+             line="4216">Toggles line wrapping within the label.
 
 True makes it break lines if text exceeds the widget’s size.
 false lets the text get cut off by the edge of the widget if
@@ -86728,13 +86728,13 @@ using [method@Gtk.Widget.set_size_request].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4261">a label</doc>
+                 line="4218">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="wrap" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4262">whether to wrap lines</doc>
+                 line="4219">whether to wrap lines</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -86744,7 +86744,7 @@ using [method@Gtk.Widget.set_size_request].</doc>
               glib:set-property="wrap-mode">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="4312">Controls how line wrapping is done.
+             line="4269">Controls how line wrapping is done.
 
 This only affects the label if line wrapping is on. (See
 [method@Gtk.Label.set_wrap])
@@ -86762,13 +86762,13 @@ For sizing behavior, also consider the
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4314">a label</doc>
+                 line="4271">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="wrap_mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="4315">the line wrapping mode</doc>
+                 line="4272">the line wrapping mode</doc>
             <type name="Pango.WrapMode" c:type="PangoWrapMode"/>
           </parameter>
         </parameters>
@@ -86778,7 +86778,7 @@ For sizing behavior, also consider the
               glib:set-property="xalign">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="6127">Sets the `xalign` of the label.
+             line="6084">Sets the `xalign` of the label.
 
 See the [property@Gtk.Label:xalign] property.</doc>
         <source-position filename="gtk/gtklabel.h" line="160"/>
@@ -86789,13 +86789,13 @@ See the [property@Gtk.Label:xalign] property.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6129">a label</doc>
+                 line="6086">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="xalign" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6130">the new xalign value, between 0 and 1</doc>
+                 line="6087">the new xalign value, between 0 and 1</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
         </parameters>
@@ -86805,7 +86805,7 @@ See the [property@Gtk.Label:xalign] property.</doc>
               glib:set-property="yalign">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="6171">Sets the `yalign` of the label.
+             line="6128">Sets the `yalign` of the label.
 
 See the [property@Gtk.Label:yalign] property.</doc>
         <source-position filename="gtk/gtklabel.h" line="167"/>
@@ -86816,13 +86816,13 @@ See the [property@Gtk.Label:yalign] property.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6173">a label</doc>
+                 line="6130">a label</doc>
             <type name="Label" c:type="GtkLabel*"/>
           </instance-parameter>
           <parameter name="yalign" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="6174">the new yalign value, between 0 and 1</doc>
+                 line="6131">the new yalign value, between 0 and 1</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
         </parameters>
@@ -86834,7 +86834,7 @@ See the [property@Gtk.Label:yalign] property.</doc>
                 getter="get_attributes">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2475">A list of style attributes to apply to the text of the label.</doc>
+             line="2446">A list of style attributes to apply to the text of the label.</doc>
         <type name="Pango.AttrList"/>
       </property>
       <property name="ellipsize"
@@ -86845,7 +86845,7 @@ See the [property@Gtk.Label:yalign] property.</doc>
                 default-value="PANGO_ELLIPSIZE_NONE">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2628">The preferred place to ellipsize the string, if the label does
+             line="2599">The preferred place to ellipsize the string, if the label does
 not have enough room to display the entire string.
 
 Note that setting this property to a value other than
@@ -86865,7 +86865,7 @@ and [method@Gtk.Label.set_width_chars].</doc>
                 getter="get_extra_menu">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2723">A menu model whose contents will be appended to the context menu.</doc>
+             line="2694">A menu model whose contents will be appended to the context menu.</doc>
         <type name="Gio.MenuModel"/>
       </property>
       <property name="justify"
@@ -86876,7 +86876,7 @@ and [method@Gtk.Label.set_width_chars].</doc>
                 default-value="GTK_JUSTIFY_LEFT">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2508">The alignment of the lines in the text of the label, relative to each other.
+             line="2479">The alignment of the lines in the text of the label, relative to each other.
 
 This does *not* affect the alignment of the label within its allocation.
 See [property@Gtk.Label:xalign] for that.</doc>
@@ -86889,7 +86889,7 @@ See [property@Gtk.Label:xalign] for that.</doc>
                 getter="get_label">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2454">The contents of the label.
+             line="2425">The contents of the label.
 
 If the string contains Pango markup (see [func@Pango.parse_markup]),
 you will have to set the [property@Gtk.Label:use-markup] property to
@@ -86911,7 +86911,7 @@ for the label to display them.</doc>
                 default-value="-1">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2698">The number of lines to which an ellipsized, wrapping label
+             line="2669">The number of lines to which an ellipsized, wrapping label
 should display before it gets ellipsized. This both prevents the label
 from ellipsizing before this many lines are displayed, and limits the
 height request of the label to this many lines.
@@ -86936,7 +86936,7 @@ Set this property to -1 if you don't want to limit the number of lines.</doc>
                 default-value="-1">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2681">The desired maximum width of the label, in characters.
+             line="2652">The desired maximum width of the label, in characters.
 
 If this property is set to -1, the width will be calculated automatically.
 
@@ -86951,7 +86951,7 @@ determine the width of ellipsized and wrapped labels.</doc>
                 default-value="16777215">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2607">The mnemonic accelerator key for the label.</doc>
+             line="2578">The mnemonic accelerator key for the label.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="mnemonic-widget"
@@ -86961,7 +86961,7 @@ determine the width of ellipsized and wrapped labels.</doc>
                 getter="get_mnemonic_widget">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2618">The widget to be activated when the labels mnemonic key is pressed.</doc>
+             line="2589">The widget to be activated when the labels mnemonic key is pressed.</doc>
         <type name="Widget"/>
       </property>
       <property name="natural-wrap-mode"
@@ -86973,7 +86973,7 @@ determine the width of ellipsized and wrapped labels.</doc>
                 default-value="GTK_NATURAL_WRAP_INHERIT">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2578">Select the line wrapping for the natural size request.
+             line="2549">Select the line wrapping for the natural size request.
 
 This only affects the natural size requested. For the actual wrapping
 used, see the [property@Gtk.Label:wrap-mode] property.
@@ -86990,7 +86990,7 @@ the behavior of the [property@Gtk.Label:wrap-mode] property.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2597">Whether the label text can be selected with the mouse.</doc>
+             line="2568">Whether the label text can be selected with the mouse.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="single-line-mode"
@@ -87001,7 +87001,7 @@ the behavior of the [property@Gtk.Label:wrap-mode] property.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2666">Whether the label is in single line mode.
+             line="2637">Whether the label is in single line mode.
 
 In single line mode, the height of the label does not depend on the
 actual text, it is always set to ascent + descent of the font. This
@@ -87017,7 +87017,7 @@ of text changes would be distracting, e.g. in a statusbar.</doc>
                 getter="get_tabs">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2733">Custom tabs for this label.</doc>
+             line="2704">Custom tabs for this label.</doc>
         <type name="Pango.TabArray"/>
       </property>
       <property name="use-markup"
@@ -87028,7 +87028,7 @@ of text changes would be distracting, e.g. in a statusbar.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2485">True if the text of the label includes Pango markup.
+             line="2456">True if the text of the label includes Pango markup.
 
 See [func@Pango.parse_markup].</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -87041,7 +87041,7 @@ See [func@Pango.parse_markup].</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2497">True if the text of the label indicates a mnemonic with an `_`
+             line="2468">True if the text of the label indicates a mnemonic with an `_`
 before the mnemonic character.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -87053,7 +87053,7 @@ before the mnemonic character.</doc>
                 default-value="-1">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2649">The desired width of the label, in characters.
+             line="2620">The desired width of the label, in characters.
 
 If this property is set to -1, the width will be calculated automatically.
 
@@ -87070,7 +87070,7 @@ determine the width of ellipsized and wrapped labels.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2550">True if the label text will wrap if it gets too wide.</doc>
+             line="2521">True if the label text will wrap if it gets too wide.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="wrap-mode"
@@ -87081,7 +87081,7 @@ determine the width of ellipsized and wrapped labels.</doc>
                 default-value="PANGO_WRAP_WORD">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2560">Controls how the line wrapping is done.
+             line="2531">Controls how the line wrapping is done.
 
 This only affects the formatting if line wrapping is on (see the
 [property@Gtk.Label:wrap] property). The default is [enum@Pango.WrapMode.word],
@@ -87099,7 +87099,7 @@ property.</doc>
                 default-value="0.500000">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2522">The horizontal alignment of the label text inside its size allocation.
+             line="2493">The horizontal alignment of the label text inside its size allocation.
 
 Compare this to [property@Gtk.Widget:halign], which determines how the
 labels size allocation is positioned in the space available for the label.</doc>
@@ -87113,7 +87113,7 @@ labels size allocation is positioned in the space available for the label.</doc>
                 default-value="0.500000">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2536">The vertical alignment of the label text inside its size allocation.
+             line="2507">The vertical alignment of the label text inside its size allocation.
 
 Compare this to [property@Gtk.Widget:valign], which determines how the
 labels size allocation is positioned in the space available for the label.</doc>
@@ -87122,7 +87122,7 @@ labels size allocation is positioned in the space available for the label.</doc>
       <glib:signal name="activate-current-link" when="last" action="1">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2408">Gets emitted when the user activates a link in the label.
+             line="2379">Gets emitted when the user activates a link in the label.
 
 The `::activate-current-link` is a [keybinding signal](class.SignalAction.html).
 
@@ -87137,21 +87137,21 @@ The default bindings for this signal are all forms of the &lt;kbd&gt;Enter&lt;/k
       <glib:signal name="activate-link" when="last">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2430">Gets emitted to activate a URI.
+             line="2401">Gets emitted to activate a URI.
 
 Applications may connect to it to override the default behaviour,
 which is to call [method@Gtk.FileLauncher.launch].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtk/gtklabel.c"
-               line="2440">true if the link has been activated</doc>
+               line="2411">true if the link has been activated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="2433">the URI that is activated</doc>
+                 line="2404">the URI that is activated</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -87159,7 +87159,7 @@ which is to call [method@Gtk.FileLauncher.launch].</doc>
       <glib:signal name="copy-clipboard" when="last" action="1">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2389">Gets emitted to copy the selection to the clipboard.
+             line="2360">Gets emitted to copy the selection to the clipboard.
 
 The `::copy-clipboard` signal is a [keybinding signal](class.SignalAction.html).
 
@@ -87171,7 +87171,7 @@ The default binding for this signal is &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;c&
       <glib:signal name="move-cursor" when="last" action="1">
         <doc xml:space="preserve"
              filename="gtk/gtklabel.c"
-             line="2347">Gets emitted when the user initiates a cursor movement.
+             line="2318">Gets emitted when the user initiates a cursor movement.
 
 The `::move-cursor` signal is a [keybinding signal](class.SignalAction.html).
 If the cursor is not visible in @entry, this signal causes the viewport to
@@ -87197,19 +87197,19 @@ There are too many key combinations to list them all here.
           <parameter name="step" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="2350">the granularity of the move, as a `GtkMovementStep`</doc>
+                 line="2321">the granularity of the move, as a `GtkMovementStep`</doc>
             <type name="MovementStep"/>
           </parameter>
           <parameter name="count" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="2351">the number of @step units to move</doc>
+                 line="2322">the number of @step units to move</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="extend_selection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtk/gtklabel.c"
-                 line="2352">true if the move should extend the selection</doc>
+                 line="2323">true if the move should extend the selection</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -93965,7 +93965,7 @@ This macro is longer used by GTK.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="2" c:type="GTK_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="GTK_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gtk/gtkversion.h"
            line="54">Like [func@get_micro_version], but from the headers used at
