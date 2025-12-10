@@ -135,7 +135,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const header = `
 /**
  * ${name} ${version}
- * 
+ *
  * Generated from ${girModule.package_version.join(".")}
  */
 `;
@@ -270,7 +270,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 							})
 							.join("\n")
 					: ""
-			}    
+			}
       }`,
 		];
 	}
@@ -864,9 +864,9 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		const indent = generateIndent(indentCount);
 		if (invalid) {
-			desc.push(`${indent}"${tsMember.name}",`);
+			desc.push(`${indent}"${tsMember.name}" = ${tsMember.value},`);
 		} else {
-			desc.push(`${indent}${tsMember.name},`);
+			desc.push(`${indent}${tsMember.name} = ${tsMember.value},`);
 		}
 
 		return desc;
@@ -1872,7 +1872,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			const header = `
 /**
  * ${name} ${version}
- * 
+ *
  * Generated from ${node.package_version.join(".")}
  */
 `;
