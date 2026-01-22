@@ -12,7 +12,7 @@ import {
 	FormatGenerator,
 	filterConflicts,
 	filterFunctionConflict,
-	type Generic,
+	Generic,
 	type GirEnumMember,
 	type GirModule,
 	generateIndent,
@@ -56,9 +56,13 @@ import {
 	resolveDirectedType,
 	type TsDocTag,
 	TypeConflict,
-	type TypeExpression,
 	transformGirDocText,
 	VoidType,
+  GenerifiedType,
+  GenerifiedTypeIdentifier,
+  GenericType,
+  TypeExpression,
+  TypeIdentifier,
 } from "@ts-for-gir/lib";
 // import { PackageDataParser } from './package-data-parser.ts'
 import { NpmPackage } from "./npm-package.ts";
@@ -227,12 +231,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		return this.generateClass(node);
 	}
 	generateInterface(node: IntrospectedInterface): string[] {
-		const isGObject = node.someParent((p) => p.namespace.namespace === "GObject" && p.name === "Object");
 		const functions = filterFunctionConflict(node.namespace, node, node.members, []);
 		const hasStaticFunctions = functions.some((f) => f instanceof IntrospectedStaticClassFunction);
 		const hasVirtualMethods = node.members.some((m) => m instanceof IntrospectedVirtualClassFunction);
 
-		const hasNamespace = isGObject || hasStaticFunctions || node.callbacks.length > 0 || hasVirtualMethods;
+		const hasNamespace = node.hasGObjectParent() || hasStaticFunctions || node.callbacks.length > 0 || hasVirtualMethods;
 
 		return [
 			...this.generateClassNamespaces(node),
@@ -242,7 +245,6 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		];
 	}
 	generateInterfaceNamespace(node: IntrospectedInterface): string[] {
-		const isGObject = node.someParent((p) => p.namespace.namespace === "GObject" && p.name === "Object");
 		const namespace = node.namespace;
 		const functions = filterFunctionConflict(node.namespace, node, node.members, []);
 		const staticFunctions = functions.filter(
@@ -258,7 +260,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const gtypeNamespace = namespace.namespace === "GObject" ? "" : "GObject.";
 		return [
 			`export interface ${node.name}Namespace {
-      ${isGObject ? `$gtype: ${gtypeNamespace}GType<${node.name}>;` : ""}
+      ${node.hasGObjectParent() ? `$gtype: ${gtypeNamespace}GType<${node.name}>;` : ""}
       prototype: ${node.name};
       ${staticFields.length > 0 ? staticFields.flatMap((sf) => sf.asString(this)).join("\n") : ""}
       ${
@@ -918,11 +920,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	) {
 		const def: string[] = [];
 
-		const isGObjectObject = girClass.name === "Object" && girClass.namespace.namespace === "GObject";
-		if (
-			!isGObjectObject &&
-			!girClass.someParent((p: IntrospectedBaseClass) => p.namespace.namespace === "GObject" && p.name === "Object")
-		) {
+    if (!girClass.isGObjectObject() && !girClass.hasGObjectParent()) {
 			return def;
 		}
 
@@ -1004,12 +1002,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const def: string[] = [];
 
 		// Add instance $signals property for type-safe signal access (compile-time only)
-		const isGObjectObject = girClass.name === "Object" && girClass.namespace.namespace === "GObject";
-		const hasGObjectParent =
-			isGObjectObject ||
-			girClass.someParent((p: IntrospectedBaseClass) => p.namespace.namespace === "GObject" && p.name === "Object");
-
-		if (hasGObjectParent) {
+		if (girClass.isGObjectObject() || girClass.hasGObjectParent()) {
 			def.push(
 				"",
 				`${generateIndent(indentCount)}/**`,
@@ -1019,7 +1012,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 				`${generateIndent(indentCount)} * It is not defined at runtime and should not be accessed in JS code.`,
 				`${generateIndent(indentCount)} * @internal`,
 				`${generateIndent(indentCount)} */`,
-				`${generateIndent(indentCount)}$signals: ${girClass.name}.SignalSignatures;`,
+				`${generateIndent(indentCount)}$signals: ${girClass.name}.SignalSignatures & ${girClass.namespace.namespace === 'GObject' ? '' : 'GObject.'}RegisteredClassSignals<Props, Sigs>;`,
 				"",
 			);
 		}
@@ -1126,7 +1119,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		else if (girClass.mainConstructor instanceof IntrospectedConstructor)
 			def.push(...this.generateConstructor(girClass.mainConstructor));
 		else if (
-			girClass.someParent((p: IntrospectedBaseClass) => p.namespace.namespace === "GObject" && p.name === "Object")
+			girClass.hasGObjectParent()
 		)
 			def.push(`\nconstructor(properties?: Partial<${girClass.name}.ConstructorProps>, ...args: any[]);\n`);
 
@@ -1284,7 +1277,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	/**
 	 * Generate SignalSignatures interface for type-safe signal handling
 	 *
-	 * This creates a comprehensive mapping of signal names to their callback types,
+	 * This creates a comprehensive mapping of signal names to their caPropertiesllback types,
 	 * enabling TypeScript to provide proper type checking and IntelliSense for
 	 * GObject signals using the centralized getAllSignals() method from the model.
 	 */
@@ -1343,9 +1336,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			def.push(` extends ${parentSignatures.join(", ")} {`);
 		} else {
 			// Handle root GObject.Object class to avoid circular references
-			const isGObjectObject = girClass.name === "Object" && girClass.namespace.namespace === "GObject";
-
-			if (isGObjectObject) {
+			if (girClass.isGObjectObject()) {
 				def.push(" {");
 			} else {
 				// All other classes inherit from GObject.Object's signal signatures as fallback
@@ -1688,7 +1679,20 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	protected extends(node: IntrospectedBaseClass) {
 		const { namespace: ns, options } = this;
 		if (node.superType) {
-			const ResolvedType = node.superType.resolveIdentifier(ns, options);
+      let ResolvedType = node.superType.resolveIdentifier(ns, options);
+
+      if (ResolvedType && node.hasGObjectParent()) {
+        const generics = [new NativeType('Props'), new NativeType('Sigs'), new NativeType('IFaces')]
+        if (ResolvedType instanceof GenerifiedTypeIdentifier) {
+          ResolvedType.generics.push(...generics)
+        } else {
+          ResolvedType = new GenerifiedTypeIdentifier(ResolvedType.name, ResolvedType.namespace, generics)
+        }
+      }
+      else if (node.isGObjectObject()) {
+        return ' extends RegisteredClass<Props, Sigs, IFaces>'
+      }
+
 			const Type = ResolvedType?.print(ns, options);
 
 			if (Type) {
@@ -1699,7 +1703,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			this.log.warn(
 				`Unable to resolve type: ${node.superType.name} from ${node.superType.namespace} in ${node.namespace.namespace} ${node.namespace.version}, falling back to GObject.Object`,
 			);
-			return ` extends GObject.Object`;
+			return ` extends GObject.Object<Props, Sigs, IFaces>`;
 		}
 
 		return "";
@@ -1744,10 +1748,19 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		def.push(...this.addGirDocComment(girClass.doc, [], 0));
 
+		const isGObjectObject = girClass.isGObjectObject()
+    const generics = girClass.generics
+    if (isGObjectObject || girClass.hasGObjectParent()) {
+      generics.push(
+        new Generic(new GenericType("Props"), new NativeType('{}'), undefined, new TypeIdentifier('Properties', 'GObject')),
+        new Generic(new GenericType("Sigs"), new NativeType('{}'), undefined, new TypeIdentifier('Signals', 'GObject')),
+        new Generic(new GenericType("IFaces"), new NativeType('[]'), undefined, new TypeIdentifier('Interfaces', 'GObject'))
+      )
+		}
 		const genericParameters = this.generateGenericParameters(girClass.generics);
 		const ext = this.extends(girClass);
-		const impl = girClass instanceof IntrospectedClass ? this.implements(girClass) : "";
-		const classHead = `${girClass.name}${genericParameters}${ext}${impl}`;
+    const impl = girClass instanceof IntrospectedClass ? this.implements(girClass) : "";
+    const classHead = `${girClass.name}${genericParameters}${ext}${impl}`;
 
 		// START CLASS
 		{

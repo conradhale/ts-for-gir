@@ -578,6 +578,16 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
 		return new TypeIdentifier(this.name, this.namespace.namespace);
 	}
 
+	isGObjectObject(): boolean {
+		return this.name === "Object" && this.namespace.namespace === "GObject";
+	}
+
+	hasGObjectParent(): boolean {
+		return this.someParent(
+			p => p.namespace.namespace === "GObject" && p.name === "Object",
+		);
+	}
+
 	static fromXML(
 		_element: GirClassElement | GirInterfaceElement | GirRecordElement,
 		_ns: IntrospectedNamespace,
@@ -631,19 +641,9 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 		return isGObjectObject || hasNotifySignal || hasGObjectParent;
 	}
 
-	private isGObjectObject(): boolean {
-		return this.name === "Object" && this.namespace.namespace === "GObject";
-	}
-
 	private hasExplicitNotifySignal(): boolean {
 		return this.signals.some((signal) => signal.name === "notify");
-	}
-
-	private hasGObjectParent(): boolean {
-		return this.someParent(
-			(p: IntrospectedClass | IntrospectedInterface) => p.namespace.namespace === "GObject" && p.name === "Object",
-		);
-	}
+  }
 
 	private addNotifySignals(allSignals: SignalDescriptor[]): void {
 		const propertyNames = this.getUniquePropertyNames();
