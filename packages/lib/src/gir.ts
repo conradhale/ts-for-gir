@@ -22,9 +22,10 @@ export enum ConflictType {
 }
 
 import { ConsoleReporter, ReporterService } from "@ts-for-gir/reporter";
+import type { FormatGenerator } from "./generators/index.ts";
 import type { IntrospectedField, IntrospectedProperty } from "./gir/property.ts";
 import type { OptionsBase } from "./types/index.ts";
-import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from "./utils/naming.ts";
+import { sanitizeIdentifierName, sanitizeNamespace } from "./utils/naming.ts";
 
 export abstract class TypeExpression {
 	isPointer = false;
@@ -39,10 +40,7 @@ export abstract class TypeExpression {
 	abstract rewrap(type: TypeExpression): TypeExpression;
 	abstract resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression;
 
-	abstract print(namespace: IntrospectedNamespace, options: OptionsBase): string;
-	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		return this.print(namespace, options);
-	}
+	abstract generate<T, E, G extends FormatGenerator<unknown, T, E>>(generator: G): T | E;
 }
 
 export class TypeIdentifier extends TypeExpression {
@@ -228,18 +226,8 @@ export class TypeIdentifier extends TypeExpression {
 		return new TypeIdentifier(name, namespace);
 	}
 
-	print(namespace: IntrospectedNamespace, _options: OptionsBase): string {
-		if (namespace.hasSymbol(this.namespace) && this.namespace !== namespace.namespace) {
-			// TODO: Move to TypeScript generator...
-			// Libraries like zbar have classes named things like "Gtk"
-			return `${this.namespace}__.${this.name}`;
-		}
-
-		if (namespace.namespace === this.namespace) {
-			return `${this.name}`;
-		} else {
-			return `${this.namespace}.${this.name}`;
-		}
+	generate<T>(generator: FormatGenerator<unknown, T, unknown>): T {
+		return generator.generateTypeIdentifier(this);
 	}
 }
 
@@ -281,12 +269,8 @@ export class ModuleTypeIdentifier extends TypeIdentifier {
 		return this;
 	}
 
-	print(namespace: IntrospectedNamespace, _options: OptionsBase): string {
-		if (namespace.namespace === this.namespace) {
-			return `${this.moduleName}.${this.name}`;
-		} else {
-			return `${this.namespace}.${this.moduleName}.${this.name}`;
-		}
+	generate<T>(generator: FormatGenerator<unknown, T, unknown>): T {
+		return generator.generateModuleTypeIdentifier(this);
 	}
 }
 
@@ -298,13 +282,8 @@ export class ClassStructTypeIdentifier extends TypeIdentifier {
 		return type instanceof ClassStructTypeIdentifier && super.equals(type);
 	}
 
-	print(namespace: IntrospectedNamespace, _options: OptionsBase): string {
-		if (namespace.namespace === this.namespace) {
-			// TODO: Mapping to invalid names should happen at the generator level...
-			return `typeof ${isInvalid(this.name) ? `__${this.name}` : this.name}`;
-		} else {
-			return `typeof ${this.namespace}.${isInvalid(this.name) ? `__${this.name}` : this.name}`;
-		}
+	generate<T>(generator: FormatGenerator<unknown, T, unknown>): T {
+		return generator.generateClassStructTypeIdentifier(this);
 	}
 }
 
@@ -316,14 +295,8 @@ export class GenerifiedTypeIdentifier extends TypeIdentifier {
 		this.generics = generics;
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		const Generics = this.generics.map((generic) => generic.print(namespace, options)).join(", ");
-
-		if (namespace.namespace === this.namespace) {
-			return `${this.name}${this.generics.length > 0 ? `<${Generics}>` : ""}`;
-		} else {
-			return `${this.namespace}.${this.name}${this.generics.length > 0 ? `<${Generics}>` : ""}`;
-		}
+	generate<T>(generator: FormatGenerator<unknown, T, unknown>): T {
+		return generator.generateGenerifiedTypeIdentifier(this);
 	}
 
 	_resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeIdentifier | null {
@@ -338,11 +311,13 @@ export class GenerifiedTypeIdentifier extends TypeIdentifier {
 }
 
 export class NativeType extends TypeExpression {
-	readonly expression: (options?: OptionsBase) => string;
+	readonly kind: NativeTypeKind;
+	readonly text?: string;
 
-	constructor(expression: ((options?: OptionsBase) => string) | string) {
+	constructor(kind: NativeTypeKind, text?: string) {
 		super();
-		this.expression = typeof expression === "string" ? () => expression : expression;
+		this.kind = kind;
+		this.text = text;
 	}
 
 	rewrap(type: TypeExpression): TypeExpression {
@@ -353,24 +328,20 @@ export class NativeType extends TypeExpression {
 		return this;
 	}
 
-	print(_namespace: IntrospectedNamespace, options: OptionsBase): string {
-		return this.expression(options);
+	generate<T, G extends FormatGenerator<unknown, unknown, T>>(generator: G) {
+		return generator.generateNativeType(this);
 	}
 
-	equals(type: TypeExpression, options?: OptionsBase): boolean {
-		return type instanceof NativeType && this.expression(options) === type.expression(options);
+	equals(type: TypeExpression, _options?: OptionsBase): boolean {
+		return type instanceof NativeType && this.kind === type.kind;
 	}
 
 	unwrap(): TypeExpression {
 		return this;
 	}
 
-	static withGenerator(generator: (options?: OptionsBase) => string): TypeExpression {
-		return new NativeType(generator);
-	}
-
-	static of(nativeType: string): NativeType {
-		return new NativeType(nativeType);
+	static of(kind: NativeTypeKind, text?: string): NativeType {
+		return new NativeType(kind, text);
 	}
 }
 
@@ -396,12 +367,8 @@ export class OrType extends TypeExpression {
 		return new OrType(type.resolve(namespace, options), ...types.map((t) => t.resolve(namespace, options)));
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		return `(${this.types.map((t) => t.print(namespace, options)).join(" | ")})`;
-	}
-
-	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		return `${this.types.map((t) => t.print(namespace, options)).join(" | ")}`;
+	generate<T>(generator: FormatGenerator<unknown, unknown, T>): T {
+		return generator.generateOrType(this);
 	}
 
 	equals(type: TypeExpression) {
@@ -414,12 +381,8 @@ export class OrType extends TypeExpression {
 }
 
 export class TupleType extends OrType {
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		return `[${this.types.map((t) => t.print(namespace, options)).join(", ")}]`;
-	}
-
-	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		return this.print(namespace, options);
+	generate<T>(generator: FormatGenerator<unknown, unknown, T>): T {
+		return generator.generateTupleType(this);
 	}
 
 	resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression {
@@ -505,18 +468,8 @@ export class FunctionType extends TypeExpression {
 		);
 	}
 
-	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		const Parameters = Object.entries(this.parameterTypes)
-			.map(([k, v]) => {
-				return `${k}: ${v.rootPrint(namespace, options)}`;
-			})
-			.join(", ");
-
-		return `(${Parameters}) => ${this.returnType.print(namespace, options)}`;
-	}
-
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		return `(${this.rootPrint(namespace, options)})`;
+	generate<T>(generator: FormatGenerator<unknown, unknown, T>): T {
+		return generator.generateFunctionType(this);
 	}
 }
 
@@ -585,12 +538,8 @@ export class GenerifiedType extends TypeExpression {
 		return this.type;
 	}
 
-	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase) {
-		return this.type.rootPrint(namespace, options);
-	}
-
-	print(namespace: IntrospectedNamespace, options: OptionsBase) {
-		return `${this.type.print(namespace, options)}<${this.generic.print()}>`;
+	generate<T>(generator: FormatGenerator<unknown, unknown, T>): T {
+		return generator.generateGenerifiedType(this);
 	}
 
 	equals(type: TypeExpression): boolean {
@@ -638,8 +587,8 @@ export class GenericType extends TypeExpression {
 		return this;
 	}
 
-	print(): string {
-		return this.identifier;
+	generate<T>(generator: FormatGenerator<unknown, unknown, T>): T {
+		return generator.generateGenericType(this);
 	}
 }
 
@@ -685,16 +634,8 @@ export class PromiseType extends TypeExpression {
 		return new PromiseType(this.type.resolve(namespace, options));
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		if (this.type.equals(VoidType)) {
-			return "globalThis.Promise<void>";
-		}
-
-		return `globalThis.Promise<${this.type.print(namespace, options)}>`;
-	}
-
-	rootPrint(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		return this.print(namespace, options);
+	generate<T>(generator: FormatGenerator<unknown, unknown, T>): T {
+		return generator.generatePromiseType(this);
 	}
 }
 
@@ -734,14 +675,12 @@ export class TypeConflict extends TypeExpression {
 
 	resolve(namespace: IntrospectedNamespace, options: OptionsBase): TypeExpression {
 		const resolvedType = this.type.resolve(namespace, options);
-		const typeString = resolvedType.print(namespace, options);
+		const typeString = JSON.stringify(resolvedType);
 		throw new Error(`Type conflict was not resolved for ${typeString} in ${namespace.namespace}`);
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		const resolvedType = this.type.resolve(namespace, options);
-		const typeString = resolvedType.print(namespace, options);
-		throw new Error(`Type conflict was not resolved for ${typeString} in ${namespace.namespace}`);
+	generate<T>(generator: FormatGenerator<unknown, unknown, T>): T {
+		return generator.generateTypeConflict(this);
 	}
 }
 
@@ -788,8 +727,8 @@ export class ClosureType extends TypeExpression {
 		});
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		return this.type.print(namespace, options);
+	generate<T>(generator: FormatGenerator<unknown, unknown, T>): T {
+		return generator.generateClosureType(this);
 	}
 
 	static new({ type, user_data = null }: { type: TypeExpression; user_data?: number | null }) {
@@ -845,19 +784,8 @@ export class ArrayType extends TypeExpression {
 		});
 	}
 
-	print(namespace: IntrospectedNamespace, options: OptionsBase): string {
-		const depth = this.arrayDepth;
-		let typeSuffix: string = "";
-
-		if (depth === 0) {
-			typeSuffix = "";
-		} else if (depth === 1) {
-			typeSuffix = "[]";
-		} else {
-			typeSuffix = "".padStart(2 * depth, "[]");
-		}
-
-		return `${this.type.print(namespace, options)}${typeSuffix}`;
+	generate<T>(generator: FormatGenerator<unknown, unknown, T>): T {
+		return generator.generateArrayType(this);
 	}
 
 	static new({
@@ -876,18 +804,34 @@ export class ArrayType extends TypeExpression {
 	}
 }
 
-// Common native types as constants
-export const ThisType = new NativeType("this");
-export const ObjectType = new NativeType("object");
-export const AnyType = new NativeType("any");
-export const NeverType = new NativeType("never");
-export const Uint8ArrayType = new NativeType("Uint8Array");
-export const BooleanType = new NativeType("boolean");
-export const StringType = new NativeType("string");
-export const NumberType = new NativeType("number");
-export const NullType = new NativeType("null");
-export const VoidType = new NativeType("void");
-export const UnknownType = new NativeType("unknown");
-export const AnyFunctionType = new NativeType("(...args: any[]) => any");
+export enum NativeTypeKind {
+	this,
+	object,
+	any,
+	never,
+	Uint8Array,
+	boolean,
+	string,
+	number,
+	null,
+	void,
+	unknown,
+	function,
+	StringLiteral,
+	TypeReference,
+}
+
+export const ThisType = new NativeType(NativeTypeKind.this);
+export const ObjectType = new NativeType(NativeTypeKind.object);
+export const AnyType = new NativeType(NativeTypeKind.any);
+export const NeverType = new NativeType(NativeTypeKind.never);
+export const Uint8ArrayType = new NativeType(NativeTypeKind.Uint8Array);
+export const BooleanType = new NativeType(NativeTypeKind.boolean);
+export const StringType = new NativeType(NativeTypeKind.string);
+export const NumberType = new NativeType(NativeTypeKind.number);
+export const NullType = new NativeType(NativeTypeKind.null);
+export const VoidType = new NativeType(NativeTypeKind.void);
+export const UnknownType = new NativeType(NativeTypeKind.unknown);
+export const AnyFunctionType = new NativeType(NativeTypeKind.any);
 
 export type GirClassField = IntrospectedProperty | IntrospectedField;

@@ -67,7 +67,7 @@ export class IntrospectedConstant extends IntrospectedNamespaceMember {
 		return c;
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateConst"]> {
-		return generator.generateConst(this) as ReturnType<T["generateConst"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateConst(this);
 	}
 }

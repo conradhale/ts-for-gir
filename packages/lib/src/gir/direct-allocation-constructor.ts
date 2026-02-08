@@ -35,8 +35,8 @@ export class IntrospectedDirectAllocationConstructor extends IntrospectedClassMe
 		return building;
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateDirectAllocationConstructor"]> {
-		return generator.generateDirectAllocationConstructor(this) as ReturnType<T["generateDirectAllocationConstructor"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateDirectAllocationConstructor(this);
 	}
 
 	copy(options?: {

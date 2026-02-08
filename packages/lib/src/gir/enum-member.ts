@@ -45,7 +45,7 @@ export class GirEnumMember extends IntrospectedBase<IntrospectedEnum> {
 		return enumMember;
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateEnumMember"]> {
-		return generator.generateEnumMember(this) as ReturnType<T["generateEnumMember"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateEnumMember(this);
 	}
 }

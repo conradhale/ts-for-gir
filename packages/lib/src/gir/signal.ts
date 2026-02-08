@@ -4,6 +4,7 @@ import type { FormatGenerator } from "../generators/generator.ts";
 import {
 	ArrayType,
 	NativeType,
+	NativeTypeKind,
 	NullableType,
 	NumberType,
 	ThisType,
@@ -177,7 +178,7 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 		const parameters = [
 			new IntrospectedFunctionParameter({
 				name: prefix_signal ? "$signal" : "signal",
-				type: NativeType.of(`'${this.name}'`),
+				type: NativeType.of(NativeTypeKind.StringLiteral, this.name),
 				direction: GirDirection.In,
 			}),
 			...emit.parameters,
@@ -217,7 +218,7 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 		const parameters = [
 			new IntrospectedFunctionParameter({
 				name: "signal",
-				type: NativeType.of(`'${this.name}'`),
+				type: NativeType.of(NativeTypeKind.StringLiteral, this.name),
 				direction: GirDirection.In,
 			}),
 			new IntrospectedFunctionParameter({
@@ -237,10 +238,7 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 		});
 	}
 
-	asString<T extends FormatGenerator<unknown>>(
-		generator: T,
-		type?: IntrospectedSignalType,
-	): ReturnType<T["generateSignal"]> {
-		return generator.generateSignal(this, type) as ReturnType<T["generateSignal"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>, type?: IntrospectedSignalType) {
+		return generator.generateSignal(this, type);
 	}
 }

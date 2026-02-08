@@ -73,7 +73,7 @@ export class IntrospectedCallback extends IntrospectedFunction {
 		return cb;
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateCallback"]> {
-		return generator.generateCallback(this) as ReturnType<T["generateCallback"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateCallback(this);
 	}
 }

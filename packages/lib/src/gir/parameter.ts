@@ -120,7 +120,7 @@ export class IntrospectedFunctionParameter extends IntrospectedBase<
 		return visitor.visitParameter?.(node) ?? node;
 	}
 
-	asString<T>(generator: FormatGenerator<T>): T {
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
 		return generator.generateParameter(this);
 	}
 

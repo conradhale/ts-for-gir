@@ -18,6 +18,7 @@ import {
 	GenericType,
 	GenerifiedTypeIdentifier,
 	NativeType,
+	NativeTypeKind,
 	NullableType,
 	NumberType,
 	ObjectType,
@@ -98,7 +99,7 @@ export default {
 			const GType = new IntrospectedAlias({
 				name: "GType",
 				namespace,
-				type: new NativeType("any"),
+				type: new NativeType(NativeTypeKind.TypeReference, "any"),
 			});
 
 			namespace.members.set("GType", GType);
@@ -173,9 +174,13 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 						);
 					} else {
 						params.push(
-							typeParam(`${type}Type`, new NativeType("GType<T> | { $gtype: GType<T> }"), {
-								doc: "The GType for this property",
-							}),
+							typeParam(
+								`${type}Type`,
+								new NativeType(NativeTypeKind.TypeReference, "GType<T> | { $gtype: GType<T> }"),
+								{
+									doc: "The GType for this property",
+								},
+							),
 						);
 					}
 				}
@@ -249,12 +254,12 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 					typeParam("flags", new BinaryType(ParamFlags?.getType() ?? AnyType, NumberType), {
 						doc: "The flags for this property (e.g. READABLE, WRITABLE)",
 					}),
-					optionalParam("objectType", new NativeType("GType<T> | { $gtype: GType<T> }"), {
+					optionalParam("objectType", new NativeType(NativeTypeKind.TypeReference, "GType<T> | { $gtype: GType<T> }"), {
 						doc: "The GType of the object (optional)",
 					}),
 				],
 				parent: ParamSpec,
-				return_type: new NativeType("ParamSpec<T>"),
+				return_type: new NativeType(NativeTypeKind.TypeReference, "ParamSpec<T>"),
 			});
 
 			object.generics.push(new Generic(new GenericType("T")));
@@ -278,7 +283,7 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 					}),
 				],
 				parent: ParamSpec,
-				return_type: new NativeType("ParamSpec<T>"),
+				return_type: new NativeType(NativeTypeKind.TypeReference, "ParamSpec<T>"),
 			});
 
 			jsobject.generics.push(new Generic(new GenericType("T")));
@@ -300,7 +305,7 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 						name: "oclass",
 						type: new OrType(
 							namespace.assertClass("Object").getType(),
-							new NativeType("Function"),
+							new NativeType(NativeTypeKind.TypeReference, "Function"),
 							new TypeIdentifier("GType", "GObject"),
 						),
 						doc: "The object class or type that contains the property to override",
@@ -452,7 +457,7 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 				),
 				generateParamSpec(
 					"enum",
-					ParamSpecWithGenerics(new NativeType("T")),
+					ParamSpecWithGenerics(new NativeType(NativeTypeKind.TypeReference, "T")),
 					false,
 					"enum",
 					true,
@@ -473,7 +478,7 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 				stringParamSpec,
 				generateParamSpec(
 					"boxed",
-					ParamSpecWithGenerics(new NativeType("T")),
+					ParamSpecWithGenerics(new NativeType(NativeTypeKind.TypeReference, "T")),
 					false,
 					"boxed",
 					false,
@@ -503,7 +508,7 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 			new IntrospectedAlias({
 				name: "Closure",
 				namespace,
-				type: NativeType.of("(...args: P[]) => R"),
+				type: NativeType.of(NativeTypeKind.TypeReference, "(...args: P[]) => R"),
 				generics: [
 					{
 						name: "R",
@@ -546,7 +551,7 @@ See https://gjs.guide/guides/gobject/basics.html#properties for more details.`;
 
 The value can be:
 - an empty GObject.Value initialized by G_VALUE_INIT, which will be automatically initialized with the expected type of the property (since GLib 2.60)
-- a GObject.Value initialized with the expected type of the property  
+- a GObject.Value initialized with the expected type of the property
 - a GObject.Value initialized with a type to which the expected type of the property can be transformed
 
 In general, a copy is made of the property contents and the caller is responsible for freeing the memory by calling GObject.Value.unset.
@@ -653,7 +658,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
 					parameters: [
 						new IntrospectedFunctionParameter({
 							name: "properties",
-							type: new NativeType("{ [key: string]: any }"),
+							type: new NativeType(NativeTypeKind.TypeReference, "{ [key: string]: any }"),
 							direction: GirDirection.In,
 							doc: "Object containing the properties to set",
 						}),
@@ -790,7 +795,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
 				direction: GirDirection.In,
 				isVarArgs: true,
 				type: new BinaryType(
-					new TupleType(GObject.getType(), NativeType.of("SignalMatch")),
+					new TupleType(GObject.getType(), NativeType.of(NativeTypeKind.TypeReference, "SignalMatch")),
 					new TupleType(
 						GObject.getType(),
 						new TypeIdentifier("SignalMatchType", "GObject"),
@@ -813,7 +818,7 @@ Note that GObject.Object.get_property is really intended for language bindings, 
 				new IntrospectedFunctionParameter({
 					name: "match",
 					direction: GirDirection.In,
-					type: NativeType.of("SignalMatch"),
+					type: NativeType.of(NativeTypeKind.TypeReference, "SignalMatch"),
 				}),
 			];
 

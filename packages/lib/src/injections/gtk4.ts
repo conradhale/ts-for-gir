@@ -1,6 +1,6 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { JSField } from "../gir/property.ts";
-import { FunctionType, GenericType, GenerifiedType, NativeType } from "../gir.ts";
+import { FunctionType, GenericType, GenerifiedType, NativeType, NativeTypeKind } from "../gir.ts";
 
 export default {
 	namespace: "Gtk",
@@ -15,7 +15,13 @@ export default {
 					parent: Widget,
 					computed: true,
 					doc: "Gtk.Widget is an iterable of its children.",
-					type: new FunctionType({}, new GenerifiedType(new NativeType("IterableIterator"), new GenericType("Widget"))),
+					type: new FunctionType(
+						{},
+						new GenerifiedType(
+							new NativeType(NativeTypeKind.TypeReference, "IterableIterator"),
+							new GenericType("Widget"),
+						),
+					),
 				}),
 			);
 		}

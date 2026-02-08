@@ -14,6 +14,7 @@ import {
 	Generic,
 	GenericType,
 	NativeType,
+	NativeTypeKind,
 	StringType,
 	TypeIdentifier,
 	Uint8ArrayType,
@@ -81,7 +82,10 @@ export default {
 					parameters: c.parameters.map((p) => {
 						if (p.type instanceof TypeIdentifier && p.type.is("GLib", "Quark")) {
 							return p.copy({
-								type: new BinaryType(new NativeType("({ new(...args: any[] ): Error })"), p.type),
+								type: new BinaryType(
+									new NativeType(NativeTypeKind.TypeReference, "({ new(...args: any[] ): Error })"),
+									p.type,
+								),
 							});
 						}
 
@@ -107,7 +111,11 @@ export default {
 		{
 			const HashTable = namespace.assertClass("HashTable") as IntrospectedRecord;
 
-			HashTable.__ts__indexSignature = "[key: string]: B;";
+			HashTable.__ts__indexSignature = {
+				indexName: "key",
+				indexType: "string",
+				valueType: "B",
+			};
 		}
 
 		// GLib.Variant
@@ -117,12 +125,12 @@ export default {
 			const VariantType = namespace.assertClass("VariantType");
 
 			Variant.addGeneric({
-				default: new NativeType("any"),
+				default: AnyType,
 				constraint: StringType,
 			});
 
 			VariantType.addGeneric({
-				default: new NativeType("any"),
+				default: AnyType,
 				constraint: StringType,
 			});
 
@@ -144,7 +152,7 @@ export default {
 				name: "new",
 				parent: Variant,
 				parameters: VariantParams.map((vp) => vp.copy()),
-				return_type: new NativeType("Variant<A>"),
+				return_type: new NativeType(NativeTypeKind.TypeReference, "Variant<A>"),
 			});
 
 			VariantConstructor.generics = [new Generic(new GenericType("A"), undefined, undefined, StringType)];
@@ -167,7 +175,7 @@ export default {
 
 			Variant.constructors.unshift(VariantConstructor.copy(), internalConstructor);
 
-			const genericAnyReturnType = new GenericType("T", new NativeType("any"));
+			const genericAnyReturnType = new GenericType("T", AnyType);
 			// unpack<T= any>(): T;
 			const unpack = new IntrospectedClassFunction({
 				name: "unpack",
@@ -266,7 +274,7 @@ export default {
 					parent: MainLoop,
 					name: "runAsync",
 					parameters: [],
-					return_type: new NativeType("Promise<void>"),
+					return_type: new NativeType(NativeTypeKind.TypeReference, "Promise<void>"),
 					doc: "Similar to `GLib.MainLoop.run` but return a Promise which resolves when the main loop ends, instead of blocking while the main loop runs.\nThis helps avoid the situation where Promises never resolved if you didn't run the main loop inside a callback.",
 				}),
 			);

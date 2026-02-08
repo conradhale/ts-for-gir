@@ -85,7 +85,7 @@ export class IntrospectedConstructor extends IntrospectedClassMember {
 		return this.return_type;
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateConstructor"]> {
-		return generator.generateConstructor(this) as ReturnType<T["generateConstructor"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateConstructor(this);
 	}
 }

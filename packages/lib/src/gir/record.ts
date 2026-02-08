@@ -471,7 +471,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
 		return this._isSimpleWithoutPointers;
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateRecord"]> {
-		return generator.generateRecord(this) as ReturnType<T["generateRecord"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateRecord(this);
 	}
 }

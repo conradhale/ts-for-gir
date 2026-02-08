@@ -27,10 +27,10 @@ import { isPrimitiveType, parseTypeExpression, resolvePrimitiveArrayType } from 
 /**
  * Parse documentation from a GIR element
  */
-export function parseDoc(element: GirDocElement): string | null {
+export function parseDoc(element: GirDocElement): string | undefined {
 	const el = element.doc?.[0]?._;
 
-	return el ? `${el}` : null;
+	return el ? `${el}` : undefined;
 }
 
 /**

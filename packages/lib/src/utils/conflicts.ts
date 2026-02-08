@@ -286,7 +286,7 @@ function checkFunctionConflicts<T extends IntrospectedClassFunction | Introspect
 				const conflicting = isConflictingFunction(ns, nextType, functionElement, parentType, p);
 
 				if (conflicting) {
-					message = `// Conflicted with ${resolved_parent.namespace.namespace}.${resolved_parent.name}.${p.name}`;
+					message = `Conflicted with ${resolved_parent.namespace.namespace}.${resolved_parent.name}.${p.name}`;
 					return true;
 				}
 				return false;

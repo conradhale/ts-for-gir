@@ -9,5 +9,4 @@ export function override(node: IntrospectedNamespace) {
 
 	// The advanced variant types are handled by the template in packages/templates/templates/glib-2.0.d.ts
 	// Here we just prevent duplicate generation
-	return "";
 }

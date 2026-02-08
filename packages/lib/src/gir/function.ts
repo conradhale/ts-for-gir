@@ -29,7 +29,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
 	readonly raw_name: string;
 
 	generics: Generic[] = [];
-	returnTypeDoc: string | null;
+	returnTypeDoc?: string;
 
 	constructor({
 		name,
@@ -53,7 +53,6 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
 		this.parameters = parameters.map((p) => p.copy({ parent: this }));
 		this.output_parameters = output_parameters.map((p) => p.copy({ parent: this }));
 		this.return_type = return_type;
-		this.returnTypeDoc = null;
 	}
 
 	copy(
@@ -159,9 +158,9 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
 	): {
 		input_parameters: IntrospectedFunctionParameter[];
 		output_parameters: IntrospectedFunctionParameter[];
-		returnTypeDoc: string | null;
+		returnTypeDoc?: string;
 	} {
-		let returnTypeDoc: string | null = null;
+		let returnTypeDoc: string | undefined;
 
 		if ("return-value" in element && element["return-value"] && element["return-value"].length > 0) {
 			const value = element["return-value"][0];
@@ -290,7 +289,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
 		};
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateFunction"]> {
-		return generator.generateFunction(this) as ReturnType<T["generateFunction"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateFunction(this);
 	}
 }

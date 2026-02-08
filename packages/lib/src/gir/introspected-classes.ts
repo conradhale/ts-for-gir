@@ -204,8 +204,8 @@ export class IntrospectedClassFunction<
 		return this.return_type;
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateClassFunction"]> {
-		return generator.generateClassFunction(this) as ReturnType<T["generateClassFunction"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateClassFunction(this);
 	}
 }
 
@@ -305,8 +305,8 @@ export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction<
 		});
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateVirtualClassFunction"]> {
-		return generator.generateVirtualClassFunction(this) as ReturnType<T["generateVirtualClassFunction"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateVirtualClassFunction(this);
 	}
 }
 
@@ -314,8 +314,8 @@ export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction<
  * Static class function
  */
 export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateStaticClassFunction"]> {
-		return generator.generateStaticClassFunction(this) as ReturnType<T["generateStaticClassFunction"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateStaticClassFunction(this);
 	}
 
 	copy({
@@ -480,8 +480,8 @@ export class IntrospectedClassCallback extends IntrospectedClassFunction {
 		return cb;
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateClassCallback"]> {
-		return generator.generateClassCallback(this) as ReturnType<T["generateClassCallback"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateClassCallback(this);
 	}
 }
 
@@ -494,7 +494,11 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
 	 *
 	 * NOTE: This should probably be migrated into the TypeScript generator itself.
 	 */
-	__ts__indexSignature?: string;
+	__ts__indexSignature?: {
+		indexName: string;
+		indexType: string;
+		valueType: string;
+	};
 	superType: TypeIdentifier | null;
 
 	mainConstructor: null | IntrospectedConstructor | IntrospectedDirectAllocationConstructor;
@@ -583,9 +587,7 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
 	}
 
 	hasGObjectParent(): boolean {
-		return this.someParent(
-			p => p.namespace.namespace === "GObject" && p.name === "Object",
-		);
+		return this.someParent((p) => p.namespace.namespace === "GObject" && p.name === "Object");
 	}
 
 	static fromXML(
@@ -596,7 +598,7 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
 		throw new Error("fromXML is not implemented on GirBaseClass");
 	}
 
-	abstract asString<T = string>(generator: FormatGenerator<T>): T;
+	abstract generate<T>(generator: FormatGenerator<T, unknown, unknown>): T;
 }
 
 /**
@@ -643,7 +645,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 
 	private hasExplicitNotifySignal(): boolean {
 		return this.signals.some((signal) => signal.name === "notify");
-  }
+	}
 
 	private addNotifySignals(allSignals: SignalDescriptor[]): void {
 		const propertyNames = this.getUniquePropertyNames();
@@ -1217,8 +1219,8 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 		this._staticDefinition = typeStruct;
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateClass"]> {
-		return generator.generateClass(this) as ReturnType<T["generateClass"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateClass(this);
 	}
 }
 
@@ -1511,7 +1513,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 		}
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateInterface"]> {
-		return generator.generateInterface(this) as ReturnType<T["generateInterface"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateInterface(this);
 	}
 }

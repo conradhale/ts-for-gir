@@ -17,8 +17,8 @@ function isEnumElement(e: unknown): e is GirEnumElement {
 export class IntrospectedError extends IntrospectedEnum {
 	functions: Map<string, IntrospectedStaticClassFunction> = new Map();
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateError"]> {
-		return generator.generateError(this) as ReturnType<T["generateError"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateError(this);
 	}
 
 	copy({ members }: { parent?: undefined; members?: Map<string, GirEnumMember> } = {}): IntrospectedEnum {

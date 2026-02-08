@@ -8,7 +8,7 @@ export interface IntrospectedMetadata {
 export interface IntrospectedBaseOptions {
 	isPrivate?: boolean;
 	isIntrospectable?: boolean;
-	doc?: string | null;
+	doc?: string;
 }
 
 export type IntrospectedOptions<T> = IntrospectedBaseOptions & T;

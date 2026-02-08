@@ -178,9 +178,9 @@ export function isInvalid(name: string): boolean {
 		return true;
 	}
 
-	const sanitized = sanitizeMemberName(name);
+	//const sanitized = sanitizeMemberName(name);
 
-	if (sanitized.match(/^[^A-z_]/) != null) {
+	if (name.match(/[^A-z_]/) != null) {
 		return true;
 	}
 

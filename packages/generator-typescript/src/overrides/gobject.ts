@@ -4,6 +4,7 @@ import {
 	IntrospectedFunctionParameter,
 	type IntrospectedNamespace,
 	NativeType,
+	NativeTypeKind,
 	NeverType,
 } from "@ts-for-gir/lib";
 
@@ -21,7 +22,7 @@ export function override(node: IntrospectedNamespace) {
 				direction: GirDirection.In,
 			}),
 		],
-		return_type: new NativeType("A"),
+		return_type: new NativeType(NativeTypeKind.TypeReference, "A"),
 		// TODO: Add support for generic native type replacement.
 		// return_type: UnknownType
 	});
@@ -48,5 +49,4 @@ export function override(node: IntrospectedNamespace) {
 
 	// Template content is now handled in templates/gobject-2.0.d.ts
 	// This override only handles ParamSpec.__type__ injection and Property noEmit
-	return "";
 }

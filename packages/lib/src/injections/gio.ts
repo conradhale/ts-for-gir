@@ -14,7 +14,6 @@ import { IntrospectedField, JSField } from "../gir/property.ts";
 import {
 	AnyFunctionType,
 	AnyType,
-	NumberType,
 	ArrayType,
 	BooleanType,
 	FunctionType,
@@ -23,6 +22,8 @@ import {
 	GenerifiedType,
 	GenerifiedTypeIdentifier,
 	NativeType,
+	NativeTypeKind,
+	NumberType,
 	StringType,
 	TypeIdentifier,
 	Uint8ArrayType,
@@ -83,7 +84,10 @@ export default {
 					name: "Symbol.iterator",
 					parent: ListStore,
 					computed: true,
-					type: new FunctionType({}, new GenerifiedType(new NativeType("IterableIterator"), new GenericType("A"))),
+					type: new FunctionType(
+						{},
+						new GenerifiedType(new NativeType(NativeTypeKind.TypeReference, "IterableIterator"), new GenericType("A")),
+					),
 				}),
 			);
 		}
@@ -100,7 +104,10 @@ export default {
 					doc: 'Gio.FileEnumerator are sync iterators.\nEach iteration returns a Gio.FileInfo:\n\n```js\nimport Gio from "gi://Gio";\n\nconst dir = Gio.File.new_for_path("/");\nconst enumerator = dir.enumerate_children(\n  "standard::name",\n  Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,\n  null\n);\n\nfor (const file_info of enumerator) {\n  console.log(file_info.get_name());\n}\n```\n',
 					type: new FunctionType(
 						{},
-						new GenerifiedType(new NativeType("IterableIterator"), new GenericType("FileInfo")),
+						new GenerifiedType(
+							new NativeType(NativeTypeKind.TypeReference, "IterableIterator"),
+							new GenericType("FileInfo"),
+						),
 					),
 				}),
 				// Implementation of the override [Gio.FileEnumerator[Symbol.asyncIterator]](https://gjs-docs.gnome.org/gjs/overrides.md#gio-fileenumerator-symbol-asynciterator)
@@ -111,7 +118,10 @@ export default {
 					doc: 'Gio.FileEnumerator are async iterators.\nEach iteration returns a Gio.FileInfo:\n\n```js\nimport Gio from "gi://Gio";\n\nconst dir = Gio.File.new_for_path("/");\nconst enumerator = dir.enumerate_children(\n  "standard::name",\n  Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,\n  null\n);\n\nfor await (const file_info of enumerator) {\n  console.log(file_info.get_name());\n}\n```\n',
 					type: new FunctionType(
 						{},
-						new GenerifiedType(new NativeType("AsyncIterableIterator"), new GenericType("FileInfo")),
+						new GenerifiedType(
+							new NativeType(NativeTypeKind.TypeReference, "AsyncIterableIterator"),
+							new GenericType("FileInfo"),
+						),
 					),
 				}),
 			);
@@ -124,7 +134,7 @@ export default {
 				new JSField({
 					name: "_realGetKey",
 					parent: SettingsSchema,
-					type: new NativeType("typeof SettingsSchema.prototype.get_key"),
+					type: new NativeType(NativeTypeKind.TypeReference, "typeof SettingsSchema.prototype.get_key"),
 				}),
 			);
 		}
@@ -141,7 +151,7 @@ export default {
 				new JSField({
 					name: "_realMethods",
 					parent: Settings,
-					type: new NativeType("typeof Settings.prototype"),
+					type: new NativeType(NativeTypeKind.TypeReference, "typeof Settings.prototype"),
 				}),
 				new JSField({
 					name: "_keys",
@@ -159,9 +169,14 @@ export default {
 			const DBusProxy = namespace.assertClass("DBusProxy");
 
 			// This is not ideal, but DBusProxy's define functions and properties on the prototype.
-			DBusProxy.__ts__indexSignature = "[key: string]: any;";
+			DBusProxy.__ts__indexSignature = {
+				indexName: "key",
+				indexType: "string",
+				valueType: "any",
+			};
 
-			const proxyWrapperParams = "bus: DBusConnection, name: string, object: string, asyncCallback?: (initable: (T & DBusProxy) | null, error: unknown | null) => void, cancellable?: Cancellable | null, flags?: DBusProxyFlags";
+			const proxyWrapperParams =
+				"bus: DBusConnection, name: string, object: string, asyncCallback?: (initable: (T & DBusProxy) | null, error: unknown | null) => void, cancellable?: Cancellable | null, flags?: Gio.DBusProxyFlags";
 			const makeProxyWrapper = new IntrospectedStaticClassFunction({
 				name: "makeProxyWrapper",
 				parent: DBusProxy,
@@ -173,6 +188,7 @@ export default {
 					}),
 				],
 				return_type: new NativeType(
+					NativeTypeKind.TypeReference,
 					`{ new (${proxyWrapperParams}): T & DBusProxy, newAsync(${proxyWrapperParams}): Promise<T & DBusProxy> }`,
 				),
 			});
@@ -192,7 +208,7 @@ export default {
 						}),
 						new IntrospectedFunctionParameter({
 							name: "callback",
-							type: new NativeType('(proxy: this, name: string, ...args: any[]) => void'),
+							type: new NativeType(NativeTypeKind.TypeReference, "(proxy: this, name: string, ...args: any[]) => void"),
 							direction: GirDirection.In,
 						}),
 					],
@@ -213,57 +229,62 @@ export default {
 			);
 		}
 
-    {
-      const fns: Map<string, IntrospectedFunction[]> = new Map()
+		{
+			const fns: Map<string, IntrospectedFunction[]> = new Map();
 
-      for (const fn of [
-        'bus_get',
-        'bus_get_finish',
-        'bus_get_sync',
-        'bus_own_name',
-        'bus_own_name_on_connection',
-        'bus_unown_name',
-        'bus_watch_name',
-        'bus_unwatch_name',
-        'bus_watch_name_on_connection',
-      ]) {
-        fns.set(fn, namespace.getMembers(fn).map(member => {
-          if (!(member instanceof IntrospectedFunction)) {
-            throw new Error("Invalid dbus functions found in Gio!");
-          }
-          return member
-        }))
-      }
+			for (const fn of [
+				"bus_get",
+				"bus_get_finish",
+				"bus_get_sync",
+				"bus_own_name",
+				"bus_own_name_on_connection",
+				"bus_unown_name",
+				"bus_watch_name",
+				"bus_unwatch_name",
+				"bus_watch_name_on_connection",
+			]) {
+				fns.set(
+					fn,
+					namespace.getMembers(fn).map((member) => {
+						if (!(member instanceof IntrospectedFunction)) {
+							throw new Error("Invalid dbus functions found in Gio!");
+						}
+						return member;
+					}),
+				);
+			}
 
-      const DBus = new IntrospectedInterface({
-        name: "DBus",
-        namespace,
-      });
+			const DBus = new IntrospectedInterface({
+				name: "DBus",
+				namespace,
+			});
 
-      DBus.members.push(
-        ...fns.values().flatMap(fns => fns.map(fn => {
-          // Convert function to static class function
-          const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = fn;
+			DBus.members.push(
+				...fns.values().flatMap((fns) =>
+					fns
+						.map((fn) => {
+							// Convert function to static class function
+							const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = fn;
 
-          return new IntrospectedStaticClassFunction({
-            parent: DBus,
-            name,
-            output_parameters,
-            parameters,
-            return_type,
-            doc,
-            isIntrospectable,
-          });
-        })
-          .map((fn) => {
-            const member = fn.copy();
+							return new IntrospectedStaticClassFunction({
+								parent: DBus,
+								name,
+								output_parameters,
+								parameters,
+								return_type,
+								doc,
+								isIntrospectable,
+							});
+						})
+						.map((fn) => {
+							const member = fn.copy();
 
-            member.name = member.name.substring(4);
+							member.name = member.name.substring(4);
 
-            return member;
-          }),
-        )
-      );
+							return member;
+						}),
+				),
+			);
 
 			const DBusConnection = namespace.assertClass("DBusConnection");
 
@@ -302,26 +323,26 @@ export default {
 			DBusConnection.members.push(
 				new IntrospectedClassFunction({
 					name: "watch_name",
-					parameters: fns.get('bus_watch_name_on_connection')?.at(0)?.parameters.slice(1),
-					return_type: fns.get('bus_watch_name_on_connection')?.at(0)?.return_type,
+					parameters: fns.get("bus_watch_name_on_connection")?.at(0)?.parameters.slice(1),
+					return_type: fns.get("bus_watch_name_on_connection")?.at(0)?.return_type,
 					parent: DBusConnection,
 				}),
 				new IntrospectedClassFunction({
 					name: "unwatch_name",
-					parameters: fns.get('bus_unwatch_name')?.at(0)?.parameters.slice(),
-					return_type: fns.get('bus_unwatch_name')?.at(0)?.return_type,
+					parameters: fns.get("bus_unwatch_name")?.at(0)?.parameters.slice(),
+					return_type: fns.get("bus_unwatch_name")?.at(0)?.return_type,
 					parent: DBusConnection,
 				}),
 				new IntrospectedClassFunction({
 					name: "own_name",
-					parameters: fns.get('bus_own_name_on_connection')?.at(0)?.parameters.slice(1),
-					return_type: fns.get('bus_own_name_on_connection')?.at(0)?.return_type,
+					parameters: fns.get("bus_own_name_on_connection")?.at(0)?.parameters.slice(1),
+					return_type: fns.get("bus_own_name_on_connection")?.at(0)?.return_type,
 					parent: DBusConnection,
 				}),
 				new IntrospectedClassFunction({
 					name: "unown_name",
-					parameters: fns.get('bus_unown_name')?.at(0)?.parameters.slice(),
-					return_type: fns.get('bus_unown_name')?.at(0)?.return_type,
+					parameters: fns.get("bus_unown_name")?.at(0)?.parameters.slice(),
+					return_type: fns.get("bus_unown_name")?.at(0)?.return_type,
 					parent: DBusConnection,
 				}),
 			);
@@ -362,7 +383,7 @@ export default {
 			const DBusInterfaceSkeleton = namespace.assertClass("DBusInterfaceSkeleton");
 			const DBusExportedObject = new IntrospectedClass("DBusExportedObject", namespace);
 
-			DBusExportedObject.superType = DBusInterfaceSkeleton.getType()
+			DBusExportedObject.superType = DBusInterfaceSkeleton.getType();
 
 			DBusExportedObject.members.push(
 				new IntrospectedStaticClassFunction({
@@ -371,7 +392,7 @@ export default {
 					parameters: [
 						new IntrospectedFunctionParameter({
 							name: "interfaceInfo",
-							type: new NativeType('DBusInterfaceInfo | string'),
+							type: new NativeType(NativeTypeKind.TypeReference, "Gio.DBusInterfaceInfo | string"),
 							direction: GirDirection.In,
 						}),
 						new IntrospectedFunctionParameter({
@@ -404,7 +425,7 @@ export default {
 							doc: "Commandline arguments",
 						}),
 					],
-					return_type: new NativeType("Promise<number>"),
+					return_type: new NativeType(NativeTypeKind.TypeReference, "Promise<number>"),
 					doc: "Similar to `Gio.Application.run` but return a Promise which resolves when the main loop ends, instead of blocking while the main loop runs.\nThis helps avoid the situation where Promises never resolved if you didn't run the application inside a callback.",
 				}),
 			);
@@ -475,21 +496,21 @@ export default {
 					parameters: [
 						new IntrospectedFunctionParameter({
 							name: "count",
-							type: new NativeType("number"),
+							type: NumberType,
 							isOptional: true,
 							direction: GirDirection.In,
 							doc: "Maximum number of bytes to read per chunk (default: 4096)",
 						}),
 						new IntrospectedFunctionParameter({
 							name: "priority",
-							type: new NativeType("number"),
+							type: NumberType,
 							isOptional: true,
 							direction: GirDirection.In,
 							doc: "I/O priority of the request (default: GLib.PRIORITY_DEFAULT)",
 						}),
 					],
 					return_type: new GenerifiedType(
-						new NativeType("AsyncIterableIterator"),
+						new NativeType(NativeTypeKind.TypeReference, "AsyncIterableIterator"),
 						new GenericType(`${Bytes.namespace.namespace}.${Bytes.name}`),
 					),
 				}),
@@ -501,21 +522,21 @@ export default {
 					parameters: [
 						new IntrospectedFunctionParameter({
 							name: "count",
-							type: new NativeType("number"),
+							type: NumberType,
 							isOptional: true,
 							direction: GirDirection.In,
 							doc: "Maximum number of bytes to read per chunk (default: 4096)",
 						}),
 						new IntrospectedFunctionParameter({
 							name: "priority",
-							type: new NativeType("number"),
+							type: NumberType,
 							isOptional: true,
 							direction: GirDirection.In,
 							doc: "I/O priority of the request (default: GLib.PRIORITY_DEFAULT)",
 						}),
 					],
 					return_type: new GenerifiedType(
-						new NativeType("IterableIterator"),
+						new NativeType(NativeTypeKind.TypeReference, "IterableIterator"),
 						new GenericType(`${Bytes.namespace.namespace}.${Bytes.name}`),
 					),
 				}),
@@ -543,7 +564,9 @@ export default {
 		const ActionEntryObj = new IntrospectedAlias({
 			name: "ActionEntryObj",
 			namespace,
-			type: new NativeType(`{
+			type: new NativeType(
+				NativeTypeKind.TypeReference,
+				`{
                 /** The name of the action */
                 name: string;
                 /** The type of the parameter that must match the parameter_type specified in the entry */
@@ -554,7 +577,8 @@ export default {
                 activate?: (_source: ${SimpleAction.name}, parameter: ${Variant.namespace.namespace}.${Variant.name} | null) => void;
                 /** The callback to connect to the "change-state" signal of the action */
                 change_state?: (_source: ${SimpleAction.name}, value: ${Variant.namespace.namespace}.${Variant.name} | null) => void;
-            }`),
+            }`,
+			),
 			doc: "Type for action entries used in the overridden {@link ActionMap.add_action_entries}",
 		});
 

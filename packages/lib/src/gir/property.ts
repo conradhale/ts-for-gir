@@ -60,8 +60,8 @@ export class IntrospectedField extends IntrospectedClassMember {
 		this.writable = writable;
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateField"]> {
-		return generator.generateField(this) as ReturnType<T["generateField"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateField(this);
 	}
 
 	accept(visitor: GirVisitor): IntrospectedField {
@@ -153,8 +153,8 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 		this.constructOnly = constructOnly;
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T, construct?: boolean): ReturnType<T["generateProperty"]> {
-		return generator.generateProperty(this, construct) as ReturnType<T["generateProperty"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateProperty(this);
 	}
 
 	toCamelCase() {

@@ -20,5 +20,6 @@ await build({
 		"prettier",
 		"colorette",
 		"yargs",
+		"typescript",
 	],
 });

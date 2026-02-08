@@ -46,8 +46,8 @@ export class IntrospectedAlias extends IntrospectedNamespaceMember {
 		return new IntrospectedAlias({ name, namespace, type: options?.type ?? type })._copyBaseProperties(this);
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateAlias"]> {
-		return generator.generateAlias(this) as ReturnType<T["generateAlias"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateAlias(this);
 	}
 
 	static fromXML(element: GirAliasElement, ns: IntrospectedNamespace, options: OptionsLoad): IntrospectedAlias | null {

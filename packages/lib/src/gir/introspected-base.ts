@@ -11,7 +11,7 @@ import type { IntrospectedNamespace } from "./namespace.ts";
 
 export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | AnyIntrospectedType | null> {
 	name: string;
-	doc?: string | null;
+	doc?: string;
 	metadata?: IntrospectedMetadata;
 	deprecated?: boolean;
 	resolve_names: string[] = [];
@@ -26,7 +26,7 @@ export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | An
 		this._parent = parent;
 		this._isPrivate = options.isPrivate ?? false;
 		this._isIntrospectable = options.isIntrospectable ?? true;
-		this.doc = options.doc ?? null;
+		this.doc = options.doc;
 	}
 
 	get parent(): Parent {
@@ -97,8 +97,5 @@ export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | An
 		throw new Error("GirBase cannot be instantiated");
 	}
 
-	abstract asString<T extends FormatGenerator<unknown>>(
-		generator: T,
-	): (T extends FormatGenerator<infer R> ? R : never) | null;
-	abstract asString<T extends FormatGenerator<unknown>>(generator: T): unknown;
+	abstract generate<T>(generator: FormatGenerator<T, unknown, unknown>): T;
 }

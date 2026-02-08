@@ -55,8 +55,8 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
 		return new TypeIdentifier(this.name, this.ns.namespace);
 	}
 
-	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateEnum"]> {
-		return generator.generateEnum(this) as ReturnType<T["generateEnum"]>;
+	generate<T>(generator: FormatGenerator<T, unknown, unknown>): T {
+		return generator.generateEnum(this);
 	}
 
 	asClass(): IntrospectedRecord {
