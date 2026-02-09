@@ -90,7 +90,7 @@ declare module './gobject-2.0.d.ts' {
                 [name: string]: boolean | number | string | object | { param_type: string; type: any };
             };
             Signals?: {
-                [name: string]: [...args: object[]] | ((...args: any) => object | void);
+                [name: string]: [...args: any[]] | ((...args: any[]) => any);
             };
         }
 
@@ -322,16 +322,18 @@ declare module './gobject-2.0.d.ts' {
             ? `${T}_${SnakeToUnderscoreCase<U>}`
             : never;
 
-        type SnakeToCamelCase<S> = S extends `${infer T}-${infer U}`
-            ? `${T}${SnakeToPascalCase<U>}`
-            : never;
+        type SnakeToCamelCase<S> = S extends `${infer T}-${infer U}` ? `${T}${SnakeToPascalCase<U>}` : never;
 
         type SnakeToPascalCase<S extends string> = S extends `${infer T}-${infer U}`
-              ? `${Capitalize<T>}${SnakeToPascalCase<U>}`
-              : Capitalize<S>
+            ? `${Capitalize<T>}${SnakeToPascalCase<U>}`
+            : Capitalize<S>;
 
-        type SnakeToCamel<T> = { [P in keyof T as P extends `${string}-${string}` ? SnakeToCamelCase<P> : never]: T[P] };
-        type SnakeToUnderscore<T> = { [P in keyof T as P extends `${string}-${string}` ? SnakeToUnderscoreCase<P> : never]: T[P] };
+        type SnakeToCamel<T> = {
+            [P in keyof T as P extends `${string}-${string}` ? SnakeToCamelCase<P> : never]: T[P];
+        };
+        type SnakeToUnderscore<T> = {
+            [P in keyof T as P extends `${string}-${string}` ? SnakeToUnderscoreCase<P> : never]: T[P];
+        };
 
         type UnionToIntersection<T> = (T extends any ? (x: T) => any : never) extends (x: infer R) => any ? R : never;
 
@@ -363,9 +365,8 @@ declare module './gobject-2.0.d.ts' {
         type PropertyCasings<T> = SnakeToCamel<T> & SnakeToUnderscore<T> & T;
 
         type TypeOnlyProperties<T> = PropertyCasings<{
-            [K in keyof T]: T[K] extends { param_type: string; type: infer P }
-                ? P
-                : T[K];
+            // Remove index signature
+            [K in keyof T as string extends K ? never : K]: T[K] extends { param_type: string; type: infer P } ? P : T[K];
         }>;
 
         type ParamSpecsToProps<T> = PropertyCasings<{

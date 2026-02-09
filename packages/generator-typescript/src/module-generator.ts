@@ -96,13 +96,13 @@ export class ModuleGenerator extends ModuleGeneratorBase {
 
 			const genericParameters = this.generateGenericParameters(girClass.generics);
 
-			const genericParams = [
-				...genericParameters,
+      const genericParams = [
+        // Remove default type
+				...genericParameters.map(param => factory.createTypeParameterDeclaration(param.modifiers, param.name, param.constraint)),
 				factory.createTypeParameterDeclaration(
 					undefined,
 					"Opts",
 					factory.createTypeReferenceNode(this.createGObjectIdentifier("MetaInfo")),
-					factory.createTypeLiteralNode(undefined),
 				),
 			];
 
